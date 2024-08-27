@@ -1,0 +1,102 @@
+% https://github.com/uio-latex/phduio-article-based
+% localdefs
+
+\newcommand{\ctext}[3][RGB]{%
+  \begingroup
+  \definecolor{hlcolor}{#1}{#2}\sethlcolor{hlcolor}%
+  \hl{#3}%
+  \endgroup
+}
+
+
+%end local defs
+
+% Add [final] to remove marginal notes,
+% remove [colophon] for a blank colophon page:
+\documentclass[colophon, english]{phduio}
+
+\usepackage{phdstyle}   % Custom style
+\usepackage{kantlipsum} % Dummy text
+
+\author{Francesco Andreace}
+\title{\kmers to rule them all}
+\subtitle{Analysis of human pangenome graphs and other k-mer-based applications}
+\department{Department of Computational Biology}
+\faculty{Insitut Pasteur Paris, Universite' de Paris Cite}
+\affiliation
+{
+    Edite doctoral school, Sorbonne Université
+}
+\ISSN{1234-5678}           
+\dissertationseries{1234}  
+
+
+\includeonly
+{
+    sections/dedication,
+    sections/preface,
+    sections/abstract-en,
+    sections/abstract-no,
+    sections/papers,
+    sections/introduction,
+    sections/background,
+    sections/cqf,
+    sections/paperI,
+    sections/paperII,
+    sections/paperIII,
+    sections/appendixA,
+    sections/appendixB,
+    sections/perspectives,
+    sections/conclusions,
+    sections/pushing_the_limit,
+    sections/reducing_complexity,
+    sections/explorations
+}
+
+
+\begin{document}
+
+    \frontmatter        % Folios in Roman numerals, unnumbered chapters.
+
+    \maintitle
+
+    \include{sections/dedication}
+    % \include{sections/abstract-en}
+    % \include{sections/abstract-fr}
+    \include{sections/preface}
+    %\include{sections/papers}
+
+    \cleartorecto
+    \microtypesetup{protrusion = false}
+    \tableofcontents    % Or \tableofcontents*
+    \cleartorecto
+    \listoffigures      % Or \listoffigures*
+    \cleartorecto
+    \listoftables       % Or \listoftables*
+    \microtypesetup{protrusion = true}
+
+    \mainmatter         % Folios in Arabic numerals, numbered chapters.
+
+    \include{sections/introduction}
+    \include{sections/background}
+    \include{sections/pushing_the_limit}
+    \include{sections/reducing_complexity}
+    \include{sections/perspectives}
+    \include{sections/conclusions}
+    
+    \paper              % "Chapter" is renamed "Paper"
+    \paperpage          % Similar to \part*{Papers}, but appears in TOC
+    \numberofpapers{1}  % Specify size of thumb indices
+
+    %\include{sections/paperI}
+    %\include{sections/paperII}
+    %\include{sections/paperIII}
+
+    \appendix           % "Chapter" is renamed "Appendix"
+    \appendixpage       % Similar to \part*{Appendices}, but appears in TOC
+
+    % \include{sections/appendixA}
+    % \include{sections/appendixB}
+
+
+\end{document}

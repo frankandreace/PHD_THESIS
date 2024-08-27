@@ -1,0 +1,44 @@
+\author
+{
+    Francesco Andreace
+    \and
+    Pierre Lechat
+    \and
+    Yoann Dufresne
+    \and
+    Rayan Chikhi
+}
+\title{Comparing methods for constructing and representing human pangenome graphs}
+\metadata
+{
+    Published in \emph{Genome Biology},
+    November~2023,
+    volume~24,
+    issue~1,
+    article number 274.
+    \doi{10.1186/s13059-023-03098-2}.
+}
+\maketitle
+\label{pap:gb_pdf}
+
+\section{Motivation}
+This paper originates from an early discussion, after completing a torough review of the state-of-the-art of computational pangenomics. What tool should be used if we would like to build a human pangenome for a large cohort of eukaryotes, for example humans. The answer is more complex than a list of widely used tools. There are multiple ways of representing a group of genomes to be analyzed or used jointly. One that took traction in the last few years has been graphs. Graphs can represent the sequence information as labels of nodes and the difference between the genomes as different paths in the graph. Depending on the particular representation, edges can represent adjacencies, i.e the genome is spelled by a walk on nodes connected by an edge, or overlaps , i.e. the suffix of a node is the prefix of the next node connected by the graph. In this article, we surveyed the the methods and tools that build such graphs, then tested them on different datasets and finally analyzed their features. The result is a small guide on which are the best applications for each of these tools and which are the weaknesses they suffer from.
+
+
+\includearticle{sections/pangenome_paper}
+
+\section{Perspectives}
+The work of this article has adressed several key issues in both 
+\begin{itemize}
+    \item how to evaluate if a pangenome graph construction method is generating a data structure that faithfully represent the underlying genetic information and variations;
+    \item In which areas in each methodology that should focus in order to produce for the community a useful tool.
+\end{itemize}    
+On this realization, this work could be relatively easily extended to provide a pipeline (on Nextflow, for example) to benchmark all pangnomes constructed independently of the data structure used to provide the features described on the paper. This would provide a useful platform to independently benchmark new pangenomes and rendered the paper not only useful as review and hints for end-users but also as benchmarking for new methods or methods improvement.
+Moreover, other useful features could be added, among which
+\begin{enumerate}
+    \item count SNPs (trivial for VGs, not trivial for DBGs);
+    \item node length distribution;
+    \item node degree distribution;
+    \item conversion of variation graphs to De Bruijn graphs (extending nodes smaller than k) to validate if they contain the same information and did not loose some (this behaviour is expected by \minigraph, or \mcactus, for example).
+\end{enumerate}
+Finally, the paper has been well received by the community, mostly because more methods in pangenomics are being published and a critical survey of which representation is better   

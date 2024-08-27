@@ -1,0 +1,14 @@
+\babel@toc {english}{}\relax 
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Sequence Identity of contigs assigned to reference chromosomes.\relax }}{8}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Community partition of the contigs based on alignment scores.\relax }}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Graph of chimeric chromosome CGH from sample B2 and all the contigs of the other genomes aligning to it produced with \texttt {Minigraph}\xspace . The graph is linear and no inter-chromosomal event is visible.\relax }}{11}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The graph after all the other steps of the \texttt {Minigraph-Cactus}\xspace pipeline, coloured by depth, after simplification of variants < 1kbp using the command \texttt {gfatools}\xspace \texttt {asm -b 1000 -u}. The large recombination event is now visible.\relax }}{11}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Difference in output between \texttt {Minigraph}\xspace and \texttt {Minigraph-Cactus}\xspace of the chimeric graph produced to visualize the inter-chromosomal event between C,G and H.\relax }}{11}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces The tangle of chromosomes C, G and H in the \texttt {Minigraph-Cactus}\xspace variation graph. Nodes are colored based on \texttt {Minigraph}\xspace alignment of chromosome C (dark green), G (blue) and H (red) of the reference assembly B2. The three chromsomes are bound together because of the construction.\relax }}{12}{figure.caption.10}%
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsfinish 

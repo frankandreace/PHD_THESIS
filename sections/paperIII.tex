@@ -1,0 +1,382 @@
+\author
+{
+    Victor Levallois
+    \and
+    Francesco Andreace
+    \and
+    Bertrand Le Gal
+    \and
+    Yoann Dufresne
+    \and
+    Pierre Peterlongo
+}
+\title{The Backpack Quotient Filter: a dynamic and space-efficient data structure for querying $k$-mers with abundance}
+
+\metadata
+{   
+    Presented at \emph{RecombSeq}
+    April-2024,
+    \doi{10.1101/2024.02.15.580441}.
+    % Published in \emph{Genome Biology},
+    % volume~24,
+    % issue~1,
+    % article number 274.
+}
+\maketitle
+\label{pap:second}
+
+\section{Motivation}
+This work stems from the very need of storing very large sequencing information from complex biological samples (like metgenomes) with the goal of being able to access it in a fast and randomized way. Complex biological datasets
+\begin{abstract}
+Genomic data sequencing has become indispensable for elucidating the complexities of biological systems. As databases storing genomic information, such as the European Nucleotide Archive, continue to grow exponentially, efficient solutions for data manipulation are imperative. One fundamental operation that remains challenging is querying these databases to determine the presence or absence of specific sequences and their abundance within datasets.
+
+This paper introduces a novel data structure indexing $k$-mers (substrings of length $k$), the Backpack Quotient Filter (BQF), which serves as an alternative to the Counting Quotient Filter (CQF). The BQF offers enhanced space efficiency compared to the CQF while retaining key properties, including abundance information and dynamicity, with a negligible false positive rate, below $10^{-5}\%$. The approach involves a redefinition of how abundance information is handled within the structure, alongside with an independent strategy for space efficiency. 
+
+We show that the BQF uses 4x less space than the CQF on some of the most complex data to index: sea-water metagenomics sequences. Furthermore, we show that space efficiency increases as the amount of data to be indexed increases, which is in line with the original objective of scaling to ever-larger datasets.
+    
+    \textbf{Availability:} \url{https://github.com/vicLeva/bqf} 
+\end{abstract}
+
+\footnotetext
+{%
+    University of Oslo,
+    Postboks 1337 Blindern, 0316 Oslo, Norway,
+    \href{mailto:fauthor@uio.no}{fauthor@uio.no}
+}
+
+\section{Introduction}
+
+Genomic data sequencing is a powerful tool for understanding the intricacies of biological systems. Sequencing produces plain text, organized as reads in files. Most of these files are gathered in public databases like the European Nucleotidic Archive (ENA)~\cite{burgin2023european} that weighs 54.5PB by early 2024. The size of the databases follows exponential growth, and thus we need appropriate solutions to manipulate the data it contains. One simple operation that we are not yet able to achieve (in reasonable time and resources) is to query the database and then, for each dataset, answer if a sequence is present or absent. Even better, answer for each dataset how many times a sequence is present: its abundance. To this end, we use indexing data structures that can handle another representation of the data, making it easier to query afterward. Some of the current indexing data structures use sets of $k$-mers (substrings of length $k$, $k$ usually in $[20;50]$) as the representation to query. In this way, the proportion of shared $k$-mers between a query sequence and a dataset can be determined. The main operation is thus to determine for each $k$-mer in which indexed dataset it occurs and with what abundance (how many times it occurs in a dataset).
+
+Due to the scale of databases to index, state-of-the-art tools often sacrifice precision for the sake of performance. This can be done through pseudo-alignment as defined in~\cite{themisto_2023}, breaking down the queried sequences into $k$-mers and comparing them against $k$-mers of the datasets, often encoded as a colored de Bruijn graph, as in Bifrost~\cite{bifrost_2020} or GGCAT~\cite{ggcat_2023}. Here, the graph construction is the main limitation of the methods. Other tools allow false-positive results by using Approximate Membership Queries (AMQ) data structures to enhance space efficiency~\cite{bigsi_2019, cobs_2019, squeakr_2018, kmtricks_2022, metaprofi_2023,  pac_2023}. They all have trade-offs between the index size and the false positive rate. By taking advantage of DNA and $k$-mers properties (small alphabet, redundancy of consecutive $k$-mers), the use of a simple associative array with super-$k$-mers~\cite{superkmer_2013} whose minimisers~\cite{minimisers_2004} have been hashed with a minimal perfect hash function~\cite{pthash_2021} can create exact and space efficient indexes such as SSHash~\cite{sshash_2022, sshash_2023}. However, apart from being static, exactness requires a trade-off with construction and query times.
+
+
+Data structures form the core of the tools mentioned above. The choice of the structure impacts the performance and the range of operations available to the user. To illustrate, a Bloom filter~\cite{bloom_filter_1970} can insert elements after it has been built in memory, while an XOR filter~\cite{xor_filter_2020, binary_fuse_filter_2022} has better space usage, but is static. A Quotient Filter~\cite{quotient_filter_2012} allows more dynamicity than a Bloom filter as it can enumerate inserted elements and thus relocate elements in a smaller or larger structure as needed. The Quotient Filter is the backbone of the Counting Quotient Filter (CQF)~\cite{counting_quotient_filter_2017}, which can retrieve not only the presence or absence of a $k$-mer, but also its abundance. However, this structure results in suboptimal index size.
+
+In this paper, we propose a new genomic data indexing structure, an alternative to the CQF called the Backpack Quotient Filter (BQF). It is more space-efficient than the CQF while still offering the same properties (abundance, dynamicity), at the cost of a negligible false-positive rate. We propose a novel way to handle the abundance information. We let the user control the balance between the index size and the precision with which the index encodes the $k$-mer counts/abundances.. In addition, we use the Fimpera~\cite{fimpera_2023} scheme to reduce each element's space usage. The BQF supports a large range of operations : random lookup (abundance), insert, enumerate, resize and delete (under circumstances).
+In total, our tests show that at the price of a false-positive rate below $10^{-5}$\%, the BQF can index billions of elements and their abundance, using between 13 and 26 bits per element. Compared to existing solutions, the BQF has the fastest average query time, while being fully dynamic. It is, to our knowledge, the only data structure that cumulates these features.
+
+\section{Material and Methods}
+
+\subsection{Preliminaries}
+
+\subsubsection{$k$-mers, pseudo-alignment, and indexing}
+
+A $k$-mer is any sequence of given size $k$. It can be of any character but in our context a $k$-mer is a substring of a genomic sequence, \textit{i.e.} made up of nucleotides (A,C,G,T). The number of $k$-mers existing in two sequences provides a metric to measure the similarity between them, leading to the so called pseudo-alignment~\cite{themisto_2023}. In order to efficiently perform pseudo-alignments between any queried sequence and a dataset, we index its $k$-mers. Doing so, it is possible to know whether a $k$-mer belongs to the dataset or not.
+Then, when querying a sequence $S$, all of its $k$-mers are individually queried in the index, enabling to compute the pseudo-alignment between $S$ and each dataset of a collection.
+
+\subsubsection{Hash function}
+
+A hash function is a mathematical transformation that takes an input (here a sequence of characters) and produces a number, called a hash value. In the current framework, the used hash function produces a value that is coded with a fixed-size number of bits. This transformation is designed to be deterministic, to produce an uniform distribution, and we want it to be as fast as possible. 
+
+Given a hash function, two distinct elements are said in ``collision'' if they have the same hash value.
+In this paper, we made the choice to use a xorshift~\cite{xorshift_2003} hash function, producing numbers between 0 and $2^{2k}$ for every $k$-mer. We use this~\cite{xorshift_64} xorshift hash function as it is a injective, preventing collisions.
+
+Also, as long as we project the $k$-mers into values of $2k$ bits, the function is reversible. It means that we can retrieve the original $k$-mer from its hashed value.
+The use of a non injective hash function would also be possible but would imply the impossibility to enumerates the elements entered in the data structure. This would prevent, for example, the resizing of the data structure. As we want a fully dynamic data structure, we made the choice of using the injection.%it is not implemented in the BQF repository.
+
+Finally, we need a hash function to randomize the positions of elements in the structure and thus avoid the creation of long runs of elements that would slow down insertions and queries.
+
+
+
+\subsection{Quotient Filter (QF)}
+The work we present, called the Backpack Quotient Filter (BQF), is based on the Quotient Filter (QF) structure~\cite{quotient_filter_2012}. In this section, we provide a brief overview of the fundamental aspects of the QF structure, which is essential for comprehending our contribution. We give a more detailed description in the Supplementary material.
+
+A QF is a data structure that is used to store a set of elements.
+It is composed of a table with $2^q$ slots, each of fixed size $r$, where $q$ and $r$ are initially defined by the user. $q$ and $r$ are subject to change as the size of the table may change.
+It utilizes a hash function $h$ that hashes elements to integers of $q+r$ bits.
+When an element $x$ is inserted, its hash value $h(x)$ is computed and split into two parts: 
+\begin{itemize}
+    \item $h_0(x)$ of size $q$ bits, called the ``quotient''. It is used as an address in the table;
+  \item $h_1(x)$ of size $r$ bits, called the ``remainder''. It is a fingerprint and is effectively stored in memory. $h_1(x)$ is inserted at the address $h_0(x)$.
+\end{itemize}
+
+To query the presence of an element $y$ in the structure, $h_0(y)$ and $h_1(y)$ are computed. Finding $h_1(y)$ at position $h_0(y)$ implies that $y$ is, with known probability, present.
+Figure~\ref{fig:BQF} pictures the insertion step at slot 3, where solid hatched green lines symbolize the $r$ bits of the remainder, inserted at address 3.
+
+\begin{figure}[ht]
+   \includegraphics[width=\textwidth]{figures/paperII/example.png}
+   \caption{A 32 slots long BQF ($q$=5). First line represents the metadata bits (see~\cite{counting_quotient_filter_2017} for more details). This short example does not represent blocks (\textit{cf.} supplementary data) in the BQF for simplicity. Each slot has a size of $r$ bits for the remainder with $c$ bits for counts and 2 bits of metadata: $occupied$ and $runend$. A circled address $Q$ means that at least one element $x$ such that $h_0(x) = Q$ has been inserted. Multiple remainders sharing the same color in the BQF have been originally inserted at the same address and form a run (\textit{cf.} supplementary data). Empty metadata bits are set to 0.}
+   \label{fig:BQF}
+\end{figure}
+
+Originally the QF is said to be a probabilistic data structure: with a non-zero false-positive rate when querying elements. In the current framework, as we use an injective hash function, the false-positive rate is zero. However, as explained later (Section \ref{ssec:fimpera}), we use an additional technique that does not exactly query the actual stored elements, and that generates a negligible but non-zero false positive rate at query time.
+
+In practice, the metadata bits used, the probing method and the global organization of the QF we use is based on the Rank \& Select Quotient Filter first proposed in~\cite{counting_quotient_filter_2017}. We detail this structure and the implementation in the Supplementary Materials.
+
+
+\subsubsection{Abundance in Quotient Filters} 
+
+As previously defined, the Quotient Filter structure is enough to handle the presence or absence of $k$-mers. It is possible to adapt the structure so it can store each $k$-mer alongside with its abundance in the indexed dataset. The Counting Quotient Filter~\cite{counting_quotient_filter_2017} (CQF) is an example of a QF with abundance. 
+
+In the CQF, the abundance of each inserted element can be stored using the following process. A slot is used to store a remainder or an abundance value. If an element $x$ has its abundance $1 \leq n \leq 2$, then the element is inserted $n$ times (with $n=2$, two consecutive slots store $h_1(x)$). When $n > 2$, $h_1(x)$ is stored twice and these two slots act like boundaries in the table, defining the beginning and the end of the counter. Then $n-2$ is encoded and stored between both boundaries, using potentially two slots or more. An extra slot holding a $0$ might be necessary to maintain consistency in the runs. The point here is that this approach uses 2 slots when $n = 2$ and 3 or more when $n > 2$.
+
+In the following section, we present our contribution, called the Backpack Quotient Filter, improving both the way the counts are stored and highly optimizing the size taken by each element to be queried.
+
+\subsection{The Backpack Quotient Filter}\label{ssec:mm:bqf}
+
+\subsubsection{Storing the abundance}
+In the BQF, the abundance of each element is stored using the following approach. 
+As represented in Figure~\ref{fig:BQF} each slot stores both a remainder and an abundance value. More precisely, each slot stores $r$ bits for the remainder, and $c$ extra bits are used to encode the abundance value. 
+The $c$ parameter is a user-defined parameter. The choice of $c$ has a direct impact on the BQF size, adding $c\times 2^q$ bits. The maximum value for abundance is $2^c$ and the value can be an exact count, or an order of magnitude (e.g. encoding of $log_2$ values), offering flexibility based on precision requirements.
+
+If the value of a count overflows the number of bits allocated, the $2^c$ value is stored and the answer at query time is $\ge 2^c$.
+
+Compared to the CQF, the BQF uses only one slot per element, regardless of the abundance of this element, but at the same time it uses more bits per slot. However, thanks to the proposition described in the next section, we can reduce the size of the stored remainder. In this way, we cancel out this effect, even using less space per element while storing abundances.
+
+On a side note, the name Backpack Quotient Filter comes from the fact that every slot handles its own counter, as if it was carrying a backpack.
+
+\subsubsection{Reducing the space usage} \label{ssec:fimpera}
+
+In order to reduce the space usage, we take advantage of a method called Fimpera~\cite{fimpera_2023}. This method is originally
+designed to reduce the false-positives of data-structures having non-zero false positive rates. 
+
+Focusing on the presence/absence only, the key idea can be summarized as follows: if a word is present in a text, then all of its sub-words are present. Conversely, if any sub-word is absent, then the whole word is absent. In practice, instead of indexing the $k$-mers from a dataset, we insert all its $s$-mers, with $s\leq k$. At query time a $k$-mer is considered as indexed if and only if all its $s$-mers are indexed in the structure. In the general case of querying a $k$-mer in an structure with collisions, this approach enables to lower the false positive rate of the query because all $s$-mers of a specific $k$-mer need to be false positives to create a false positive $k$-mer. 
+
+The same idea can be exploited when taking the abundance into account. The abundance of a $k$-mer is at most equal to the least abundant $s$-mer it is composed of. Therefore, we store the abundance of s-mers in the filter and report the abundance of a queried k-mer as the minimum of the abundances of the s-mers composing it. The techniques described in~\cite{fimpera_2023} explain how this approach does not have a negative impact on query time and may even improve it.
+When applied to a structure having collisions, this approach limits the overestimation of the abundance, as all the $s$-mers of a queried $k$-mer have to be overestimated to overestimate the real abundance of this $k$-mer. 
+
+In the BQF, we do not have any collision. We apply this approach to gain space instead.
+
+Let us first study the size of the reversible hash value, used to store words on a four-character alphabet. Each character (here $\{A,C,G,T\}$) requires two bits for its encoding. Hence, encoding a word of length $\ell$ requires $2\ell$ bits. As we use a reversible hash function, the size of the hash value requires the same size as the original encoded data, $2\ell$. 
+
+By inserting $s$-mers, smaller than $k$-mers, the size of the reversible hash value of each inserted element becomes $2s$ instead of $2k$. If we denote by $z$ the difference between $k$ and $s$, the gain is $2z$ bits per element. In the BQF structure, the consequence is that the size of each slot is decreased by $2z$. All in all, applying this approach enables to save $2^q \times 2z$ bits. The same hash function is used, with the same  properties of injection and reversibility of stored elements.
+
+A drawback of using this approach is the loss of the enumerating feature for $k$-mers. The hash function is still reversible but because we have $s$-mers in the filter, we can only reconstruct (and thus enumerate) these $s$-mers and not the $k$-mers we want to query. It is important to note that we only lose the $k$-mers enumeration, not the dynamicity: resizing the BQF remains possible.
+
+If the counters are not exact, \textit{i.e.} if orders of magnitude are indexed then inserting and deleting new elements is no longer a trivial task. We will study the possibilities of updating the BQF in this case in future work.
+
+The second drawback of applying this approach is the creation of a new kind of false positives, called ``construction false positives''. 
+The existence of construction false positive is explained by a simple sentence: a $k$-mer may be absent but all of its $s$-mers may be present. We meet this case if each $s$-mer of an absent $k$-mer $x$ has been individually inserted through the present $k$-mers sharing $s$-mers with $x$. 
+Overestimations can also happen, a study of this probability has been realised in fimpera paper~\cite{fimpera_2023}.
+
+
+
+
+
+
+\subsubsection{Theoretical influence of the $s$ parameter}\label{ssec:s_influence}
+We now detail the theoretical consequences of reducing the size $s$ of indexed elements, with $s \in ]0, k]$. 
+\begin{enumerate}
+    \item Decreasing $s$ increases the ``construction false positive'' rate.
+    The smaller the $s$ value is, the higher is the probability that a queried $k$-mer, non existing in the indexed set, has all its $s$-mers existing in this set. 
+    \item Decreasing $s$ may increase the number of indexed $s$-mers in short reads datasets. A sequence of size $\ell$ contains ($\ell-k+1$) $k$-mers and ($\ell-s+1$) $s$-mers. Hence, it contains $z=k-s$ additional $s$-mers than $k$-mers. This is negligible while indexing for instance an assembled genome.
+    But when it comes to index millions of reads with low redundancy between them, as this is the case in our experimentations using sea-water metagenomes, each of the million reads contains $z$ more $s$-mers than $k$-mers, with a low redundancy between reads.
+    \item Decreasing $s$ decreases the size taken by each indexed $s$-mer, which is the expected effect. This is the main advantage of the approach. Recall that the total size of structure is reduced by $2^q \times 2z$ when using $s$-mers instead of $k$-mers. Hence the smaller $s$ is, the more space is saved.
+\end{enumerate}
+
+In general, the results presented Section~\ref{ssec:s_impact} suggest that the size of the data structure decreases as $s$ decreases, despite the conflicting effects of the last two previous points. Selecting small $s$ values only has the potential to increase the construction false positive rate. However, when using recommended values, it stays below $10^{-5}\%$. 
+
+\subsubsection{Doubling the number of slots when the structure is full}\label{sssec:full}
+One of the main advantage of building the QF with an injective hash function is that conversely to a Bloom filter for instance, when the structure is full, it is possible to double its number of slots (from $q$ to $q+1$).
+During this process, the hash value of each element remains the same, but the way it is distributed between the quotient and remainder changes. This occurs because, after doubling, $q+1$ bits are used to represent the address, while $r-1$ bits are used for the remainder.
+Finally, the total number of stored elements faces no theoretical limitation.
+
+In practice, for performances reasons, one doubles the number of slots when the ``load factor'' (number of stored elements divided by the number of slots) becomes bigger than 95\%. Load factor effect experiments have been performed here~\cite{counting_quotient_filter_2017}.
+
+
+\subsubsection{Number of bits per stored element}\label{sssec:bit_per_element}
+As stated, the basis of the QF data structure is to use the address of stored elements as a part of their hash value. As a consequence, the size of the remainder stored for each element decreases when the number of slots increases. This is not linear.  Let us consider the initial scenario, where the QF is composed of $2^q$ slots in which $r$ bits per slot are used as remainder. In this case, the BQF uses $2^q\times(r+c+3)$ bits, as for each stored element, $r$ bits store the remainder, $c$ bits are used to store the abundance, and 3 additional metadata bits are used by the structure itself ($runend$, $occupied$ and a third one, $offset$, explained in supplementary data).
+
+Now consider that the size of the structure doubles in order to index more elements. The structure then contains $2^{q+1}$ slots. In this situation, $q+1$ bits indicate the address of each slot,  and so the remainder of each element decreases to $r-1$ bits instead of $r$. In this case, the total size of the structure becomes $2^{q+1}\times(r-1+c+3) = 2^{q+1}\times(r+c+2)$. As the structure grows, $q+r$ stays constant and the slots become smaller.
+
+Note that this practical effect ends when the remainder is empty, in which case the full hash value of each element is entirely given by the address of the element. This presents a theoretical perspective. In the case of $k$-mer indexing, where conventional $k$ values are typically around 30, approximately 140 petabytes would be needed to contain the $4^k$ slots (representing the number of possible distinct $k$-mers).
+
+\section{Results}
+We present experimental results on real metagenomic datasets. The objective is to compare the performances obtained with the BQF with those obtained using state-of-the-art data structures for indexing $k$-mers together with their abundances, based on the Quotient Filter: the CQF~\cite{counting_quotient_filter_2017} and on the counting Bloom Filter: the CBF~\cite{fimpera_2023}. We also included a comparison with Bifrost~\cite{bifrost_2020} and SSHash~\cite{sshash_2023}. Both of these approaches allow for querying indexed $k$-mers, but they have significant differences in their main features, which are summarized below.
+
+These results also enable to show the impact of the unique parameter introduced by BQF: the $s$ value. We also show the influence of the number of indexed elements on the whole data structure size.
+
+
+The version used for BQF is v1.0.0. Details about protocols and links to datasets are available online~\cite{protocols}.
+
+\subsection{Used datasets} \label{ssec:setup}
+
+Our results were obtained on three distinct metagenomic datasets in which we exclusively considered $k$-mers present two or more times. 
+
+\begin{itemize}
+    \item Dataset ``\textit{sea-water34M}'': 34 million Illumina reads from the \textit{Tara} Oceans sequencing project. The uncompressed \textit{fastq} file is  7.7GB. It contains 257M distinct 32-mers and 346M distinct 19-mers occurring at least twice.
+    \item Dataset ``\textit{sea-water143M}'': 143 million Illumina reads from the \textit{Tara} Oceans sequencing project. The uncompressed \textit{fastq} file is  33GB. It contains 1.2B distinct 32-mers and 1.5B distinct 19-mers occurring at least twice.
+    \item Dataset ``\textit{gut}'': 13 million reads from pig microbiota Pacbio sequencing. The uncompressed \textit{fastq} file is 42GB.  It contains 475M distinct 32-mers and 420M distinct 19-mers occurring at least twice.
+\end{itemize}  
+
+These sea-water and gut microbiota metagenomic datasets are representative of a highly complex environment, with a large diversity content. For instance, there are 9.5 billion $k$-mers in \textit{sea-water143M} dataset, leading to a set of 5.7 billion distinct $k$-mers. Among them, only 1.2 billion are present twice or more. For the \textit{gut} dataset, we counted 22 billion $k$-mers, 1.2 billion distinct ones and 0.475 billion are present twice or more. We present in Supplementary Materials a visualisation of the $k$-mer spectrum of the sets \textit{sea-water143M} and \textit{gut}. They illustrate the complexity of these datasets, where there is no peak linked to the specific presence of one or more species. %in A $k$-mer spectrum is available in supplementary materials for a whole visualization. 
+
+
+\subsection{Compared performances}
+In this section, we present a comparative analysis between BQF and CQF (\url{https://github.com/splatlab/cqf}, commit 68939f5). Both structures use the same Xorshift hash function, a PHF, ensuring no collisions. We also compare with results obtained with a counting Bloom filter (CBF), with one hash function, implementing the Fimpera approach (\url{https://github.com/lrobidou/fimpera}, commit 662328d). Both CBF and BQF use 5 bits for counters ($c = 5$), allowing a maximal abundance value of 64 as we store exact values. 
+%The objective is to query 32-mers in these datasets, so we have $k=32$. 
+BQF and CBF use the Fimpera approach, initialized with $k=32$ and $s=19$, thus 19-mers are counted and inserted. 
+The sizes of the BQF and CQF are determined solely by the total number of elements plus the element abundances for the CQF. Regarding the CBF, we decided to create a CBF of the same size as the BQF. This ensures fair comparisons when considering a fixed amount of disk space.
+The choice of parameters is discussed further in this section. 
+
+We also show results obtained by Bifrost (version 1.3.1) and SSHash (version 3.0.0). Those comparisons are not exactly fair as these tools embed additional features (computing pre-assembly of the data in the so-called compacted de Bruijn graph, possibly indexing multiple datasets for Bifrost) while Bifrost cannot index the abundance, and while SSHash is a static data structure. However, it is interesting to present these results as they show that these state-of-the-art tools —which are not specifically designed for the task of only indexing $k$-mers with their abundances— are not optimal for this task.
+%but they show the limitations of these existing state-of-the art tools in the simple context of indexing only $k$-mers with their abundances.
+
+\subsubsection{Experimental setup}
+We computed the build time and the query time for each approach. In addition to the building time, the results show the pre-processing time, \textit{i.e.} the time used to obtain the correct input file from the raw compressed \textit{fastq} file (counted $k$-mers for CQF, CBF and BQF, and SPSSs~\cite{RahmanMedvedevRECOMB20} for SSHash). 
+
+The parameters are $k=32$ for CBF, CQF, and BQF, $c=5$ (counters size for BQF, CBF), and $s=19$ ($19$-mers were inserted for BQF, CBF). For SSHash and Bifrost, we used $k=31$ as using $k=32$ would have doubled the $k$-mer encoding size for Bifrost, and because SSHash uses $k\leq31$. 
+%The parameters are $k=32$ for CBF, CQF, and BQF, $k=31$ for SSHash and Bifrost, $c=5$ (counters size for BQF, CBF), and $s=19$ ($19$-mers were inserted for BQF, CBF). 
+Bifrost used 4 threads and $m=17$ for SSHash (minimisers size). 
+
+Positive queries in a dataset $\mathcal{D}$ are $k$-mers reads from $\mathcal{D}$ itself. Negative queries are $k$-mers from randomly generated sequences (between 80 and 120 nucleotides). Around 2 billion $k$-mers over 30 million sequences were positively queried. Around 7 billion negative $k$-mers over 100 million sequences were negatively queried. 
+
+BQF and CQF sizes are measured experimentally. Their size corresponds exactly to their theoretical value, also showing that, thanks to the simplicity of the structure, no space overhead is required. CBF size was chosen to be the same as BQF's. SSHash size is the one displayed by the tool at the end of the building step. Bifrost size is measured as the peak memory usage after loading the graph and the index in memory (from binary representation on disk). 
+
+The executions were performed on the GenOuest platform on a node with $4 \times 8$ cores Xeon E5-2660 2,20 GHz with 128 GB of memory.
+\subsubsection{Comparative results}
+\begin{table}[ht]
+\resizebox{\textwidth}{!}{
+\begin{tabular}{rr|rrrr|rrr}
+Dataset  & Structure & 
+\begin{tabular}[c]{@{}r@{}}\textbf{Index size} \\ \textbf{on disk} \\ (GB)\end{tabular}     &   \begin{tabular}[c]{@{}r@{}}\textbf{Bits per }\\ \textbf{element}\end{tabular}   & 
+\begin{tabular}[c]{@{}r@{}}Pre-processing +\\Build time (s)\end{tabular}                    &   \begin{tabular}[c]{@{}r@{}} Build \\ peak memory \\ usage (GB) \end{tabular}    & 
+\begin{tabular}[c]{@{}r@{}}Pos. query \\ throughput \\ (kmer/s)\end{tabular}                &   \begin{tabular}[c]{@{}r@{}}Neg. query \\ throughput \\ (kmer/s)\end{tabular}    & 
+\begin{tabular}[c]{@{}r@{}}FP rate \\ (\%)\end{tabular} \\
+    & &      &    &         &         &         &       \\ \hline
+    & &      &    &         &         &         &       \\
+\textit{sea-water34M}       & Bifrost           & 5.84      & 177   & 1,041$^\alpha$         & 5.84  & 2,687,272     & 3,224,789     & 0     \\
+                            & SSHash            & 0.40      & 12    & 1,165$^\beta$ + 67     & 2.46  & 1,150,224     & 1,354,394     &  0     \\ 
+                            & {CQF}             & 4.58      & 139   & 215$^\gamma$ + 210     & 4.60  & 1,448,481     & 2,121,294     & 0     \\
+                            & CBF               & 1.11      & 26    & 219$^\gamma$ + 429     & 1.11  & 205,306       & 285,061       & $4.8\times10^{-6}$      \\
+                            & \textbf{BQF}      & 1.11      & 26    & 219$^\gamma$ + 257     & 1.11  & 2,052,016     & 2,934,776     & $1.6\times10^{-6}$      \\
+    & &      &    &         &         &         &       \\ \hline
+    & &      &    &         &         &         &       \\
+\textit{sea-water143M}      & Bifrost       & 17.57     & 114    & 6,074$^\alpha$          &  21.94  & 1,321,360     & 2,581,435     & 0     \\
+                            & SSHash        & 1.97      & 13    & 5,875$^\beta$ + 361      &  11.15  & 871,794       & 1,122,606     & 0      \\
+                            & {CQF}         & 17.25     & 113   & 771$^\gamma$ + 949       &  17.52  & 1,097,099     & 1,602,930     & 0     \\
+                            & CBF           & 3.93      & 21    & 780$^\gamma$ + 2,039     &  3.93   & 195,177       & 281,244       & $5.8\times10^{-5}$      \\
+                            & \textbf{BQF}  & 3.93      & 21    & 780$^\gamma$ + 1,101     &  3.93   & 1,791,640     & 2,616,583     & $3.0\times10^{-5}$        \\
+    & &      &    &         &         &         &       \\ \hline 
+    & &      &    &         &         &         &       \\
+\textit{gut}                & Bifrost           & 5.84      & 99    & 5,972$^\alpha$          &  5.84  & 8,448,220     & 3,114,457     & 0     \\
+                            & SSHash            & 0.58      & 10    & 2,558$^\beta$ + 113     &  3.79  & 4,438,401     & 1,286,876     & 0      \\
+                            & {CQF}             & 8.90      & 150   & 1,178$^\gamma$ + 396    &  9.01  & 1,598,278     & 1,948,436     & 0     \\
+                            & CBF               & 1.11      & 21    & 1,085$^\gamma$ + 468    &  1.11  & 352,201       & 284,545       & $1.6\times10^{-6}$      \\
+                            & \textbf{BQF}      & 1.11      & 21    & 1,085$^\gamma$ + 341    &  1.11  & 4,582,535     & 2,821,471     & 0     \\
+    & &      &    &         &         &         &       \\ \hline
+    \multicolumn{8}{l}{\footnotesize $^\alpha$ Bifrost does not require pre-processing step} \\ 
+    \multicolumn{8}{l}{\footnotesize $^\beta$ BCALM~\cite{bcalm_2016} (https://github.com/GATB/bcalm, version 2.2.3) for unitigs + UST~\cite{RahmanMedvedevRECOMB20} (https://github.com/jermp/UST, commit b3d0710) for simplitigs} \\
+    \multicolumn{8}{l}{\footnotesize $^\gamma$ KMC~\cite{kmc_2017} (https://github.com/refresh-bio/KMC, version 3.2.4) kmer counting}
+\end{tabular} 
+}
+\caption{Comparative performances. Recall that Bifrost and SSHash do not index the same number of elements than CQF, CBF and BQF, explaining the difference in terms of number of bits per element as compared to the structure size. Given its computation time ($\geq 24$ hours on the \textit{sea-water143M} dataset), we report SSHash results only for the \textit{sea-water34M} dataset. }
+\label{table:results}
+\end{table}
+
+
+
+\paragraph{Comparing CQF and BQF}
+Compared to the CQF, the major advantage of the BQF is in terms of space. As shown Table~\ref{table:results}, the BQF is approximately four times smaller than the CQF for every indexed dataset. %at the price of very low false positive rates ($10^{-5}$ or $10^{-6}$\%). 
+The same advantage is found in terms of space efficiency (bits/element), being approximately 5 to 7 times more efficient. However, one drawback is the occurrence of false positive calls, which are generally less than $10^{-5}\%$ and can even be as low as 0\% in the gut data set. 
+
+\paragraph{Comparing CBF and BQF}
+The results presented Table~\ref{table:results} indicate that the false-positive rate is slightly better with the BQF compared to CBF. However, both approaches still have a very low false positive rate of approximately $10^{-5}$\%, which is insignificant for indexing and pseudo-alignment applications. BQF offers several significant benefits over CBF. First, BQF allows for faster time queries, with an average speed improvement of 50 times compared to CBF. Additionally, BQF does not have any theoretical limitations on the number of stored elements, unlike CBF which is designed for a fixed maximum number of elements that cannot be updated. Finally, the elements stored in a BQF (the $s$-mers) can be enumerated, while this is not the case with the CBF.
+
+\paragraph{Abundance overestimation due to the Fimpera approach}
+In this work, we did not recompute the so-called overestimation inherent to the Fimpera abundance representation. This overestimation is in the order of 1\% to 2\% according to the results presented in~\cite{fimpera_2023}, meaning that $1$ to $2$\% of the abundances of true positive calls are overestimated. Furthermore, for those results that were overestimated, the average difference was shown to be approximately 1.07 times the correct abundance range. All in all, this slight overestimation, limited to less than 2\% of the calls, has no significant impact while estimating the abundance of a query composed of at least dozens or hundreds of $k$-mers.
+
+\paragraph{Bifrost and SSHash results}
+As shown by results presented Table~\ref{table:results}, Bifrost is approximately two times slower than BQF to build the data structure and more than twice as slow to perform negative queries. It uses approximately 4.5 times more space per element, and more importantly, it does not provide the abundance of $k$-mers. 
+The SSHash approach, for its part, taking advantage of super-$k$-mers~\cite{superkmer_2013}, uses approximately 2 times less space per element than BQF. However, it is static and is nearly two orders of magnitude slower to construct, drastically limiting its application to large-scale projects.
+
+\subsection{Impact of size of the indexed $s$-mers}\label{ssec:s_impact}
+As stated earlier, the BQF structure stores $s$-mers, to emulate $k$-mers at query time, with $s\leq k$.
+The choice of the $s$ value has several consequences that are described Section~\ref{ssec:s_influence}, and that we propose to empirically observe here.
+
+
+\subsubsection{Effect of $s$ on the number of construction false positives}
+\begin{figure}[ht]
+    \centering
+   \includegraphics[width=0.75\textwidth]{figures/paperII/fig_fimpera_publi.png}
+   \caption{Empirical observation of the evolution of the construction false positive rate with respect to $s$. Indexed dataset: ``\textit{sea-water34M}'', querying random 32-mers. The value of $s$ is decreasing as it starts from $k$, then we increase the difference between $k$ and $s$.}
+   \label{fig:fimpera:cfp}
+\end{figure}
+
+Figure~\ref{fig:fimpera:cfp} illustrates that using any value of $s$ bigger than 17 enables to limit drastically the construction false positive rate. 
+When $s$-mers become smaller than 17 nucleotides, the probability they appear by chance in sequences composed of millions of characters on the $\{A,C,G,T\}$ alphabet becomes close to 1. In this case, mostly any $k$-mers can be constructed from these $s$-mers, explaining the nearly 100\% construction false positive rate.
+
+Note that the shape of this curve is highly correlated with the probability that an element of size $s$ appears by chance in a sequence of size $\ell$. This probability is equal to $1-\left(1-\frac{1}{4^s}\right)^\ell$. In concrete terms, this allows a user to reliably determine a value of $s$ knowing $\ell$, even approximately. The value of $\ell$ can be approximated thanks to the number of distinct $k$-mers in the dataset (as this is the case in Figure~\ref{fig:fimpera:cfp}), efficiently computed by ntCard~\cite{Mohamadi2017ntCardAS} for instance.
+
+These results assume a uniform $ATCG$ distribution, we plan for future work to study the impact of high or low $GC$ content.
+
+
+\subsubsection{Effect of $s$ on the structure size}
+Recall that decreasing $s$ has two opposite effects on the structure size: 
+\begin{enumerate}[label=(\alph*)]
+    \item in certain conditions (see below), decreasing $s$ can increase the number of indexed $s$-mers, which tends to increase the size of the structure (need to double its size when reaching 95\% load factor);
+    \item decreasing $s$ decreases the remainder size, and so decreases the total size of the structure.
+\end{enumerate}
+
+
+\begin{figure}[ht]  
+\centering  
+\includegraphics[width=0.95\textwidth]{figures/paperII/fig_limit_fimpera_publi.png}  \hfill  
+\caption{Evolution of the number of $s$-mers depending on $s$ in an Illumina sequencing dataset (\textit{sea-water34M}): plain blue line. Evolution of the number of bits per element depending on $s$ on the same dataset. $high\_bound$ is the red upper dotted curve, corresponding to a half-full BQF. $low\_bound$ is plotted in orange, under $high\_bound$ and corresponds to a full BQF ($95\%$ load factor)}
+\label{fig:seffect}
+\end{figure}
+
+In this section, we propose to observe the practical consequences of this choice.
+
+\noindent(a) Figure~\ref{fig:seffect} shows (plain blue curve) the number of distinct $s$-mers according to $s$. With long enough $s$-mers ($s>17$), decreasing $s$ sub-linearly increases the number of distinct $s$-mers. This is true in the case of relatively short reads, with next generation sequencing for instance (Illumina example within Figure~\ref{fig:seffect} with \textit{sea-water34M} dataset). On the other hand, third-generation sequencing produces longer reads, in this context decreasing $s$ decreases the number of elements to index (475M distinct 32-mers and 420M distinct 19-mers in \textit{gut} PacBio dataset). Table~\ref{table:results} shows this result: when comparing BQF and CQF building time (which depends on the number of elements to index), we can see that BQF is slightly faster on \textit{gut} (PacBio) dataset as there are fewer 19-mers than 32-mers.
+
+With $s\leq 17$, another effect exists: nearly all the $s$-mers exist in the text, and so the number of distinct $s$-mers becomes limited by $4^s$, explaining why the number of distinct $s$-mers decreases when $s$ decreases below $s=17$.
+\medskip
+
+\noindent(b) The two dashed lines of Figure~\ref{fig:seffect} show the number of bits per element either if the structure is half full or considered as full (in practice one doubles the structure size if its load factor is 95\%). The observation is that even on this highly complex sea-water metagenomic dataset, the space needed to store $s$-mers decreases when $s$ decreases, even though more $s$-mers have to be stored. A fictitious example is available in the supplementary data, Section ``Side effect of lowering $s$'', demonstrating a case where the number of $s$-mers reaches a doubling threshold before the number of $k$-mers. Results show that, even in this case (increasing number of $s$-mers), the high and low bound of number of bits per element, is never increasing while $s$ decreases.
+
+All in all, regarding the data-structure size, the best choice is to use $s$ as small as possible, but bigger than $17$ to avoid an explosion of the construction false positive rate, as it keeps it below $10^{-5}$\% in this setup. 
+
+\subsection{Effect of the number of indexed elements on the structure size}
+\begin{figure}[ht]
+\centering
+    \makebox[\textwidth]{\makebox[1.30\textwidth]{%
+    \begin{minipage}[b]{.55\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/paperII/fig_escalier_publi.png}\\
+        (A)
+    \end{minipage}
+    \begin{minipage}[b]{.55\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/paperII/fig_bits_elem_publi.png}\\
+        (B)
+    \end{minipage}}}
+    \caption{Effect of the number of indexed elements on the size and space efficiency. Generated from indexing dataset ``\textit{sea-water34M}'', $k=32$, $s=19$ and $c=5$ for BQF. \textbf{(A)} total data-structure size. \textbf{(B)} size in terms of number of bits per indexed element.}
+    \label{fig:size}
+\end{figure}
+
+
+Based on our metagenomic samples, this section comments on the experimental value of bits per element (see section~\ref{sssec:bit_per_element}) used by the BQF compared to CQF. Figure~\ref{fig:size} shows the evolution of the data structure size (A) and the evolution of bits per element (B) while elements are inserted.
+
+The stairs shapes of figure~\ref{fig:size}(A) are due to the size of the data structure that doubles each time their load factor reaches 95\%. Then, each insertion increases the load factor without consuming more space.
+The figure highlights the fact that on real metagenomic datasets, the CQF needs a lot of space due to the counter encoding which uses an average of 2.44 slots per element (in the \textit{sea-water34M} dataset). %The BQF, on the other hand, only uses 1 slot, which is a few bits larger than the CQF ones. For a fixed amount of slots, the BQF occupies more space than the CQF. 
+Given a fixed number of insertions, because the CQF doubles its size 2.44 times more frequently, the total size occupied by the CQF is much higher than that of the BQF. At least with metagenomics data, while counts are low but not unique, BQF will always occupy less space than CQF.
+
+In figure~\ref{fig:size}(B) the dented curves show the space used per element. The curves are decreasing as the data structures are filled with elements. The vertical jumps correspond to the data structure resizes. We can see that the two structures behave in the same way while the BQF uses fewer bits per element. It is explained by the number of slots per element (a 2.44 times decrease) but also by the Fimpera scheme used in the BQF approach. An interesting fact is that the peaks for both structures get lower while the data structure size doubles. This is because the slots are one bit shorter after each resize, as explained Section~\ref{sssec:bit_per_element}.
+
+Finally, at the price of a negligible non-null false positive rate (in the order of $10^{-5}$\% to $10^{-6}$\% in our experiments), the BQF enables to make queries among dozen of billions of elements, using between 13 and 26 bits per element, while the CQF requires between 75 and 150 bits per element for the same settings.
+
+\section{Conclusion}
+
+This paper introduces the Backpack Quotient Filter, a quotient filter with abundance. The BQF, like other quotient filters, uses a table to store elements. Only a fraction of these elements is explicitly stored, as the rest is implicitly given through their address. Specifically in the BQF, for every element, $c$ additional bits are used to encode the abundance associated. 
+This strategy enables to index billions of elements with their abundance using between 13 and 26 bits per element, depending on the data structure load factor.
+
+In addition to this counting strategy, the BQF implements the Fimpera strategy, which emulates $k$-mers from their $s$-mers (with $s\leq k$).
+A direct consequence of this emulation is a gain of $2^q \times 2 \times (k-s)$ bits over the whole structure, with $2^q$ being the number of slots in the BQF. Our results show that the results are robust with respect to the $s$ parameter, as long as $s$ is bigger than a fixed threshold, namely $s>17$.
+
+Our results from indexing metagenomic data indicate that the BQF is at least four times more compact than the most similar data structure: the Counting Quotient Filter~\cite{counting_quotient_filter_2017}. The indexing and query times are in the same order of magnitude. This result is at the price of a non-null but extremely low false positive rate ($\approx 10^{-6}$\% in our experiment).
+To fully benefit from the flexible sizes of the counters, if the user can afford it, it is advised to index orders of magnitude (e.g. $log_2$ values) instead of exact counts. 
+
+The BQF inserts hash values of the elements. 
+By using a perfect hash function, we ensure having no collisions among stored elements. This offers the possibility to enumerate the elements stored in the structure. If the structure gets full when adding elements, this offers a way to relocate all elements after doubling the size of the structure. So there is no theoretical limit to the number of elements stored in the BQF. This dynamicity is significant in the context of intensive sequencing and indexing. 
+
+\begin{subappendices}             % Appendix for this chapter/paper only
+    \section{First Subappendix}
+    \label[appendix]{sec:sub-app} % Optional argument: Correct cross reference
+    \kant[15]                     % Dummy text
+\end{subappendices}
+
+
+%% Format bibliography like a section, not a chapter:
+%\printbibliography[heading = subbibliography]
