@@ -89,17 +89,17 @@
 
 %% Organising tools
 \RequirePackage{comment}                                 % Multiline comments
-\RequirePackage[notref, notcite]{showkeys}               % Labels in margins
-\renewcommand{\showkeyslabelformat}[1]
-{
-    \parbox[t]{16mm}{\centering\normalfont\tiny\ttfamily \path{#1}}
-}
-\RequirePackage[obeyFinal,
-                color       = LightGray,
-                bordercolor = LightGray,
-                textsize    = tiny,
-                textwidth   = 25mm,
-                figwidth    = 0.99\linewidth]{todonotes} % Marginal notes
+%\RequirePackage[notref, notcite]{showkeys}               % Labels in margins
+%\renewcommand{\showkeyslabelformat}[1]
+%{
+%    \parbox[t]{16mm}{\centering\normalfont\tiny\ttfamily \path{#1}}
+%}
+%\RequirePackage[obeyFinal,
+ %               color       = LightGray,
+ %               bordercolor = LightGray,
+ %               textsize    = tiny,
+ %               textwidth   = 25mm,
+ %               figwidth    = 0.99\linewidth]{todonotes} % Marginal notes
 
 
 %% Miscellaneous
@@ -107,6 +107,8 @@
 \RequirePackage{pgffor}   % For-loops
 \RequirePackage{xspace}   % Clever space
 \RequirePackage{titletoc} % Partial table of contents
+\RequirePackage{graphicx}
+\RequirePackage{wrapfig}
 
 
 %% Cross references and links
@@ -123,23 +125,23 @@
 \RequirePackage{mathscinet}
 \RequirePackage[backend=biber,
             maxbibnames=10,
-            % giveninits=true,
+            giveninits=true,
             %citestyle=numeric,
             %bibstyle=authoryear,
             style=numeric,
             sorting=none,
-            % dashed=false,
+            %dashed=false,
             refsection=chapter,
             hyperref]{biblatex}
-                % backend    = biber,
-                % sortcites  = true,
-                % giveninits = true,
-                % doi        = false,
-                % isbn       = false,
-                % url        = false,
-                % % sortlocale = nb_NO,
-                % style      = alphabetic,
-                % refsection = chapter]{biblatex}
+            %backend    = biber,
+             %sortcites  = true,
+             %giveninits = true,
+             %doi        = false,
+             %isbn       = false,
+             %url        = false,
+             %sortlocale = nb_NO,
+             %style      = alphabetic,
+             %refsection = chapter]{biblatex}
 \DeclareNameAlias{sortname}{family-given}
 \DeclareNameAlias{default}{family-given}
 \DeclareFieldFormat[article]{volume}{\bibstring{jourvol}\addnbspace#1}
@@ -155,6 +157,7 @@
 \addbibresource{bibliographies/paperI.bib}
 \addbibresource{bibliographies/paperII.bib}
 \addbibresource{bibliographies/pushing_the_limit.bib}
+\addbibresource{bibliographies/perspectives.bib}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% USER-DEFINED MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -268,6 +271,10 @@
 \newcommand{\twopaco}{\texttt{TwoPaCo}\xspace}
 \newcommand{\bandage}{\texttt{Bandage}\xspace}
 \newcommand{\wfmash}{\texttt{wfmash}\xspace}
+\newcommand{\sans}{\texttt{SANS serif}\xspace}
+\newcommand{\splitstree}{\texttt{SplitsTree}\xspace}
+\newcommand{\syri}{\texttt{SyRI}\xspace}
+\newcommand{\plotsr}{\texttt{plotsr}\xspace}
 \newcommand{\odgi}{\texttt{odgi}\xspace}
 \newcommand{\gfatools}{\texttt{gfatools}\xspace}
 \newcommand{\graphaligner}{\texttt{GraphAligner}\xspace}

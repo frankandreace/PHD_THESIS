@@ -3,9 +3,22 @@
   author       = "National Human Genome Research Institute",
   howpublished = "\url{https://www.genome.gov/human-genome-project/timeline}",
   year         = 2024,
-  note         = "Accessed: 2024-8-05"
+  note         = "Last access on 2024-8-05"
+}
+@misc{alpacawebsite,
+	title        = "Alpaca-ITN website",
+	howpublished = "\url{https://alpaca-itn.eu/}",
+	year         = 2024,
+	note         = "Last access on 2024-8-05"
 }
 
+@article{dgenies,
+	title        = "D-GENIES: dot plot large genomes in an interactive, efficient and simple way.",
+	author       = "Cabanettes F, Klopp C.",
+	journal = {PeerJ 6:e4958 },
+	doi = {10.7717/peerj.4958},
+	year         = 2018,
+}
 @article{Lodderomyces,
 	doi = {10.1371/journal.ppat.1011613},
 	author = {Wang, Yue AND Xu, Jianping},
@@ -42,7 +55,6 @@
 	year         = 2024,
 	note         = "Accessed: 2024-8-09"
 }
-
 @Article{Guarracino2023,
 	author={Guarracino, Andrea
 	and Buonaiuto, Silvia
@@ -171,7 +183,7 @@
 	title={Recombination between heterologous human acrocentric chromosomes},
 	journal={Nature},
 	year={2023},
-	month={May},
+	month={05},
 	day={01},
 	volume={617},
 	number={7960},
@@ -180,5 +192,79 @@
 	doi={10.1038/s41586-023-05976-y},
 	url={https://doi.org/10.1038/s41586-023-05976-y}
 }
+@article{kff,
+	author = {Dufresne, Yoann and Lemane, Teo and Marijon, Pierre and Peterlongo, Pierre and Rahman, Amatur and Kokot, Marek and Medvedev, Paul and Deorowicz, Sebastian and Chikhi, Rayan},
+	title = "{The K-mer File Format: a standardized and compact disk representation of sets of k-mers}",
+	journal = {Bioinformatics},
+	volume = {38},
+	number = {18},
+	pages = {4423-4425},
+	year = {2022},
+	month = {07},
+	abstract = "{Bioinformatics applications increasingly rely on ad hoc disk storage of k-mer sets, e.g. for de Bruijn graphs or alignment indexes. Here, we introduce the K-mer File Format as a general lossless framework for storing and manipulating k-mer sets, realizing space savings of 3–5× compared to other formats, and bringing interoperability across tools.Format specification, C++/Rust API, tools: https://github.com/Kmer-File-Format/.Supplementary data are available at Bioinformatics online.}",
+	issn = {1367-4803},
+	doi = {10.1093/bioinformatics/btac528},
+	url = {https://doi.org/10.1093/bioinformatics/btac528},
+	eprint = {https://academic.oup.com/bioinformatics/article-pdf/38/18/4423/49885747/btac528.pdf},
+}
+@article{plotsr,
+	author = {Goel, Manish and Schneeberger, Korbinian},
+	title = "{plotsr: visualizing structural similarities and rearrangements between multiple genomes}",
+	journal = {Bioinformatics},
+	volume = {38},
+	number = {10},
+	pages = {2922-2926},
+	year = {2022},
+	month = {04},
+	abstract = "{Third-generation genome sequencing technologies have led to a sharp increase in the number of high-quality genome assemblies. This allows the comparison of multiple assembled genomes of individual species and demands new tools for visualizing their structural properties. Here, we present plotsr, an efficient tool to visualize structural similarities and rearrangements between genomes. It can be used to compare genomes on chromosome level or to zoom in on any selected region. In addition, plotsr can augment the visualization with regional identifiers (e.g. genes or genomic markers) or histogram tracks for continuous features (e.g. GC content or polymorphism density).plotsr is implemented as a python package and uses the standard matplotlib library for plotting. It is freely available under the MIT license at GitHub (https://github.com/schneebergerlab/plotsr) and bioconda (https://anaconda.org/bioconda/plotsr).Supplementary data are available at Bioinformatics online.}",
+	issn = {1367-4803},
+	doi = {10.1093/bioinformatics/btac196},
+	url = {https://doi.org/10.1093/bioinformatics/btac196},
+	eprint = {https://academic.oup.com/bioinformatics/article-pdf/38/10/2922/49010748/btac196.pdf},
+}
+@Article{syri,
+author={Goel, Manish
+and Sun, Hequan
+and Jiao, Wen-Biao
+and Schneeberger, Korbinian},
+title={SyRI: finding genomic rearrangements and local sequence differences from whole-genome assemblies},
+journal={Genome Biology},
+year={2019},
+month={Dec},
+day={16},
+volume={20},
+number={1},
+pages={277},
+abstract={Genomic differences range from single nucleotide differences to complex structural variations. Current methods typically annotate sequence differences ranging from SNPs to large indels accurately but do not unravel the full complexity of structural rearrangements, including inversions, translocations, and duplications, where highly similar sequence changes in location, orientation, or copy number. Here, we present SyRI, a pairwise whole-genome comparison tool for chromosome-level assemblies. SyRI starts by finding rearranged regions and then searches for differences in the sequences, which are distinguished for residing in syntenic or rearranged regions. This distinction is important as rearranged regions are inherited differently compared to syntenic regions.},
+issn={1474-760X},
+doi={10.1186/s13059-019-1911-0},
+url={https://doi.org/10.1186/s13059-019-1911-0}
+}
 
+@article{sans,
+	author = {Rempel, Andreas and Wittler, Roland},
+	title = "{SANS serif: alignment-free, whole-genome-based phylogenetic reconstruction}",
+	journal = {Bioinformatics},
+	volume = {37},
+	number = {24},
+	pages = {4868-4870},
+	year = {2021},
+	month = {06},
+	issn = {1367-4803},
+	doi = {10.1093/bioinformatics/btab444},
+	url = {https://doi.org/10.1093/bioinformatics/btab444},
+	eprint = {https://academic.oup.com/bioinformatics/article-pdf/37/24/4868/50334826/btab444.pdf},
+}
 
+@Article{splitstree,
+	author={Huson, Daniel H.
+	and Bryant, David},
+	title={The SplitsTree App: interactive analysis and visualization using phylogenetic trees and networks},
+	journal={Nature Methods},
+	year={2024},
+	month={Sep},
+	day={02},
+	issn={1548-7105},
+	doi={10.1038/s41592-024-02406-3},
+	url={https://doi.org/10.1038/s41592-024-02406-3}
+}

@@ -62,9 +62,10 @@
 \RequirePackage{graphicx}
 \graphicspath{{figures/}}
 \RequirePackage{tikz}
-\RequirePackage{subfigure}
+%\RequirePackage{subfigure}
+\RequirePackage{subcaption}
 \RequirePackage{caption}
-
+\RequirePackage{xcolor}
 
 \usetikzlibrary{calc}
 

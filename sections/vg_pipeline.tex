@@ -1,0 +1,256 @@
+\documentclass[border=1pt,tikz,dvipsnames]{standalone}
+\usepackage{amsmath,amsfonts,amssymb} % for \text
+\usetikzlibrary{positioning} % for position relative to node
+\usetikzlibrary{arrows.meta} % for arrow size
+\usetikzlibrary{calc} % for computing coordinates
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations.pathreplacing}
+\tikzset{>=latex} % set default arrow head as latex
+
+% \usepackage{physics} % for \abs
+% \usepackage{xspace} % for \xspace
+% \usepackage{bm} % for bold math \bm
+
+% VARIABLES
+\newcommand{\ab}[1]{\textbf{\boldmath{#1}}} % bold text & math
+
+% TIKZ STUFF
+
+\definecolor{m_green}{RGB}{52,160,164}
+
+\colorlet{m_gray}{black!50}
+
+\definecolor{m_red}{RGB}{24,78,119}
+\colorlet{m_red_back}{m_red!90}
+
+
+\definecolor{m_orange}{RGB}{30,96,145}
+\colorlet{m_orange_back}{m_orange!90}
+
+
+\definecolor{m_light_orange}{RGB}{26,117,159}
+\colorlet{m_light_orange_back}{m_light_orange!90}
+
+\definecolor{m_yellow}{RGB}{22,138,173}
+\colorlet{m_yellow_back}{m_yellow!90}
+
+\tikzstyle{mbox}=[draw,#1!80!black,fill=#1!95!black!20,inner sep=5pt,outer sep=3pt,
+thick,rounded corners=3pt,align=center,font=\bfseries]
+\tikzstyle{msmallbox}=[mbox=#1,outer sep=1.5pt]
+\tikzstyle{marrow}=[-{Latex[length=8,width=8]},#1!80!black,thick,line cap=round,line width=3]
+\tikzstyle{msmallarrow}=[-{Latex[length=6,width=6]},#1!80!black,thick,line width=1.6]
+
+% CONNECTOR with straight angles
+\def\connect[#1](#2)!#3!(#4){
+	\draw[#1] (#2) |- ($(#2)!#3!(#4)$) node[pos=0.5] (#2-#4-1) {}
+	-| (#4) node[pos=0.5] (#2-#4-2) {}
+}
+
+\begin{document}
+	
+	
+	\begin{tikzpicture}[scale=1.0, muset/.style={minimum height = 5ex}]
+		\def\h{-1.6} % vertical space between rows
+		\def\w{3.6} % horizontal space between two main branches
+		
+		\node[msmallbox=m_gray] (start) at (0,0) {%
+			\ab{collection of fasta/fastq files}};
+		
+		%% MUSET SIDE
+		\node[msmallbox=m_red] (1l) at (-\w,\h) {%
+			k-mer matrix \vphantom{(D)}};
+		
+		\node[msmallbox=m_red] (2l) at (-\w,2*\h) {%
+			Sorted text k-mer matrix};
+		
+		\node[msmallbox=m_light_orange] (3l) at (-\w,3*\h) {%
+			Filtered k-mer matrix};
+		
+		\node[msmallbox=m_orange] (4l) at (-\w,4*\h) {%
+			k-mers in fasta format};
+		
+		\node[msmallbox=m_orange] (5l) at (-\w,5*\h) {%
+			Unitig set};
+		
+		\node[msmallbox=m_yellow] (6l) at (-\w,6*\h) {%
+			Set of long unitigs};
+		
+		\node[text=m_red, font=\bf, align=center, rotate=90] (7l) at (-1.85*\w,1.5*\h) {
+			k-mer matrix\\construction};
+		
+		\node[text=m_orange, font=\bf, align=center, rotate=90] (7l) at (-1.85*\w,3*\h) {
+			k-mer \\filtering};
+		
+		\node[text=m_light_orange, font=\bf, align=center, rotate=90] (7l) at (-1.85*\w,4.5*\h) {
+			Unitigs \\ creation};
+		
+		\node[text=m_yellow, font=\bf, align=center, rotate=90] (7l) at (-1.9*\w,6*\h) {
+			Unitigs \\ matrix\\ creation};
+		
+		% MUSET "LIGHT" SIDE
+		\node[msmallbox=m_green] (1r) at (\w,\h) {%
+			unitigs set (ccdBG)};
+		
+		\node[msmallbox=m_green] (2r) at (\w,2.5*\h) {%
+			Set of long unitigs};
+		
+		\node[msmallbox=m_green] (3r) at (\w,4*\h) {%
+			dictionary from colored query};
+		
+		\node[msmallbox=m_green] (4r) at (\w,5.5*\h) {%
+			conversion into matrix};
+		
+		
+		
+		% END
+		
+		\node[msmallbox=m_gray] (end_ab) at (-\w, 7*\h) {%
+			\ab{abundance unitig matrix}};
+		
+		\node[msmallbox=m_gray] (end_p) at (\w, 7*\h) {%
+			\ab{presence unitig matrix}};
+		
+		% ARROWS
+		\connect[msmallarrow=m_gray](start)!0.45!(1l);
+		\connect[msmallarrow=m_gray](start)!0.45!(1r);
+		
+		\connect[msmallarrow=m_red](1l)!0.45!(2l);
+		\connect[msmallarrow=m_red](2l)!0.45!(3l);
+		\connect[msmallarrow=m_orange](3l)!0.45!(4l);
+		\connect[msmallarrow=m_orange](4l)!0.45!(5l);
+		\connect[msmallarrow=m_orange](5l)!0.45!(6l);
+		\connect[msmallarrow=m_gray](6l)!0.45!(end_ab);
+		
+		\connect[msmallarrow=m_green](1r)!0.45!(2r);
+		\connect[msmallarrow=m_green](2r)!0.45!(3r);
+		\connect[msmallarrow=m_green](3r)!0.45!(4r);
+		\connect[msmallarrow=m_green](4r)!0.45!(end_p);
+		% LABELS
+		% \node[mycomment,right=0pt of 1r] {%
+			%   muset -l };
+		% \node[mycomment,left=1pt of 1l] {%
+			%   muset};
+		% \node[label=below:\rotatebox{90}{a long text}] at (2.5,1) {};
+		
+		% DECORATOS
+		\draw [decorate,
+		decoration = {brace}] ($(start.south west)+(-1ex,0)$) --  ($(start.north west)+(-1ex,0)$)
+		node[midway, left=1ex] {input data};
+		
+		% BACKGROUNDS
+		\begin{scope}[on background layer={color=m_red_back}]
+			\draw[fill=m_red_back, rounded corners] (1.7*-\w,0.7*\h) rectangle (0.3*-\w,2.48*\h);
+		\end{scope}
+		
+		\begin{scope}[on background layer={color=m_orange_back}]
+			\draw[fill=m_orange_back, rounded corners] (1.7*-\w,2.52*\h) rectangle (0.3*-\w,3.48*\h);
+		\end{scope}
+		
+		\begin{scope}[on background layer={color=m_light_orange_back}]
+			\draw[fill=m_light_orange_back, rounded corners] (1.7*-\w,3.52*\h) rectangle (0.3*-\w,5.48*\h);
+		\end{scope}
+		
+		\begin{scope}[on background layer={color=m_yellow_back}]
+			\draw[fill=m_yellow_back, rounded corners] (1.7*-\w,5.52*\h) rectangle (0.3*-\w,6.45*\h);
+		\end{scope}
+		
+		
+		
+	\end{tikzpicture}
+	
+	
+	
+	
+	
+	
+	
+	\begin{tikzpicture}[scale=1.0, muset/.style={minimum height = 5ex}]
+		\def\h{-1.6} % vertical space between rows
+		\def\w{3.6} % horizontal space between two main branches
+		
+		\node[msmallbox=m_gray,align=center] (start) at (-\w,0) {%
+			\ab{collection of fatsa/fastq files}};
+		
+		%% MUSET SIDE
+		\node[msmallbox=m_red] (1l) at (-\w,\h) {%
+			k-mer matrix \vphantom{(D)}};
+		
+		\node[msmallbox=m_red] (2l) at (-\w,2*\h) {%
+			Sorted text k-mer matrix};
+		
+		\node[msmallbox=m_orange] (3l) at (-\w,3*\h) {%
+			Filtered k-mer matrix};
+		
+		\node[msmallbox=m_orange] (4l) at (-\w,4*\h) {%
+			k-mers in fasta format};
+		
+		\node[msmallbox=m_orange] (5l) at (-\w,5*\h) {%
+			Unitig set};
+		
+		\node[msmallbox=m_yellow] (6l) at (-\w,6*\h) {%
+			long unitigs set};
+		
+		\node[text=m_red, font=\bf, align=center, rotate=90] (7l) at (-1.85*\w,1.5*\h) {% rotate=90,
+			k-mer matrix\\construction};
+		
+		\node[text=m_orange, font=\bf, align=center, rotate=90] (7l) at (-1.85*\w,3*\h) {% rotate=90,
+			k-mer \\filtering};
+		
+		\node[text=m_light_orange, font=\bf, align=center, rotate=90] (7l) at (-1.85*\w,4.5*\h) {% rotate=90,
+			Unitigs \\ creation};
+		
+		\node[text=m_yellow, font=\bf, align=center, rotate=90] (7l) at (-1.9*\w,6*\h) {% rotate=90,
+			Unitigs \\ matrix\\ creation};
+		
+		
+		
+		
+		% END
+		
+		\node[msmallbox=m_gray] (end_ab) at (-\w, 7*\h) {%
+			\ab{abundance unitig matrix}};
+		
+		% ARROWS
+		\connect[msmallarrow=m_gray](start)!0.45!(1l);
+		
+		\connect[msmallarrow=m_red](1l)!0.55!(2l);
+		\connect[msmallarrow=m_red](2l)!0.55!(3l);
+		\connect[msmallarrow=m_orange](3l)!0.55!(4l);
+		\connect[msmallarrow=m_light_orange](4l)!0.55!(5l);
+		\connect[msmallarrow=m_light_orange](5l)!0.55!(6l);
+		\connect[msmallarrow=m_yellow](6l)!0.55!(end_ab);
+		
+		% LABELS
+		% \node[mycomment,right=0pt of 1r] {%
+			%   muset -l };
+		% \node[mycomment,left=1pt of 1l] {%
+			%   muset};
+		% \node[label=below:\rotatebox{90}{a long text}] at (2.5,1) {};
+		
+		% % DECORATOS
+		% \draw [decorate,
+		% decoration = {brace}] ($(start.south west)+(-1ex,0)$) --  ($(start.north west)+(-1ex,0)$)
+		% node[midway, left=1ex] {input data};
+		
+		% BACKGROUNDS
+		\begin{scope}[on background layer={color=m_red_back}]
+			\draw[fill=m_red_back, rounded corners] (1.7*-\w,0.52*\h) rectangle (0.3*-\w,2.48*\h);
+		\end{scope}
+		
+		\begin{scope}[on background layer={color=m_orange_back}]
+			\draw[fill=m_orange_back, rounded corners] (1.7*-\w,2.52*\h) rectangle (0.3*-\w,3.48*\h);
+		\end{scope}
+		
+		\begin{scope}[on background layer={color=m_light_orange_back}]
+			\draw[fill=m_light_orange_back, rounded corners] (1.7*-\w,3.52*\h) rectangle (0.3*-\w,5.48*\h);
+		\end{scope}
+		
+		\begin{scope}[on background layer={color=m_yellow_back}]
+			\draw[fill=m_yellow_back, rounded corners] (1.7*-\w,5.52*\h) rectangle (0.3*-\w,6.48*\h);
+		\end{scope}
+		
+		
+		
+	\end{tikzpicture}
+	
+\end{document}

@@ -1,0 +1,34 @@
+ @article{kmtricks,
+ 	author = {Lemane, Téo and Medvedev, Paul and Chikhi, Rayan and Peterlongo, Pierre},
+ 	title = "{kmtricks: efficient and flexible construction of Bloom filters for large sequencing data collections}",
+ 	journal = {Bioinformatics Advances},
+ 	volume = {2},
+ 	number = {1},
+ 	pages = {vbac029},
+ 	year = {2022},
+ 	month = {04},
+ 	abstract = "{When indexing large collections of short-read sequencing data, a common operation that has now been implemented in several tools (Sequence Bloom Trees and variants, BIGSI) is to construct a collection of Bloom filters, one per sample. Each Bloom filter is used to represent a set of k-mers which approximates the desired set of all the non-erroneous k-mers present in the sample. However, this approximation is imperfect, especially in the case of metagenomics data. Erroneous but abundant k-mers are wrongly included, and non-erroneous but low-abundant ones are wrongly discarded. We propose kmtricks, a novel approach for generating Bloom filters from terabase-sized collections of sequencing data. Our main contributions are (i) an efficient method for jointly counting k-mers across multiple samples, including a streamlined Bloom filter construction by directly counting, partitioning and sorting hashes instead of k-mers, which is approximately four times faster than state-of-the-art tools; (ii) a novel technique that takes advantage of joint counting to preserve low-abundant k-mers present in several samples, improving the recovery of non-erroneous k-mers. Our experiments highlight that this technique preserves around 8× more k-mers than the usual yet crude filtering of low-abundance k-mers in a large metagenomics dataset.https://github.com/tlemane/kmtricks.Supplementary data are available at Bioinformatics Advances online.}",
+ 	issn = {2635-0041},
+ 	doi = {10.1093/bioadv/vbac029},
+ 	url = {https://doi.org/10.1093/bioadv/vbac029},
+ 	eprint = {https://academic.oup.com/bioinformaticsadvances/article-pdf/2/1/vbac029/47086129/vbac029\_supplementary\_data.pdf},
+ }
+ 
+@article{kmdiff,
+	author = {Lemane, Téo and Chikhi, Rayan and Peterlongo, Pierre},
+	title = "{kmdiff, large-scale and user-friendly differential k-mer analyses}",
+	journal = {Bioinformatics},
+	volume = {38},
+	number = {24},
+	pages = {5443-5445},
+	year = {2022},
+	month = {10},
+	abstract = "{Genome wide association studies elucidate links between genotypes and phenotypes. Recent studies point out the interest of conducting such experiments using k-mers as the base signal instead of single-nucleotide polymorphisms. We propose a tool, kmdiff, that performs differential k-mer analyses on large sequencing cohorts in an order of magnitude less time and memory than previously possible.https://github.com/tlemane/kmdiffSupplementary data are available at Bioinformatics online.}",
+	issn = {1367-4803},
+	doi = {10.1093/bioinformatics/btac689},
+	url = {https://doi.org/10.1093/bioinformatics/btac689},
+	eprint = {https://academic.oup.com/bioinformatics/article-pdf/38/24/5443/47887027/btac689.pdf},
+}
+
+
+
