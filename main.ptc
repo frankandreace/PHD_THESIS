@@ -22,7 +22,7 @@
 \contentsline {section}{\numberline {2.4}Conclusions}{17}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Methods}{18}{section.2.5}%
 \contentsline {paragraph}{Authors' affiliations}{22}{section*.36}%
-\contentsline {section}{\numberline {2.6}Perspectives}{22}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Perspectives}{23}{section.2.6}%
 \contentsline {section}{\numberline {2.7}Building a \emph {Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}{24}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}\emph {Lodderomyces elongisporus}: genetic characteristichs, interest and used data}{24}{subsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.7.2}Building ad hoc pangenome reference}{25}{subsection.2.7.2}%
@@ -30,7 +30,7 @@
 \contentsline {subsubsection}{\numberline {2.7.2.2}Producing a variation graph using pggb}{27}{subsubsection.2.7.2.2}%
 \contentsline {subsubsection}{\numberline {2.7.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{27}{subsubsection.2.7.2.3}%
 \contentsline {subsection}{\numberline {2.7.3}Representing recombination events from groups of genomes}{28}{subsection.2.7.3}%
-\contentsline {section}{\numberline {2.8}Conclusion and Perspectives}{29}{section.2.8}%
+\contentsline {section}{\numberline {2.8}Conclusion and Perspectives}{30}{section.2.8}%
 \contentsline {chapter}{Bibliography}{33}{section*.46}%
 \contentsline {chapter}{Papers}{40}{section*.48}%
 \contentsline {chapter}{Appendices}{41}{section*.49}%

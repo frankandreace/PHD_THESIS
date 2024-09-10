@@ -2,6 +2,8 @@
 \label{sec:complexity}
 
 \section{Introduction: too big, too complex, too difficult to use}
+As discussed in the previous section of this manuscript, the  construction of pangenome as variation graphs is based on an alignment step that is well known to be accurate but computationally costly. Even if recent advances on alignment algorithms and tools, like the wavefront algorithm~\cite{wavefront}, have provided improvement in the time and space complexity, the computation time id bound to the sequence lengths thus requiring $O(n^2)$ operations. As this is a feasible approach for curated analysis of small samples of large genome organisms, it is not considerable for large collection of bacterias (sample size can reach 100 of thousands) or mammals. Finally, the alignment step implicitly requires high quality assemblies to produce reasonably connected graphs.\\
+For this reason, \kmer based approaches provide a solid alternative: as the used \kmer lenght is usually relatively small (from 21 to 100), they can be used also on more fragmented assemblies or directly on sequencing reads. Moreover, the complexity of algorithms to produce \ccdbg from a set of input genomes scales with lower complexity than 
 
 \section{DBG-based tools for pangenomics}
 
@@ -13,7 +15,10 @@
 
 \section{Linearize a masked human reference pangenome graph for visualization purposes}
 
-\section{Converting ccdBGs into unitig matrices for downstream analyses: muset}
+\section{Converting ccdBGs into unitig matrices for downstream analyses: Muset}
+
+
+
 
 \section{Quotient filters to represent kmer sets: optimizin existing methods}
 
