@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.6.21)  10 SEP 2024 10:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.6.21)  12 SEP 2024 19:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1712,7 +1712,7 @@ Package kantlipsum Info: The package provides paragraphs 1 to 164. Values
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
  (./main.aux (./sections/dedication.aux) (./sections/preface.aux)
-(./sections/reducing_complexity.aux))
+(./sections/background.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
@@ -1831,7 +1831,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<gfx/institut_pasteur.png, id=59, 2569.6pt x 697.60625pt>
+<gfx/institut_pasteur.png, id=47, 2569.6pt x 697.60625pt>
 File: gfx/institut_pasteur.png Graphic file (type png)
 <use gfx/institut_pasteur.png>
 Package pdftex.def Info: gfx/institut_pasteur.png  used on input line 61.
@@ -1894,7 +1894,7 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 6
 1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-<gfx/sorbonne.png, id=61, 1792.7778pt x 730.8906pt>
+<gfx/sorbonne.png, id=49, 1792.7778pt x 730.8906pt>
 File: gfx/sorbonne.png Graphic file (type png)
 <use gfx/sorbonne.png>
 Package pdftex.def Info: gfx/sorbonne.png  used on input line 61.
@@ -1967,30 +1967,56 @@ Package cleveref Info: loaded `english' language definitions on input line 1.
 ) [9] [10
 
 ]
-\openout2 = `sections/reducing_complexity.aux'.
+\openout2 = `sections/background.aux'.
 
- (./sections/reducing_complexity.tex
-Package biblatex Info: Reference section=0 on input line 1.
-\blx@maxsegment@2=\count554
-\blx@sectionciteorder@2=\count555
-Package biblatex Info: Reference section=2 on input line 1.
-Package biblatex Info: Setting label 'refsection:2' on input line 1.
+ (./sections/background.tex
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <12> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 5.
 
 
-LaTeX Warning: Citation 'wavefront' on page 1 undefined on input line 5.
-
-LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10.95> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 13.
-) [1
+LaTeX Warning: Citation 'humangenomeproject' on page 1 undefined on input line 
+16.
 
 
-] [2
+LaTeX Warning: Citation 'human-pangenomics-era' on page 1 undefined on input li
+ne 16.
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 16.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 16.
+
+LaTeX Warning: Citation 't2t' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation 't2t' on page 1 undefined on input line 16.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--22
+
+ []
+
+Package cleveref Info: loaded `english' language definitions on input line 22.
+[1
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package cleveref Info: loaded `english' language definitions on input line 22.
+ [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package cleveref Info: loaded `english' language definitions on input line 22.
+ [3])
+Package cleveref Info: loaded `english' language definitions on input line 81.
+
+[4] [5
 
 
 
-] [3] [4
+] [6
 
-] [5
+] [7
 
 ]
 \tf@toc=\write8
@@ -2004,13 +2030,13 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10.95> not available
 
  (./main.aux
 Package cleveref Info: loaded `english' language definitions on input line 21.
- (./sections/dedication.aux)
-(./sections/preface.aux) (./sections/reducing_complexity.aux))
+ (./sections/dedication.aux) (./sections/preface.aux) (./sections/background.au
+x))
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3FDBE5A3C359DF8215D8EE2BD5FB2E33;3023.
+(rerunfilecheck)             Checksum: 9D2A6C7928D4C37BCF046F1B654E7A0B;1292.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2021,27 +2047,26 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50006 strings out of 477975
- 986511 string characters out of 5839281
- 1950258 words of memory out of 5000000
- 69086 multiletter control sequences out of 15000+600000
- 614878 words of font info for 194 fonts, out of 8000000 for 9000
+ 50058 strings out of 477975
+ 987129 string characters out of 5839281
+ 1952165 words of memory out of 5000000
+ 69106 multiletter control sequences out of 15000+600000
+ 628241 words of font info for 222 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  110i,11n,106p,1752b,2255s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
-fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc
-}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/p
-ublic/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
-etic/uhvro8a.pfb>
-Output written on main.pdf (17 pages, 282322 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</u
+sr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/p
+ublic/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmri10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (19 pages, 323886 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 88191 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 94311 words of extra memory for PDF output out of 106986 (max. 10000000)
 

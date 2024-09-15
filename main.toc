@@ -3,17 +3,16 @@
 \contentsline {chapter}{Contents}{v}{section*.3}%
 \contentsline {chapter}{List of Figures}{vii}{section*.4}%
 \contentsline {chapter}{List of Tables}{ix}{section*.5}%
-\contentsline {chapter}{\chapternumberline {1}Reducing the complexity of De Bruijn Graphs for Pangenomics}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Introduction: too big, too complex, too difficult to use}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}DBG-based tools for pangenomics}{1}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Requirements}{1}{subsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.1.1}Bacterial pangenomics}{1}{subsubsection.1.2.1.1}%
-\contentsline {subsubsection}{\numberline {1.2.1.2}Human pangenomics}{1}{subsubsection.1.2.1.2}%
-\contentsline {subsection}{\numberline {1.2.2}Representing sets of \emph {k}-mer\xspace sets}{1}{subsection.1.2.2}%
-\contentsline {section}{\numberline {1.3}Linearize a masked human reference pangenome graph for visualization purposes}{1}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{1}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Quotient filters to represent kmer sets: optimizin existing methods}{1}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Perspectives and future work}{1}{section.1.6}%
-\contentsline {chapter}{Papers}{4}{section*.7}%
-\contentsline {chapter}{Appendices}{5}{section*.8}%
+\contentsline {section}{\numberline {0.1}Sequencing data}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}Next-generation and third generation sequencing}{1}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}Reads}{1}{subsection.0.1.2}%
+\contentsline {section}{\numberline {0.2}\emph {k}-mers\xspace and how to store them}{1}{section.0.2}%
+\contentsline {section}{\numberline {0.3}Pangenomics, pangenomes and pangenome graphs}{1}{section.0.3}%
+\contentsline {subsection}{\numberline {0.3.1}The premisis for human pangenomics}{1}{subsection.0.3.1}%
+\contentsline {section}{\numberline {0.4}Graphs}{4}{section.0.4}%
+\contentsline {subsection}{\numberline {0.4.1}De Bruijn Graphs}{4}{subsection.0.4.1}%
+\contentsline {subsubsection}{\numberline {0.4.1.1}Colored and Compacted De Bruijn Graphs}{4}{subsubsection.0.4.1.1}%
+\contentsline {subsection}{\numberline {0.4.2}Variation Graphs}{4}{subsection.0.4.2}%
+\contentsline {chapter}{Papers}{6}{section*.7}%
+\contentsline {chapter}{Appendices}{7}{section*.8}%
 \contentsfinish 
