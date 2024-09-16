@@ -1,0 +1,5 @@
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'phdstyle.blg'
+[138] biber:340> INFO - === lun. sept. 16, 2024, 18:27:48
+[261] Utils.pm:399> ERROR - Cannot find 'phdstyle.bcf'!
+[262] Biber.pm:135> INFO - ERRORS: 1

@@ -2350,6 +2350,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperII.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
   </bcf:section>
@@ -2359,12 +2360,27 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperII.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="1">
-    <bcf:citekey order="1" intorder="1">humangenomeproject</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">human-pangenomics-era</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">t2t</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">t2t</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">nih_dna</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">nih_dna</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">sanger_sequencing</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">mitochondrialDNA</bcf:citekey>
+    <bcf:citekey order="4" intorder="2">first_human_genome</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">100dollars</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">metaprob2</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">mdbg</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">methylation</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">genome_diversity_quintana</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">genome_diversity_quintana</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">genome_diversity_quintana</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">ape_genomes</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">ape_genomes</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">humangenomeproject</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">human-pangenomics-era</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">t2t</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">t2t</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">

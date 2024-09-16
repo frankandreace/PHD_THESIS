@@ -1,44 +1,101 @@
-\section{Sequencing data}
+\section{DNA, genome variation and sequencing data}
 \label{sec:background:sequencing}
-A fundamental grasp of what kind of data is produced by sequencing biological organisms is essential to comprehend the research outlined in this manuscript. If already familiar with DNA sequences and how they are obtained, you may proceed to section~\ref{sec:background:pangenomics}.
+A fundamental grasp of the data that is produced by sequencing biological organisms is essential to comprehend the research outlined in this manuscript. If already familiar with DNA sequences, how they are obtained and how they differ between species or individuals, you may proceed to section~\ref{sec:background:pangenomics}.
 \subsection{DNA}
 DNA (Deoxyribonucleic Acid) is a complex molecule with a double helix structure that carries the genetic information of an organism. Although its discovery was the result of work by many scientists over nearly 90 years, the currently accepted model was first correctly described by James Watson and Francis Crick in 1953 at Cambridge, UK.\\
-The information DNA carries provides instructions for an organism to develop, survive in the external world, and reproduce or replicate. These instructions are encoded as a sequence of monomers called nucleotides. Each nucleotide is composed of a sugar, a phosphate group, and one of four nucleobases: cytosine, guanine, adenine, and thymine. The nucleotides are commonly referred to using the first letter of their nucleobases: A, C, G, and T. In RNA molecules, thymine is replaced by uracil.\\
+The information DNA carries provides instructions for an organism to develop, survive in the external world, and reproduce. These instructions are encoded as a sequence of monomers called nucleotides. Each nucleotide is composed of a sugar, a phosphate group, and one of four nucleobases: cytosine, guanine, adenine, and thymine. The nucleotides are commonly referred to using the first letter of their nucleobases: A, C, G, and T. In RNA molecules, thymine is replaced by uracil.\\
 The nucleotides are linked together in a sugar-phosphate backbone. Hydrogen bonds between complementary nucleotides form the molecule's double-stranded structure, with A pairing with T and C pairing with G bases. This pairing is crucial for DNA replication and protein synthesis. Figure~\ref{fig:DNA} shows the structure of the DNA molecule and the nucleotides, with the initial drawing by Francis Crick in 1953.
 \begin{figure}[h!]
 	\centering
-	\begin{subfigure}[b]{0.75\textwidth}
+	\begin{subfigure}[b]{0.95\textwidth}
 		\centering
 		\includegraphics[width=0.95\textwidth]{figures/background/DNA_2024a.jpg}
-		\caption[The DNA molecule]{The DNA molecule and the structure of the nucleotides, the basic piece of information of the DNA.} 
+		\caption[The DNA molecule]{The DNA molecule and the structure of the nucleotides, the basic piece of information of the DNA. Figure from NIH glossary~\cite{nih_dna}.} 
 	\end{subfigure}%
 	\\
 	\begin{subfigure}[b]{0.75\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{figures/background/DNA_sketch.jpg}
+		\includegraphics[width=0.5\textwidth]{figures/background/DNA_sketch.jpg}
 		\caption[The DNA sketch by Crick]{The DNA molecule model draw by Francis Crick in 1953.} 
 	\end{subfigure}%
+\caption{The DNA molecule.}
 \label{fig:DNA}
 \end{figure}
 
-\subsection{Next-generation and third generation sequencing}
-In many biological disciplines, studying an organism's genetic information contained in its DNA is crucial. Over the years, researchers have developed various methods and techniques to extract this information from the cell nucleus. These processes typically involve two (or more) main steps. Here I describe the two main ones:
-_{\begin{itemize}
-	\item[DNA Extraction, Purification and Library preparation] The first step requires nontrivial biological manipulation of samples to extract DNA from cell nucleus and purify it without causing damage. This process isolates the genetic material from other cellular components, like RNA and proteins. The DNA molecule are fragmented into pieces of different length followed by 5′and 3′adapter ligation. 
-	\item[DNA Sequencing] Next, specialized machines detect the sequence of nucleotides that compose the extracted DNA pieces. These techniques, called sequencing, use various, most of the time proprietary, technologies to determine the precise order of nucleotides (A, C, G, and T) in a DNA molecule. The raw data output of these machines are sequences of characters that are referred to as sequencing reads or simply reads.
-\end{itemize}}
-The landscape of DNA sequencing has evolved significantly since its inception. In 1977, Frederick Sanger and his colleagues introduced the first widely adopted sequencing method, known as chain termination sequencing or Sanger sequencing\cite{sanger_sequencing}. This innovative technique allowed scientists to read the sequence of nucleotides in a DNA molecule for the first time in a reliable and reproducible manner.
-While Sanger sequencing has revolutionized genetic research, it has largely been replaced by more advanced technologies. These newer methods fall into two main categories:
-Next Generation Sequencing (NGS) and Third Generation Sequencing. These technologies provide significant improvements in terms of speed, cost-effectiveness and data output compared to Sanger sequencing. \\
-\textbf{Next Generation Sequencing} derives its name by launching a so-called next generation by revolutionizing sequencing with massive parallelization. This technology has continously improved since 2005 to yield up to 8 Terabases per single sequencing run, taking it maximum 2 days and dropping the price of, for example, a single individual sequenced per almost 100 dollars.
-The output of these machines are reads of a length that varies between 150 and 300 bases and take the names of short reads. \\
-One of the advances of the Next Generation sequencing is also the pair-end sequences, i.e. 
+To fit inside the cell nucleus, DNA is organized in very tight structures. First is coiled around proteins called histones to from a compact structure called chromatin that form loops and is kept in place by other molecules to structure a chromosome. In humans, each nucleus contains 23 chromosome pairs. 22 are the autosomes, i.e. the chromosomes we all have and that are not associated with sex, while the last pair is the sex one that contains or 2 copies of chromosome X for women or 1 X and 1 Y for men. The final part of the chromosome is called telomere while the central one is called centromere and both are regions known to contain a lot of repetitive regions that are very difficult to reconstruct from sequencing. \\ Finally, there is also the mitochondrial genome, that is not in the nucleus, has circular structure and is mostly inherited maternally.
+
+\subsection{DNA sequencing}
+In many biological disciplines, studying an organism's genetic information contained in its DNA is crucial. Over the years, researchers have developed various methods and techniques to extract this information from the cell nucleus and to represent it in a useful way. These processes typically involve three main steps. Here I describe them, with many simplifications, to give a brief overview:
+\begin{itemize}[leftmargin=1.8cm]
+	\item[\textbf{Library preparation}] The first step requires hours long, nontrivial biological manipulation of samples to extract DNA from cell nucleus and purify it without causing damage. This process isolates the genetic material from other cellular components, like RNA and proteins. The DNA molecule are fragmented into pieces of different length followed by $5\prime$ and $3\prime$ adapter ligation. Some technologies require PCR amplification of fragments, while others don't.
+	\item[\textbf{Sequencing}] Next, specialized machines detect the sequence of nucleotides that compose the extracted DNA pieces. These techniques, called sequencing, use various, most of the time proprietary, technologies to determine the precise order of nucleotides (A, C, G, and T) in a DNA molecule. The raw data output of these machines are sequences of characters that are referred to as sequencing reads or simply reads.
+	\item[\textbf{Analysis}] In this step usually quality control (QC) is performed to remove adapters and too short or low quality reads. Usually the first step after QC is to assemble the sequences together or to provide them as input to a workflow specific for the required application.
+\end{itemize}
+The landscape of DNA sequencing has evolved significantly since its inception. In 1977, Frederick Sanger and his colleagues introduced the first widely adopted sequencing method, known as chain termination sequencing or Sanger sequencing\cite{sanger_sequencing}. This technique allowed to read the sequence of nucleotides in a DNA molecule for the first time in a reliable and reproducible manner. This was the technique that led to the first sequencing of the mitochondrial DNA and the first ,almost, complete human genome in 2001~\cite{mitochondrialDNA,first_human_genome}.
+While Sanger sequencing has revolutionized genetic research, it has largely been replaced by more advanced technologies. These newer methods fall into two main categories: Next Generation Sequencing (NGS) and Third Generation Sequencing. These technologies provide significant improvements in terms of speed, cost-effectiveness and data output compared to Sanger sequencing. \\
+\subsubsection{Next Generation Sequencing} derives its name by launching a so-called next generation by revolutionizing sequencing with massive parallelization. This technology has continuously improved since 2005 to yield up to 8 Terabases per single sequencing run, taking it maximum 2 days and dropping the price of, for example, a single individual sequenced per almost 100 dollars~\cite{100dollars}. The advancement consists mainly in running many reactions and analysis in parallel to produce millions to billions of reads of a length that varies between 150 and 300 bases. For this reason they take the name of short reads. While a big advantage of this sequencing method is the low error rates, with at least 80\% of the bases with less than 1 error in 1000 (i.e. 99.9\% accuracy). This technology is mostly dominated by a California biotechnology company called Illumina \\
+The sequence length is the main drawback of this method, as it makes it difficult or impossible to resolve complex large-size DNA variations, where the read won't align to any part of a reference genome to be used to infer from which part of a chromosome it comes from. The same problem arise for repetitive regions,like centromeres, telomeres or small segmental duplications, that have a length greater than the sequence length, where it is not possible to asses the length or the nature of the repetition.
+This problem has been partially addressed by the introduction of pair-end sequences, a technology that is now integrated in all Next Generation machines, that sequences both ends of a single DNA fragment and then associate the two reads that come from it, in order to provide more long-range information. Although this method is still not enough to solve complex structural variations or repetitive regions, it is very useful to track some of the reads that would be instead be unused and finds relevant applications in assembly or metagenomics. In fact, I used this property of paired-end reads in one method I developed before the PhD to improve the estimation of different species inside metagenomic samples sequenced with Next Generation Sequencing~\cite{metaprob2}. \\
+\subsubsection{Third Generation Sequencing} is the newest technology that uses alternative approaches to NGS, to solve the issues that it currently face due to the short length of the sequences. The main difference relies on the fact that while NGS uses PCR to amplify the small fragments in which DNA is broken into prior to sequencing, these new technologies directly sequence the DNA molecule. Here I will describe the two most important technologies, provided by the two companies that lead this market: a California biotech company called Pacific Biosciences, usually called PacBio, and a Uk based one, called Oxford Nanopore Technologies, or ONT.\\
+PacBio offers "HiFi sequecing" that produces reads long up to 25 thousands bases in length with accuracy comparable to NGS ones. This is achieved by first creating a circularized DNA from high-quality double stranded DNA and then using a DNA polymerase enzyme to read multiple times the same molecule to produce a final consensus sequence with accuracy of around 99.9\%. These are long and accurate reads that enable ultra-fast assembly of human genomes~\cite{mdbg} at a cost around \$1000 per sequencing reagents kit. \\
+Oxford Nanopore machines instead provide ultra-long sequences, that are on average longer than the PacBio HiFi ones and can reach up to the megabase scale (i.e. ~100 times longer). The sequencing is done by passing a single-strand DNA molecule trough a tiny nanopore. Each pore is associated to an electrode and a sensor that measure the current that is passing through the pore. As the DNA goes through the pore, the current changes and, thanks to a basecalling algorithm, it is possible to detect the nucleotides by the change in the current. This process is done in parallel across ~800-1500 pores.\\
+It is finally important to stress that these two technologies allow the detection of all kind of variations, i.e. small variations as well as large ones and also solve large repetitive regions as they span acorss thousands of bases. Moreover, both these methods allow the direct detection of DNA methylation. This is a chemical mechanism on top of the DNA molecule that regulates gene expression  by recruiting proteins involved in gene repression or by inhibiting the binding of transcription factor(s) to DNA~\cite{methylation}. \\
+Figure~\ref{fig:sequencing_technologies} shows basic schematics of how these two technologies work.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.95\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{figures/background/hifi_pacbio.png}
+		\caption{Pacific Biosciences Hi-Fi reads generations scheme. Image from PacBio website.} 
+	\end{subfigure}%
+	\\
+	\begin{subfigure}[b]{0.95\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{figures/background/nanopore_sequencing.jpg}
+		\caption{An array of pores sequences multiple molecules in parallel. A dsDNA molecule is split by the helicase enzyme and then a ssDNA sequence slowly gets through the pore for sequencing. Changes in the ionic current is used by a machine learning algorithm to infer the nucleotides of the sequence.} 
+	\end{subfigure}%
+	\caption{Third generation sequencing technologies.}
+	\label{fig:sequencing_technologies}
+\end{figure}
+
+\section{From reads to \kmers and how to store them}
+Reads are stored in formats, like FASTQ, that preserve basecalling quality information or in others, like FASTA, that retains only the actual sequence. As pair-end short-reads have different features than ultra-long reads or Hi-Fi long reads, most of the tools focus on providing applications for just one single type. In cases like genome assembly or variant calling, however, the information from different sources is combined to provide superior results. To provide high-quality genome assemblies, many consortia use Hi-Fi long reads as bases for assembly plus ultra-long reads as scaffolds to chain together the assemblies into sequences that span from telomere to telomere of a chromosome.
 
 
-\section{Reads, \kmers and how to store them}
+
 
 \section{Pangenomics, pangenomes and pangenome graphs}
 \label{sec:background:pangenomics}
+\subsection{Genomic diversity in populations}
+The Human genome contains more than 3 billions base pairs and contains probably more than 20 thousands protein coding genes, i.e. specific parts of the DNA that serve as blueprint for proteins. The rest is non-coding, i.e. is not a gene but can serve as regulatory element, like enhancers, promoters and silencers or as other conserved, functional element.\\
+DNA differs between individuals of the same population (inter-individual) and between different populations of the same species (inter-population): figure~\ref{fig:pop_diff} shows these differences for four close primates. Differences in DNA are given by having a different nucleotide at the same place (also called Single Nucleotide Polymorphism or SNP), small insertions or deletions of bases (also known as indels) and large and complex variations, up to Megabases, (also called Structural Variations, or SVs) that can produce different counts of copies or different ordering of a same region. \\
+On average, each human carries around 10 thousands amino-acid altering mutations, 300-400 gene disruption events (like stop, splice and indels) affecting 200-300 genes and is heterozygous at 50-100 mutations associated with an inherited disorder~\cite{genome_diversity_quintana}. This is due genomic variability, that is assessed at
+Finally, even when close species share a large portion of genetic material, structural changes that rearrange the same material in different order or invert it, contribute to meaningful changes. In figure~\ref{fig:chromosome_diff} it is shown how the chromosome 7 and 16 of some primates, even if very similar, differs in terms of organization. These large structure rearrangements are thus fundamental to understand the biology of organisms.
+It is 
+This is because the variation in DNA is produced by two main mechanisms: mutations and recombination. 
+
+Moreover, genetic diversity is driven by two main factors: genetic drift and natural selection. Genomic duplication followed by adaptive mutation is considered one of the primary forces for evolution of new function
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\linewidth]{figures/background/pop_diff.png}
+	\caption[Inter-individual and inter-population variation for 4 primate species.]{Share of inter-individual (yellow) and inter-population (blue) diversity for four different primates. While for humans the  majority of the diversity is within populations, for other primates it is between populations. This shows how Humans are more mixed than other primates. Percentage shows the inter-individual variation share~\cite{genome_diversity_quintana}.}
+	\label{fig:pop_diff}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.95\linewidth]{figures/background/genome_diff.png}
+	\caption[Genomic difference in chromosome 7 and 16 of 5 primate species.]{A comparative ape alignment of human (HSA) chromosomes 7 and 16 with chimpanzee (PTR), bonobo (PPA), gorilla (GGO),Bornean and Sumatran orangutans (PPY and PAB). The image on the top shows most of the chromosome 7 is conserved except for large inversions happening between the species. The image below shows complex inversions in chromosome 16. Image taken from 'Complete sequencing of ape genomes'~\cite{ape_genomes}.}
+	\label{fig:chromosome_diff}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.95\linewidth]{figures/background/spectrum_var.png}
+	\caption[Spectrum of Human Genetic Variation.]{Spectrum of Human Genetic Variation. While SNPs are the most common variation Event, their impact in the total amount of bases in a genome is ~4 times smaller than the one of Structural Variations, that are 200 times less. Image produced form Evan Eichler slides that are not public.}
+	\label{fig:variation_spectrum}
+\end{figure}
+
 \subsection{The premisis for human pangenomics}
 \large{\textbf{A LINEAR REFERENCE FOR ALL GENOMIC ANALYSES}}\\
 Since the beginning of genomics, all analysis based on sequencing data depended upon the use of a single linear reference genome, i.e. the best assembled genome available for a species, to extract useful information from the DNA. We now know that this approach is suboptimal in a wide range of applications as a lot of genetic material of the species cannot be present in a single linear refererence: this is valid for eukariotes and even more for bacteria.  
@@ -53,9 +110,14 @@ This novel way to overcome the limits of "linear genomic" and consider all the v
 Various efforts are being made on producing reference pangenomes of yeasts, bacterias, plants and animals, including humans. In order to do so, new tools to construct and then analyse and use such representations are being developed. 
 It is important here to notice, as it will be stressed in the next sections and chapters, that construction is just the first step and that is very important to understand and work on which are the operations that can be succesfully performed by these representations. \\
 
+\subsection{Pangenomics}
+\subsubsection{Pangenomes}
+\subsubsection{Pangenome Graphs}
+
 \section{Graphs}
 
 \subsection{De Bruijn Graphs}
 \subsubsection{Colored and Compacted De Bruijn Graphs}
 \subsection{Variation Graphs}
-
+\section{Outline}
+\section{Pangenomics: motivation}

@@ -3,16 +3,24 @@
 \contentsline {chapter}{Contents}{v}{section*.3}%
 \contentsline {chapter}{List of Figures}{vii}{section*.4}%
 \contentsline {chapter}{List of Tables}{ix}{section*.5}%
-\contentsline {section}{\numberline {0.1}Sequencing data}{1}{section.0.1}%
-\contentsline {subsection}{\numberline {0.1.1}Next-generation and third generation sequencing}{1}{subsection.0.1.1}%
-\contentsline {subsection}{\numberline {0.1.2}Reads}{1}{subsection.0.1.2}%
-\contentsline {section}{\numberline {0.2}\emph {k}-mers\xspace and how to store them}{1}{section.0.2}%
-\contentsline {section}{\numberline {0.3}Pangenomics, pangenomes and pangenome graphs}{1}{section.0.3}%
-\contentsline {subsection}{\numberline {0.3.1}The premisis for human pangenomics}{1}{subsection.0.3.1}%
-\contentsline {section}{\numberline {0.4}Graphs}{4}{section.0.4}%
-\contentsline {subsection}{\numberline {0.4.1}De Bruijn Graphs}{4}{subsection.0.4.1}%
-\contentsline {subsubsection}{\numberline {0.4.1.1}Colored and Compacted De Bruijn Graphs}{4}{subsubsection.0.4.1.1}%
-\contentsline {subsection}{\numberline {0.4.2}Variation Graphs}{4}{subsection.0.4.2}%
-\contentsline {chapter}{Papers}{6}{section*.7}%
-\contentsline {chapter}{Appendices}{7}{section*.8}%
+\contentsline {section}{\numberline {0.1}DNA, genome variation and sequencing data}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}DNA}{1}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}DNA sequencing}{1}{subsection.0.1.2}%
+\contentsline {subsubsection}{\numberline {0.1.2.1}Next Generation Sequencing}{3}{subsubsection.0.1.2.1}%
+\contentsline {subsubsection}{\numberline {0.1.2.2}Third Generation Sequencing}{4}{subsubsection.0.1.2.2}%
+\contentsline {section}{\numberline {0.2}From reads to \emph {k}-mers\xspace and how to store them}{4}{section.0.2}%
+\contentsline {section}{\numberline {0.3}Pangenomics, pangenomes and pangenome graphs}{6}{section.0.3}%
+\contentsline {subsection}{\numberline {0.3.1}Genomic diversity in populations}{6}{subsection.0.3.1}%
+\contentsline {subsection}{\numberline {0.3.2}The premisis for human pangenomics}{7}{subsection.0.3.2}%
+\contentsline {subsection}{\numberline {0.3.3}Pangenomics}{11}{subsection.0.3.3}%
+\contentsline {subsubsection}{\numberline {0.3.3.1}Pangenomes}{11}{subsubsection.0.3.3.1}%
+\contentsline {subsubsection}{\numberline {0.3.3.2}Pangenome Graphs}{11}{subsubsection.0.3.3.2}%
+\contentsline {section}{\numberline {0.4}Graphs}{11}{section.0.4}%
+\contentsline {subsection}{\numberline {0.4.1}De Bruijn Graphs}{11}{subsection.0.4.1}%
+\contentsline {subsubsection}{\numberline {0.4.1.1}Colored and Compacted De Bruijn Graphs}{11}{subsubsection.0.4.1.1}%
+\contentsline {subsection}{\numberline {0.4.2}Variation Graphs}{11}{subsection.0.4.2}%
+\contentsline {section}{\numberline {0.5}Outline}{11}{section.0.5}%
+\contentsline {section}{\numberline {0.6}Pangenomics: motivation}{11}{section.0.6}%
+\contentsline {chapter}{Papers}{14}{section*.12}%
+\contentsline {chapter}{Appendices}{15}{section*.13}%
 \contentsfinish 
