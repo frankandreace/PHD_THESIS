@@ -2363,6 +2363,19 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="1">
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 2 -->
+  <bcf:bibdata section="2">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperII.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="2">
     <bcf:citekey order="1" intorder="1">nih_dna</bcf:citekey>
     <bcf:citekey order="2" intorder="1">nih_dna</bcf:citekey>
     <bcf:citekey order="3" intorder="1">sanger_sequencing</bcf:citekey>
