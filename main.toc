@@ -4,6 +4,9 @@
 \contentsline {chapter}{List of Figures}{vii}{section*.3}%
 \contentsline {chapter}{List of Tables}{ix}{section*.4}%
 \contentsline {chapter}{Introduction}{1}{chapter*.5}%
-\contentsline {chapter}{Papers}{16}{section*.14}%
-\contentsline {chapter}{Appendices}{17}{section*.15}%
+\contentsline {subsection}{\numberline {0.0.1}Genetic diversity: focus on humans.}{10}{subsection.0.0.1}%
+\contentsline {subsubsection}{\numberline {0.0.1.1}Causes and drivers of genetic diversity}{10}{subsubsection.0.0.1.1}%
+\contentsline {subsubsection}{\numberline {0.0.1.2}Human Genomic variation: types of variants}{11}{subsubsection.0.0.1.2}%
+\contentsline {chapter}{Papers}{18}{section*.16}%
+\contentsline {chapter}{Appendices}{19}{section*.17}%
 \contentsfinish 
