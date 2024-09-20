@@ -1,9 +1,9 @@
-\chapter*{Introduction}
+\chapter{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 \chaptermark{Introduction}
 \label{sec:background}
 A fundamental grasp of the data that is produced by sequencing biological organisms is essential to comprehend the research outlined in this manuscript. If already familiar with DNA sequences, how they are obtained and how they differ between species or individuals, you may proceed to section~\ref{sec:background:pangenomics} \emph{From reads to \kmers}.
-\section*{DNA, genome variation and sequencing data}
+\section{DNA, genome variation and sequencing data}
 \label{sec:dna}
 DNA (Deoxyribonucleic Acid) is a complex molecule with a double helix structure that carries the genetic information of an organism. Although its discovery was the result of work by many scientists over nearly 90 years, the currently accepted model was first correctly described by James Watson and Francis Crick in 1953 at Cambridge, UK.\\
 The information DNA carries provides instructions for an organism to develop, survive in the external world, and reproduce. These instructions are encoded as a sequence of monomers called nucleotides. Each nucleotide is composed of a sugar, a phosphate group, and one of four nucleobases: cytosine, guanine, adenine, and thymine. The nucleotides are commonly referred to using the first letter of their nucleobases: A, C, G, and T. In RNA molecules, thymine is replaced by uracil.\\
@@ -28,20 +28,23 @@ The nucleotides are linked together in a sugar-phosphate backbone. Hydrogen bond
 To fit inside the cell nucleus, DNA is organized in very tight structures. First is coiled around proteins called histones to from a compact structure called chromatin that form loops and is kept in place by other molecules to structure a chromosome. Chromosomes are inherited by the offspring through sexual or asexual reproduction. Humans are diploids, i.e. contain 2 copies of the same chromosome, that receive one copy from the mother (the egg) and one from the father (the sperm). Both the egg and the sperm (the gametes) contain 1 copy of the chromosomes. While mammals are often diploids, other organism can be haploid (one single copy of the chromosome) or polyploid, i.e. have more than 2 copies. For example, the sugar cane plant, the world's most harvested crop by tonnage, can have more than 8 copies of a chromosome, up to 12~\cite{sugarcane}.
 In humans, each nucleus of non-reproductive cells contains 23 chromosome pairs. 22 are the autosomes, i.e. the chromosomes we all have and that are not associated with sex, while the last pair is the sex one that contains or 2 copies of chromosome X for women or 1 X and 1 Y for men. The final part of the chromosome is called telomere while the central one is called centromere and both are regions known to contain a lot of repetitive regions that are very difficult to reconstruct from sequencing. \\ Finally, there is also the mitochondrial genome, that is not in the nucleus, has circular structure and is mostly inherited maternally.
 
-\subsection*{DNA sequencing}
-In many biological disciplines, studying an organism's genetic information contained in its DNA is crucial. Over the years, researchers have developed various methods and techniques to extract this information from the cell nucleus and to represent it in a useful way. These processes typically involve three main steps. Here I describe them, with many simplifications, to give a brief overview:
+\subsection{DNA sequencing}
+In many biological disciplines, studying an organism's genetic information contained in its DNA is crucial. Over the years, researchers have developed various methods and techniques to extract this information from the cell nucleus: this is genome sequencing, a transformative technology for biology. These processes typically involve three main steps. Here I describe them, with many simplifications, to give a brief overview:
 \begin{itemize}[leftmargin=1.8cm]
 	\item[\textbf{Library preparation}] The first step requires hours long, nontrivial biological manipulation of samples to extract DNA from cell nucleus and purify it without causing damage. This process isolates the genetic material from other cellular components, like RNA and proteins. The DNA molecule are fragmented into pieces of different length followed by $5\prime$ and $3\prime$ adapter ligation. Some technologies require PCR amplification of fragments, while others don't.
 	\item[\textbf{Sequencing}] Next, specialized machines detect the sequence of nucleotides that compose the extracted DNA pieces. These techniques, called sequencing, use various, most of the time proprietary, technologies to determine the precise order of nucleotides (A, C, G, and T) in a DNA molecule. The raw data output of these machines are sequences of characters that are referred to as sequencing reads or simply reads.
 	\item[\textbf{Analysis}] In this step usually quality control (QC) is performed to remove adapters and too short or low quality reads. Usually the first step after QC is to assemble the sequences together or to provide them as input to a workflow specific for the required application.
 \end{itemize}
-The landscape of DNA sequencing has evolved significantly since its inception. In 1977, Frederick Sanger and his colleagues introduced the first widely adopted sequencing method, known as chain termination sequencing or Sanger sequencing\cite{sanger_sequencing}. This technique allowed to read the sequence of nucleotides in a DNA molecule for the first time in a reliable and reproducible manner. This was the technique that led to the first sequencing of the mitochondrial DNA and the first ,almost, complete human genome in 2001~\cite{mitochondrialDNA,first_human_genome}.
+The landscape of DNA sequencing has evolved significantly since its inception. In 1977, Frederick Sanger and his colleagues introduced the first widely adopted sequencing method, known as chain termination sequencing or Sanger sequencing\cite{sanger_sequencing}. This technique allowed to read the sequence of nucleotides in a DNA molecule for the first time in a reliable and reproducible manner. This was the technique that led to the first sequencing of the mitochondrial DNA and the first ,almost, complete human genome in 2001~\cite{mitochondrialDNA,first_human_genome}. Sanger technology through a gel produced the first reference genomes for important organisms.
 While Sanger sequencing has revolutionized genetic research, it has largely been replaced by more advanced technologies. These newer methods fall into two main categories: Next Generation Sequencing (NGS) and Third Generation Sequencing. These technologies provide significant improvements in terms of speed, cost-effectiveness and data output compared to Sanger sequencing. \\
-\subsubsection*{Next Generation Sequencing} (NGS) derives its name by launching a so-called next generation by revolutionizing sequencing with massive parallelization. This technology has continuously improved since 2005 to yield up to 8 Terabases per single sequencing run, taking it maximum 2 days and dropping the price of, for example, a single individual sequenced per almost 100 dollars~\cite{100dollars}. The advancement consists mainly in running many reactions and analysis in parallel to produce millions to billions of reads of a length that varies between 150 and 300 bases. For this reason they take the name of short reads. While a big advantage of this sequencing method is the low error rates, with at least 80\% of the bases with less than 1 error in 1000 (i.e. 99.9\% accuracy). This technology is mostly dominated by a California biotechnology company called Illumina \\
-The sequence length is the main drawback of this method, as it makes it difficult or impossible to resolve complex large-size DNA variations, where the read won't align to any part of a reference genome to be used to infer from which part of a chromosome it comes from. The same problem arise for repetitive regions,like centromeres, telomeres or small segmental duplications, that have a length greater than the sequence length, where it is not possible to asses the length or the nature of the repetition.
-This problem has been partially addressed by the introduction of pair-end sequences, a technology that is now integrated in all Next Generation machines, that sequences both ends of a single DNA fragment and then associate the two reads that come from it, in order to provide more long-range information. Although this method is still not enough to solve complex structural variations or repetitive regions, it is very useful to track some of the reads that would be instead be unused and finds relevant applications in assembly or metagenomics. In fact, I used this property of paired-end reads in one method I developed before the PhD to improve the estimation of different species inside metagenomic samples sequenced with Next Generation Sequencing~\cite{metaprob2}. \\
-\subsubsection*{Third Generation Sequencing} (TGS) is the newest technology that uses alternative approaches to NGS, to solve the issues that it currently face due to the short length of the sequences. The main difference relies on the fact that while NGS uses PCR to amplify the small fragments in which DNA is broken into prior to sequencing, these new technologies directly sequence the DNA molecule. Here I will describe the two most important technologies, provided by the two companies that lead this market: a California biotech company called Pacific Biosciences, usually called PacBio, and a Uk based one, called Oxford Nanopore Technologies, or ONT.\\
-PacBio offers "HiFi sequecing" that produces reads long up to 25 thousands bases in length with accuracy comparable to NGS ones. This is achieved by first creating a circularized DNA from high-quality double stranded DNA and then using a DNA polymerase enzyme to read multiple times the same molecule to produce a final consensus sequence with accuracy of around 99.9\%. These are long and accurate reads that enable ultra-fast assembly of human genomes~\cite{mdbg} at a cost around \$1000 per sequencing reagents kit. \\
+\subsubsection{Next Generation Sequencing} (NGS) derives its name by launching a so-called next generation by revolutionizing sequencing with massive parallelization. This technology has continuously improved since 2005 to yield up to 8 Terabases per single sequencing run, taking it maximum 2 days and dropping the price of, for example, a single individual sequenced per almost 100 dollars~\cite{100dollars}. The advancement consists mainly in running many reactions and analysis in parallel to produce millions to billions of reads of a length that varies between 150 and 300 bases. For this reason they take the name of short reads. While a big advantage of this sequencing method is the low error rates, with at least 80\% of the bases with less than 1 error in 1000 (i.e. 99.9\% accuracy). This technology is mostly dominated by a California biotechnology company called Illumina \\
+The sequence length is the main drawback of this method. As they are too short to assemble into a high-quality \emph{de-novo} complete genome, they are used for \emph{resequencing}, i.e. to be mapped to a reference genome to infer variations from it, to be used, for example, in population variation studies. Additionally, the short length of the fragment makes sequences coming from parts of the genome not in a reference or from complex and/or repetitive regions often impossible to be mapped, loosing all the information associated to them.
+%won't align to any part of a reference genome to be used to infer from which part of a chromosome it comes from. The same problem arise for repetitive regions,like centromeres, telomeres or small segmental duplications, that have a length greater than the sequence length, where it is not possible to asses the length or the nature of the repetition. 
+This problem has been partially addressed by the introduction of pair-end sequences, a technology that is now integrated in all Next Generation machines, that sequences both ends of a single DNA fragment and then associate the two reads that come from it, in order to provide more long-range information. Although this method is still not enough to solve complex variations, it is very useful to track some of the reads that would be instead be discarded and finds relevant applications in other fields, like metagenomics. In fact, I used this property of paired-end reads in one method I developed before the PhD to improve the estimation of different species inside environmental samples sequenced with NGS~\cite{metaprob2}. \\
+Finally, this technology enabled also other kind of sequencing, like STARR-seq, ATAC-seq, ChIP-seq, RNA-seq and others, that enabled to assay regulatory activity in the genome.
+\subsubsection{Third Generation Sequencing} (TGS) is the newest technology that uses alternative approaches to NGS, to solve the issues that it currently face due to the short length of the sequences. The main difference relies on the fact that while NGS uses PCR to amplify the small fragments in which DNA is broken into prior to sequencing, these new technologies directly sequence the nucleic acids in their native form. For this reason they are called single molecule technologies.\\
+Here I will describe the two most important technologies, provided by the two companies that lead this market: a California biotech company called Pacific Biosciences, usually called PacBio, and a Uk based one, called Oxford Nanopore Technologies, or ONT.\\
+PacBio offers "HiFi sequecing" that produces reads long up to 25 thousands bases in length with accuracy comparable to NGS ones. This is achieved by first creating a circularized DNA from high-quality double stranded DNA and then using a DNA polymerase enzyme to read multiple times the same molecule to produce a final consensus sequence with accuracy of around 99.9\%. These are long and accurate reads that enable ultra-fast assembly of human genomes~\cite{mdbg} at a cost around \$1000 per sequencing reagents kit for a 30X covergae of a human genome. \\
 Oxford Nanopore machines instead provide ultra-long sequences, that are on average longer than the PacBio HiFi ones and can reach up to the megabase scale (i.e. ~100 times longer). The sequencing is done by passing a single-strand DNA molecule trough a tiny nanopore. Each pore is associated to an electrode and a sensor that measure the current that is passing through the pore. As the DNA goes through the pore, the current changes and, thanks to a basecalling algorithm, it is possible to detect the nucleotides by the change in the current. This process is done in parallel across ~800-1500 pores.\\
 It is finally important to stress that these two technologies allow the detection of all kind of variations, i.e. small variations as well as large ones and also solve large repetitive regions as they span acorss thousands of bases. Moreover, both these methods allow the direct detection of DNA methylation. This is a chemical mechanism on top of the DNA molecule that regulates gene expression  by recruiting proteins involved in gene repression or by inhibiting the binding of transcription factor(s) to DNA~\cite{methylation}. \\
 Figure~\ref{fig:sequencing_technologies} shows basic schematics of how these two technologies work.\\ 
@@ -62,7 +65,7 @@ Figure~\ref{fig:sequencing_technologies} shows basic schematics of how these two
 	\label{fig:sequencing_technologies}
 \end{figure}
 
-\section*{From reads to \kmers}
+\section{From reads to \kmers}
 The sequences produced by any of the aforementioned technologies are considered as text strings, i.e. successions of characters, like the phrases of this manuscript, in which each character correspond to a nucleotide. These sequences can therefore being stored in plain text formats, like FASTQ, that preserve basecalling quality information or in others, like FASTA, that retains only the actual sequence. In order to use less space and take advantage of redundancy in the sequencing data, these files are often compressed, using one of the many tools publicly available like \texttt{gzip} or \texttt{zstd}, by Facebook. \\
 As pair-end short-reads have different features than ultra-long reads or Hi-Fi long reads, most of the tools focus on providing applications for just one single type. In cases like assembling a genome from the reads or calling the variant of the sequenced genome compared to one of reference, however, the information from different sources can be combined to provide superior results. In order to generate high-quality genome assemblies, for example, many consortia, like the Human Pangenome Reference Consortium, use Hi-Fi long reads as bases for assembly plus ultra-long reads as scaffolds to chain together the assemblies into sequences that span from telomere to telomere of a chromosome.\\
 In the work presented in this manuscript, most of the tools will ingest as input or raw sequences (both NGS or TGS) or high-quality, near telomere-to-telomere assemblies. Some of the tools that I have have used and all of the ones I have developed or co-developed transform the input sequences or assemblies into \kmers to produce the desired output. \\
@@ -118,7 +121,7 @@ A classic operation that is done when enumerating \kmers from sequences is to ke
 	
 	\bottomrule
 \end{tabular}
-	\caption{\kmers with $k=(3,4)$ being computed from the sequence $S = CTGAACTACA $. $l-k +1$ $k$-mers are generated for a total of $(l -k + 1) * k$ bases. While with $k=3$ the total bases are $ 8 * 3 = 24$, with $k=4$ they are instead $28$, as larger $k$ encodes more information redundancy.}
+	\caption[\kmer computation from a sequence]{\kmers with $k=(3,4)$ being computed from the sequence $S = CTGAACTACA $. $l-k +1$ $k$-mers are generated for a total of $(l -k + 1) * k$ bases. While with $k=3$ the total bases are $ 8 * 3 = 24$, with $k=4$ they are instead $28$, as larger $k$ encodes more information redundancy.}
 	\label{tab-kmers}
 \end{center}
 \end{table}
@@ -169,12 +172,12 @@ A classic operation that is done when enumerating \kmers from sequences is to ke
 		TCA & 2 \\
 	\end{tabular}
 \end{center}
-	\caption{Example of canonical \kmers enumeration and count. Given a set of sequences, for each of them \kmers are computed in a stream. For each of them, on the fly, the reverse complement is computed. Then the ones that are considered canonicals are passed and counted.\\ In the table below, reverse complements are between parenthesis and the canonical between the two (by lexicographic order) is underlined.}
+	\caption[Example of canonical \kmer counting.]{Example of canonical \kmers enumeration and count. Given a set of sequences, for each of them \kmers are computed in a stream. For each of them, on the fly, the reverse complement is computed. Then the ones that are considered canonicals are passed and counted.\\ In the table below, reverse complements are between parenthesis and the canonical between the two (by lexicographic order) is underlined.}
 	\label{tab-lista-kmer}
 \end{table}
 
 \clearpage
-\section*{Pangenomics, pangenomes and pangenome graphs}
+\section{Pangenomics, pangenomes and pangenome graphs}
 \label{sec:background:pangenomics}
 \subsection{Genetic diversity: focus on humans.}
 %Genomic variations are the characteristics that produce differences between organism of a species or between species. 
@@ -206,15 +209,15 @@ These can be indels or tandem repeats with the repeated section longer than 50 n
 Finally, it is important to remember that these kind of variations can be on just one haplotype (copy of the chromosome) or on both: this distinguish between heterozygous and homozygous alleles.
 
 
-\subsection*{The importance of studying genomic diversity in populations}
+\subsection{The importance of studying genomic diversity in populations context}
 The Human genome contains more than 3 billions base pairs and contains probably more than 20 thousands protein coding genes, i.e. specific parts of the DNA that serve as blueprint for proteins. The rest is non-coding, i.e. is not a gene but can serve as regulatory element, like enhancers, promoters and silencers or as other conserved, functional element.\\
-DNA differs between individuals of the same population (inter-individual) and between different populations of the same species (inter-population): figure~\ref{fig:pop_diff} shows these differences for four close primates. As discussed before, differences in DNA are given by having a different nucleotide at the same place (SNV), indels and large and complex variations, up to Megabases, that can produce different counts of copies or different ordering of a same region. \\
+DNA differs between individuals of the same population (inter-individual) and between different populations of the same species (inter-population): figure~\ref{fig:pop_diff} shows the percentage of inter-individual variation for four close primates. Different species can differ in the amount of genetic variation that is s As discussed before, differences in DNA are given by having a different nucleotide at the same place (SNV), indels and large and complex variations, up to Megabases, that can produce different counts of copies or different ordering of a same region. \\
 On average, each human carries around 10 thousands amino-acid altering mutations, 300-400 gene disruption events (like stop, splice and indels) affecting 200-300 genes and is heterozygous at 50-100 mutations associated with an inherited disorder~\cite{genome_diversity_quintana}. 
 Finally, even when close species share a large portion of genetic material, structural changes that rearrange the same material in different order or invert it, contribute to meaningful changes. In figure~\ref{fig:chromosome_diff} it is shown how the chromosome 7 and 16 of some primates, even if very similar, differs in terms of organization. These large structure rearrangements are thus fundamental to understand the biology of organisms.
 It is 
 This is because the variation in DNA is produced by two main mechanisms: mutations and recombination. 
 
-Moreover, genetic diversity is driven by two main factors: genetic drift and natural selection. Genomic duplication followed by adaptive mutation is considered one of the primary forces for evolution of new function
+Moreover, genetic diversity is driven by two main factors: genetic drift and natural selection. Genomic duplication followed by adaptive mutation is considered one of the primary forces for evolution of new functions.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.8\linewidth]{figures/background/pop_diff.png}
@@ -236,27 +239,69 @@ Moreover, genetic diversity is driven by two main factors: genetic drift and nat
 	\label{fig:variation_spectrum}
 \end{figure}
 
-\subsection*{The premises for human pangenomics}
-\textbf{A LINEAR REFERENCE FOR ALL GENOMIC ANALYSES}\\
-Since the beginning of genomics, all analysis based on sequencing data depended upon the use of a single linear reference genome, i.e. the best assembled genome available for a species, to extract useful information from the DNA. We now know that this approach is suboptimal in a wide range of applications as a lot of genetic material of the species cannot be present in a single linear refererence: this is valid for eukariotes and even more for bacteria.  
-\textbf{A SEQUENCING REVOLUTION}\\
-Right now we are witnessing a real revolution in the sequencing. As the price is significantly lowering, also thanks to competition of new companies entering the market, new scientific discoveries and technological advances are leading to a remarkable increase of quality, in term of per-base error rate, and throughput. This means than right now we dispose of a rich wealth of high quality sequencing information to produce hundreds or thousands of new first grade assemblies.
+\subsection{The premises for Pangenomics}
+There are a number of factors that must be taken into consideration to understand one one side the need for a new paradigm and on the other side the conditions that lead to its development. Here I will briefly expose some of them before diving into pangenomics approaches and methods. 
+\subsubsection{A single linear genome for all analyses}
+Since the first complete genome sequences have been available in the late '90, all analysis based on sequencing data depended upon the use of a single linear reference genome, i.e. the best version of the genome available for any species. This reference sequence can or originate from the genome of a single organism or be a patch and consensus of multiple available genomes of the same species. It purpose is to use it infer information from newly, less refined, genomes that are being sequenced. We now know that this approach is suboptimal in a wide range of applications as a lot of genetic material of the species cannot be present in a single linear representation: this is valid for eukaryotes and even more for bacteria, that tend to be very diverse even in the same strain. The goal would therefore be to find a representation that provides more genetic material of a single species by intelligently combines the information from genome of multiple organisms and their differences.
 
-\textbf{A QUALITY REVOLUTION}
-This limitation at the beginning was not solvable due to the scarcity of high quality assembled genomes as the technologies of sequencing and computational tools were not mature enough. For example, the Human Genome Project took 13 years to produce its result~\cite{humangenomeproject} and the absence of long reads with decent error rate made it impossible to automatically resolve repetitive regions like telomers and centromeres~\cite{human-pangenomics-era}, producing a reference only $92\%$ complete~\cite{t2t}. This problem was only solved in 2022~\cite{t2t}. At the same time, many consortia are producing increasingly more genomes to a level comparable to the T2T consortium. For example, the HPRC, i.e. the Human Pangenome Reference Consortium released 47 new human genomes (92 haplotypes) in 2021 and has recently released other 153 genomes to a total of 400 haplotypes. The ability to produce such high quality data for human genomes is the main driver of the \\
-Right now we are witnessing a real revolution in the sequencing. As the price is significantly lowering, also thanks to competition of new companies entering the market, new scientific discoveries and technological advances are leading to a remarkable increase of quality, in term of per-base error rate, and throughput. This means than right now we dispose of a rich wealth of high quality sequencing information to produce hundreds or thousands of new first grade assemblies.
-This progress lead to a shift in paradigm with increasing effort from the scientific community to propose new methods to analyse one or multiple genomes: not anymore by comparing it against a single reference sequence but against a comprehensive representation of the species. \\
-This novel way to overcome the limits of "linear genomic" and consider all the variation in a single species is called pangenomics. \\
-Various efforts are being made on producing reference pangenomes of yeasts, bacterias, plants and animals, including humans. In order to do so, new tools to construct and then analyse and use such representations are being developed. 
-It is important here to notice, as it will be stressed in the next sections and chapters, that construction is just the first step and that is very important to understand and work on which are the operations that can be succesfully performed by these representations. \\
+\subsubsection{A quantity and quality revolution }
+In the last few years we are witnessing a new revolution in sequencing. As the price of sequencing is lowering more than 2x per year, from 1\$/basepair to \$$10^-7$/basepair\cite{durbin_recomb}, new scientific discoveries and technological advances are leading to a remarkable increase of quality, in term of per-base error rate, and throughput of TGS. This means that in the next future we will dispose of a rich wealth of high quality sequencing information to produce hundreds or thousands of new first grade assemblies of large eukaryotic genomes. 
 
-\subsection*{Pangenomics}
-\subsubsection*{Pangenomes}
-\subsubsection*{Pangenome Graphs}
+%This limitation at the beginning was not solvable due to the scarcity of high quality assembled genomes as the technologies of sequencing and computational tools were not mature enough.
 
-\section*{Graphs}
+For example, the history of complete human genome assemblies clearly exposes how much more high quality genomes it is now possible to generate. The Human Genome Project took 13 years to produce its result~\cite{humangenomeproject} and the absence of long reads with low error rate made it impossible to automatically resolve repetitive regions like telomeres and centromeres~\cite{human-pangenomics-era}, producing a reference only $92\%$ complete~\cite{t2t}. This problem was only solved in 2022 with a new, reference genome that did not have any gaps or unresolved regions, from the telomere to the other telomere of each chromosome~\cite{t2t}. Now, many consortia are producing increasingly more genomes to a level comparable to the one produced in 2022. For example, the HPRC, i.e. the Human Pangenome Reference Consortium, released 47 new human genomes (92 haplotypes) in 2021 and has recently released other 153 genomes to a total of 400 haplotypes of very high quality.
 
-\subsection*{De Bruijn Graphs}
-\subsubsection*{Colored and Compacted De Bruijn Graphs}
-\subsection*{Variation Graphs}
-\section*{Outline}
+Finally, it is important to understand the quantity of biological information produced. As shown in table~\ref{tab:bp-increase}, the number of base pairs sequenced has more than doubled each year since 1995. As this is faster than the famous Moore's law on computing power, it is becoming evident that a new paradigm is needed to store and analyze such wealth of data. Public repositories, like Sequence Read Archive (SRA) and European Nucleotide Archive (ENA), are rapidly increasing the number of samples being sequenced and rendered publicly available to everyone, with tens of billions of millions of basepairs from genomic samples, as shown in figure~\ref{fig:SRA}. Other repositories of genomic data with associated medical metadata, like the UK biobank that comprises around 500 thousands individuals, are also emerging. These conditions are pushing the adoption of novel methods to process and analyze genomes.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c | c | c}
+		year & genome(s) & base pairs \\
+		1995 & Bacterium & $ 2*10^6$ \\
+		2001 & Mammal & $ 3*10^9$ \\
+%		2013 & 2500 humans & $ 7.5*10^12$ \\
+		2021 & ~1M genomes & $ 3*10^15$ \\
+	\end{tabular}
+	\caption[DNA data increase over the years.]{Base pairs had a $10^9$ increase in less than 30 years. As $10^9 ~~ 2^30$ (from $ \log_2(10^9) = 29.9$), the base pairs have more than doubled each year\cite{durbin_recomb}.}
+	\label{tab:bp-increase}
+\end{table}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.95\linewidth]{figures/background/sra.png}
+	\caption[The Sequence Read Archive.]{a) The size in PetaBytes (peta = $10^15$); b) The type of data in the SRA database shows the vast amount of genomic data available. Image made from Rayan Chikhi's slides.\\}
+	\label{fig:SRA}
+\end{figure}
+
+\subsubsection{The need to better understand difference between genomes}
+The ability to produce such good data is the main enabler of increasing efforts from the scientific community to propose new methods to analyze genomes: not anymore by comparing new genomes against a single good reference sequence but by comparing it in a comprehensive representation of the species. \\
+Moreover, as new high quality sequences and assembled genomes are available, complex and/or highly repetitive regions can be now represented also for new genomes therefore enabling comparison between the ones of different genomes. This is very important as up until these improvement in sequencing and assemblies arrived, analyses were mostly blind to large, complex and/or repetitive structural variations. As we now know that these are the ones responsible for most of the difference between human genomes, new proposed approaches should provide new and better tools to understand, represent and analyze such variations.
+
+%This novel way to overcome the limits of "linear genomic" and consider all the variation in a single species is called pangenomics. \\
+%Various efforts are being made on producing reference pangenomes of yeasts, bacterias, plants and animals, including humans. In order to do so, new tools to construct and then analyse and use such representations are being developed. 
+%It is important here to notice, as it will be stressed in the next sections and chapters, that construction is just the first step and that is very important to understand and work on which are the operations that can be succesfully performed by these representations. \\
+
+\subsection{Pangenomics}
+Pangenomics is therefore a rapidly evolving field in genomics that aims to capture and analyze the full genetic diversity within a species or a group of closely related species. It does not rely on a single, linear reference genome, as it seeks to represent all genetic variations and structural differences across multiple organisms. It leverages the availability of large collections of high quality assemblies of many species to overcome the observational bias of using a single haplotype as reference for a whole population.\\
+It was first conceptualized for bacterial genomes, and at gene level, without considering non coding regions. This was moslty due to the fact that bacterias share genes between each other, generating high diversity in the gene repertoir between organisms of the same species or strain.
+The first proposed pangenome model had a subdivision between a core genome, made by genes present in all individuals of a species, and a dispensable or accessory genome, with genes present in some, but not all, individuals.\\
+This definition would then extend to a more general model that would consider variations at the nucleotide level to contain all variations in a set of genomes.\\
+\subsubsection{Pangenomes}
+A pangenome can be therefore be considered any collection of genomic sequences to be analyzed jointly or to be used as reference. This definition provides two important concepts for the rest of the studies provided in this manuscript: 
+\begin{itemize}
+	\item[\textbf{Model}] the pangenome is not a well-defined structure or model but can be from a simple collection of sequences to complex data structures. This means that different approaches are developed and used depending on the application of interest;
+	\item[\textbf{scope}] a pangenome can be either used as:
+	\begin{itemize}
+		\item a new reference for a specific species to be used for analyses in a similar way as linear genome. This means that a large consortium would be producing a representation that is accepted as new standard. For the Human genome this is done by the HPRC consotrium as the T2T consortium produced the best-quality linear reference genome~\cite{t2t}.
+		\item a different model that can be used to study a set of genomes, without needing \emph{a priori} to use a reference. This model can find applications in population variation studies. 
+	\end{itemize} 
+\end{itemize}
+On these premises, it is important to highlight that the high quality assemblies being produce by different consortia, that can be human or mammals or bacterial, constitute the most basic and usable pangenome. By having fully resolved the centromeres of 2 human genomes, with one of them being the reference produced by the T2T consortium, it is possible to detect small-scale and large-scale centromere variations, something that was never possible before~\cite{centromeres_eichler}. By having high quality assemblies of various apes, it is possible to reconstruct complex and large variations and rearrangements compared to the human genome that could not be detected before~\cite{apes_genomes}.
+
+\subsubsection{Pangenome Graphs}
+
+\section{Graphs}
+
+\subsection{De Bruijn Graphs}
+\subsubsection{Colored and Compacted De Bruijn Graphs}
+\subsection{Variation Graphs}
+\section{Outline}

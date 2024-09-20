@@ -2388,15 +2388,27 @@
     <bcf:citekey order="9" intorder="1">methylation</bcf:citekey>
     <bcf:citekey order="10" intorder="1">genome_diversity_quintana</bcf:citekey>
     <bcf:citekey order="11" intorder="1">lactase_persistance</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">genome_diversity_quintana</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">genome_diversity_quintana</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">genome_diversity_quintana</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">ape_genomes</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">ape_genomes</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">humangenomeproject</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">human-pangenomics-era</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">t2t</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">t2t</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">nih_variation</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">nih_variation</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">nih_variation</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">nih_variation</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">nih_variation</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">nih_variation</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">genome_diversity_quintana</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">genome_diversity_quintana</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">genome_diversity_quintana</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">ape_genomes</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">ape_genomes</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">durbin_recomb</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">humangenomeproject</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">human-pangenomics-era</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">t2t</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">t2t</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">durbin_recomb</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">durbin_recomb</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">t2t</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">centromeres_eichler</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">apes_genomes</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">

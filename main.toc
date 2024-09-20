@@ -3,10 +3,30 @@
 \contentsline {chapter}{Contents}{v}{section*.2}%
 \contentsline {chapter}{List of Figures}{vii}{section*.3}%
 \contentsline {chapter}{List of Tables}{ix}{section*.4}%
-\contentsline {chapter}{Introduction}{1}{chapter*.5}%
-\contentsline {subsection}{\numberline {0.0.1}Genetic diversity: focus on humans.}{10}{subsection.0.0.1}%
-\contentsline {subsubsection}{\numberline {0.0.1.1}Causes and drivers of genetic diversity}{10}{subsubsection.0.0.1.1}%
-\contentsline {subsubsection}{\numberline {0.0.1.2}Human Genomic variation: types of variants}{11}{subsubsection.0.0.1.2}%
-\contentsline {chapter}{Papers}{18}{section*.16}%
-\contentsline {chapter}{Appendices}{19}{section*.17}%
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}DNA, genome variation and sequencing data}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}DNA sequencing}{3}{subsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1.1}Next Generation Sequencing}{3}{subsubsection.1.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1.2}Third Generation Sequencing}{4}{subsubsection.1.1.1.2}%
+\contentsline {section}{\numberline {1.2}From reads to \emph {k}-mers\xspace }{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Pangenomics, pangenomes and pangenome graphs}{10}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Genetic diversity: focus on humans.}{10}{subsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.1}Causes and drivers of genetic diversity in humans}{10}{subsubsection.1.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.2}Human Genomic variation: types of variants}{11}{subsubsection.1.3.1.2}%
+\contentsline {subsection}{\numberline {1.3.2}The importance of studying genomic diversity in populations context}{12}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}The premises for Pangenomics}{13}{subsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.3.1}A single linear genome for all analyses}{13}{subsubsection.1.3.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.3.2}A quantity and quality revolution }{14}{subsubsection.1.3.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3.3}The need to better understand difference between genomes}{16}{subsubsection.1.3.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Pangenomics}{17}{subsection.1.3.4}%
+\contentsline {subsubsection}{\numberline {1.3.4.1}Pangenomes}{17}{subsubsection.1.3.4.1}%
+\contentsline {subsubsection}{\numberline {1.3.4.2}Pangenome Graphs}{18}{subsubsection.1.3.4.2}%
+\contentsline {section}{\numberline {1.4}Graphs}{18}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}De Bruijn Graphs}{18}{subsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.1.1}Colored and Compacted De Bruijn Graphs}{18}{subsubsection.1.4.1.1}%
+\contentsline {subsection}{\numberline {1.4.2}Variation Graphs}{18}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Outline}{18}{section.1.5}%
+\contentsline {chapter}{Papers}{20}{section*.17}%
+\contentsline {chapter}{Appendices}{21}{section*.18}%
 \contentsfinish 

@@ -1,35 +1,36 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'main.blg'
-[129] biber:340> INFO - === jeu. sept. 19, 2024, 17:22:06
-[155] Biber.pm:418> INFO - Reading 'main.bcf'
-[261] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[261] Biber.pm:978> INFO - Found 0 citekeys in bib section 1
-[261] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[262] Biber.pm:978> INFO - Found 15 citekeys in bib section 2
-[262] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[299] Biber.pm:4401> INFO - Processing section 2
-[316] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperI.bib' for section 2
-[324] bibtex.pm:1713> INFO - LaTeX decoding ...
-[421] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/paperI.bib'
-[654] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperII.bib' for section 2
-[664] bibtex.pm:1713> INFO - LaTeX decoding ...
-[757] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/paperII.bib'
-[763] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/pushing_the_limit.bib' for section 2
-[765] bibtex.pm:1713> INFO - LaTeX decoding ...
-[790] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/pushing_the_limit.bib'
-[796] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/perspectives.bib' for section 2
-[798] bibtex.pm:1713> INFO - LaTeX decoding ...
-[803] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/perspectives.bib'
-[804] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/background.bib' for section 2
-[807] bibtex.pm:1713> INFO - LaTeX decoding ...
-[834] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/background.bib'
-[1823] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1823] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1823] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[1823] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[1871] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[2887] bbl.pm:757> INFO - Output to main.bbl
-[2887] Biber.pm:130> WARN - legacy month field 'Apr' in entry 'sugarcane' is not an integer - this will probably not sort properly.
-[2887] Biber.pm:130> WARN - legacy month field 'Apr' in entry 'mitochondrialDNA' is not an integer - this will probably not sort properly.
-[2887] Biber.pm:130> WARN - legacy month field 'Jan' in entry 'methylation' is not an integer - this will probably not sort properly.
-[2888] Biber.pm:132> INFO - WARNINGS: 3
+[134] biber:340> INFO - === ven. sept. 20, 2024, 18:49:14
+[157] Biber.pm:418> INFO - Reading 'main.bcf'
+[264] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[264] Biber.pm:978> INFO - Found 0 citekeys in bib section 1
+[264] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[265] Biber.pm:978> INFO - Found 19 citekeys in bib section 2
+[265] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[306] Biber.pm:4401> INFO - Processing section 2
+[324] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperI.bib' for section 2
+[333] bibtex.pm:1713> INFO - LaTeX decoding ...
+[434] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/paperI.bib'
+[679] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperII.bib' for section 2
+[690] bibtex.pm:1713> INFO - LaTeX decoding ...
+[784] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/paperII.bib'
+[790] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/pushing_the_limit.bib' for section 2
+[792] bibtex.pm:1713> INFO - LaTeX decoding ...
+[818] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/pushing_the_limit.bib'
+[824] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/perspectives.bib' for section 2
+[826] bibtex.pm:1713> INFO - LaTeX decoding ...
+[831] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/perspectives.bib'
+[832] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/background.bib' for section 2
+[836] bibtex.pm:1713> INFO - LaTeX decoding ...
+[876] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/background.bib'
+[2198] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2198] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2198] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[2198] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[2256] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[3457] bbl.pm:757> INFO - Output to main.bbl
+[3457] Biber.pm:130> WARN - legacy month field 'Apr' in entry 'sugarcane' is not an integer - this will probably not sort properly.
+[3457] Biber.pm:130> WARN - legacy month field 'Apr' in entry 'mitochondrialDNA' is not an integer - this will probably not sort properly.
+[3457] Biber.pm:130> WARN - legacy month field 'Jan' in entry 'methylation' is not an integer - this will probably not sort properly.
+[3457] Biber.pm:130> WARN - legacy month field 'May' in entry 'centromeres_eichler' is not an integer - this will probably not sort properly.
+[3457] Biber.pm:132> INFO - WARNINGS: 4
