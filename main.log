@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.6.21)  20 SEP 2024 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.6.21)  24 SEP 2024 17:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1462,78 +1462,102 @@ Package cleveref Info: no abbreviation of names on input line 7852.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/doi/doi.sty
 Package: doi 2018/09/09 handle doi numbers
-) (./mathscinet.sty
-Package: mathscinet 2002/04/17 v1.05
+)
+(/usr/share/texlive/texmf-dist/tex/latex/stackengine/stackengine.sty
+Package: stackengine 2021/07/22 v4.11\ Stacking text and objects in convenient 
+ways
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsrefs/textcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/listofitems/listofitems.sty
+(/usr/share/texlive/texmf-dist/tex/generic/listofitems/listofitems.tex
+\loi_cnt_foreach_nest=\count415
+\loi_nestcnt=\count416
+)
+Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified 
+sep char (CT)
+)
+\c@@stackindex=\count417
+\@boxshift=\skip267
+\stack@tmplength=\skip268
+\temp@stkl=\skip269
+\@stackedboxwidth=\skip270
+\@addedbox=\box90
+\@anchorbox=\box91
+\@insetbox=\box92
+\se@backgroundbox=\box93
+\stackedbox=\box94
+\@centerbox=\box95
+\c@ROWcellindex@=\count418
+)
+(./mathscinet.sty
+Package: mathscinet 2002/04/17 v1.05
+ (/usr/share/texlive/texmf-dist/tex/latex/amsrefs/textcmds.sty
 Package: textcmds 2012/08/02 v2.00
-))
-(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/07/12 v3.18b programmable bibliographies (PK/MW)
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count415
+\lrq@indent=\count419
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count416
-\c@listtotal=\count417
-\c@listcount=\count418
-\c@liststart=\count419
-\c@liststop=\count420
-\c@citecount=\count421
-\c@citetotal=\count422
-\c@multicitecount=\count423
-\c@multicitetotal=\count424
-\c@instcount=\count425
-\c@maxnames=\count426
-\c@minnames=\count427
-\c@maxitems=\count428
-\c@minitems=\count429
-\c@citecounter=\count430
-\c@maxcitecounter=\count431
-\c@savedcitecounter=\count432
-\c@uniquelist=\count433
-\c@uniquename=\count434
-\c@refsection=\count435
-\c@refsegment=\count436
-\c@maxextratitle=\count437
-\c@maxextratitleyear=\count438
-\c@maxextraname=\count439
-\c@maxextradate=\count440
-\c@maxextraalpha=\count441
-\c@abbrvpenalty=\count442
-\c@highnamepenalty=\count443
-\c@lownamepenalty=\count444
-\c@maxparens=\count445
-\c@parenlevel=\count446
-\blx@tempcnta=\count447
-\blx@tempcntb=\count448
-\blx@tempcntc=\count449
-\c@blx@maxsection=\count450
-\blx@maxsegment@0=\count451
-\blx@notetype=\count452
-\blx@parenlevel@text=\count453
-\blx@parenlevel@foot=\count454
-\blx@sectionciteorder@0=\count455
-\blx@sectionciteorderinternal@0=\count456
-\blx@entrysetcounter=\count457
-\blx@biblioinstance=\count458
-\labelnumberwidth=\skip267
-\labelalphawidth=\skip268
-\biblabelsep=\skip269
-\bibnamesep=\skip270
-\bibinitsep=\skip271
-\bibparsep=\skip272
-\bibhang=\skip273
+\c@tabx@nest=\count420
+\c@listtotal=\count421
+\c@listcount=\count422
+\c@liststart=\count423
+\c@liststop=\count424
+\c@citecount=\count425
+\c@citetotal=\count426
+\c@multicitecount=\count427
+\c@multicitetotal=\count428
+\c@instcount=\count429
+\c@maxnames=\count430
+\c@minnames=\count431
+\c@maxitems=\count432
+\c@minitems=\count433
+\c@citecounter=\count434
+\c@maxcitecounter=\count435
+\c@savedcitecounter=\count436
+\c@uniquelist=\count437
+\c@uniquename=\count438
+\c@refsection=\count439
+\c@refsegment=\count440
+\c@maxextratitle=\count441
+\c@maxextratitleyear=\count442
+\c@maxextraname=\count443
+\c@maxextradate=\count444
+\c@maxextraalpha=\count445
+\c@abbrvpenalty=\count446
+\c@highnamepenalty=\count447
+\c@lownamepenalty=\count448
+\c@maxparens=\count449
+\c@parenlevel=\count450
+\blx@tempcnta=\count451
+\blx@tempcntb=\count452
+\blx@tempcntc=\count453
+\c@blx@maxsection=\count454
+\blx@maxsegment@0=\count455
+\blx@notetype=\count456
+\blx@parenlevel@text=\count457
+\blx@parenlevel@foot=\count458
+\blx@sectionciteorder@0=\count459
+\blx@sectionciteorderinternal@0=\count460
+\blx@entrysetcounter=\count461
+\blx@biblioinstance=\count462
+\labelnumberwidth=\skip271
+\labelalphawidth=\skip272
+\biblabelsep=\skip273
+\bibnamesep=\skip274
+\bibinitsep=\skip275
+\bibparsep=\skip276
+\bibhang=\skip277
 \blx@bcfin=\read5
 \blx@bcfout=\write6
 \blx@langwohyphens=\language8
-\c@mincomprange=\count459
-\c@maxcomprange=\count460
-\c@mincompwidth=\count461
+\c@mincomprange=\count463
+\c@maxcomprange=\count464
+\c@mincompwidth=\count465
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -1544,88 +1568,88 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count462
-\c@savedafterword=\count463
-\c@annotator=\count464
-\c@savedannotator=\count465
-\c@author=\count466
-\c@savedauthor=\count467
-\c@bookauthor=\count468
-\c@savedbookauthor=\count469
-\c@commentator=\count470
-\c@savedcommentator=\count471
-\c@editor=\count472
-\c@savededitor=\count473
-\c@editora=\count474
-\c@savededitora=\count475
-\c@editorb=\count476
-\c@savededitorb=\count477
-\c@editorc=\count478
-\c@savededitorc=\count479
-\c@foreword=\count480
-\c@savedforeword=\count481
-\c@holder=\count482
-\c@savedholder=\count483
-\c@introduction=\count484
-\c@savedintroduction=\count485
-\c@namea=\count486
-\c@savednamea=\count487
-\c@nameb=\count488
-\c@savednameb=\count489
-\c@namec=\count490
-\c@savednamec=\count491
-\c@translator=\count492
-\c@savedtranslator=\count493
-\c@shortauthor=\count494
-\c@savedshortauthor=\count495
-\c@shorteditor=\count496
-\c@savedshorteditor=\count497
-\c@labelname=\count498
-\c@savedlabelname=\count499
-\c@institution=\count500
-\c@savedinstitution=\count501
-\c@lista=\count502
-\c@savedlista=\count503
-\c@listb=\count504
-\c@savedlistb=\count505
-\c@listc=\count506
-\c@savedlistc=\count507
-\c@listd=\count508
-\c@savedlistd=\count509
-\c@liste=\count510
-\c@savedliste=\count511
-\c@listf=\count512
-\c@savedlistf=\count513
-\c@location=\count514
-\c@savedlocation=\count515
-\c@organization=\count516
-\c@savedorganization=\count517
-\c@origlocation=\count518
-\c@savedoriglocation=\count519
-\c@origpublisher=\count520
-\c@savedorigpublisher=\count521
-\c@publisher=\count522
-\c@savedpublisher=\count523
-\c@language=\count524
-\c@savedlanguage=\count525
-\c@origlanguage=\count526
-\c@savedoriglanguage=\count527
-\c@pageref=\count528
-\c@savedpageref=\count529
-\shorthandwidth=\skip274
-\shortjournalwidth=\skip275
-\shortserieswidth=\skip276
-\shorttitlewidth=\skip277
-\shortauthorwidth=\skip278
-\shorteditorwidth=\skip279
-\locallabelnumberwidth=\skip280
-\locallabelalphawidth=\skip281
-\localshorthandwidth=\skip282
-\localshortjournalwidth=\skip283
-\localshortserieswidth=\skip284
-\localshorttitlewidth=\skip285
-\localshortauthorwidth=\skip286
-\localshorteditorwidth=\skip287
+\c@afterword=\count466
+\c@savedafterword=\count467
+\c@annotator=\count468
+\c@savedannotator=\count469
+\c@author=\count470
+\c@savedauthor=\count471
+\c@bookauthor=\count472
+\c@savedbookauthor=\count473
+\c@commentator=\count474
+\c@savedcommentator=\count475
+\c@editor=\count476
+\c@savededitor=\count477
+\c@editora=\count478
+\c@savededitora=\count479
+\c@editorb=\count480
+\c@savededitorb=\count481
+\c@editorc=\count482
+\c@savededitorc=\count483
+\c@foreword=\count484
+\c@savedforeword=\count485
+\c@holder=\count486
+\c@savedholder=\count487
+\c@introduction=\count488
+\c@savedintroduction=\count489
+\c@namea=\count490
+\c@savednamea=\count491
+\c@nameb=\count492
+\c@savednameb=\count493
+\c@namec=\count494
+\c@savednamec=\count495
+\c@translator=\count496
+\c@savedtranslator=\count497
+\c@shortauthor=\count498
+\c@savedshortauthor=\count499
+\c@shorteditor=\count500
+\c@savedshorteditor=\count501
+\c@labelname=\count502
+\c@savedlabelname=\count503
+\c@institution=\count504
+\c@savedinstitution=\count505
+\c@lista=\count506
+\c@savedlista=\count507
+\c@listb=\count508
+\c@savedlistb=\count509
+\c@listc=\count510
+\c@savedlistc=\count511
+\c@listd=\count512
+\c@savedlistd=\count513
+\c@liste=\count514
+\c@savedliste=\count515
+\c@listf=\count516
+\c@savedlistf=\count517
+\c@location=\count518
+\c@savedlocation=\count519
+\c@organization=\count520
+\c@savedorganization=\count521
+\c@origlocation=\count522
+\c@savedoriglocation=\count523
+\c@origpublisher=\count524
+\c@savedorigpublisher=\count525
+\c@publisher=\count526
+\c@savedpublisher=\count527
+\c@language=\count528
+\c@savedlanguage=\count529
+\c@origlanguage=\count530
+\c@savedoriglanguage=\count531
+\c@pageref=\count532
+\c@savedpageref=\count533
+\shorthandwidth=\skip278
+\shortjournalwidth=\skip279
+\shortserieswidth=\skip280
+\shorttitlewidth=\skip281
+\shortauthorwidth=\skip282
+\shorteditorwidth=\skip283
+\locallabelnumberwidth=\skip284
+\locallabelalphawidth=\skip285
+\localshorthandwidth=\skip286
+\localshortjournalwidth=\skip287
+\localshortserieswidth=\skip288
+\localshorttitlewidth=\skip289
+\localshortauthorwidth=\skip290
+\localshorteditorwidth=\skip291
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -1637,19 +1661,19 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
-\c@textcitecount=\count530
-\c@textcitetotal=\count531
-\c@textcitemaxnames=\count532
-\c@biburlbigbreakpenalty=\count533
-\c@biburlbreakpenalty=\count534
-\c@biburlnumpenalty=\count535
-\c@biburlucpenalty=\count536
-\c@biburllcpenalty=\count537
+\c@textcitecount=\count534
+\c@textcitetotal=\count535
+\c@textcitemaxnames=\count536
+\c@biburlbigbreakpenalty=\count537
+\c@biburlbreakpenalty=\count538
+\c@biburlnumpenalty=\count539
+\c@biburlucpenalty=\count540
+\c@biburllcpenalty=\count541
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count538
+\c@smartand=\count542
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -1661,8 +1685,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count539
-\c@bbx:relatedtotal=\count540
+\c@bbx:relatedcount=\count543
+\c@bbx:relatedtotal=\count544
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -1695,8 +1719,8 @@ Package: expl3 2023-01-16 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count541
-\l__pdf_internal_box=\box90
+\l__color_backend_stack_int=\count545
+\l__pdf_internal_box=\box96
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2023-01-16 L3 programming layer (loader) 
@@ -1710,12 +1734,12 @@ Package: xparse 2023-01-16 L3 Experimental document command parser
 Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 
 ))
-\c@theorem=\count542
+\c@theorem=\count546
 )
 (/usr/share/texlive/texmf-dist/tex/latex/kantlipsum/kantlipsum.sty
 Package: kantlipsum 2019/07/23 v0.8 Generate text in Kantian style
-\l__kgl_start_int=\count543
-\l__kgl_end_int=\count544
+\l__kgl_start_int=\count547
+\l__kgl_end_int=\count548
 
 Package kantlipsum Info: The package provides paragraphs 1 to 164. Values
 (kantlipsum)             outside this range will be ignored.
@@ -1724,7 +1748,7 @@ Package kantlipsum Info: The package provides paragraphs 1 to 164. Values
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
  (./main.aux (./sections/dedication.aux) (./sections/preface.aux)
-(./sections/background.aux))
+(./sections/background.aux) (./sections/pushing_the_limit.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
@@ -1748,16 +1772,16 @@ LaTeX Font Info:    ... okay on input line 57.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count545
+\scratchcounter=\count549
 \scratchdimen=\dimen375
-\scratchbox=\box91
-\nofMPsegments=\count546
-\nofMParguments=\count547
+\scratchbox=\box97
+\nofMPsegments=\count550
+\nofMParguments=\count551
 \everyMPshowfont=\toks64
-\MPscratchCnt=\count548
+\MPscratchCnt=\count552
 \MPscratchDim=\dimen376
-\MPnumerator=\count549
-\makeMPintoPDFobject=\count550
+\MPnumerator=\count553
+\makeMPintoPDFobject=\count554
 \everyMPtoPDFconversion=\toks65
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1812,7 +1836,7 @@ nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 57.
-\c@lstlisting=\count551
+\c@lstlisting=\count555
 Package hyperref Info: Link coloring OFF on input line 57.
  (./main.out) (./main.out)
 \@outlinefile=\write7
@@ -1843,7 +1867,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<gfx/institut_pasteur.png, id=58, 2569.6pt x 697.60625pt>
+<gfx/institut_pasteur.png, id=110, 2569.6pt x 697.60625pt>
 File: gfx/institut_pasteur.png Graphic file (type png)
 <use gfx/institut_pasteur.png>
 Package pdftex.def Info: gfx/institut_pasteur.png  used on input line 61.
@@ -1906,7 +1930,7 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 6
 1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-<gfx/sorbonne.png, id=60, 1792.7778pt x 730.8906pt>
+<gfx/sorbonne.png, id=112, 1792.7778pt x 730.8906pt>
 File: gfx/sorbonne.png Graphic file (type png)
 <use gfx/sorbonne.png>
 Package pdftex.def Info: gfx/sorbonne.png  used on input line 61.
@@ -1957,8 +1981,8 @@ l.1 \chapter
 
 
 ]
-\blx@maxsegment@1=\count552
-\blx@sectionciteorder@1=\count553
+\blx@maxsegment@1=\count556
+\blx@sectionciteorder@1=\count557
 Package biblatex Info: Reference section=1 on input line 1.
 Package biblatex Info: Setting label 'refsection:1' on input line 1.
 ) [3] [4
@@ -1971,8 +1995,25 @@ Package cleveref Info: loaded `english' language definitions on input line 1.
 
 ] (./main.lof
 Package cleveref Info: loaded `english' language definitions on input line 1.
-) [7]
-[8
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 25
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 25.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `fvm' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Overfull \hbox (10.75784pt too wide) in paragraph at lines 31--31
+ [][] [][]\T1/lmr/m/n/10 (-20) 1D vi-su-al-iza-tion of dif-fer-ences be-tween \
+T1/fvm/m/n/10 pggb \T1/lmr/m/n/10 (-20) and \T1/fvm/m/n/10 Minigraph-Cactus 
+ []
+
+) [7] [8
 
 ] (./main.lot
 Package cleveref Info: loaded `english' language definitions on input line 1.
@@ -1983,17 +2024,17 @@ Package cleveref Info: loaded `english' language definitions on input line 1.
 
  (./sections/background.tex
 Package biblatex Info: Reference section=0 on input line 1.
-\blx@maxsegment@2=\count554
-\blx@sectionciteorder@2=\count555
+\blx@maxsegment@2=\count558
+\blx@sectionciteorder@2=\count559
 Package biblatex Info: Reference section=2 on input line 1.
 Package biblatex Info: Setting label 'refsection:2' on input line 1.
-<figures/background/DNA_2024a.jpg, id=155, 1927.2pt x 1084.05pt>
+<figures/background/DNA_2024a.jpg, id=280, 1927.2pt x 1084.05pt>
 File: figures/background/DNA_2024a.jpg Graphic file (type jpg)
 <use figures/background/DNA_2024a.jpg>
 Package pdftex.def Info: figures/background/DNA_2024a.jpg  used on input line 1
 5.
 (pdftex.def)             Requested size: 311.36049pt x 175.13875pt.
-<figures/background/DNA_sketch.jpg, id=158, 1180.41pt x 1506.5886pt>
+<figures/background/DNA_sketch.jpg, id=283, 1180.41pt x 1506.5886pt>
 File: figures/background/DNA_sketch.jpg Graphic file (type jpg)
 <use figures/background/DNA_sketch.jpg>
 Package pdftex.def Info: figures/background/DNA_sketch.jpg  used on input line 
@@ -2009,297 +2050,746 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package cleveref Info: loaded `english' language definitions on input line 33.
+Package cleveref Info: loaded `english' language definitions on input line 34.
  [2 <./figures/background/DNA_2024a.jpg> <./figures/background/DNA_sketch.jpg>]
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
 
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 45.
+Package cleveref Info: loaded `english' language definitions on input line 46.
 [3]
-<figures/background/hifi_pacbio.png, id=191, 1340.68225pt x 603.23326pt>
+<figures/background/hifi_pacbio.png, id=316, 1340.68225pt x 603.23326pt>
 File: figures/background/hifi_pacbio.png Graphic file (type png)
 <use figures/background/hifi_pacbio.png>
 Package pdftex.def Info: figures/background/hifi_pacbio.png  used on input line
- 55.
+ 56.
 (pdftex.def)             Requested size: 311.36049pt x 140.0938pt.
-<figures/background/nanopore_sequencing.jpg, id=192, 1927.2pt x 1084.05pt>
+<figures/background/nanopore_sequencing.jpg, id=317, 1927.2pt x 1084.05pt>
 File: figures/background/nanopore_sequencing.jpg Graphic file (type jpg)
 <use figures/background/nanopore_sequencing.jpg>
 Package pdftex.def Info: figures/background/nanopore_sequencing.jpg  used on in
-put line 61.
+put line 62.
 (pdftex.def)             Requested size: 311.36049pt x 175.13875pt.
-Package cleveref Info: loaded `english' language definitions on input line 67.
+Package cleveref Info: loaded `english' language definitions on input line 68.
  [4]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <12> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 68.
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 69
-.
-(/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 69.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `fvm' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 69.
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--73
+Underfull \hbox (badness 10000) in paragraph at lines 70--74
 
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 73.
+Package cleveref Info: loaded `english' language definitions on input line 74.
 [5]
-LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 75.
-Package cleveref Info: loaded `english' language definitions on input line 128.
-
+Package cleveref Info: loaded `english' language definitions on input line 76.
  [6 <./figures/background/hifi_pacbio.png (PNG copy)> <./figures/background/nan
 opore_sequencing.jpg>]
-Package cleveref Info: loaded `english' language definitions on input line 128.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 76.
+Package cleveref Info: loaded `english' language definitions on input line 129.
 
  [7]
-Package cleveref Info: loaded `english' language definitions on input line 179.
+Package cleveref Info: loaded `english' language definitions on input line 180.
 
  [8]
-Package cleveref Info: loaded `english' language definitions on input line 179.
+Package cleveref Info: loaded `english' language definitions on input line 180.
 
  [9]
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 191.
+Package cleveref Info: loaded `english' language definitions on input line 193.
 
 [10
 
 ]
-<figures/background/small_variants.png, id=240, 1505.625pt x 876.27374pt>
+<figures/background/small_variants.png, id=365, 1505.625pt x 876.27374pt>
 File: figures/background/small_variants.png Graphic file (type png)
 <use figures/background/small_variants.png>
 Package pdftex.def Info: figures/background/small_variants.png  used on input l
-ine 196.
-(pdftex.def)             Requested size: 276.00105pt x 160.62393pt.
+ine 198.
+(pdftex.def)             Requested size: 345.0pt x 200.78995pt.
 
 
-LaTeX Warning: Reference `' on page 11 undefined on input line 200.
+LaTeX Warning: Reference `' on page 11 undefined on input line 202.
 
-<figures/background/large_variants.png, id=244, 1506.62875pt x 876.27374pt>
+<figures/background/large_variants.png, id=369, 1506.62875pt x 876.27374pt>
 File: figures/background/large_variants.png Graphic file (type png)
 <use figures/background/large_variants.png>
 Package pdftex.def Info: figures/background/large_variants.png  used on input l
-ine 205.
-(pdftex.def)             Requested size: 276.00105pt x 160.51697pt.
-Package cleveref Info: loaded `english' language definitions on input line 210.
+ine 207.
+(pdftex.def)             Requested size: 345.0pt x 200.64287pt.
 
-[11 <./figures/background/small_variants.png>]
-Package cleveref Info: loaded `english' language definitions on input line 219.
-
- [12 <./figures/background/large_variants.png>]
-<figures/background/pop_diff.png, id=265, 655.59215pt x 239.67091pt>
-File: figures/background/pop_diff.png Graphic file (type png)
-<use figures/background/pop_diff.png>
-Package pdftex.def Info: figures/background/pop_diff.png  used on input line 22
-3.
-(pdftex.def)             Requested size: 276.00105pt x 100.90245pt.
-<figures/background/genome_diff.png, id=268, 859.86551pt x 595.85878pt>
-File: figures/background/genome_diff.png Graphic file (type png)
-<use figures/background/genome_diff.png>
-Package pdftex.def Info: figures/background/genome_diff.png  used on input line
- 230.
-(pdftex.def)             Requested size: 327.74895pt x 227.11967pt.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/background/genomic_spectrum.png, id=271, 1928.20375pt x 1085.05376pt>
+Package cleveref Info: loaded `english' language definitions on input line 220.
+
+[11]
+Package cleveref Info: loaded `english' language definitions on input line 220.
+
+ [12 <./figures/background/small_variants.png> <./figures/background/large_vari
+ants.png>]
+<figures/background/pop_diff.png, id=390, 655.59215pt x 239.67091pt>
+File: figures/background/pop_diff.png Graphic file (type png)
+<use figures/background/pop_diff.png>
+Package pdftex.def Info: figures/background/pop_diff.png  used on input line 22
+4.
+(pdftex.def)             Requested size: 276.00105pt x 100.90245pt.
+<figures/background/genome_diff.png, id=393, 859.86551pt x 595.85878pt>
+File: figures/background/genome_diff.png Graphic file (type png)
+<use figures/background/genome_diff.png>
+Package pdftex.def Info: figures/background/genome_diff.png  used on input line
+ 231.
+(pdftex.def)             Requested size: 345.0pt x 239.07574pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/background/genomic_spectrum.png, id=396, 1928.20375pt x 1085.05376pt>
 File: figures/background/genomic_spectrum.png Graphic file (type png)
 <use figures/background/genomic_spectrum.png>
 Package pdftex.def Info: figures/background/genomic_spectrum.png  used on input
- line 237.
+ line 238.
 (pdftex.def)             Requested size: 327.74895pt x 184.42358pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package cleveref Info: loaded `english' language definitions on input line 246.
+Package cleveref Info: loaded `english' language definitions on input line 248.
 
 [13 <./figures/background/pop_diff.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 253.
+Package cleveref Info: loaded `english' language definitions on input line 251.
 
  [14 <./figures/background/genome_diff.png (PNG copy)>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/background/sra.png, id=298, 1410.77063pt x 789.70032pt>
-File: figures/background/sra.png Graphic file (type png)
-<use figures/background/sra.png>
-Package pdftex.def Info: figures/background/sra.png  used on input line 270.
-(pdftex.def)             Requested size: 327.74895pt x 183.45883pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Package cleveref Info: loaded `english' language definitions on input line 278.
+Package cleveref Info: loaded `english' language definitions on input line 257.
 
  [15
 
  <./figures/background/genomic_spectrum.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 284--288
+<figures/background/sra.png, id=429, 1410.77063pt x 789.70032pt>
+File: figures/background/sra.png Graphic file (type png)
+<use figures/background/sra.png>
+Package pdftex.def Info: figures/background/sra.png  used on input line 272.
+(pdftex.def)             Requested size: 345.0pt x 193.11075pt.
+Package cleveref Info: loaded `english' language definitions on input line 281.
+
+
+[16 <./figures/background/sra.png (PNG copy)>]
+<figures/background/pangenome_model.png, id=437, 688.77734pt x 609.13286pt>
+File: figures/background/pangenome_model.png Graphic file (type png)
+<use figures/background/pangenome_model.png>
+Package pdftex.def Info: figures/background/pangenome_model.png  used on input 
+line 290.
+(pdftex.def)             Requested size: 258.75pt x 228.83322pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--297
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package cleveref Info: loaded `english' language definitions on input line 288.
+Package cleveref Info: loaded `english' language definitions on input line 303.
 
- [16 <./figures/background/sra.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 299.
+[17]
+Package cleveref Info: loaded `english' language definitions on input line 310.
 
- [17])
-Package cleveref Info: loaded `english' language definitions on input line 81.
- [18] [19
+ [18 <./figures/background/pangenome_model.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 323.
+
+ [19]
+<figures/background/graph_types.png, id=463, 761.04735pt x 638.63081pt>
+File: figures/background/graph_types.png Graphic file (type png)
+<use figures/background/graph_types.png>
+Package pdftex.def Info: figures/background/graph_types.png  used on input line
+ 327.
+(pdftex.def)             Requested size: 258.75pt x 217.1316pt.
 
 
+LaTeX Warning: Reference `fig:vg_example,fig:dbg_ex' on page 20 undefined on in
+put line 332.
 
-] [20
+<figures/background/vg.png, id=467, 432.1451pt x 285.39276pt>
+File: figures/background/vg.png Graphic file (type png)
+<use figures/background/vg.png>
+Package pdftex.def Info: figures/background/vg.png  used on input line 339.
+(pdftex.def)             Requested size: 224.2479pt x 148.09589pt.
+<figures/background/variant_graph.jpg, id=471, 517.40204pt x 237.27583pt>
+File: figures/background/variant_graph.jpg Graphic file (type jpg)
+<use figures/background/variant_graph.jpg>
+Package pdftex.def Info: figures/background/variant_graph.jpg  used on input li
+ne 346.
+(pdftex.def)             Requested size: 327.74895pt x 150.31003pt.
 
-] [21
+Underfull \vbox (badness 2894) has occurred while \output is active []
+
+Package cleveref Info: loaded `english' language definitions on input line 354.
+
+ [20 <./figures/background/graph_types.png (PNG copy)>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+54.
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+<figures/background/dbg.png, id=481, 924.02357pt x 533.17561pt>
+File: figures/background/dbg.png Graphic file (type png)
+<use figures/background/dbg.png>
+Package pdftex.def Info: figures/background/dbg.png  used on input line 364.
+(pdftex.def)             Requested size: 327.74895pt x 189.12001pt.
+Package cleveref Info: loaded `english' language definitions on input line 370.
+
+ [21 <./figures/background/vg.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 371.
+
+ [22 <./figures/background/variant_graph.jpg> <./figures/background/dbg.png (PN
+G copy)>]
+<figures/background/compacting.png, id=499, 738.92387pt x 444.68173pt>
+File: figures/background/compacting.png Graphic file (type png)
+<use figures/background/compacting.png>
+Package pdftex.def Info: figures/background/compacting.png  used on input line 
+386.
+(pdftex.def)             Requested size: 245.8117pt x 147.92606pt.
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 387.
+<figures/background/colors_dbg.png, id=502, 785.38316pt x 189.52438pt>
+File: figures/background/colors_dbg.png Graphic file (type png)
+<use figures/background/colors_dbg.png>
+Package pdftex.def Info: figures/background/colors_dbg.png  used on input line 
+392.
+(pdftex.def)             Requested size: 311.36049pt x 75.13458pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package cleveref Info: loaded `english' language definitions on input line 403.
+
+[23]
+Package cleveref Info: loaded `english' language definitions on input line 405.
+
+ [24 <./figures/background/compacting.png (PNG copy)> <./figures/background/col
+ors_dbg.png (PNG copy)>])
+Package cleveref Info: loaded `english' language definitions on input line 410.
+
+ [25] [26
 
 ]
-\tf@toc=\write8
-\openout8 = `main.toc'.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
 
-\tf@lof=\write9
-\openout9 = `main.lof'.
 
-\tf@lot=\write10
-\openout10 = `main.lot'.
+LaTeX Warning: Command \textquoteleft invalid in math mode on input line 410.
 
- (./main.aux
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 410.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.81     \include{sections/background}
+                                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (93.67474pt too wide) in paragraph at lines 81--81
+[]\T1/lmr/m/n/10 (-20) Pennisi, E. ^^P  A $\OT1/lmr/m/n/10 (-20) 100\OML/lmm/m/
+it/10 genome\OT1/lmr/m/n/10 (-20) ?\OML/lmm/m/it/10 NewDNAsequencerscouldbea\OT
+1/lmr/m/n/10 (-20) `\OML/lmm/m/it/10 gamechanger[]forbiology; medicine:$\T1/lmr
+/m/n/10 (-20) ^^Q.
+ []
+
+[27]
+Package cleveref Info: loaded `english' language definitions on input line 410.
+
+ [28]
+Package cleveref Info: loaded `english' language definitions on input line 81.
+ [29]
+\openout2 = `sections/pushing_the_limit.aux'.
+
+ (./sections/pushing_the_limit.tex [30
+
+
+
+
+]
+Package biblatex Info: Reference section=0 on input line 2.
+\blx@maxsegment@3=\count560
+\blx@sectionciteorder@3=\count561
+Package biblatex Info: Reference section=3 on input line 2.
+Package biblatex Info: Setting label 'refsection:3' on input line 2.
+
+
+LaTeX Warning: Reference `sec:background_pangenomics' on page 31 undefined on i
+nput line 10.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--14
+
+ []
+
+[31]
+Package cleveref Info: loaded `english' language definitions on input line 37.
+ [32]
+Package biblatex Info: Reference section=0 on input line 37.
+\blx@maxsegment@4=\count562
+\blx@sectionciteorder@4=\count563
+Package biblatex Info: Reference section=4 on input line 37.
+Package biblatex Info: Setting label 'refsection:4' on input line 37.
+\c@ttl@toc@chapters=\count564
+ (./main.ptc
+Package cleveref Info: loaded `english' language definitions on input line 1.
+ [33
+
+])
+Package cleveref Info: loaded `english' language definitions on input line 62.
+
+
+Class memoir Warning: The material used in the headers is too large
+(24.0pt) for the given head height (12.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 62.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [34]
+<figures/paperI/scheme.jpg, id=693, 8727.60625pt x 11206.86874pt>
+File: figures/paperI/scheme.jpg Graphic file (type jpg)
+<use figures/paperI/scheme.jpg>
+Package pdftex.def Info: figures/paperI/scheme.jpg  used on input line 68.
+(pdftex.def)             Requested size: 327.74895pt x 420.83797pt.
+Package cleveref Info: loaded `english' language definitions on input line 72.
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
+
+ []
+
+Package cleveref Info: loaded `english' language definitions on input line 96.
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [36]
+Package cleveref Info: loaded `english' language definitions on input line 96.
+
+[37 <./figures/paperI/scheme.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package cleveref Info: loaded `english' language definitions on input line 167.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [38]
+Underfull \hbox (badness 10000) in paragraph at lines 169--176
+
+ []
+
+Package cleveref Info: loaded `english' language definitions on input line 176.
+
+[39]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./figures/paperI/hla-e_corrected.pdf): 
+PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<figures/paperI/hla-e_corrected.pdf, id=739, 2227.83318pt x 2204.11443pt>
+File: figures/paperI/hla-e_corrected.pdf Graphic file (type pdf)
+<use figures/paperI/hla-e_corrected.pdf>
+Package pdftex.def Info: figures/paperI/hla-e_corrected.pdf  used on input line
+ 184.
+(pdftex.def)             Requested size: 327.74895pt x 324.24644pt.
+Package cleveref Info: loaded `english' language definitions on input line 195.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [40]
+Package cleveref Info: loaded `english' language definitions on input line 195.
+
+
+[41 <./figures/paperI/hla-e_corrected.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./figures/paperI/hla-a_corrected.pdf): 
+PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<figures/paperI/hla-a_corrected.pdf, id=1089, 2221.62003pt x 2857.03395pt>
+File: figures/paperI/hla-a_corrected.pdf Graphic file (type pdf)
+<use figures/paperI/hla-a_corrected.pdf>
+Package pdftex.def Info: figures/paperI/hla-a_corrected.pdf  used on input line
+ 201.
+(pdftex.def)             Requested size: 327.74895pt x 421.47426pt.
+Package cleveref Info: loaded `english' language definitions on input line 229.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [42]
+Package cleveref Info: loaded `english' language definitions on input line 229.
+
+
+[43 <./figures/paperI/hla-a_corrected.pdf>]
+Package cleveref Info: loaded `english' language definitions on input line 248.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [44]
+Package cleveref Info: loaded `english' language definitions on input line 313.
+
+
+[45]
+Package cleveref Info: loaded `english' language definitions on input line 318.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [46]
+Package cleveref Info: loaded `english' language definitions on input line 333.
+
+
+[47]
+Package cleveref Info: loaded `english' language definitions on input line 372.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [48]
+Package cleveref Info: loaded `english' language definitions on input line 387.
+
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
+
+ []
+
+Package cleveref Info: loaded `english' language definitions on input line 429.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [50]
+Package cleveref Info: loaded `english' language definitions on input line 440.
+
+
+[51]
+Package cleveref Info: loaded `english' language definitions on input line 478.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [52]
+Package cleveref Info: loaded `english' language definitions on input line 487.
+
+
+[53]
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10.95> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 535.
+
+
+LaTeX Warning: Citation 'lodelo_pathogen' on page 54 undefined on input line 53
+7.
+
+
+LaTeX Warning: Citation 'lodelo_fatal' on page 54 undefined on input line 537.
+
+
+LaTeX Warning: Citation 'lodelo_meningitis' on page 54 undefined on input line 
+537.
+
+
+LaTeX Warning: Citation 'lodelo_bloodstream' on page 54 undefined on input line
+ 537.
+
+Package cleveref Info: loaded `english' language definitions on input line 539.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [54]
+Overfull \hbox (361.06898pt too wide) in paragraph at lines 542--559
+ [][] 
+ []
+
+<figures/lodelo/lodElo_k25.png, id=16854, 1021.8978pt x 722.7pt>
+File: figures/lodelo/lodElo_k25.png Graphic file (type png)
+<use figures/lodelo/lodElo_k25.png>
+Package pdftex.def Info: figures/lodelo/lodElo_k25.png  used on input line 569.
+
+(pdftex.def)             Requested size: 258.75pt x 182.99033pt.
+<figures/lodelo/direct_nobei.png, id=16855, 3448.885pt x 1696.3375pt>
+File: figures/lodelo/direct_nobei.png Graphic file (type png)
+<use figures/lodelo/direct_nobei.png>
+Package pdftex.def Info: figures/lodelo/direct_nobei.png  used on input line 57
+6.
+(pdftex.def)             Requested size: 258.75pt x 127.2457pt.
+Package cleveref Info: loaded `english' language definitions on input line 584.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [55]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/lodelo/Alignment_scores.pdf, id=16868, 462.52798pt x 346.89601pt>
+File: figures/lodelo/Alignment_scores.pdf Graphic file (type pdf)
+<use figures/lodelo/Alignment_scores.pdf>
+Package pdftex.def Info: figures/lodelo/Alignment_scores.pdf  used on input lin
+e 592.
+(pdftex.def)             Requested size: 276.00105pt x 207.01175pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/lodelo/pggb_full.png, id=16872, 2006.49625pt x 807.015pt>
+File: figures/lodelo/pggb_full.png Graphic file (type png)
+<use figures/lodelo/pggb_full.png>
+Package pdftex.def Info: figures/lodelo/pggb_full.png  used on input line 603.
+(pdftex.def)             Requested size: 276.00105pt x 110.99876pt.
+Package cleveref Info: loaded `english' language definitions on input line 607.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [56]
+Underfull \vbox (badness 2384) has occurred while \output is active []
+
+Package cleveref Info: loaded `english' language definitions on input line 607.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [57 <./figures/lodelo/lodElo_k25.png> <./figures/lodelo/direct_nobei.png>]
+LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 609.
+<figures/lodelo/minigraph_cgh.png, id=16892, 1048.66782pt x 725.71124pt>
+File: figures/lodelo/minigraph_cgh.png Graphic file (type png)
+<use figures/lodelo/minigraph_cgh.png>
+Package pdftex.def Info: figures/lodelo/minigraph_cgh.png  used on input line 6
+18.
+(pdftex.def)             Requested size: 137.9979pt x 95.4974pt.
+<figures/lodelo/mcactus_cgh_u1000_by_depth.png, id=16893, 1038.12843pt x 725.71
+124pt>
+File: figures/lodelo/mcactus_cgh_u1000_by_depth.png Graphic file (type png)
+<use figures/lodelo/mcactus_cgh_u1000_by_depth.png>
+Package pdftex.def Info: figures/lodelo/mcactus_cgh_u1000_by_depth.png  used on
+ input line 625.
+(pdftex.def)             Requested size: 137.9979pt x 96.4608pt.
+Package cleveref Info: loaded `english' language definitions on input line 632.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [58 <./figures/lodelo/Alignment_scores.pdf> <./figures/lodelo/pggb_full.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/lodelo/alingment_communities.pdf, id=16950, 2007.5pt x 2007.5pt>
+File: figures/lodelo/alingment_communities.pdf Graphic file (type pdf)
+<use figures/lodelo/alingment_communities.pdf>
+Package pdftex.def Info: figures/lodelo/alingment_communities.pdf  used on inpu
+t line 637.
+(pdftex.def)             Requested size: 137.9979pt x 137.9969pt.
+<figures/lodelo/plotsr.pdf, id=16955, 324.69995pt x 229.95732pt>
+File: figures/lodelo/plotsr.pdf Graphic file (type pdf)
+<use figures/lodelo/plotsr.pdf>
+Package pdftex.def Info: figures/lodelo/plotsr.pdf  used on input line 645.
+(pdftex.def)             Requested size: 276.00105pt x 195.47165pt.
+<figures/lodelo/tangle_chrCGH_B2_Cgreen_Gblue_Hred.png, id=16956, 1048.66782pt 
+x 725.71124pt>
+File: figures/lodelo/tangle_chrCGH_B2_Cgreen_Gblue_Hred.png Graphic file (type 
+png)
+<use figures/lodelo/tangle_chrCGH_B2_Cgreen_Gblue_Hred.png>
+Package pdftex.def Info: figures/lodelo/tangle_chrCGH_B2_Cgreen_Gblue_Hred.png 
+ used on input line 652.
+(pdftex.def)             Requested size: 276.00105pt x 190.99481pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Citation 'panacus' on page 59 undefined on input line 659.
+
+<figures/lodelo/lodelo_simon.histgrowth.pdf, id=16958, 2168.1pt x 433.62pt>
+File: figures/lodelo/lodelo_simon.histgrowth.pdf Graphic file (type pdf)
+<use figures/lodelo/lodelo_simon.histgrowth.pdf>
+Package pdftex.def Info: figures/lodelo/lodelo_simon.histgrowth.pdf  used on in
+put line 666.
+(pdftex.def)             Requested size: 2168.09474pt x 433.61894pt.
+<figures/lodelo/lodelo_cactus.histgrowth.pdf, id=16959, 2168.1pt x 433.62pt>
+File: figures/lodelo/lodelo_cactus.histgrowth.pdf Graphic file (type pdf)
+<use figures/lodelo/lodelo_cactus.histgrowth.pdf>
+Package pdftex.def Info: figures/lodelo/lodelo_cactus.histgrowth.pdf  used on i
+nput line 671.
+(pdftex.def)             Requested size: 2168.09474pt x 433.61894pt.
+
+LaTeX Warning: Float too large for page by 40.34698pt on input line 676.
+
+Package cleveref Info: loaded `english' language definitions on input line 677.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [59]
+Package cleveref Info: loaded `english' language definitions on input line 677.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [60 <./figures/lodelo/minigraph_cgh.png> <./figures/lodelo/mcactus_cgh_u1000_b
+y_depth.png> <./figures/lodelo/alingment_communities.pdf>]
+Package cleveref Info: loaded `english' language definitions on input line 677.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [61 <./figures/lodelo/plotsr.pdf> <./figures/lodelo/tangle_chrCGH_B2_Cgreen_Gb
+lue_Hred.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package cleveref Info: loaded `english' language definitions on input line 685.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [62]
+<figures/lodelo/chrE.pggb.png, id=17031, 708.6475pt x 249.93375pt>
+File: figures/lodelo/chrE.pggb.png Graphic file (type png)
+<use figures/lodelo/chrE.pggb.png>
+Package pdftex.def Info: figures/lodelo/chrE.pggb.png  used on input line 690.
+(pdftex.def)             Requested size: 193.19989pt x 68.13896pt.
+<figures/lodelo/chrE.mcactus.png, id=17032, 729.72626pt x 292.09125pt>
+File: figures/lodelo/chrE.mcactus.png Graphic file (type png)
+<use figures/lodelo/chrE.mcactus.png>
+Package pdftex.def Info: figures/lodelo/chrE.mcactus.png  used on input line 69
+7.
+(pdftex.def)             Requested size: 193.19989pt x 77.33249pt.
+)
+Package cleveref Info: loaded `english' language definitions on input line 706.
+
+
+[63]
+Package cleveref Info: loaded `english' language definitions on input line 706.
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [64 <./figures/lodelo/lodelo_simon.histgrowth.pdf> <./figures/lodelo/lodelo_ca
+ctus.histgrowth.pdf>]
+Package cleveref Info: loaded `english' language definitions on input line 706.
+
+ [65 <./figures/lodelo/chrE.pggb.png (PNG copy)> <./figures/lodelo/chrE.mcactus
+.png (PNG copy)>] [66
+
+] [67]
+Package cleveref Info: loaded `english' language definitions on input line 706.
+
+ [68]
+Package cleveref Info: loaded `english' language definitions on input line 706.
+
+ [69]
+Package cleveref Info: loaded `english' language definitions on input line 706.
+
+ [70]
+Package cleveref Info: loaded `english' language definitions on input line 82.
+ [71] [72
+
+
+
+] [73] [74
+
+]
+[75
+
+]
+
+Class memoir Warning: The material used in the headers is too large
+(24.0pt) for the given head height (12.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 104.
+
+\tf@ptc=\write8
+\openout8 = `main.ptc'.
+
+\tf@toc=\write9
+\openout9 = `main.toc'.
+
+\tf@lof=\write10
+\openout10 = `main.lof'.
+
+\tf@lot=\write11
+\openout11 = `main.lot'.
+
+(./main.aux
 Package cleveref Info: loaded `english' language definitions on input line 21.
-
-(./sections/dedication.aux) (./sections/preface.aux) (./sections/background.aux
-))
+ (./sections/dedication.aux) (./sections/preface.aux)
+(./sections/background.aux) (./sections/pushing_the_limit.aux))
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 22E58F2C72EC2CC34363A760E6E96FA6;1684.
+(rerunfilecheck)             Checksum: A884AF5E4C6276A385019B74C3B62D28;4263.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50587 strings out of 477975
- 995553 string characters out of 5839281
- 1975928 words of memory out of 5000000
- 69485 multiletter control sequences out of 15000+600000
- 637608 words of font info for 251 fonts, out of 8000000 for 9000
+ 51968 strings out of 477975
+ 1026637 string characters out of 5839281
+ 2056143 words of memory out of 5000000
+ 70437 multiletter control sequences out of 15000+600000
+ 662641 words of font info for 379 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 110i,11n,106p,1796b,2255s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{cite.2@apes_genomes} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@centromeres_eichler} has been referenced but
- does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@t2t} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@human-pangenomics-era} has been referenced b
-ut does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@humangenomeproject} has been referenced but 
-does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@durbin_recomb} has been referenced but does 
-not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@ape_genomes} has been referenced but does no
-t exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@nih_variation} has been referenced but does 
-not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@lactase_persistance} has been referenced but
- does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@genome_diversity_quintana} has been referenc
-ed but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@methylation} has been referenced but does no
-t exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@mdbg} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@metaprob2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@100dollars} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@first_human_genome} has been referenced but 
-does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@mitochondrialDNA} has been referenced but do
-es not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@sanger_sequencing} has been referenced but d
-oes not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@nih_dna} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.2@sugarcane} has been referenced but does not 
-exist, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvip
-s/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/sha
-re/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texlive/texmf-dist/fonts/
-enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/shar
-e/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
-7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (33 pages, 6292372 bytes).
+ 110i,12n,106p,1796b,3109s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
+fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/
+usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/
+lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/be
+ra/fvmr8a.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmc
+sc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
+c/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (87 pages, 24381808 bytes).
 PDF statistics:
- 439 PDF objects out of 1000 (max. 8388607)
- 346 compressed objects within 4 object streams
- 92 named destinations out of 1000 (max. 500000)
- 103089 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 17463 PDF objects out of 18468 (max. 8388607)
+ 9087 compressed objects within 91 object streams
+ 259 named destinations out of 1000 (max. 500000)
+ 116620 words of extra memory for PDF output out of 128383 (max. 10000000)
 

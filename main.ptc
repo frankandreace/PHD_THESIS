@@ -1,37 +1,62 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{Preface}{iii}{chapter*.1}%
-\contentsline {chapter}{Contents}{v}{section*.3}%
-\contentsline {chapter}{List of Figures}{vii}{section*.4}%
-\contentsline {chapter}{List of Tables}{ix}{section*.5}%
-\contentsline {chapter}{\chapternumberline {1}Pushing the limit of pan-genome\xspace construction methods}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
-\contentsline {chapter}{\chapternumberline {2}Comparing methods for constructing and representing human pangenome graphs}{3}{chapter.2}%
+\contentsline {chapter}{Contents}{v}{section*.2}%
+\contentsline {chapter}{List of Figures}{vii}{section*.3}%
+\contentsline {chapter}{List of Tables}{ix}{section*.4}%
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}DNA, genome variation and sequencing data}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}DNA sequencing}{3}{subsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1.1}Next Generation Sequencing}{4}{subsubsection.1.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1.2}Third Generation Sequencing}{4}{subsubsection.1.1.1.2}%
+\contentsline {section}{\numberline {1.2}From reads to \emph {k}-mers\xspace }{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Genetic diversity: focus on humans.}{10}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Causes and drivers of genetic diversity in humans}{10}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Human Genomic variation: types of variants}{11}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}The importance of studying genomic diversity in populations context}{12}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Pangenomics, pangenomes and pangenome graphs}{13}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}The premises for Pangenomics}{13}{subsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.1.1}A single linear genome for all analyses}{13}{subsubsection.1.4.1.1}%
+\contentsline {subsubsection}{\numberline {1.4.1.2}A quantity and quality revolution }{14}{subsubsection.1.4.1.2}%
+\contentsline {subsubsection}{\numberline {1.4.1.3}The need to better understand difference between genomes}{16}{subsubsection.1.4.1.3}%
+\contentsline {subsection}{\numberline {1.4.2}Pangenomics}{17}{subsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.2.1}Pangenomes}{17}{subsubsection.1.4.2.1}%
+\contentsline {subsubsection}{\numberline {1.4.2.2}Pangenome Graphs}{19}{subsubsection.1.4.2.2}%
+\contentsline {subsection}{\numberline {1.4.3}Variation Graphs}{21}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}De Bruijn Graphs}{21}{subsection.1.4.4}%
+\contentsline {subsubsection}{\numberline {1.4.4.1}Colored and Compacted De Bruijn Graphs}{23}{subsubsection.1.4.4.1}%
+\contentsline {section}{\numberline {1.5}Outline}{24}{section.1.5}%
+\contentsline {chapter}{Bibliography}{27}{section*.23}%
+\contentsline {chapter}{\chapternumberline {2}Pushing the limit of pan-genome\xspace construction methods}{31}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Motivation}{31}{section.2.1}%
+\contentsline {chapter}{\chapternumberline {3}Comparing methods for constructing and representing human pangenome graphs}{33}{chapter.3}%
 \ttl@starttoc {chapters@1}
-\contentsline {section}{\numberline {2.1}Introduction}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Results}{5}{section.2.2}%
-\contentsline {paragraph}{\textbf {\textup {Extraction of HLA-E and a complex HLA region from complete pangenome graphs}}}{9}{section*.12}%
-\contentsline {paragraph}{\textbf {\textup {HLA-E: a low complexity region}}}{10}{section*.13}%
-\contentsline {paragraph}{\textbf {\textup {HLA complex locus: high complexity region}}}{10}{section*.15}%
-\contentsline {paragraph}{\textbf {\textup {Editability and dynamic updates}}}{12}{section*.18}%
-\contentsline {paragraph}{\textbf {\textup {Stability}}}{12}{section*.19}%
-\contentsline {paragraph}{\textbf {\textup {Accessibility by downstream applications}}}{14}{section*.20}%
-\contentsline {paragraph}{\textbf {\textup {Haplotype compression}}}{15}{section*.21}%
-\contentsline {paragraph}{\textbf {\textup {Ease of Visualization}}}{15}{section*.22}%
-\contentsline {paragraph}{\textbf {\textup {Quality of Metadata and Annotation}}}{15}{section*.23}%
-\contentsline {section}{\numberline {2.3}Discussion}{16}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Conclusions}{17}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Methods}{18}{section.2.5}%
-\contentsline {paragraph}{Authors' affiliations}{22}{section*.36}%
-\contentsline {section}{\numberline {2.6}Perspectives}{23}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Building a \emph {Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}{24}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}\emph {Lodderomyces elongisporus}: genetic characteristichs, interest and used data}{24}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Building ad hoc pangenome reference}{25}{subsection.2.7.2}%
-\contentsline {subsubsection}{\numberline {2.7.2.1}Determining chromosomal communities}{25}{subsubsection.2.7.2.1}%
-\contentsline {subsubsection}{\numberline {2.7.2.2}Producing a variation graph using pggb}{27}{subsubsection.2.7.2.2}%
-\contentsline {subsubsection}{\numberline {2.7.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{27}{subsubsection.2.7.2.3}%
-\contentsline {subsection}{\numberline {2.7.3}Representing recombination events from groups of genomes}{28}{subsection.2.7.3}%
-\contentsline {section}{\numberline {2.8}Conclusion and Perspectives}{30}{section.2.8}%
-\contentsline {chapter}{Bibliography}{33}{section*.46}%
-\contentsline {chapter}{Papers}{40}{section*.48}%
-\contentsline {chapter}{Appendices}{41}{section*.49}%
+\contentsline {section}{\numberline {3.1}Introduction}{34}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Results}{35}{section.3.2}%
+\contentsline {paragraph}{\textbf {\textup {Extraction of HLA-E and a complex HLA region from complete pangenome graphs}}}{39}{paragraph*.26}%
+\contentsline {paragraph}{\textbf {\textup {HLA-E: a low complexity region}}}{40}{paragraph*.27}%
+\contentsline {paragraph}{\textbf {\textup {HLA complex locus: high complexity region}}}{40}{paragraph*.29}%
+\contentsline {paragraph}{\textbf {\textup {Editability and dynamic updates}}}{42}{paragraph*.31}%
+\contentsline {paragraph}{\textbf {\textup {Stability}}}{42}{paragraph*.32}%
+\contentsline {paragraph}{\textbf {\textup {Accessibility by downstream applications}}}{44}{paragraph*.33}%
+\contentsline {paragraph}{\textbf {\textup {Haplotype compression}}}{45}{paragraph*.34}%
+\contentsline {paragraph}{\textbf {\textup {Ease of Visualization}}}{45}{paragraph*.35}%
+\contentsline {paragraph}{\textbf {\textup {Quality of Metadata and Annotation}}}{45}{paragraph*.36}%
+\contentsline {section}{\numberline {3.3}Discussion}{46}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Conclusions}{47}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Methods}{48}{section.3.5}%
+\contentsline {paragraph}{Authors' affiliations}{52}{paragraph*.40}%
+\contentsline {section}{\numberline {3.6}Perspectives}{53}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Building a \emph {Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}{54}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}\emph {Lodderomyces elongisporus}: genetic characteristichs, interest and used data}{55}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Building ad hoc pangenome reference}{55}{subsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.1}Determining chromosomal communities}{56}{subsubsection.3.7.2.1}%
+\contentsline {subsubsection}{\numberline {3.7.2.2}Producing a variation graph using pggb}{56}{subsubsection.3.7.2.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{58}{subsubsection.3.7.2.3}%
+\contentsline {subsection}{\numberline {3.7.3}Representing translocation events from groups of genomes}{59}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.4}Estimating core genome and pangenome growth}{59}{subsection.3.7.4}%
+\contentsline {section}{\numberline {3.8}Conclusion and Perspectives}{62}{section.3.8}%
+\contentsline {chapter}{Bibliography}{67}{section*.52}%
+\contentsline {chapter}{Papers}{74}{section*.54}%
+\contentsline {chapter}{Appendices}{75}{section*.55}%
 \contentsfinish 

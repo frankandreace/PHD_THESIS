@@ -4,4 +4,10 @@
 \contentsline {table}{\numberline {1.1}{\ignorespaces \emph {k}-mer\xspace computation from a sequence}}{8}{table.caption.7}%
 \contentsline {table}{\numberline {1.2}{\ignorespaces Example of canonical \emph {k}-mer\xspace counting.}}{9}{table.caption.8}%
 \contentsline {table}{\numberline {1.3}{\ignorespaces DNA data increase over the years.}}{16}{table.caption.14}%
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Computational metrics comparison between pangenome building tools.}}{39}{table.caption.25}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Relative strengths of five pangenome graph construction tools.}}{46}{table.caption.37}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Description of the three datasets generated to test the scalability of the tools.}}{49}{table.caption.38}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces URL, version, pangenome representation and parameters of the three analyzed tools.}}{50}{table.caption.39}%
 \contentsfinish 

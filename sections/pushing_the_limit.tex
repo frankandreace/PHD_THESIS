@@ -490,7 +490,18 @@ Finally, it would be very useful to define a \ccdbg output color format that eve
 Here we present another example of pushing the boundaries of variation graph pangenome building strategies, precisely in producing a graph that can represent inter-chromosomal events, like rearrangements, for the medically interesting yeast strain of \lodelo. We show also how a pangenome based approach can help produce a more comprehensive insight of such events than a linear genome based one.\\
 The work presented here is also in part a team effort with other PhD students and researcher I was co-leading with Daniel Doerr during a winter-school organized by my consortium: Simon Heumos, which I would like to thank for the discussion we had on the construction of such graphs and Nicola Rizzo. Most of the results and findings reported here are moslty my own, subsequent, work.\\
 The following sections will explain the process needed to produce custom, biologically-significant and biologically-driven pangenome graphs of a yeast strain with the current state-of-the-art tools and offer insights on workarounds that can be used in cases with special needs, where current tools features limit the analysis that can be done. This will also show how pangenome models can offer more powerful tools to analyze specific variation in a group of similar genomes compared to linear reference based ones.\\ 
-In this specific case, the goal was to produce a variation graph that considered, and showed, the long chromosomal rearrangements that were noticed by the team that produced the assemblies from short and long reads. Chromosome-crossing syntenies for multiple contigs in alignment hits of chromosomes C, G, and H, were detected, suggesting that they could correspond to a singular same recombination group. As this finding was consistent with an independent genomic study, based on SNPs, performed on the isolates of a fungemia outbreak in a neonatal intensive care unit in Delhi between 2021 and 2022. This study also noticed that this rearrangements are more frequent in hospital and patient associated populations than in fruit ones~\cite{lodelo_india}. \\
+In this specific case, the goal was to produce a variation graph that considered, and showed, the long chromosomal translocations that were noticed by the team that produced the assemblies from short and long reads. Chromosome-crossing syntenies for multiple contigs in alignment hits of chromosomes C, G, and H, were detected, suggesting that they could correspond to a singular same recombination group. This finding was consistent with an independent SNP-based genomic study. It was performed on the isolates of a fungemia outbreak in a neonatal intensive care unit in Delhi between 2021 and 2022 and it noticed that this translocation events are more frequent in hospital and patient associated populations than in fruit ones~\cite{lodelo_india}. \\
+In summary, the work here presented will be organized as follows:
+\begin{enumerate}
+	\item Brief characterization of \lodelo genome and relevance;
+	\item Pangenome graphs constructed and their utility;
+	\begin{enumerate}
+		\item Determining the chromosomal communities from the assemblies to generate a variation graph of interest;
+		\item Producing a variation graph with \pggb;
+		\item Producing a variation graph with \mcactus by customizing the pipeline and the data;
+	\end{enumerate}
+	\item Representation of translocation events in variation graphs;
+\end{enumerate}
 
 %By plotting the alignments of the 2 best quality assemblies, B2 and J2, for chromosome C,G and H, shown in figure~\ref{fig:lodelo_dotplot-alignments}.
 %\begin{figure}[t]
@@ -522,9 +533,30 @@ In this specific case, the goal was to produce a variation graph that considered
 %We sequenced,  The computational work I present here was done in collaboration with members of the consortium, in large part by Simon Heumos, whom I would like to thank for the time spent discussing and working together.
 
 \subsection{\emph{Lodderomyces elongisporus}: genetic characteristichs, interest and used data}
-\emph{Lodderomyces elongisporus} is a diploid yeast that has been isolated from, among many sources, humans and it is recently emerging as pathogenic. It is phylogenetically placed in the Candida clade and the side of its genome is usually between 15 and 16 Mb, 2 orders of magnitude smaller than a human genome~\cite{Lodderomyces}. Its DNA is organized into 8 chromosomes, that here will be referred in alphabetical order and decreasing size A to H, from around 3.5Mbp of chr A to 800 Kbp of chr H, plus a 35 Kbp mitochondrial DNA. Our analysis shows that it has a stable core genome of ~13Mbp. 
-Increasing reports of (mostly bloodstream) infection in mainly immunosuppressed adults makes it an increasingly important subject of studies: an outbreak war reported occurring in a neonatal ICU in Dheli, India from September 2021 to February 2022 with 1 death\cite{lodelo_india}.\\
+\emph{Lodderomyces elongisporus} is a diploid yeast that has been isolated from, among many sources, humans and it is recently emerging as pathogenic. It is phylogenetically placed in the Candida clade and the size of its genome is usually between 15 and 16 Mb, 2 orders of magnitude smaller than a human genome~\cite{Lodderomyces}. Its DNA is organized into 8 chromosomes, that here will be referred in alphabetical order and decreasing size A to H, from around 3.5Mbp of chr A to 800 Kbp of chr H, plus a 35 Kbp mitochondrial DNA. Our analysis shows that it has a stable core genome of ~13Mbp, as shown in section~\ref{sec:core_pg}. 
+Increasing reports of (mostly bloodstream) infection in mainly immunosuppressed adults makes it an increasingly important subject of studies\cite{lodelo_pathogen,lodelo_fatal,lodelo_meningitis,lodelo_bloodstream}: it also got recent attention when an outbreak was reported occurring in a neonatal ICU in Dheli, India from September 2021 to February 2022 with 1 death\cite{lodelo_india}.\\
 Samples sequenced by us were called in alphabetical order, followed with a number greater or equal than 0 that denoted the quality of the assembly. Moreover, one sample, B2, for which a member of the consortium produced a high quality assembly after manual curation, was used as relative reference in the cohort. Another sample, J2, was also fully resolved into chromosomes while the others were assembled into contigs.
+
+\begin{table}
+	\centering
+	\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c | c |}
+		\hline
+		filename     &   total length   & number of sequences & mean length &    longest & shortest     &   N count & Gaps &   N50  &   N50n  &  N70 &    N70n &   N90 &    N90n \\
+		\hline
+		A1 & 15699113 & 25 & 627964.52 & 2595744 & 3907 & 0 & 0 & 1354781 & 5 & 938474 & 8 & 414196 & 13 \\
+		B2 & 15485469 & 7 &  2212209.86 & 4493495 & 35166 & 0 & 0 & 3516991 & 2 & 2001278 & 4 & 1643619 & 5 \\
+		C0 & 15532065 & 20 & 776603.25 & 3532941 & 810 & 0 & 0 & 1331232 & 4 & 1222310 & 6 & 835847 & 9 \\
+		D0 & 15507665 & 17 & 912215.59 & 3532853 & 5008 & 0 & 0 & 2160581 & 3 & 1885061 & 5 & 740828 & 7 \\
+		E0 & 15332588 & 18 & 851810.44 & 3544471 & 3228 & 0 & 0 & 1992182 & 3 & 1040518 & 6 & 418294 & 10 \\
+		F1 & 15664073 & 21 & 745908.24 & 3548518 & 1282 & 0 & 0 & 2165076 & 3 & 1245669 & 5 & 440649 & 9 \\
+		G0 & 15636520 & 19 & 822974.74 & 3548910 & 550 & 0 & 0 & 1697956 & 4 & 1657398 & 5 & 527890 & 9 \\
+		H0 & 15601346 & 21 & 742921.24 & 3549008 & 6842 & 0 & 0 & 2170489 & 3 & 1247137 & 5 & 469363 & 10 \\
+		I1 & 15639882 & 30 & 521329.40 & 3622524 & 536 & 0 & 0 & 1999295 & 3 & 1636379 & 5 & 384387 & 10 \\
+		J2 & 15425942 & 9 & 1713993.56 & 3543738 & 35442 & 0 & 0 & 2157297 & 3 & 1647795 & 5 & 1162477 & 7 \\
+		K0 & 15752744 & 16 & 984546.50 & 3534745 & 19835 & 0 & 0 & 1631500 & 4 & 1305577 & 6 & 684340 & 9 \\
+		\hline
+	\end{tabular}
+\end{table}
 
 \subsection{Building ad hoc pangenome reference}
 We produced a \dbg of the assemblies using \bifrost, but their usefulness remains limited for visual analysis of complex biological events interpretation and study.\\
@@ -598,7 +630,7 @@ When the complete modified pipeline of \mcactus is run, it is possible to see th
 	\label{fig:chromosome_cgh_minigraph}
 \end{figure}
 
-\subsection{Representing recombination events from groups of genomes}
+\subsection{Representing translocation events from groups of genomes}
 Applying simple community separation on the all vs all alignment of the contigs, like the one suggested in the manual of \pggb, does not help confirming the hypothesis, mainly because of segment length selection. Figure~\ref{fig:lodelo_communities} shows community detection using Louvain algorithm on the contig network inferred by all vs all alignment.
 \begin{figure}[h!]
 	\centering
@@ -622,6 +654,26 @@ It is therefore possible to visualize the tangle that emerges from the graph gen
 	\label{fig:lodelo_graph_tangle}
 \end{figure}
 
+\subsection{Estimating core genome and pangenome growth}
+\label{sec:core_pg}
+Finally, pangenome graphs are also useful to quantify the part of the genome that is shared between genomes (what is called core-genome) and the parts that are mostly shared or private to each one. It is also interesting to estimate its growth, i.e. to measure how much the total genomic content grows with the increase of the size of the sample. These metrics can be obtained by using the tool \panacus~\cite{panacus}. \texttt{Panacus} is a tool that calculates coverage distributions of countable elements in variation graphs: it uses paths to detect how many genomes are associated to any node, edge or basepair of the pangenome graph. From these distribution it computes the pangenome growth and core curves as function of the number of genomes.\\
+Calculating these metrics can be used to validate that the two variation graphs built with \pggb and \mcactus agree on the underlying genetic distribution of the input sample.\\
+Figure~\ref{fig:panacus} shows very concordant metrics for the two variation graphs. First, they show similar basepair coverage histogram, that highlight a great portion of genome shared by all the samples, and a non-negligible share of sequences that are private to each genome (~1.5Mbp in total). Secondly, both growth curves show similar pattern, that seems plateauing. This is also highlighted by the fraction of new base pairs introduced by each sample, that decreases from ~700k new basepairs with the new sample to less than ~142k base pairs in on the 11th genome. Finally, the core pangenome can be estimated by the basepairs that are spelled by all the genomes in the graph: the computed value for the 11 samples is ~13,2 Mbp for \pggb and ~13,6 Mbp for \mcactus. The variability in the results are expected and due to different graph construction methods.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=90,width=.7\textwidth]{figures/lodelo/lodelo_simon.histgrowth.pdf}
+		\caption[\pggb pangenome.]{\pggb pangenome.}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=90,width=.7\textwidth]{figures/lodelo/lodelo_cactus.histgrowth.pdf}
+		\caption[\mcactus pangenome.]{\mcactus pangenome.} 
+	\end{subfigure}%
+	\caption{Pangenome core and growth of \lodelo using variation graphs. \pggb graph generated by Simon Heumos.}
+	\label{fig:panacus}
+\end{figure}
 
 \section{Conclusion and Perspectives}
 The work presented above shows how pangenomes can serve as analysis platform of samples from same-strain yeast. \\

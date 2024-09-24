@@ -119,7 +119,9 @@
 \RequirePackage[pdfusetitle]{hyperref}                        % Clickable links
 \RequirePackage[nameinlink, capitalize, noabbrev]{cleveref}   % \cref
 \RequirePackage{doi}           % Ignore LaTeX syntax in DOI links
+\RequirePackage[usestackEOL]{stackengine}
 \renewcommand{\doitext}{DOI:\space}
+\RequirePackage{graphicx}
 
 
 %% Bibliography
@@ -244,6 +246,10 @@
 \newcommand\citeAYp[1]{(\citeauthor{#1} \citeyear{#1})}
 \newcommand\citeAYt[1]{\citeauthor{#1} (\citeyear{#1})}
 
+\renewcommand\stackalignment{r}% RIGHT ALIGNED STACKS
+\renewcommand\stacktype{L}% MAKE STACKS OBEY FIXED BASELINESKIP
+\strutlongstacks{T}% TO GET PROPER SPACING FOR SINGLE-LINE ITEMS
+
 
 %% DEFS 
 \newcommand{\sorbonne}{Sorbonne Université}
@@ -282,6 +288,7 @@
 \newcommand{\gfatools}{\texttt{gfatools}\xspace}
 \newcommand{\gfaestus}{\texttt{gfaestus}\xspace}
 \newcommand{\graphaligner}{\texttt{GraphAligner}\xspace}
+\newcommand{\panacus}{\texttt{panacus}\xspace}
 \newcommand{\subs}{(sub-)sequences}
 
 
