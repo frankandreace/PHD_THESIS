@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.6.21)  24 SEP 2024 19:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.6.21)  24 SEP 2024 20:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2496,10 +2496,6 @@ Package cleveref Info: loaded `english' language definitions on input line 487.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10.95> not available
 (Font)              Font shape `T1/phv/b/sl' tried instead on input line 535.
 
-Overfull \hbox (13.05386pt too wide) in paragraph at lines 563--563
- [][] 
- []
-
 
 LaTeX Warning: Citation 'assemblystats' on page 54 undefined on input line 563.
 
@@ -2555,16 +2551,7 @@ Package cleveref Info: loaded `english' language definitions on input line 595.
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
  [55]
-
-LaTeX Warning: Text page 56 contains only floats.
-
-Package cleveref Info: loaded `english' language definitions on input line 595.
-
-
-Overfull \vbox (12.0pt too high) has occurred while \output is active []
-
- [56]
-<figures/lodelo/Alignment_scores.pdf, id=16891, 462.52798pt x 346.89601pt>
+<figures/lodelo/Alignment_scores.pdf, id=16887, 462.52798pt x 346.89601pt>
 File: figures/lodelo/Alignment_scores.pdf Graphic file (type pdf)
 <use figures/lodelo/Alignment_scores.pdf>
 Package pdftex.def Info: figures/lodelo/Alignment_scores.pdf  used on input lin
@@ -2574,7 +2561,7 @@ e 603.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/lodelo/pggb_full.png, id=16895, 2006.49625pt x 807.015pt>
+<figures/lodelo/pggb_full.png, id=16891, 2006.49625pt x 807.015pt>
 File: figures/lodelo/pggb_full.png Graphic file (type png)
 <use figures/lodelo/pggb_full.png>
 Package pdftex.def Info: figures/lodelo/pggb_full.png  used on input line 614.
@@ -2584,19 +2571,19 @@ Package cleveref Info: loaded `english' language definitions on input line 618.
 
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
- [57]
+ [56]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 620.
-<figures/lodelo/minigraph_cgh.png, id=16906, 1048.66782pt x 725.71124pt>
+<figures/lodelo/minigraph_cgh.png, id=16902, 1048.66782pt x 725.71124pt>
 File: figures/lodelo/minigraph_cgh.png Graphic file (type png)
 <use figures/lodelo/minigraph_cgh.png>
 Package pdftex.def Info: figures/lodelo/minigraph_cgh.png  used on input line 6
 29.
 (pdftex.def)             Requested size: 137.9979pt x 95.4974pt.
-<figures/lodelo/mcactus_cgh_u1000_by_depth.png, id=16907, 1038.12843pt x 725.71
+<figures/lodelo/mcactus_cgh_u1000_by_depth.png, id=16903, 1038.12843pt x 725.71
 124pt>
 File: figures/lodelo/mcactus_cgh_u1000_by_depth.png Graphic file (type png)
 <use figures/lodelo/mcactus_cgh_u1000_by_depth.png>
@@ -2606,18 +2593,18 @@ Package pdftex.def Info: figures/lodelo/mcactus_cgh_u1000_by_depth.png  used on
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/lodelo/alingment_communities.pdf, id=16909, 2007.5pt x 2007.5pt>
+<figures/lodelo/alingment_communities.pdf, id=16905, 2007.5pt x 2007.5pt>
 File: figures/lodelo/alingment_communities.pdf Graphic file (type pdf)
 <use figures/lodelo/alingment_communities.pdf>
 Package pdftex.def Info: figures/lodelo/alingment_communities.pdf  used on inpu
 t line 648.
 (pdftex.def)             Requested size: 137.9979pt x 137.9969pt.
-<figures/lodelo/plotsr.pdf, id=16914, 324.69995pt x 229.95732pt>
+<figures/lodelo/plotsr.pdf, id=16910, 324.69995pt x 229.95732pt>
 File: figures/lodelo/plotsr.pdf Graphic file (type pdf)
 <use figures/lodelo/plotsr.pdf>
 Package pdftex.def Info: figures/lodelo/plotsr.pdf  used on input line 656.
 (pdftex.def)             Requested size: 276.00105pt x 195.47165pt.
-<figures/lodelo/tangle_chrCGH_B2_Cgreen_Gblue_Hred.png, id=16915, 1048.66782pt 
+<figures/lodelo/tangle_chrCGH_B2_Cgreen_Gblue_Hred.png, id=16911, 1048.66782pt 
 x 725.71124pt>
 File: figures/lodelo/tangle_chrCGH_B2_Cgreen_Gblue_Hred.png Graphic file (type 
 png)
@@ -2633,7 +2620,7 @@ Package cleveref Info: loaded `english' language definitions on input line 667.
 
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
- [58]
+ [57]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2641,23 +2628,26 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `fig:panacus' on page 59 undefined on input line 672.
+LaTeX Warning: Reference `fig:panacus' on page 58 undefined on input line 672.
 
 Package cleveref Info: loaded `english' language definitions on input line 681.
 
-[59]
-<figures/lodelo/chrE.pggb.png, id=16935, 708.6475pt x 249.93375pt>
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [58]
+<figures/lodelo/chrE.pggb.png, id=16931, 715.9548pt x 299.6796pt>
 File: figures/lodelo/chrE.pggb.png Graphic file (type png)
 <use figures/lodelo/chrE.pggb.png>
 Package pdftex.def Info: figures/lodelo/chrE.pggb.png  used on input line 686.
-(pdftex.def)             Requested size: 345.0pt x 121.67917pt.
-<figures/lodelo/chrE.mcactus.png, id=16936, 729.72626pt x 292.09125pt>
+(pdftex.def)             Requested size: 345.0pt x 144.40701pt.
+<figures/lodelo/chrE.mcactus.png, id=16932, 740.5266pt x 339.669pt>
 File: figures/lodelo/chrE.mcactus.png Graphic file (type png)
 <use figures/lodelo/chrE.mcactus.png>
 Package pdftex.def Info: figures/lodelo/chrE.mcactus.png  used on input line 69
 3.
-(pdftex.def)             Requested size: 345.0pt x 138.09406pt.
-<figures/lodelo/lodelo_simon.histgrowth.pdf, id=16937, 2168.1pt x 433.62pt>
+(pdftex.def)             Requested size: 345.0pt x 158.25024pt.
+<figures/lodelo/lodelo_simon.histgrowth.pdf, id=16933, 2168.1pt x 433.62pt>
 File: figures/lodelo/lodelo_simon.histgrowth.pdf Graphic file (type pdf)
 <use figures/lodelo/lodelo_simon.histgrowth.pdf>
 Package pdftex.def Info: figures/lodelo/lodelo_simon.histgrowth.pdf  used on in
@@ -2670,7 +2660,7 @@ LaTeX Warning: Float too large for page by 21.47646pt on input line 706.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/lodelo/lodelo_cactus.histgrowth.pdf, id=16938, 2168.1pt x 433.62pt>
+<figures/lodelo/lodelo_cactus.histgrowth.pdf, id=16934, 2168.1pt x 433.62pt>
 File: figures/lodelo/lodelo_cactus.histgrowth.pdf Graphic file (type pdf)
 <use figures/lodelo/lodelo_cactus.histgrowth.pdf>
 Package pdftex.def Info: figures/lodelo/lodelo_cactus.histgrowth.pdf  used on i
@@ -2683,6 +2673,9 @@ LaTeX Warning: Float too large for page by 33.47646pt on input line 712.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
+Package cleveref Info: loaded `english' language definitions on input line 714.
+
+ [59]
 Package cleveref Info: loaded `english' language definitions on input line 714.
 
 
@@ -2777,9 +2770,6 @@ Package cleveref Info: loaded `english' language definitions on input line 21.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 446AAA97C7CD42B5A763AF3F1EB00446;4263.
 
@@ -2794,7 +2784,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  52020 strings out of 477975
  1028072 string characters out of 5839281
- 2064553 words of memory out of 5000000
+ 2064951 words of memory out of 5000000
  70469 multiletter control sequences out of 15000+600000
  663175 words of font info for 385 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
@@ -2817,7 +2807,7 @@ exmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
 c/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (89 pages, 24394089 bytes).
+Output written on main.pdf (89 pages, 24422640 bytes).
 PDF statistics:
  17509 PDF objects out of 18468 (max. 8388607)
  9128 compressed objects within 92 object streams
