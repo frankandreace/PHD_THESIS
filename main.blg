@@ -1,51 +1,51 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [1] Config.pm:309> INFO - Logfile is 'main.blg'
-[148] biber:340> INFO - === mar. sept. 24, 2024, 12:27:35
-[174] Biber.pm:418> INFO - Reading 'main.bcf'
-[296] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[296] Biber.pm:978> INFO - Found 0 citekeys in bib section 1
-[297] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[298] Biber.pm:978> INFO - Found 25 citekeys in bib section 2
-[299] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[299] Biber.pm:978> INFO - Found 0 citekeys in bib section 3
-[299] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[302] Biber.pm:978> INFO - Found 43 citekeys in bib section 4
-[302] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[363] Biber.pm:4401> INFO - Processing section 2
-[380] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperI.bib' for section 2
-[389] bibtex.pm:1713> INFO - LaTeX decoding ...
-[495] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/paperI.bib'
-[770] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperII.bib' for section 2
-[781] bibtex.pm:1713> INFO - LaTeX decoding ...
-[870] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/paperII.bib'
-[875] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/pushing_the_limit.bib' for section 2
-[878] bibtex.pm:1713> INFO - LaTeX decoding ...
-[901] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/pushing_the_limit.bib'
-[908] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/perspectives.bib' for section 2
-[909] bibtex.pm:1713> INFO - LaTeX decoding ...
-[914] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/perspectives.bib'
-[915] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/background.bib' for section 2
-[920] bibtex.pm:1713> INFO - LaTeX decoding ...
-[969] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/background.bib'
-[2532] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[2532] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[2532] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[2533] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[2609] Biber.pm:4401> INFO - Processing section 4
-[2610] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperI.bib' for section 4
-[4265] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperII.bib' for section 4
-[4266] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/pushing_the_limit.bib' for section 4
-[4716] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[4716] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[4716] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[4716] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[4803] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[6984] bbl.pm:757> INFO - Output to main.bbl
-[6984] Biber.pm:130> WARN - Duplicate entry key: 'odgi' in file 'bibliographies/background.bib', skipping ...
-[6984] Biber.pm:130> WARN - legacy month field 'Apr' in entry 'sugarcane' is not an integer - this will probably not sort properly.
-[6984] Biber.pm:130> WARN - legacy month field 'Apr' in entry 'mitochondrialDNA' is not an integer - this will probably not sort properly.
-[6984] Biber.pm:130> WARN - legacy month field 'Jan' in entry 'methylation' is not an integer - this will probably not sort properly.
-[6985] Biber.pm:130> WARN - legacy month field 'May' in entry 'centromeres_eichler' is not an integer - this will probably not sort properly.
-[6985] Biber.pm:130> WARN - legacy month field 'Sep' in entry 'splitstree' is not an integer - this will probably not sort properly.
-[6985] Biber.pm:130> WARN - legacy month field 'Dec' in entry 'syri' is not an integer - this will probably not sort properly.
-[6985] Biber.pm:132> INFO - WARNINGS: 7
+[130] biber:340> INFO - === mar. sept. 24, 2024, 18:02:02
+[154] Biber.pm:418> INFO - Reading 'main.bcf'
+[272] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[272] Biber.pm:978> INFO - Found 0 citekeys in bib section 1
+[272] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[274] Biber.pm:978> INFO - Found 25 citekeys in bib section 2
+[274] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[274] Biber.pm:978> INFO - Found 0 citekeys in bib section 3
+[274] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[278] Biber.pm:978> INFO - Found 48 citekeys in bib section 4
+[278] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[334] Biber.pm:4401> INFO - Processing section 2
+[350] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperI.bib' for section 2
+[357] bibtex.pm:1713> INFO - LaTeX decoding ...
+[454] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/paperI.bib'
+[700] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperII.bib' for section 2
+[710] bibtex.pm:1713> INFO - LaTeX decoding ...
+[799] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/paperII.bib'
+[804] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/pushing_the_limit.bib' for section 2
+[807] bibtex.pm:1713> INFO - LaTeX decoding ...
+[838] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/pushing_the_limit.bib'
+[845] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/perspectives.bib' for section 2
+[846] bibtex.pm:1713> INFO - LaTeX decoding ...
+[851] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/perspectives.bib'
+[852] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/background.bib' for section 2
+[856] bibtex.pm:1713> INFO - LaTeX decoding ...
+[902] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliographies/background.bib'
+[2205] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2205] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2205] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[2205] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[2266] Biber.pm:4401> INFO - Processing section 4
+[2266] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperI.bib' for section 4
+[3680] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/paperII.bib' for section 4
+[3681] Biber.pm:4592> INFO - Looking for bibtex file 'bibliographies/pushing_the_limit.bib' for section 4
+[4125] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[4125] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[4125] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[4125] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[4201] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[6242] bbl.pm:757> INFO - Output to main.bbl
+[6242] Biber.pm:130> WARN - Duplicate entry key: 'odgi' in file 'bibliographies/background.bib', skipping ...
+[6242] Biber.pm:130> WARN - legacy month field 'Apr' in entry 'sugarcane' is not an integer - this will probably not sort properly.
+[6242] Biber.pm:130> WARN - legacy month field 'Apr' in entry 'mitochondrialDNA' is not an integer - this will probably not sort properly.
+[6242] Biber.pm:130> WARN - legacy month field 'Jan' in entry 'methylation' is not an integer - this will probably not sort properly.
+[6242] Biber.pm:130> WARN - legacy month field 'May' in entry 'centromeres_eichler' is not an integer - this will probably not sort properly.
+[6242] Biber.pm:130> WARN - legacy month field 'Sep' in entry 'splitstree' is not an integer - this will probably not sort properly.
+[6242] Biber.pm:130> WARN - legacy month field 'Dec' in entry 'syri' is not an integer - this will probably not sort properly.
+[6242] Biber.pm:132> INFO - WARNINGS: 7

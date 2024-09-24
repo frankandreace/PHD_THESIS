@@ -9540,6 +9540,7 @@
       \strng{authorbibnamehash}{d7421bf1e63606ef58af4fd0db66ed85}
       \strng{authornamehash}{d7421bf1e63606ef58af4fd0db66ed85}
       \strng{authorfullhash}{d7421bf1e63606ef58af4fd0db66ed85}
+      \field{extraname}{1}
       \field{sortinit}{6}
       \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
@@ -9562,6 +9563,216 @@
       \verb{url}
       \verb https://doi.org/10.1371/journal.ppat.1011613
       \endverb
+    \endentry
+    \entry{lodelo_pathogen}{article}{}
+      \name{author}{2}{}{%
+        {{hash=471e61c37bc3e62dbe8655e02a002343}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yue},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7065b63a5f4468a28e1a5bf403f6ce01}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Jianping},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{d7421bf1e63606ef58af4fd0db66ed85}
+      \strng{fullhash}{d7421bf1e63606ef58af4fd0db66ed85}
+      \strng{bibnamehash}{d7421bf1e63606ef58af4fd0db66ed85}
+      \strng{authorbibnamehash}{d7421bf1e63606ef58af4fd0db66ed85}
+      \strng{authornamehash}{d7421bf1e63606ef58af4fd0db66ed85}
+      \strng{authorfullhash}{d7421bf1e63606ef58af4fd0db66ed85}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{null}
+      \field{journaltitle}{PLOS Pathogens}
+      \field{month}{09}
+      \field{number}{9}
+      \field{title}{Lodderomyces elongisporus: An emerging human fungal pathogen}
+      \field{volume}{19}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 9}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1371/journal.ppat.1011613
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1371/journal.ppat.1011613
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1371/journal.ppat.1011613
+      \endverb
+    \endentry
+    \entry{lodelo_fatal}{article}{}
+      \name{author}{6}{}{%
+        {{hash=38d972da0201ea0312d9c13cd926a519}{%
+           family={Asadzadeh},
+           familyi={A\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3dda93d23cbc9d662245e6005654b7cf}{%
+           family={Al-Sweih},
+           familyi={A\bibinithyphendelim S\bibinitperiod},
+           given={Noura},
+           giveni={N\bibinitperiod}}}%
+        {{hash=154ed6135d61aa902e20b3f8bcc996b8}{%
+           family={Ahmad},
+           familyi={A\bibinitperiod},
+           given={Suhail},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7e6bca1eaf61a7835cbda4ebfa686b73}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={Seema},
+           giveni={S\bibinitperiod}}}%
+        {{hash=21209c941b28fc187846b6beb684c634}{%
+           family={Alfouzan},
+           familyi={A\bibinitperiod},
+           given={Wadha},
+           giveni={W\bibinitperiod}}}%
+        {{hash=69daf15b1e1f2ac31731be8c8b338ee9}{%
+           family={Joseph},
+           familyi={J\bibinitperiod},
+           given={Leena},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7fc9b1c6ced553eb615d91f4eaf29af}
+      \strng{fullhash}{9f94dcdfe036b08d67f09106485b8d86}
+      \strng{bibnamehash}{9f94dcdfe036b08d67f09106485b8d86}
+      \strng{authorbibnamehash}{9f94dcdfe036b08d67f09106485b8d86}
+      \strng{authornamehash}{a7fc9b1c6ced553eb615d91f4eaf29af}
+      \strng{authorfullhash}{9f94dcdfe036b08d67f09106485b8d86}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2309-608X}
+      \field{journaltitle}{Journal of Fungi}
+      \field{number}{9}
+      \field{title}{Fatal Lodderomyces elongisporus Fungemia in a Premature, Extremely Low-Birth-Weight Neonate}
+      \field{volume}{8}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.3390/jof8090906
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2309-608X/8/9/906
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2309-608X/8/9/906
+      \endverb
+    \endentry
+    \entry{lodelo_meningitis}{article}{}
+      \name{author}{5}{}{%
+        {{hash=002af16234c89cf9d3281995d3d129a1}{%
+           family={Dear},
+           familyi={D\bibinitperiod},
+           given={Taylor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=5c2843e360d718204fbd31196df92fa2}{%
+           family={Joe\bibnamedelima Yu},
+           familyi={J\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           given={Yeyao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=a94993892234688b4b2bfbf4cf51f5e8}{%
+           family={Pandey},
+           familyi={P\bibinitperiod},
+           given={Sachin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=42b39a56c1fb2a1816500630cde90437}{%
+           family={Fuller},
+           familyi={F\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+        {{hash=73c63c4029ab68bea71b634c28ce591e}{%
+           family={Devlin},
+           familyi={D\bibinitperiod},
+           given={Megan\bibnamedelima K},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{41e69349896e46e95d1a32eca2994aca}
+      \strng{fullhash}{d9ae6c38157704329fa8cdad5da8cb98}
+      \strng{bibnamehash}{d9ae6c38157704329fa8cdad5da8cb98}
+      \strng{authorbibnamehash}{d9ae6c38157704329fa8cdad5da8cb98}
+      \strng{authornamehash}{41e69349896e46e95d1a32eca2994aca}
+      \strng{authorfullhash}{d9ae6c38157704329fa8cdad5da8cb98}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the Association of Medical Microbiology and Infectious Disease Canada}
+      \field{number}{3}
+      \field{title}{The first described case of Lodderomyces elongisporus meningitis}
+      \field{volume}{6}
+      \field{year}{2021}
+      \field{pages}{221\bibrangedash 228}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.3138/jammi-2021-0006
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.3138/jammi-2021-0006
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3138/jammi-2021-0006
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3138/jammi-2021-0006
+      \endverb
+    \endentry
+    \entry{lodelo_bloodstream}{article}{}
+      \name{author}{3}{}{%
+        {{hash=2dce30820bedeed90769235ca280ebab}{%
+           family={Koh},
+           familyi={K\bibinitperiod},
+           given={Bryant},
+           giveni={B\bibinitperiod}}}%
+        {{hash=0c6996ad1560a484d5e44a494b2a6730}{%
+           family={Halliday},
+           familyi={H\bibinitperiod},
+           given={Catriona},
+           giveni={C\bibinitperiod}}}%
+        {{hash=f25281310ff064cc44f28b0575454c62}{%
+           family={Chan},
+           familyi={C\bibinitperiod},
+           given={Raymond},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c2645fca1547f8d8a00a396e107183d}
+      \strng{fullhash}{3c2645fca1547f8d8a00a396e107183d}
+      \strng{bibnamehash}{3c2645fca1547f8d8a00a396e107183d}
+      \strng{authorbibnamehash}{3c2645fca1547f8d8a00a396e107183d}
+      \strng{authornamehash}{3c2645fca1547f8d8a00a396e107183d}
+      \strng{authorfullhash}{3c2645fca1547f8d8a00a396e107183d}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We report the case of a 54-year-old patient with central venous catheter related mixed candidaemia with Lodderomyces elongisporus and Candida parapsilosis, who responded to line removal and anidulafungin therapy. Mixed candidaemia was detected on Candida chromogenic agar. Identification of the two isolates was confirmed by MALDI-TOF MS (Bruker). Antifungal susceptibility testing revealed different antifungal MICs. This is the first reported case of mixed Lodderomyces candidaemia and outlines laboratory methodology to aid diagnosis and management.}
+      \field{issn}{2211-7539}
+      \field{journaltitle}{Medical Mycology Case Reports}
+      \field{title}{Concurrent bloodstream infection with Lodderomyces elongisporus and Candida parapsilosis}
+      \field{volume}{28}
+      \field{year}{2020}
+      \field{pages}{23\bibrangedash 25}
+      \range{pages}{3}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.mmcr.2020.03.007
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S221175392030021X
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S221175392030021X
+      \endverb
+      \keyw{Lodderomyces,Candida parapsilosis,Mixed candidaemia}
     \endentry
     \entry{sans}{article}{}
       \name{author}{2}{}{%
@@ -9627,8 +9838,8 @@
       \strng{authorbibnamehash}{00043cd444ac3af8ffbdf0d6a1a5ac70}
       \strng{authornamehash}{00043cd444ac3af8ffbdf0d6a1a5ac70}
       \strng{authorfullhash}{00043cd444ac3af8ffbdf0d6a1a5ac70}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1548-7105}
@@ -10398,6 +10609,63 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1093/bioinformatics/btac196
+      \endverb
+    \endentry
+    \entry{panacus}{article}{}
+      \name{author}{5}{}{%
+        {{hash=b4aee0a61295a397cea71066e8829780}{%
+           family={Parmigiani},
+           familyi={P\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ed2afc937ebadd8cc2df8ef63f91f2ae}{%
+           family={Garrison},
+           familyi={G\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod}}}%
+        {{hash=5b52e587248c2095d2de9f0c4cd22601}{%
+           family={Stoye},
+           familyi={S\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f1d4fb58a7a97b8d3884d2ccef9aa214}{%
+           family={Marschall},
+           familyi={M\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9d73ca44f94faf8f14c055d72336916d}{%
+           family={Doerr},
+           familyi={D\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory}%
+      }
+      \strng{namehash}{367cb37546e045991a99e72671f150a2}
+      \strng{fullhash}{bd7ec8f4488b49589a59150d3276f326}
+      \strng{bibnamehash}{bd7ec8f4488b49589a59150d3276f326}
+      \strng{authorbibnamehash}{bd7ec8f4488b49589a59150d3276f326}
+      \strng{authornamehash}{367cb37546e045991a99e72671f150a2}
+      \strng{authorfullhash}{bd7ec8f4488b49589a59150d3276f326}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{Panacus: fast and exact pangenome growth and core size estimation}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1101/2024.06.11.598418
+      \endverb
+      \verb{eprint}
+      \verb https://www.biorxiv.org/content/early/2024/06/12/2024.06.11.598418.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.biorxiv.org/content/early/2024/06/12/2024.06.11.598418
+      \endverb
+      \verb{url}
+      \verb https://www.biorxiv.org/content/early/2024/06/12/2024.06.11.598418
       \endverb
     \endentry
   \enddatalist

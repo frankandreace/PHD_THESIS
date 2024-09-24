@@ -535,33 +535,37 @@ In summary, the work here presented will be organized as follows:
 \subsection{\emph{Lodderomyces elongisporus}: genetic characteristichs, interest and used data}
 \emph{Lodderomyces elongisporus} is a diploid yeast that has been isolated from, among many sources, humans and it is recently emerging as pathogenic. It is phylogenetically placed in the Candida clade and the size of its genome is usually between 15 and 16 Mb, 2 orders of magnitude smaller than a human genome~\cite{Lodderomyces}. Its DNA is organized into 8 chromosomes, that here will be referred in alphabetical order and decreasing size A to H, from around 3.5Mbp of chr A to 800 Kbp of chr H, plus a 35 Kbp mitochondrial DNA. Our analysis shows that it has a stable core genome of ~13Mbp, as shown in section~\ref{sec:core_pg}. 
 Increasing reports of (mostly bloodstream) infection in mainly immunosuppressed adults makes it an increasingly important subject of studies\cite{lodelo_pathogen,lodelo_fatal,lodelo_meningitis,lodelo_bloodstream}: it also got recent attention when an outbreak was reported occurring in a neonatal ICU in Dheli, India from September 2021 to February 2022 with 1 death\cite{lodelo_india}.\\
-Samples sequenced by us were called in alphabetical order, followed with a number greater or equal than 0 that denoted the quality of the assembly. Moreover, one sample, B2, for which a member of the consortium produced a high quality assembly after manual curation, was used as relative reference in the cohort. Another sample, J2, was also fully resolved into chromosomes while the others were assembled into contigs.
-
-\begin{table}
+11 samples sequenced by us were assigned names with one letter in alphabetical order from A to K followed by a number greater or equal than 0 that denoted the quality of the assembly (with 0 draft to 2 maually curated). More in depth statistics like the number of sequences, N50 and others are shown in table~\ref{tab:assembly_stats}. Moreover, one sample, B2, for which a member of the consortium produced a high quality assembly after intensive manual curation, was used as relative reference in the cohort. Another sample, J2, was also fully resolved into chromosomes while the others were assembled into contigs.
+\begin{table}[h!]
 	\centering
-	\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c | c |}
-		\hline
-		filename     &   total length   & number of sequences & mean length &    longest & shortest     &   N count & Gaps &   N50  &   N50n  &  N70 &    N70n &   N90 &    N90n \\
-		\hline
-		A1 & 15699113 & 25 & 627964.52 & 2595744 & 3907 & 0 & 0 & 1354781 & 5 & 938474 & 8 & 414196 & 13 \\
-		B2 & 15485469 & 7 &  2212209.86 & 4493495 & 35166 & 0 & 0 & 3516991 & 2 & 2001278 & 4 & 1643619 & 5 \\
-		C0 & 15532065 & 20 & 776603.25 & 3532941 & 810 & 0 & 0 & 1331232 & 4 & 1222310 & 6 & 835847 & 9 \\
-		D0 & 15507665 & 17 & 912215.59 & 3532853 & 5008 & 0 & 0 & 2160581 & 3 & 1885061 & 5 & 740828 & 7 \\
-		E0 & 15332588 & 18 & 851810.44 & 3544471 & 3228 & 0 & 0 & 1992182 & 3 & 1040518 & 6 & 418294 & 10 \\
-		F1 & 15664073 & 21 & 745908.24 & 3548518 & 1282 & 0 & 0 & 2165076 & 3 & 1245669 & 5 & 440649 & 9 \\
-		G0 & 15636520 & 19 & 822974.74 & 3548910 & 550 & 0 & 0 & 1697956 & 4 & 1657398 & 5 & 527890 & 9 \\
-		H0 & 15601346 & 21 & 742921.24 & 3549008 & 6842 & 0 & 0 & 2170489 & 3 & 1247137 & 5 & 469363 & 10 \\
-		I1 & 15639882 & 30 & 521329.40 & 3622524 & 536 & 0 & 0 & 1999295 & 3 & 1636379 & 5 & 384387 & 10 \\
-		J2 & 15425942 & 9 & 1713993.56 & 3543738 & 35442 & 0 & 0 & 2157297 & 3 & 1647795 & 5 & 1162477 & 7 \\
-		K0 & 15752744 & 16 & 984546.50 & 3534745 & 19835 & 0 & 0 & 1631500 & 4 & 1305577 & 6 & 684340 & 9 \\
-		\hline
-	\end{tabular}
+\rotatebox{90}{
+	\begin{minipage}{1.5\textwidth}
+	\centering
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c |}
+		\toprule
+		sample     &   tot length (bp)  & sequences & mean length & longest seq & shortest seq &   N count & Gaps &   N50  &   N50n  \\
+		\midrule
+		A1 & 15699113 & 25 & 627964.52 & 2595744 & 3907 & 0 & 0 & 1354781 & 5  \\
+		B2 & 15485469 & 9 &  1720607.67 & 3516991 & 35166 & 0 & 0 & 2266654 & 3 \\
+		C0 & 15532065 & 20 & 776603.25 & 3532941 & 810 & 0 & 0 & 1331232 & 4  \\
+		D0 & 15507665 & 17 & 912215.59 & 3532853 & 5008 & 0 & 0 & 2160581 & 3 \\
+		E0 & 15332588 & 18 & 851810.44 & 3544471 & 3228 & 0 & 0 & 1992182 & 3  \\
+		F1 & 15664073 & 21 & 745908.24 & 3548518 & 1282 & 0 & 0 & 2165076 & 3 \\
+		G0 & 15636520 & 19 & 822974.74 & 3548910 & 550 & 0 & 0 & 1697956 & 4  \\
+		H0 & 15601346 & 21 & 742921.24 & 3549008 & 6842 & 0 & 0 & 2170489 & 3 \\
+		I1 & 15639882 & 30 & 521329.40 & 3622524 & 536 & 0 & 0 & 1999295 & 3 \\
+		J2 & 15425942 & 9 & 1713993.56 & 3543738 & 35442 & 0 & 0 & 2157297 & 3 \\
+		K0 & 15752744 & 16 & 984546.50 & 3534745 & 19835 & 0 & 0 & 1631500 & 4  \\
+		\bottomrule
+	\end{tabular}	
+	\caption[\lodelo samples assembly statistics]{\lodelo samples assembly statistics. N50n represents the number of sequences that contain 50\% of the assembly.\\ There are no unknown nucleotides or gaps (any arbitrary stretch of Ns - i.e. unknown nucleotide). Metrics obtained using assembly stats software from Sanger Institute~\cite{assemblystats}.}
+	\label{tab:assembly_stats}
+	\end{minipage}}
 \end{table}
-
 \subsection{Building ad hoc pangenome reference}
-We produced a \dbg of the assemblies using \bifrost, but their usefulness remains limited for visual analysis of complex biological events interpretation and study.\\
-Figure~\ref{fig:lodelo_dbg} shows the visualization of the \dbg for \kmer length equal to 25: redundant parts of the genome make the graph collapse. This is the same phenomenon previously described for human genomes, as better insight can be acquired when just a small region is visualized. 
-De Bruijn Graphs can instead be useful for to produce quite straightforward whole-genome alignment- and reference-free phylogenetic analysis in a fraction of time required by competitor methods that use all vs. all alignment. The tool \sans~\cite{sans} can process directly a \bifrost generated \ccdbg to estimate the phylogenetic splits between the genomes contained in the graph. Figure~\ref{fig:dbg_phyl} shows the visualization of the phylogenetic network produced by \sans using the tool \splitstree~\cite{splitstree}. This results shows how \dbgs are quite powerful when applied to specific applications.\\
+We produced a \dbg from all 11 assemblies described in table~\ref{tab:assembly_stats} using \bifrost, but their usefulness remains limited for visual analysis of complex biological events interpretation and study.\\
+Figure~\ref{fig:lodelo_dbg} shows the visualization of the \dbg for \kmer length equal to 25: repetitions make the visualization of the graph challenging. This is the same phenomenon previously described for human genomes, as better insight can be acquired when just a small region is visualized. 
+De Bruijn Graphs can instead be useful for to produce quite straightforward whole-genome alignment- and reference-free phylogenetic analysis in a fraction of time required by competitor methods that use all vs. all alignment. The tool \sans~\cite{sans} can process directly a \bifrost generated \ccdbg to estimate the phylogenetic splits between the genomes contained in the graph. Figure~\ref{fig:dbg_phyl} shows the visualization of the phylogenetic network produced by \sans using the tool \splitstree~\cite{splitstree}. By adding another genome from a close species it is possible control that the \dbg-based analysis provides correct results. Figure~\ref{fig:beig_phyl} shows the phylogenetic network when an assembly of \emph{Lodderomyces Beijingensis} is added to the graph: the new genome is very separated compared to the other ones from the same species. This results shows how \dbgs are a powerful model when applied to specific applications.\\
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.75\textwidth}
@@ -577,6 +581,13 @@ De Bruijn Graphs can instead be useful for to produce quite straightforward whol
 		\caption{\splitstree visualization of the phylogeny network generated using \sans from the \ccdbg constructed using \bifrost.}
 		\label{fig:dbg_phyl}
 	\end{subfigure}%
+	\\
+	\begin{subfigure}[b]{0.75\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{figures/lodelo/lodelo_bei.png}
+	\caption{Phylogeny network of the 11 \lodelo strains plus one genome of \emph{Lodderomyces Beijingensis} shows the ladder separated on the right while the group of figure~\ref{fig:dbg_phyl} compacted on the left. As they are two different species, although close in the Candida/Lodderomyces clade\cite{lodelo_genomes}, this result provides positive control for the phylogeny network generated using \sans from the \ccdbg constructed using \bifrost. This image was produced by Nicola Rizzo.}
+	\label{fig:beig_phyl}
+	\end{subfigure}%
 	\caption[\ccdbg representation and phylogeny analysis of the \lodelo pangenome.]{Visualization of the \ccdbg representation and phylogeny analysis of the \lodelo pangenome.}
 \end{figure}
 Given high quality assemblies generated by the sequences of these 11 samples, we decided to also build a pangenome graph with small variant resolution using \pggb and \mcactus, in a similar way to what has been done with the Human Draft Pangenome Reference~\cite{hdpr}. It is important to notice that in order to produce the best biological correct result, several rounds of parameter tuning and manual curation are needed, with knowledge far superior of the one of a first-time user.\\
@@ -586,7 +597,7 @@ The first step to build such pangenomes is to divide the genome assemblies into 
 \subsubsection{Determining chromosomal communities}
 Variation graphs construction pipelines use mapping or alignment between the input set of genomes to infer graphs. Their first step consists in grouping the sequences from the assemblies into communities representing a chromosome in order to run a single computation instance and produce a separate graph for each of them. The final graph is then given by joining together the output of each group. This means that without any pre-processing, no inter-chromosomal event can be detected.\\ 
 In this specific use-case, in order to identify inter-chromosomal events, contigs associated to any of the 3 chromosomes conjectured to be part of the rearrangement had to fall into the same community and be provided together in input to the pipeline. This would ensure that, if such rearrangement exists, it would produce a feature in the graph that would show as a tangle between the chromosomes.\\
-As the rest of the assemblies, with the exception of the J2 sample, were not resolved into single chromosomes, each of them was aligned to the reference B2 using \wfmash alignment segment size of 10k and 95\% sequence identity (and lower segment size, 90\% sequence identity if unmapped). The identity scores of the alignment of the genomes to the reference B2 assembly is shown in figure~\ref{fig:lodelo_alignment_scores}. From this alignment, contigs were assigned to the chromosomal community to which they best mapped. Finally, the ones of chromosome C, G and H were grouped into a single one.
+As the rest of the assemblies, with the exception of the J2 sample, were not resolved into single chromosomes, each of them was aligned to the reference B2 using \wfmash alignment segment size of 10k and 95\% sequence identity (and lower segment size, 90\% sequence identity if unmapped). The identity scores of the alignment of the genomes to the reference B2 assembly is shown in figure~\ref{fig:lodelo_alignment_scores}. From this alignment, contigs were assigned to the chromosomal community to which they best mapped. Finally, chromosomes C,G,H were grouped manually into a single community.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.8\linewidth]{figures/lodelo/Alignment_scores.pdf}
@@ -596,11 +607,11 @@ As the rest of the assemblies, with the exception of the J2 sample, were not res
 
 \subsubsection{Producing a variation graph using pggb}
 As \pggb uses all-vs-all alignment of a collection of sequence as first step to infer the graph, it enables the representation of recombination among chromosomes placed inside the same community, as seen also for human acrocentric chromosomes~\cite{Guarracino2023}.\\
-By simply running the \texttt{nextflow/pangenome} (\pggb) pipeline, we were able to produce a first pangenome representation of the 11 yeast strains. The tangle visible in figure~\ref{fig:lodelo_gfaestus} clearly shows the recombination happening between the three chromosomes. This work was mainly done by Simon Heumos and the graph shown in figure ~\ref{fig:lodelo_gfaestus} is the result of more than 25 rounds of parameters tuning.
+The \texttt{nextflow/pangenome} (\pggb) pipeline was run for each of the identified chromosomal communities to produce a first pangenome representation of the 11 yeast strains. The tangle visible in figure~\ref{fig:lodelo_gfaestus} clearly shows the recombination happening between the three chromosomes. This work was mainly done by Simon Heumos and the graph shown in figure ~\ref{fig:lodelo_gfaestus} is the result of more than 25 rounds of parameters tuning.
 The detection of the event with a variation graph using \pggb encouraged the effort to produce a similar representation with \mcactus, a pipeline that is not designed to construct grouped chromosomes pangenomes.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.8\linewidth]{figures/lodelo/pggb_full.png}
+	\includegraphics[angle=90,width=.4\linewidth]{figures/lodelo/pggb_full.png}
 	\caption[\gfaestus visualization of a \lodelo variation graph.]{\gfaestus visualization of the \pggb variation graph of the 11 \lodelo samples. Image produced by Simon Heumos.}
 	\label{fig:lodelo_gfaestus}
 \end{figure}
@@ -646,7 +657,7 @@ While figure~\ref{fig:plotsr_synteny} shows in a clear way the kind of inter-chr
 	\caption[Linear reference visualization of the \lodelo inter-chromosomal recombination.]{\plotsr visualization of the inter-chromosomal recombination detected using \wfmash and \syri.}
 	\label{fig:plotsr_synteny}
 \end{figure}
-It is therefore possible to visualize the tangle that emerges from the graph generated with \mcactus. 
+The only way to see the rearrangement for those assemblies is through a variation graph built with \pggb and \mcactus. This result shows the power of the pangenome model to analyze a set of genomes.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.8\linewidth]{figures/lodelo/tangle_chrCGH_B2_Cgreen_Gblue_Hred.png}
@@ -659,48 +670,45 @@ It is therefore possible to visualize the tangle that emerges from the graph gen
 Finally, pangenome graphs are also useful to quantify the part of the genome that is shared between genomes (what is called core-genome) and the parts that are mostly shared or private to each one. It is also interesting to estimate its growth, i.e. to measure how much the total genomic content grows with the increase of the size of the sample. These metrics can be obtained by using the tool \panacus~\cite{panacus}. \texttt{Panacus} is a tool that calculates coverage distributions of countable elements in variation graphs: it uses paths to detect how many genomes are associated to any node, edge or basepair of the pangenome graph. From these distribution it computes the pangenome growth and core curves as function of the number of genomes.\\
 Calculating these metrics can be used to validate that the two variation graphs built with \pggb and \mcactus agree on the underlying genetic distribution of the input sample.\\
 Figure~\ref{fig:panacus} shows very concordant metrics for the two variation graphs. First, they show similar basepair coverage histogram, that highlight a great portion of genome shared by all the samples, and a non-negligible share of sequences that are private to each genome (~1.5Mbp in total). Secondly, both growth curves show similar pattern, that seems plateauing. This is also highlighted by the fraction of new base pairs introduced by each sample, that decreases from ~700k new basepairs with the new sample to less than ~142k base pairs in on the 11th genome. Finally, the core pangenome can be estimated by the basepairs that are spelled by all the genomes in the graph: the computed value for the 11 samples is ~13,2 Mbp for \pggb and ~13,6 Mbp for \mcactus. The variability in the results are expected and due to different graph construction methods.
-\begin{figure}[h!]
-	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[angle=90,width=.7\textwidth]{figures/lodelo/lodelo_simon.histgrowth.pdf}
-		\caption[\pggb pangenome.]{\pggb pangenome.}
-	\end{subfigure}%
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[angle=90,width=.7\textwidth]{figures/lodelo/lodelo_cactus.histgrowth.pdf}
-		\caption[\mcactus pangenome.]{\mcactus pangenome.} 
-	\end{subfigure}%
-	\caption{Pangenome core and growth of \lodelo using variation graphs. \pggb graph generated by Simon Heumos.}
-	\label{fig:panacus}
-\end{figure}
 
 \section{Conclusion and Perspectives}
 The work presented above shows how pangenomes can serve as analysis platform of samples from same-strain yeast. \\
 \dbg-based tools currently offer a limited range of possibilities, especially for lower sample sizes. They best serve as fast and memory-efficient container for large amounts of data that require simple interrogations like absence-presence queries. This model can nevertheless help answer simple biological questions on such small samples, like phylogenetic analysis shown in figure~\ref{fig:dbg_phyl}.\\
 Variation Graphs on the other side are powerful and very useful on few genomes analysis as they can be built quickly enough and provide a well-established platform for downstream analysis tools. On the other side, there is still need to very labor-intensive manual revision of the output graphs to find the input parameters that produce the best result, as it took more than 25 rounds to find the best \pggb parameters to produce the graph shown in figure~\ref{fig:lodelo_gfaestus}. As they are produced on heuristics and not on mathematically defined concepts, each variation graphs-construction tool produces different results: in figure~\ref{fig:chrE_difference}, it is possible to see the difference 1d-representation of the small chromosome E between \pggb and \mcactus. Finally, in order to detect the inter-chromosomal rearrangement with \mcactus as in figure~\ref{fig:lodelo_graph_tangle}, I had to rewrite the pipeline and modify the input data. \\
 Apart from the aforementioned limitations, that show how such methods are still more prototypes than sound and established tools, this analysis shows how much potential there is to improve the current state-of-the art in genomes analysis. Linear-sequences tools are based on well-established genome-to-genome comparison methods that fail to adapt to heterogeneous data, like different levels of assembly quality. As \syri fails to detect rearrangements on genomes that are not assembled to the chromosome level, variation graphs are able to show the variation among all samples, even if the majority of the genomes contain contigs. \\
-This work is another display of the great potential pangenome approaches have. In the future it would be very interesting to build pipelines or develop tools that enable visualizations and straightforward analysis from variation graphs or \ccdbgs] to the same level as the current linear-genomes tools. As I have already conceptualized some possible approaches for \ccdbgs, in the future it would be useful to develop simple prototypes and test how fast and precise these would be.\\
+This work is another display of the great potential pangenome approaches have. In the future it would be very interesting to build pipelines or develop tools that enable visualizations and straightforward analysis from variation graphs or \ccdbgs to the same level as the current linear-genomes tools. As I have already conceptualized some possible approaches for \ccdbgs, in the future it would be useful to develop simple prototypes and test how fast and precise these would be.\\
 In the future it would be very informative to produce a more comprehensive report of the work done by my group and me, together with the other groups that worked on analyzing these novel \lodelo samples, to offer a comprehensive view of how specific pangenomes can be built and used to provide improved genomic analysis capabilities.
 
 \begin{figure}[t]
 	\centering
-	\begin{subfigure}[b]{0.8\textwidth}
+	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=.7\linewidth]{figures/lodelo/chrE.pggb.png}
+		\includegraphics[width=\linewidth]{figures/lodelo/chrE.pggb.png}
 		\caption{One dimensional visualization of the variation graph built with \pggb, containing 19 contigs from the assemblies, selected before construction using all vs all alignment data.}
 		\label{fig:chrE_pggb}
 	\end{subfigure}%
 
-	\begin{subfigure}[b]{0.8\textwidth}
+	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=.7\linewidth]{figures/lodelo/chrE.mcactus.png}
+		\includegraphics[width=\linewidth]{figures/lodelo/chrE.mcactus.png}
 		\caption{One dimensional visualization of the variation graph built with \mcactus, containing 23 contigs from the assemblies, selected automatically by the pipeline.}
 		\label{fig:chrE_mcactus}
 	\end{subfigure}
-	\caption[1D visualization of differences between \pggb and \mcactus output.]{One dimensional visualization of chromosome E variation graphs of \pggb and \mcactus using \odgi. Differences can easily be noted in the leftmost parts of the images.}
+	\caption[1D visualization of differences between \pggb and \mcactus output.]{One dimensional visualization of chromosome E variation graphs of \pggb and \mcactus using \odgi. Differences are highlighted by the red boxes.}
 	\label{fig:chrE_difference}
 \end{figure}
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle=90,width=.3\textwidth]{figures/lodelo/lodelo_simon.histgrowth.pdf}
+	\caption[Pangenome core and growth of \pggb variation graph.]{Pangenome core and growth of \pggb variation graph. The bottom figure shows the coverage histogram in number of basepairs, the middle one shows the evolution of the pangenome growth and core by increasing sample size and the top one the new basepairs added by each new genome in the sample.}
+	\label{fig:panacus_pggb}
+\end{figure}%
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle=90,width=.3\textwidth]{figures/lodelo/lodelo_cactus.histgrowth.pdf}
+	\caption[Pangenome core and growth of \mcactus variation graph.]{Pangenome core and growth of \mcactus variation graph. The bottom figure shows the coverage histogram in number of basepairs, the middle one shows the evolution of the pangenome growth and core by increasing sample size and the top one the new basepairs added by each new genome in the sample.}
+	\label{fig:panacus_mcactus}
+\end{figure}
 
 \printbibliography

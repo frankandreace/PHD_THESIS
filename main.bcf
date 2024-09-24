@@ -2531,13 +2531,17 @@
     <bcf:citekey order="67" intorder="3">lodelo_meningitis</bcf:citekey>
     <bcf:citekey order="67" intorder="4">lodelo_bloodstream</bcf:citekey>
     <bcf:citekey order="68" intorder="1">lodelo_india</bcf:citekey>
-    <bcf:citekey order="69" intorder="1">sans</bcf:citekey>
-    <bcf:citekey order="70" intorder="1">splitstree</bcf:citekey>
-    <bcf:citekey order="71" intorder="1">hdpr</bcf:citekey>
-    <bcf:citekey order="72" intorder="1">Guarracino2023</bcf:citekey>
-    <bcf:citekey order="73" intorder="1">syri</bcf:citekey>
-    <bcf:citekey order="74" intorder="1">plotsr</bcf:citekey>
-    <bcf:citekey order="75" intorder="1">panacus</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">assemblystats</bcf:citekey>
+    <bcf:citekey order="70" intorder="1">assemblystats</bcf:citekey>
+    <bcf:citekey order="71" intorder="1">sans</bcf:citekey>
+    <bcf:citekey order="72" intorder="1">splitstree</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">lodelo_genomes</bcf:citekey>
+    <bcf:citekey order="74" intorder="1">lodelo_genomes</bcf:citekey>
+    <bcf:citekey order="75" intorder="1">hdpr</bcf:citekey>
+    <bcf:citekey order="76" intorder="1">Guarracino2023</bcf:citekey>
+    <bcf:citekey order="77" intorder="1">syri</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">plotsr</bcf:citekey>
+    <bcf:citekey order="79" intorder="1">panacus</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">

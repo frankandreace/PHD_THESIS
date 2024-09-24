@@ -49,13 +49,13 @@
 \contentsline {section}{\numberline {3.7}Building a \emph {Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}{54}{section.3.7}%
 \contentsline {subsection}{\numberline {3.7.1}\emph {Lodderomyces elongisporus}: genetic characteristichs, interest and used data}{55}{subsection.3.7.1}%
 \contentsline {subsection}{\numberline {3.7.2}Building ad hoc pangenome reference}{55}{subsection.3.7.2}%
-\contentsline {subsubsection}{\numberline {3.7.2.1}Determining chromosomal communities}{56}{subsubsection.3.7.2.1}%
-\contentsline {subsubsection}{\numberline {3.7.2.2}Producing a variation graph using pggb}{56}{subsubsection.3.7.2.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.1}Determining chromosomal communities}{57}{subsubsection.3.7.2.1}%
+\contentsline {subsubsection}{\numberline {3.7.2.2}Producing a variation graph using pggb}{57}{subsubsection.3.7.2.2}%
 \contentsline {subsubsection}{\numberline {3.7.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{58}{subsubsection.3.7.2.3}%
-\contentsline {subsection}{\numberline {3.7.3}Representing translocation events from groups of genomes}{59}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.3}Representing translocation events from groups of genomes}{58}{subsection.3.7.3}%
 \contentsline {subsection}{\numberline {3.7.4}Estimating core genome and pangenome growth}{59}{subsection.3.7.4}%
-\contentsline {section}{\numberline {3.8}Conclusion and Perspectives}{62}{section.3.8}%
-\contentsline {chapter}{Bibliography}{67}{section*.52}%
-\contentsline {chapter}{Papers}{74}{section*.54}%
-\contentsline {chapter}{Appendices}{75}{section*.55}%
+\contentsline {section}{\numberline {3.8}Conclusion and Perspectives}{59}{section.3.8}%
+\contentsline {chapter}{Bibliography}{69}{section*.53}%
+\contentsline {chapter}{Papers}{76}{section*.55}%
+\contentsline {chapter}{Appendices}{77}{section*.56}%
 \contentsfinish 
