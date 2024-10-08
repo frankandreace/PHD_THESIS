@@ -31,31 +31,49 @@
 \contentsline {section}{\numberline {2.1}Motivation}{31}{section.2.1}%
 \contentsline {chapter}{\chapternumberline {3}Comparing methods for constructing and representing human pangenome graphs}{33}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introduction}{34}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Results}{35}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Results}{36}{section.3.2}%
 \contentsline {paragraph}{\textbf {\textup {Extraction of HLA-E and a complex HLA region from complete pangenome graphs}}}{39}{paragraph*.26}%
 \contentsline {paragraph}{\textbf {\textup {HLA-E: a low complexity region}}}{40}{paragraph*.27}%
 \contentsline {paragraph}{\textbf {\textup {HLA complex locus: high complexity region}}}{40}{paragraph*.29}%
 \contentsline {paragraph}{\textbf {\textup {Editability and dynamic updates}}}{42}{paragraph*.31}%
-\contentsline {paragraph}{\textbf {\textup {Stability}}}{42}{paragraph*.32}%
+\contentsline {paragraph}{\textbf {\textup {Stability}}}{44}{paragraph*.32}%
 \contentsline {paragraph}{\textbf {\textup {Accessibility by downstream applications}}}{44}{paragraph*.33}%
 \contentsline {paragraph}{\textbf {\textup {Haplotype compression}}}{45}{paragraph*.34}%
 \contentsline {paragraph}{\textbf {\textup {Ease of Visualization}}}{45}{paragraph*.35}%
 \contentsline {paragraph}{\textbf {\textup {Quality of Metadata and Annotation}}}{45}{paragraph*.36}%
 \contentsline {section}{\numberline {3.3}Discussion}{46}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Conclusions}{47}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Conclusions}{48}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Methods}{48}{section.3.5}%
 \contentsline {paragraph}{Authors' affiliations}{52}{paragraph*.40}%
-\contentsline {section}{\numberline {3.6}Perspectives}{53}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Building a \emph {Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}{54}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}\emph {Lodderomyces elongisporus}: genetic characteristichs, interest and used data}{55}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Building ad hoc pangenome reference}{55}{subsection.3.7.2}%
-\contentsline {subsubsection}{\numberline {3.7.2.1}Determining chromosomal communities}{56}{subsubsection.3.7.2.1}%
-\contentsline {subsubsection}{\numberline {3.7.2.2}Producing a variation graph using pggb}{56}{subsubsection.3.7.2.2}%
-\contentsline {subsubsection}{\numberline {3.7.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{57}{subsubsection.3.7.2.3}%
-\contentsline {subsection}{\numberline {3.7.3}Representing translocation events from groups of genomes}{57}{subsection.3.7.3}%
-\contentsline {subsection}{\numberline {3.7.4}Estimating core genome and pangenome growth}{58}{subsection.3.7.4}%
-\contentsline {section}{\numberline {3.8}Conclusion and Perspectives}{58}{section.3.8}%
-\contentsline {chapter}{Bibliography}{69}{section*.53}%
-\contentsline {chapter}{Papers}{76}{section*.55}%
-\contentsline {chapter}{Appendices}{77}{section*.56}%
+\contentsline {section}{\numberline {3.6}Perspectives}{54}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Building a \emph {Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}{55}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}\emph {Lodderomyces elongisporus}: genetic characteristichs, interest and used data}{56}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Building ad hoc pangenome reference}{56}{subsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.1}Determining chromosomal communities}{57}{subsubsection.3.7.2.1}%
+\contentsline {subsubsection}{\numberline {3.7.2.2}Producing a variation graph using pggb}{57}{subsubsection.3.7.2.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{58}{subsubsection.3.7.2.3}%
+\contentsline {subsection}{\numberline {3.7.3}Representing translocation events from groups of genomes}{58}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.4}Estimating core genome and pangenome growth}{59}{subsection.3.7.4}%
+\contentsline {section}{\numberline {3.8}Conclusion and Perspectives}{59}{section.3.8}%
+\contentsline {chapter}{Bibliography}{71}{section*.53}%
+\contentsline {chapter}{\chapternumberline {4}Reducing the complexity of De Bruijn Graphs for Pangenomics}{77}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction: too big, too complex, too difficult to use}{77}{section.4.1}%
+\contentsline {section}{\numberline {4.2}DBG-based tools for pangenomics}{78}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Requirements}{78}{subsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.1}Bacterial pangenomics}{78}{subsubsection.4.2.1.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.2}Human pangenomics}{78}{subsubsection.4.2.1.2}%
+\contentsline {section}{\numberline {4.3}Data structures to represent pangenomes as sets \emph {k}-mer\xspace sets}{78}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Representing sets of \emph {k}-mer\xspace sets, state of the art}{79}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Minimum set of operations and characteristics of these data structures}{79}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Simple data structures: sorted list and hash table}{80}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Approximate membership and filters}{80}{subsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.4.1}Bloom Filters}{80}{subsubsection.4.3.4.1}%
+\contentsline {subsubsection}{\numberline {4.3.4.2}Quotient Filters}{80}{subsubsection.4.3.4.2}%
+\contentsline {section}{\numberline {4.4}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{80}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Superkmer sorting}{81}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Quotient filters to represent kmer sets: optimizin existing methods}{81}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Linearize a masked human reference pangenome graph for visualization purposes}{81}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Perspectives and future work}{81}{section.4.8}%
+\contentsline {chapter}{Papers}{84}{section*.55}%
+\contentsline {chapter}{Appendices}{85}{section*.56}%
 \contentsfinish 

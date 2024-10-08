@@ -1,26 +1,92 @@
-\chapter{Reducing the complexity of De Bruijn Graphs for Pangenomics}
+\chapter{Reducing the complexity of \kmer based methods for Pangenomics}
 \label{sec:complexity}
 
 \section{Introduction: too big, too complex, too difficult to use}
-As discussed in the previous section of this manuscript, the  construction of pangenome as variation graphs is based on an alignment step that is well known to be accurate but computationally costly. Even if recent advances on alignment algorithms and tools, like the wavefront algorithm~\cite{wavefront}, have provided improvement in the time and space complexity, the computation time id bound to the sequence lengths thus requiring $O(n^2)$ operations. As this is a feasible approach for curated analysis of small samples of large genome organisms, it is not considerable for large collection of bacterias (sample size can reach 100 of thousands) or mammals. Finally, the alignment step implicitly requires high quality assemblies to produce reasonably connected graphs.\\
-For this reason, \kmer based approaches provide a solid alternative: as the used \kmer lenght is usually relatively small (from 21 to 100), they can be used also on more fragmented assemblies or directly on sequencing reads. Moreover, the complexity of algorithms to produce \ccdbg from a set of input genomes scales with lower complexity than  
+As discussed in the previous section of this manuscript, the  construction of pangenome as variation graphs is based on an alignment step that is well known to be accurate but computationally expensive, even if recent advances on alignment algorithms and tools, like the wavefront algorithm~\cite{wavefront} or full-text indexes like the r-index~\cite{spumoni2} and move index~\cite{movi} have provided improvement in construction time or query performance.\\
+The variation graph is a feasible approach for curated analysis of a selected set of samples for large genome organisms: for example, at the time of the writing of this manuscript the Human Pangenome Reference Consortium is releasing a second batch of around 220 high quality human genomes to be used for the construction of a new reference pangenome of the Human species.\\
+Finally, the alignment step implicitly requires high quality complete assemblies to produce reasonably connected graphs. While it is expected that the availability of such high quality genomes will continue growing in the coming years, there is now available a large quantity of raw (or lightly processed) data that can be used in pangenomics applications~\cite{serratus,logan} but cannot be harnessed by variation graph models.\\ 
+For this reason, \kmer based approaches provide a solid alternative: as the used \kmer lenght is usually relatively small (from 21 to 100), they can be used also on more fragmented assemblies or directly on raw sequencing reads and their scalability is proven to be order of magnitude superior than variation graphs. Even more so: they can be used to build representations from data of different quality like phased assemblies from one cohort and unitigs from another.\\
+Such tools usually use different data structures to represent internally and in an efficient way a \dbg model. The main challenge of these data structures is mainly the amount of space used to represent the \kmers versus the time used to query elements (single \kmers or sequences). For this reason, implementations decisions are often bound to optimization compromises made to achieve a specific goal: disk compression to produce small-sized indexes from large collections; fast query time of a novel sequence; time/memory computational trade-offs.
+In any case, the computational resources to produce \ccdbg from a set of input genomes are, as shown in the previous chapter, quite lower and the tools scale to significantly larger collections. \\
+As presented in the previous chapter, although using \kmer based methods for pangenomics provides the aforementioned advantages, the produced \dbg is often too big or complex to use for direct downstream applications:
+\begin{itemize}
+	\item full visualization of \dbgs for more than 10 human haplotypes is not possible with state-of-the-art computational biology tools;
+	\item when full graph visualization is possible, the repetitive regions of the genome make the graph highly connected in some parts, impeding any biological interpretation;
+	\item small region visualization is possible, usually to the scale of a gene or pseudogene, but post-processing is needed in order to polish the subgraph from parts that do not belong to the requested region, due to repetitions;
+	\item extraction of high level information is not directly possible and dependent on the construction tool: most enable presence/absence or color queries while not providing any information on where in the graph (in which unitig) the queried sequence can be found.
+\end{itemize}
+The \dbg model is therefore too complex to use for many genomic tasks, thus requiring always additional, custom scripts in order to produce information relevant for most pangenomic analyses.
+Below I will present my work for some prototypes of \kmer set representations, one of which is a step into providing a different representation of pangenomes as \kmer sets more suitable for downstream representation.
+
+\section{How to organize a set of \kmers}
 
 \section{DBG-based tools for pangenomics}
 
-\subsection{Requirements}
-\subsubsection{Bacterial pangenomics}
 \subsubsection{Human pangenomics}
 
-\subsection{Representing sets of \kmer sets}
+\section{Data structures to represent pangenomes as sets \kmer sets}
+Contemporary analysis of sequencing data, i.e. the \emph{reads} that are generated from the processing of sequencing a biological sample, is mostly performed by string algorithms. These algorithms transform the raw string data using ad-hoc data structures to enable users (mostly bioinformaticians in biology-oriented research institutes or hospitals) to elucidate a particular question. Software based on these algorithm is, most of the time, just the beginning of more elaborated pipelines. \\
+One subset of the many applications of string algorithms is the generation of data structures (i.e. rearrangement of data) that provide efficient storage of the data and that allow very fast interrogations of the absence, presence or (abundance count) of a particular string in it, i.e. checking if it is present in the data and if so, how many times. These processes are known as indexing and querying. The datasets to index in the use cases elucidated in the section above are in the order of tens of TeraBytes of raw data.\\
+A simple but very effective analogy of indexing and querying can be done with books and words. \\
+Let's say I remember I have a book in my library that has as main character someone called Ricardo and that tells about a story that is also based in Paris. Without any organization of my library I might need, in the worst case, to sequentially read all my books from start to finish to then find the one that I was looking for. This is not convenient at all, especially if I posses a lot of books. In case I maintained an index of in which book I can find any of the words from my whole library, I could quite rapidly find the few ones that contain a character that get called Ricardito. Even more, if I had also an index that associates places with books that have scenes based in them, I could easily triangulate, without even needing to open a single book, that the one I was looking for is \emph{Travesuras de la niña mala} of the Nobel Price  Mario Vargas Llosa.
+This is an example of how, indexing sequencing data, \emph{the words} and their metadata, \emph{the places}, one can rapidly check which samples, \emph{the books}, contain a requested value, without having to look at the raw data.
 
-\section{Linearize a masked human reference pangenome graph for visualization purposes}
+\subsection{Representing sets of \kmer sets, state of the art}
+%\section{Indexing Data Structures}
+During my thesis I focused on \kmer based algorithms, i.e. that use strings of length k as basic unit, because of their proven scalability and mathematical simplicity. Their are also the main common theoretical and technical abstraction that is used by the research group.  
+Here I will briefly introduce some of the most used data structures and algorithms to store collections \kmers and, in some cases, their counts. The process to index a dataset using \kmers is to represent it as a set of the \kmers that from their sequences, like remembering the set of unique words inside one or multiple books. This representation has to be searchable so then I can interrogate it for the presence of a particular word.  There are three aspects to keep in count when considering such data structures: the computational complexity of building and, most of all, querying; the size of the data structure that stores the information and the kind of interrogations you can do with the data: presence/absence or metadata (like, for example, counts). This leads to the distinction between exact and approximate indexes and by the ones that support membership or metadata queries.\\
+The membership query $memb(x)$ returns 
+\kmers and other basic computational aspects that are at the basic of such data structure have been covered in the introduction.
+
+\subsection{Minimum set of operations and characteristics of these data structures}
+Given a set of sequencing samples, the data structure must be able to add \kmers from each sample to itself with an \emph{insert()} operation. \\
+It also has to be able to return the presence of the absence of an element inside it, using a binary \memb operation (0 for no, 1 for yes). The result of the \memb operation can be exact or approximate, i.e. have false positives. If the data structure contains the number of times a \kmer has been seen in the input sample, the \memb operation will return 0 if it has never been seen, and a value $>= 1$ if the value has been seen 1 or multiple times. The count can be exact or represent an order of magnitude of the counts: this is often needed to not saturate the counts as most datasets have skewed \kmer count distribution. \\
+The data structure conserves actively or not its internal state after a membership query. For example when looking in a dictionary if an element is present, the CPU will have inside a chunk of memory containing the queried key-value pair and other ones. Other data structures store explicit variables to remember in which place of their internal representation the \memb operation led to. This is important to notice as most of the times, sequences and not \kmers are queried to the data structure, meaning that \memb operations are done sequentially and on \kmers overlapping with each other. Leveraging these properties makes huge differences in the scalability of such data structures.
+
+
+\subsection{Simple data structures: sorted list and hash table}
+Indexing small sets of \kmers is in trivial. There are two well known data structures that can serve this goal.
+The most simple data structure used in computer science to maintain an ordered collection of elements to be searched in less than linear time is a sorted list of elements. By ordering the whole enumeration of the set of \kmers in each sample, one can use a binary search to find a requested \kmer in time $O$($k$log$n$), using $O$($kn$) space. This is feasible for very basic cases with small set of \kmers but it is intractable for the aforementioned use-cases, as both time to query a single element or store the dataset scale too poorly.\\
+Hash-tables, a well known implementation of dictionaries (or maps) in computer science, solve the problem of the query time, bringing it to $O$($k$) or $O$(1), depending on the particular hash function used. They still require $O(kn)$ space that makes them still unusable for large collections of data. 
+
+\subsection{Approximate membership and filters}
+Approximate membership data structure offer a trade-off between the space (in memory or disk) used to store the ingested information and probability of returning a correct answer. While a sorted list or a hash table return always the correct answer to a , these data structures answer with a non-zero probability of false-positive (i.e. reporting a \kmer present in the raw data when in fact it is not) and zero false-negative rates (i.e. reporting a \kmer as not present while it was present).
+\subsubsection{Bloom Filters}
+
+\subsubsection{Quotient Filters}
+
+
 
 \section{Converting ccdBGs into unitig matrices for downstream analyses: Muset}
 Matrix: every genome can be seen as a binary vector in a matrix across the alleles of the graph. This way you can use all known downstream applications on matrices: statistics and population genetics can be generalized to this model.
 
-
+\section{Superkmer sorting}
 
 \section{Quotient filters to represent kmer sets: optimizin existing methods}
 
+
+\section{Linearize a masked human reference pangenome graph for visualization purposes}
+
 \section{Perspectives and future work}
 
+\section{Testing the scale of humang pangenome graphs}
+As a scalability and feasibility test, I built a \ccdbg using the high quality haplotypes I used for the pangenome methods evaluation proposed in the previous chapter together with the unitigs of the 1kgenomes dataset (obtained from the raw reads). This pangenome consisted of 3266 human haplotypes blended together into a single data structure (104 high quality + 3162 unitig-level assemblies). This experiment showed:
+\begin{itemize}
+	\item that \ccdbgs can be constructed for at least one order of magnitude more genomes than what variation graphs are now used to;
+	\item that this approach could be used for several applications such as:
+	\begin{itemize}
+		\item structural variation inference of lower quality assemblies: even if unitigs alone cannot be used to reconstruct complex structural variations in an individual, their association in a single data structure with high quality genomes can help infer which variations are there;
+		\item improvement of assembly quality by extending the unitigs of an assemblies with all the nucleotides that 
+	\end{itemize}
+\end{itemize}
+Even if \dbg-based tools offer promising results when building pangenome graphs in terms of scalability and computational cost their use in pangenomics is still low mainly due to:
+\begin{itemize}
+	\item limited operations that can be performed on the data except basic \kmer interrogations on a query sequence to understand in which other genome in the model they are present;
+	\item the complexity and dimension of the \ccdbgs that makes visualization and other high-level operations very difficult to be achieved.
+\end{itemize}
+For this reasons:
+\begin{itemize}
+	\item total graph visualization is not achievable for large collections (except in the case of minimizer \dbgs introduced in the previous chapter, that can give still relatively limited biological insight);
+	\item large and complex regions visualization is also very difficult to achieve and gives results often confounded by repetitions, like seen in the previous chapter;
+	\item downstream applications are limited by the need of in-between tools that use construction methods to achieve a representation and then use queries to infer relevant information. This is also relatively discouraged by the fact that most tools have little to no documentation and different api schemes.
+\end{itemize}
