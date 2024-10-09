@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.6.21)  1 OCT 2024 17:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.6.21)  8 OCT 2024 18:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2082,31 +2082,31 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <12> not available
 (Font)              Font shape `T1/phv/b/sl' tried instead on input line 69.
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--74
+Underfull \hbox (badness 10000) in paragraph at lines 71--75
 
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 74.
+Package cleveref Info: loaded `english' language definitions on input line 75.
 [5]
-Package cleveref Info: loaded `english' language definitions on input line 76.
+Package cleveref Info: loaded `english' language definitions on input line 77.
  [6 <./figures/background/hifi_pacbio.png (PNG copy)> <./figures/background/nan
 opore_sequencing.jpg>]
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 76.
-Package cleveref Info: loaded `english' language definitions on input line 129.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 77.
+Package cleveref Info: loaded `english' language definitions on input line 130.
 
  [7]
-Package cleveref Info: loaded `english' language definitions on input line 180.
+Package cleveref Info: loaded `english' language definitions on input line 181.
 
  [8]
-Package cleveref Info: loaded `english' language definitions on input line 180.
+Package cleveref Info: loaded `english' language definitions on input line 181.
 
  [9]
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 193.
+Package cleveref Info: loaded `english' language definitions on input line 194.
 
 [10
 
@@ -2115,13 +2115,13 @@ Package cleveref Info: loaded `english' language definitions on input line 193.
 File: figures/background/small_variants.png Graphic file (type png)
 <use figures/background/small_variants.png>
 Package pdftex.def Info: figures/background/small_variants.png  used on input l
-ine 198.
+ine 199.
 (pdftex.def)             Requested size: 345.0pt x 200.78995pt.
 <figures/background/large_variants.png, id=422, 1506.62875pt x 876.27374pt>
 File: figures/background/large_variants.png Graphic file (type png)
 <use figures/background/large_variants.png>
 Package pdftex.def Info: figures/background/large_variants.png  used on input l
-ine 207.
+ine 208.
 (pdftex.def)             Requested size: 345.0pt x 200.64287pt.
 
 
@@ -2130,10 +2130,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package cleveref Info: loaded `english' language definitions on input line 220.
+Package cleveref Info: loaded `english' language definitions on input line 221.
 
 [11]
-Package cleveref Info: loaded `english' language definitions on input line 220.
+Package cleveref Info: loaded `english' language definitions on input line 221.
 
  [12 <./figures/background/small_variants.png> <./figures/background/large_vari
 ants.png>]
@@ -2141,13 +2141,13 @@ ants.png>]
 File: figures/background/pop_diff.png Graphic file (type png)
 <use figures/background/pop_diff.png>
 Package pdftex.def Info: figures/background/pop_diff.png  used on input line 22
-4.
+5.
 (pdftex.def)             Requested size: 276.00105pt x 100.90245pt.
 <figures/background/genome_diff.png, id=446, 859.86551pt x 595.85878pt>
 File: figures/background/genome_diff.png Graphic file (type png)
 <use figures/background/genome_diff.png>
 Package pdftex.def Info: figures/background/genome_diff.png  used on input line
- 231.
+ 232.
 (pdftex.def)             Requested size: 345.0pt x 239.07574pt.
 
 
@@ -2157,18 +2157,18 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figures/background/genomic_spectrum.png Graphic file (type png)
 <use figures/background/genomic_spectrum.png>
 Package pdftex.def Info: figures/background/genomic_spectrum.png  used on input
- line 238.
+ line 239.
 (pdftex.def)             Requested size: 327.74895pt x 184.42358pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package cleveref Info: loaded `english' language definitions on input line 248.
+Package cleveref Info: loaded `english' language definitions on input line 249.
 
 [13 <./figures/background/pop_diff.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 251.
+Package cleveref Info: loaded `english' language definitions on input line 252.
 
  [14 <./figures/background/genome_diff.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 257.
+Package cleveref Info: loaded `english' language definitions on input line 258.
 
  [15
 
@@ -2176,9 +2176,9 @@ Package cleveref Info: loaded `english' language definitions on input line 257.
 <figures/background/sra.png, id=482, 1410.77063pt x 789.70032pt>
 File: figures/background/sra.png Graphic file (type png)
 <use figures/background/sra.png>
-Package pdftex.def Info: figures/background/sra.png  used on input line 272.
+Package pdftex.def Info: figures/background/sra.png  used on input line 273.
 (pdftex.def)             Requested size: 345.0pt x 193.11075pt.
-Package cleveref Info: loaded `english' language definitions on input line 281.
+Package cleveref Info: loaded `english' language definitions on input line 282.
 
 
 [16 <./figures/background/sra.png (PNG copy)>]
@@ -2186,62 +2186,62 @@ Package cleveref Info: loaded `english' language definitions on input line 281.
 File: figures/background/pangenome_model.png Graphic file (type png)
 <use figures/background/pangenome_model.png>
 Package pdftex.def Info: figures/background/pangenome_model.png  used on input 
-line 290.
+line 291.
 (pdftex.def)             Requested size: 258.75pt x 228.83322pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--297
+Underfull \hbox (badness 10000) in paragraph at lines 288--298
 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package cleveref Info: loaded `english' language definitions on input line 301.
+Package cleveref Info: loaded `english' language definitions on input line 302.
 
 [17]
-Package cleveref Info: loaded `english' language definitions on input line 310.
+Package cleveref Info: loaded `english' language definitions on input line 311.
 
  [18 <./figures/background/pangenome_model.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 323.
+Package cleveref Info: loaded `english' language definitions on input line 324.
 
  [19]
 <figures/background/graph_types.png, id=517, 761.04735pt x 638.63081pt>
 File: figures/background/graph_types.png Graphic file (type png)
 <use figures/background/graph_types.png>
 Package pdftex.def Info: figures/background/graph_types.png  used on input line
- 327.
+ 328.
 (pdftex.def)             Requested size: 258.75pt x 217.1316pt.
 <figures/background/vg.png, id=523, 432.1451pt x 285.39276pt>
 File: figures/background/vg.png Graphic file (type png)
 <use figures/background/vg.png>
-Package pdftex.def Info: figures/background/vg.png  used on input line 339.
+Package pdftex.def Info: figures/background/vg.png  used on input line 340.
 (pdftex.def)             Requested size: 224.2479pt x 148.09589pt.
 <figures/background/variant_graph.jpg, id=527, 517.40204pt x 237.27583pt>
 File: figures/background/variant_graph.jpg Graphic file (type jpg)
 <use figures/background/variant_graph.jpg>
 Package pdftex.def Info: figures/background/variant_graph.jpg  used on input li
-ne 346.
+ne 347.
 (pdftex.def)             Requested size: 327.74895pt x 150.31003pt.
-Package cleveref Info: loaded `english' language definitions on input line 354.
+Package cleveref Info: loaded `english' language definitions on input line 355.
 
  [20 <./figures/background/graph_types.png (PNG copy)>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-54.
+55.
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 <figures/background/dbg.png, id=537, 924.02357pt x 533.17561pt>
 File: figures/background/dbg.png Graphic file (type png)
 <use figures/background/dbg.png>
-Package pdftex.def Info: figures/background/dbg.png  used on input line 364.
+Package pdftex.def Info: figures/background/dbg.png  used on input line 365.
 (pdftex.def)             Requested size: 327.74895pt x 189.12001pt.
-Package cleveref Info: loaded `english' language definitions on input line 370.
+Package cleveref Info: loaded `english' language definitions on input line 371.
 
  [21 <./figures/background/vg.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 371.
+Package cleveref Info: loaded `english' language definitions on input line 372.
 
  [22 <./figures/background/variant_graph.jpg> <./figures/background/dbg.png (PN
 G copy)>]
@@ -2249,28 +2249,28 @@ G copy)>]
 File: figures/background/compacting.png Graphic file (type png)
 <use figures/background/compacting.png>
 Package pdftex.def Info: figures/background/compacting.png  used on input line 
-386.
+387.
 (pdftex.def)             Requested size: 245.8117pt x 147.92606pt.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 387.
+(Font)              scaled to size 8.09995pt on input line 388.
 <figures/background/colors_dbg.png, id=557, 785.38316pt x 189.52438pt>
 File: figures/background/colors_dbg.png Graphic file (type png)
 <use figures/background/colors_dbg.png>
 Package pdftex.def Info: figures/background/colors_dbg.png  used on input line 
-392.
+393.
 (pdftex.def)             Requested size: 311.36049pt x 75.13458pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package cleveref Info: loaded `english' language definitions on input line 403.
+Package cleveref Info: loaded `english' language definitions on input line 404.
 
 [23]
-Package cleveref Info: loaded `english' language definitions on input line 405.
+Package cleveref Info: loaded `english' language definitions on input line 406.
 
  [24 <./figures/background/compacting.png (PNG copy)> <./figures/background/col
 ors_dbg.png (PNG copy)>])
-Package cleveref Info: loaded `english' language definitions on input line 410.
+Package cleveref Info: loaded `english' language definitions on input line 411.
 
  [25] [26
 
@@ -2280,10 +2280,10 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-LaTeX Warning: Command \textquoteleft invalid in math mode on input line 410.
+LaTeX Warning: Command \textquoteleft invalid in math mode on input line 411.
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 410.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 411.
 
 ! Missing $ inserted.
 <inserted text> 
@@ -2305,7 +2305,7 @@ it/10 genome\OT1/lmr/m/n/10 (-20) ?\OML/lmm/m/it/10 NewDNAsequencerscouldbea\OT
  []
 
 [27]
-Package cleveref Info: loaded `english' language definitions on input line 410.
+Package cleveref Info: loaded `english' language definitions on input line 411.
 
  [28]
 Package cleveref Info: loaded `english' language definitions on input line 81.
@@ -2747,6 +2747,8 @@ Package cleveref Info: loaded `english' language definitions on input line 82.
 
 
 ]
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <20.74> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 1.
 Package biblatex Info: Reference section=0 on input line 1.
 \blx@maxsegment@5=\count565
 \blx@sectionciteorder@5=\count566
@@ -2757,29 +2759,65 @@ Package biblatex Info: Setting label 'refsection:5' on input line 1.
 LaTeX Warning: Citation 'wavefront' on page 77 undefined on input line 5.
 
 
-LaTeX Warning: Citation 'serratus' on page 77 undefined on input line 5.
+LaTeX Warning: Citation 'spumoni2' on page 77 undefined on input line 5.
 
 
-LaTeX Warning: Citation 'logan' on page 77 undefined on input line 5.
+LaTeX Warning: Citation 'movi' on page 77 undefined on input line 5.
 
-[77]
-Package cleveref Info: loaded `english' language definitions on input line 32.
- [78]
+
+LaTeX Warning: Citation 'serratus' on page 77 undefined on input line 7.
+
+
+LaTeX Warning: Citation 'logan' on page 77 undefined on input line 7.
+
+
+Underfull \vbox (badness 2644) has occurred while \output is active []
+
+ [77]
 Package cleveref Info: loaded `english' language definitions on input line 44.
- [79])
-Underfull \vbox (badness 1215) has occurred while \output is active []
 
+[78]
+
+LaTeX Warning: Reference `sec:kmer' on page 79 undefined on input line 46.
+
+! Undefined control sequence.
+l.51 ...mer case, lexicographically similar \kemrs
+                                                   should be mapped to diffe...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `sec:kmer' on page 79 undefined on input line 56.
+
+Package cleveref Info: loaded `english' language definitions on input line 62.
+[79]
+
+LaTeX Warning: Reference `sec:skmers' on page 80 undefined on input line 71.
+
+Package cleveref Info: loaded `english' language definitions on input line 73.
+[80]
+Package cleveref Info: loaded `english' language definitions on input line 82.
+ [81]
+
+LaTeX Warning: Reference `sec:qf' on page 82 undefined on input line 85.
+
+Package cleveref Info: loaded `english' language definitions on input line 100.
+
+[82]
+Package cleveref Info: loaded `english' language definitions on input line 134.
+
+ [83])
 Package cleveref Info: loaded `english' language definitions on input line 83.
- [80]
-Package cleveref Info: loaded `english' language definitions on input line 83.
-
-[81] [82
+ [84] [85
 
 
 
-] [83] [84
+] [86
 
-] [85
+] [87
 
 ]
 
@@ -2808,8 +2846,17 @@ Package cleveref Info: loaded `english' language definitions on input line 21.
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 273363D87FDF0D5CA967E6C1B3ACB58B;7225.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 273363D87FDF0D5CA967E6C1B3ACB58B;7225
+(rerunfilecheck)             After:  90AD89A14FEEA35BD2B47AC021BAC73A;6801.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2820,35 +2867,39 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52119 strings out of 477975
- 1030133 string characters out of 5839281
+ 52126 strings out of 477975
+ 1030235 string characters out of 5839281
  2069016 words of memory out of 5000000
- 70510 multiletter control sequences out of 15000+600000
- 664353 words of font info for 400 fonts, out of 8000000 for 9000
+ 70519 multiletter control sequences out of 15000+600000
+ 667188 words of font info for 398 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  110i,12n,106p,1796b,3109s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist
-/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/
-usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/
-lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share
-/texmf/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/be
-ra/fvmr8a.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmc
-sc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.p
-fb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
-c/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (97 pages, 24440620 bytes).
+
+pdfTeX warning (dest): name{section.4.8} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/f
+onts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/us
+r/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm
+/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/t
+exmf/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texlive/texmf-dist/fonts/type
+1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera
+/fvmr8a.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc
+10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/
+uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (99 pages, 24450141 bytes).
 PDF statistics:
- 17620 PDF objects out of 18468 (max. 8388607)
- 9230 compressed objects within 93 object streams
- 293 named destinations out of 1000 (max. 500000)
- 116697 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 17627 PDF objects out of 18468 (max. 8388607)
+ 9235 compressed objects within 93 object streams
+ 294 named destinations out of 1000 (max. 500000)
+ 120793 words of extra memory for PDF output out of 128383 (max. 10000000)
 

@@ -56,24 +56,22 @@
 \contentsline {subsection}{\numberline {3.7.4}Estimating core genome and pangenome growth}{59}{subsection.3.7.4}%
 \contentsline {section}{\numberline {3.8}Conclusion and Perspectives}{59}{section.3.8}%
 \contentsline {chapter}{Bibliography}{71}{section*.53}%
-\contentsline {chapter}{\chapternumberline {4}Reducing the complexity of De Bruijn Graphs for Pangenomics}{77}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction: too big, too complex, too difficult to use}{77}{section.4.1}%
-\contentsline {section}{\numberline {4.2}DBG-based tools for pangenomics}{78}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Requirements}{78}{subsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.1.1}Bacterial pangenomics}{78}{subsubsection.4.2.1.1}%
-\contentsline {subsubsection}{\numberline {4.2.1.2}Human pangenomics}{78}{subsubsection.4.2.1.2}%
-\contentsline {section}{\numberline {4.3}Data structures to represent pangenomes as sets \emph {k}-mer\xspace sets}{78}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Representing sets of \emph {k}-mer\xspace sets, state of the art}{79}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Minimum set of operations and characteristics of these data structures}{79}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Simple data structures: sorted list and hash table}{80}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Approximate membership and filters}{80}{subsection.4.3.4}%
-\contentsline {subsubsection}{\numberline {4.3.4.1}Bloom Filters}{80}{subsubsection.4.3.4.1}%
-\contentsline {subsubsection}{\numberline {4.3.4.2}Quotient Filters}{80}{subsubsection.4.3.4.2}%
-\contentsline {section}{\numberline {4.4}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{80}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Superkmer sorting}{81}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Quotient filters to represent kmer sets: optimizin existing methods}{81}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Linearize a masked human reference pangenome graph for visualization purposes}{81}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Perspectives and future work}{81}{section.4.8}%
-\contentsline {chapter}{Papers}{84}{section*.55}%
-\contentsline {chapter}{Appendices}{85}{section*.56}%
+\contentsline {chapter}{\chapternumberline {4}Reducing the complexity of \emph {k}-mer\xspace based methods for Pangenomics}{77}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction: using \emph {k}-mer\xspace sets in pangenomics}{77}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Sets of \emph {k}-mers\xspace sets and metadata association}{78}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Hashing \emph {k}-mers\xspace }{79}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Minimum set of operations and metadata}{79}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Basic data structures: sorted list and hash table}{80}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Approximate membership and filters}{81}{subsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.4.1}Bloom Filters}{81}{subsubsection.4.2.4.1}%
+\contentsline {subsubsection}{\numberline {4.2.4.2}Quotient Filters}{82}{subsubsection.4.2.4.2}%
+\contentsline {subsection}{\numberline {4.2.5}Static vs Dynamic data structures}{82}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}Metadata applications and set operations}{82}{subsection.4.2.6}%
+\contentsline {section}{\numberline {4.3}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{82}{section.4.3}%
+\contentsline {section}{\numberline {4.4}QF for METADATA and FIMPERA}{83}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Exploring dynamic data structures}{83}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{83}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Testing the scale of humang pangenome graphs}{83}{section.4.7}%
+\contentsline {chapter}{Papers}{86}{section*.55}%
+\contentsline {chapter}{Appendices}{87}{section*.56}%
 \contentsfinish 

@@ -1,73 +1,117 @@
 \chapter{Reducing the complexity of \kmer based methods for Pangenomics}
 \label{sec:complexity}
 
-\section{Introduction: too big, too complex, too difficult to use}
+\section{Introduction: using \kmer sets in pangenomics}%too big, too complex, too difficult to use
 As discussed in the previous section of this manuscript, the  construction of pangenome as variation graphs is based on an alignment step that is well known to be accurate but computationally expensive, even if recent advances on alignment algorithms and tools, like the wavefront algorithm~\cite{wavefront} or full-text indexes like the r-index~\cite{spumoni2} and move index~\cite{movi} have provided improvement in construction time or query performance.\\
 The variation graph is a feasible approach for curated analysis of a selected set of samples for large genome organisms: for example, at the time of the writing of this manuscript the Human Pangenome Reference Consortium is releasing a second batch of around 220 high quality human genomes to be used for the construction of a new reference pangenome of the Human species.\\
 Finally, the alignment step implicitly requires high quality complete assemblies to produce reasonably connected graphs. While it is expected that the availability of such high quality genomes will continue growing in the coming years, there is now available a large quantity of raw (or lightly processed) data that can be used in pangenomics applications~\cite{serratus,logan} but cannot be harnessed by variation graph models.\\ 
 For this reason, \kmer based approaches provide a solid alternative: as the used \kmer lenght is usually relatively small (from 21 to 100), they can be used also on more fragmented assemblies or directly on raw sequencing reads and their scalability is proven to be order of magnitude superior than variation graphs. Even more so: they can be used to build representations from data of different quality like phased assemblies from one cohort and unitigs from another.\\
-Such tools usually use different data structures to represent internally and in an efficient way a \dbg model. The main challenge of these data structures is mainly the amount of space used to represent the \kmers versus the time used to query elements (single \kmers or sequences). For this reason, implementations decisions are often bound to optimization compromises made to achieve a specific goal: disk compression to produce small-sized indexes from large collections; fast query time of a novel sequence; time/memory computational trade-offs.
-In any case, the computational resources to produce \ccdbg from a set of input genomes are, as shown in the previous chapter, quite lower and the tools scale to significantly larger collections. \\
-As presented in the previous chapter, although using \kmer based methods for pangenomics provides the aforementioned advantages, the produced \dbg is often too big or complex to use for direct downstream applications:
+Such tools usually use different data structures to represent internally and in an efficient way a \dbg model. The main challenge of these data structures is mainly the amount of space used to represent the \kmers versus the time used to query elements (single \kmers or sequences). For this reason, implementations decisions are often bound to optimization compromises made to achieve a specific goal: disk compression to produce small-sized indexes from large collections; fast query time of a novel sequence; time/memory trade-offs.
+In any case, the computational resources to produce \ccdbg from a set of input genomes are, as shown in the previous chapter, quite lower and the tools scale to significantly larger collections.\\
+%As presented in the previous chapter, although using \kmer based methods for pangenomics provides the aforementioned advantages, the produced \dbg is often too big or complex to use for direct downstream applications:
+%\begin{itemize}
+%	\item full visualization of \dbgs for more than 10 human haplotypes is not possible with state-of-the-art computational biology tools;
+%	\item when full graph visualization is possible, the repetitive regions of the genome make the graph highly connected in some parts, impeding any biological interpretation;
+%	\item small region visualization is possible, usually to the scale of a gene or pseudogene, but post-processing is needed in order to polish the subgraph from parts that do not belong to the requested region, due to repetitions;
+%	\item extraction of high level information is not directly possible and dependent on the construction tool: most enable presence/absence or color queries while not providing any information on where in the graph (in which unitig) the queried sequence can be found.
+%\end{itemize}
+%The \dbg model is therefore too complex to use for many genomic tasks, thus requiring always additional, custom scripts in order to produce information relevant for most pangenomic analyses.
+Below I will present my work on prototyping methods for \kmer sets representations, that will be organized as follows:
 \begin{itemize}
-	\item full visualization of \dbgs for more than 10 human haplotypes is not possible with state-of-the-art computational biology tools;
-	\item when full graph visualization is possible, the repetitive regions of the genome make the graph highly connected in some parts, impeding any biological interpretation;
-	\item small region visualization is possible, usually to the scale of a gene or pseudogene, but post-processing is needed in order to polish the subgraph from parts that do not belong to the requested region, due to repetitions;
-	\item extraction of high level information is not directly possible and dependent on the construction tool: most enable presence/absence or color queries while not providing any information on where in the graph (in which unitig) the queried sequence can be found.
+	\item Introduction on \kmer sets and metadata representation: why it is needed and how;
+	\item Overview of our contributions and my part on them;
+	\item Muset: from graph to matrices for downstream analysis;
+	\item Prototyping data structures for \kmer counting;
+	\begin{itemize}
+		\item Re-implementation of a Quotient Filter as a base for multiple applications;
+		\item Explore dynamicity without indexing: super\kmer sorting;
+	\end{itemize}
+	\item Summary and conclusions.
 \end{itemize}
-The \dbg model is therefore too complex to use for many genomic tasks, thus requiring always additional, custom scripts in order to produce information relevant for most pangenomic analyses.
-Below I will present my work for some prototypes of \kmer set representations, one of which is a step into providing a different representation of pangenomes as \kmer sets more suitable for downstream representation.
+%one of which is a step into providing a different representation of pangenomes as \kmer sets more suitable for downstream representation.
 
-\section{How to organize a set of \kmers}
+\section{Sets of \kmers sets and metadata association}
+Data structures to represent a set of input genomes based on \kmers that find useful applications for pangenomics should satisfy these two main characteristics, knowing that they are, to some point, in competition:
+\begin{itemize}
+	\item provide efficient storage of the data;
+	\item allow very fast interrogations of a \kmer or string to report the associated stored metadata;
+\end{itemize}
+These process to store efficiently the input data to enable fast interrogations is called indexing, while the process of the metadata interrogation is called querying. The data structures should also be able to perform this operations for large data collections, as mentioned in the introduction of this chapter. As data repository grow at a quasi-exponential trend, it has become paramount to minimize the storage requirements and query times for \kmer sets. \\
+A simple but very effective analogy of indexing and querying can be done with books and words.
+Let's say I remember I have a book in my library that happens to have as main character someone called Ricardo and that tells about a story that is also based in Paris. Without any organization of my library I might need to sequentially read , in the worst case, all my books from start to finish to then find the one that I was looking for. This is not convenient at all, especially if I posses a lot of books. In case I maintained an index of in which book I can find any of the words from my whole library, I could quite rapidly find the few ones that contain a character that get called Ricardito. Even more, if I had also an index that associates places with books that have scenes based in them, I could easily triangulate, without even needing to open a single book, that the one I was looking for is \emph{Travesuras de la niña mala} of the Nobel Price  Mario Vargas Llosa.
+This is an example of how, indexing sequencing data, \emph{the words} and their metadata, \emph{the places}, one can rapidly check which samples, \emph{the books}, contain a requested value, without having to look at the raw data (the content of the book).\\
+As the \dbg is a model for a \kmer set representation, under the hood there are different data structures that can be used to store the \kmers and index them for efficient retrieval. These data structures can be divided into exact and inexact data structures. In the rest of this section I will present the characteristics of such data structures and briefly mention some propaedeutical to the prototypes we developed.
 
-\section{DBG-based tools for pangenomics}
+\subsection{Hashing \kmers}
+As described in section~\ref{sec:kmer}, a \kmer is a sub-string of length $k$ of a biological sequence. In order to reduce the space used to store them, the text string is converted, or hashed, into a binary string that can therefore be interpreted as an integer number. The use of the equivalence of a binary string with an integer is the basis of most \kmer based data structures: all the tools that implement storing of \kmers make use of hash functions to represent them as binary strings under the hood in order to save space and perform faster operations.
+\begin{description}
+	\item a hash function is any function that maps data from one set (usually text but not only) to another (usually fixed-size machine-word-length integers). The ingested value is caled key and the output is usually called hash value or simply hash. They are used in a lot of applications such as a) basic computer science models like dictionaries; b) cryptography; c) bioinformatics.
+	\item hash functions should optimize on some of these properties:
+	\begin{itemize}
+		\item[Uniformity] Input data should be mapped in an unfiorm way in the output space: in the \kmer case, lexicographically similar \kemrs should be mapped to different hashes.
+		\item[Speed] the fastest it is possible to compute a hash from a key, the better it is. Speed depends on the number and latency of the operation executed in the computation;
+		\item[collision avoidance] collisions, i.e. mapping different keys into the same hash, should be infrequent. The collision rate is proportional to the size of the hash space and therefore to the space that can be used to store the hash. This tradeoff will be explored better in the next section.
+	\end{itemize}
+\end{description}
+Moreover, \kmer length impacts the time/space trade-off stated in the previous section: as larger \kmer offer greater specificity, they largely increase the amount of space needed to store them (because the hash will probably be larger) as also shown for plain-text representation in section~\ref{sec:kmer}.
 
-\subsubsection{Human pangenomics}
-
-\section{Data structures to represent pangenomes as sets \kmer sets}
-Contemporary analysis of sequencing data, i.e. the \emph{reads} that are generated from the processing of sequencing a biological sample, is mostly performed by string algorithms. These algorithms transform the raw string data using ad-hoc data structures to enable users (mostly bioinformaticians in biology-oriented research institutes or hospitals) to elucidate a particular question. Software based on these algorithm is, most of the time, just the beginning of more elaborated pipelines. \\
-One subset of the many applications of string algorithms is the generation of data structures (i.e. rearrangement of data) that provide efficient storage of the data and that allow very fast interrogations of the absence, presence or (abundance count) of a particular string in it, i.e. checking if it is present in the data and if so, how many times. These processes are known as indexing and querying. The datasets to index in the use cases elucidated in the section above are in the order of tens of TeraBytes of raw data.\\
-A simple but very effective analogy of indexing and querying can be done with books and words. \\
-Let's say I remember I have a book in my library that has as main character someone called Ricardo and that tells about a story that is also based in Paris. Without any organization of my library I might need, in the worst case, to sequentially read all my books from start to finish to then find the one that I was looking for. This is not convenient at all, especially if I posses a lot of books. In case I maintained an index of in which book I can find any of the words from my whole library, I could quite rapidly find the few ones that contain a character that get called Ricardito. Even more, if I had also an index that associates places with books that have scenes based in them, I could easily triangulate, without even needing to open a single book, that the one I was looking for is \emph{Travesuras de la niña mala} of the Nobel Price  Mario Vargas Llosa.
-This is an example of how, indexing sequencing data, \emph{the words} and their metadata, \emph{the places}, one can rapidly check which samples, \emph{the books}, contain a requested value, without having to look at the raw data.
-
-\subsection{Representing sets of \kmer sets, state of the art}
-%\section{Indexing Data Structures}
-During my thesis I focused on \kmer based algorithms, i.e. that use strings of length k as basic unit, because of their proven scalability and mathematical simplicity. Their are also the main common theoretical and technical abstraction that is used by the research group.  
-Here I will briefly introduce some of the most used data structures and algorithms to store collections \kmers and, in some cases, their counts. The process to index a dataset using \kmers is to represent it as a set of the \kmers that from their sequences, like remembering the set of unique words inside one or multiple books. This representation has to be searchable so then I can interrogate it for the presence of a particular word.  There are three aspects to keep in count when considering such data structures: the computational complexity of building and, most of all, querying; the size of the data structure that stores the information and the kind of interrogations you can do with the data: presence/absence or metadata (like, for example, counts). This leads to the distinction between exact and approximate indexes and by the ones that support membership or metadata queries.\\
-The membership query $memb(x)$ returns 
-\kmers and other basic computational aspects that are at the basic of such data structure have been covered in the introduction.
-
-\subsection{Minimum set of operations and characteristics of these data structures}
+\subsection{Minimum set of operations and metadata}
 Given a set of sequencing samples, the data structure must be able to add \kmers from each sample to itself with an \emph{insert()} operation. \\
-It also has to be able to return the presence of the absence of an element inside it, using a binary \memb operation (0 for no, 1 for yes). The result of the \memb operation can be exact or approximate, i.e. have false positives. If the data structure contains the number of times a \kmer has been seen in the input sample, the \memb operation will return 0 if it has never been seen, and a value $>= 1$ if the value has been seen 1 or multiple times. The count can be exact or represent an order of magnitude of the counts: this is often needed to not saturate the counts as most datasets have skewed \kmer count distribution. \\
-The data structure conserves actively or not its internal state after a membership query. For example when looking in a dictionary if an element is present, the CPU will have inside a chunk of memory containing the queried key-value pair and other ones. Other data structures store explicit variables to remember in which place of their internal representation the \memb operation led to. This is important to notice as most of the times, sequences and not \kmers are queried to the data structure, meaning that \memb operations are done sequentially and on \kmers overlapping with each other. Leveraging these properties makes huge differences in the scalability of such data structures.
+It also has to be able to return the metadata associated to it. The most trivial case it is presence of the absence of an element inside it, using a binary \memb operation (0 for no, 1 for yes). The result of the \memb operation can be exact or approximate, i.e. have false positives. Other metadata that can be useful in pangenomics can be:
+\begin{itemize}
+	\item[count] If the data structure contains the number of times a \kmer has been seen in the input sample, the \memb operation will return 0 if it has never been seen, and a value $>= 1$ if the value has been seen 1 or multiple times. The count can be exact or represent an order of magnitude of the counts: this is often needed to not saturate the counts as most datasets have skewed \kmer count distribution. Counts are useful to discern copy variants number in different samples.
+	\item[colors] In the case it remembers in which samples a \kmer has been seen, the \memb operation will return a list of containing samples for each queried \kmer. 
+	\item[Id] In applications in which the graph structure is relevant (for example in visualization), it is useful to know in which \kmers (in the case of \dbg) or unitigs (in the case of \cdbg) of the graph it is contained the queried sequence.
+	\item[Text] Text data can be used to associate \kmers to genetic information as genes, regulatory elements, flags to discern pathogenic variants from non-pathogenic ones and so on.
+\end{itemize}
+Of these metadata, the first two are the ones that are usually taken in consideration for query by recently developed data structures. Text data would impose a significant space requirement for the data and could be mimicked by assigning numerical labels to text and use an additional map to report the text for the \memb operation. The id information is quite overlooked by, to my knowledge, all implementations.\\ 
+Finally, the data structure can conserve actively or not its internal state after a membership query. For example when looking in a dictionary if an element is present, the CPU will have inside a chunk of memory containing the queried key-value pair and other ones. Other data structures store explicit variables to remember in which place of their internal representation the \memb operation led to. This is important to notice as most of the times, sequences and not \kmers are queried to the data structure, meaning that \memb operations are done sequentially and on \kmers overlapping with each other. Leveraging these properties makes huge differences in the scalability of such data structures.
 
-
-\subsection{Simple data structures: sorted list and hash table}
-Indexing small sets of \kmers is in trivial. There are two well known data structures that can serve this goal.
-The most simple data structure used in computer science to maintain an ordered collection of elements to be searched in less than linear time is a sorted list of elements. By ordering the whole enumeration of the set of \kmers in each sample, one can use a binary search to find a requested \kmer in time $O$($k$log$n$), using $O$($kn$) space. This is feasible for very basic cases with small set of \kmers but it is intractable for the aforementioned use-cases, as both time to query a single element or store the dataset scale too poorly.\\
+\subsection{Basic data structures: sorted list and hash table}
+The most simple data structure used in computer science to maintain an ordered collection of elements to be searched in less than linear time is a sorted list of elements. By ordering the whole enumeration of the set of \kmers in each sample, one can use a binary search to find a requested \kmer in time $O$($k$log$n$), using $O$($kn$) space. This is feasible for very basic cases with small set of \kmers but it is intractable for the aforementioned use-cases, as both time to query a single element or store the dataset scale too poorly. Nevertheless, sorted list can be used in case the number of elements is greatly reduced (by using compacted \kmer representations for example) and to avoid costly indexing. More on this in section~\ref{sec:skmers}.\\
 Hash-tables, a well known implementation of dictionaries (or maps) in computer science, solve the problem of the query time, bringing it to $O$($k$) or $O$(1), depending on the particular hash function used. They still require $O(kn)$ space that makes them still unusable for large collections of data. 
 
 \subsection{Approximate membership and filters}
-Approximate membership data structure offer a trade-off between the space (in memory or disk) used to store the ingested information and probability of returning a correct answer. While a sorted list or a hash table return always the correct answer to a , these data structures answer with a non-zero probability of false-positive (i.e. reporting a \kmer present in the raw data when in fact it is not) and zero false-negative rates (i.e. reporting a \kmer as not present while it was present).
+Approximate membership data structure offer a trade-off between the space (in memory or disk) used to store the ingested information and the probability of returning a correct answer
+to improve the space efficiency. While a sorted list or a hash table return always the correct information to a query, these data structures answer with a non-zero probability of false-positive (i.e. reporting a \kmer present in the raw data when in fact it is not) and zero false-negative rates (i.e. reporting a \kmer as not present while it was present). They take the name of probabilistic data structures. Finally, the filters are data structures that resemble vectors, whose basic element (also named slots) can be single bits (hence bitvectors) or any amount of bits that ensure optimal space-efficiency and that can be smaller than a machine word or a single byte using low-level implementation operations.
 \subsubsection{Bloom Filters}
-
+Bloom filters are the most used probabilistic data structures and are used in a multitude of genomic applications (like DeCOm) or non-genomic applications (non-genomic bloom filter). They are used to provide a very space-efficient representation of a set of \kmers by using a bitvector and multiple different hash functions. When an \kmer is inserted, multiple different hashes are generated and the position in the bitvector corresponding to the hashes are set to 1. When an element is queried, the same hash functions are applied and if all positions in the bitvector are set to 1 the element is considered present. If at least one position is set to 0 it means that the element is not present, thus preventing false negatives. As collision can happen, especially when using multiple hash functions, it is instead possible that a position associated to the output of a hash function of a \kmer was set to 1 by the output of another hash of another \kmer, leading to false positives, i.e. reporting a \kmer is inside the data structure while it is not present.\\
+Counting bloom filters store counts instead of presence/absence in the vector positions and return an averaged value when queried.\\
+Interleaved bloom filters instead are made by several bloom filters chunked together to report sample origin queries, when each filter si filled with \kmers from a sample.\\
+Multiple implementation and optimization techniques, like the blocked-bloom filters used to speed query and insert operations, are used to maximize the potential of this data structure won't be addressed here but are thoroughly explained in these two reviews [rayan's and camille's review]. 
 \subsubsection{Quotient Filters}
+Quotient filters are another data structure that is based on the idea of filling a vector with metadata but it does so in a different way compared to the bloom filter.
+The hash computed from the \kmer get separated into two parts: the quotient (leftmost bits) and the remainder (the rest). The size of the quotient depends on the amount of data that is being stored. Instead of filling the vector with the metadata at the position associated to the whole hash, it fills the slot at the position associated with the quotient with the remainder. In order to avoid collision when hashes with the same quotient occur, the remainders of a quotient are stored in order in successive slots, also called runs, to preserve the information and enable fast queries. This is done by using companion data structures that are used to trace where the run of a quotient is in the vector. When metadata that is not absence or presence has to be stored, like counts, multiple slots can be used to encode the count of a single remainder, like for the Counting Quotient Filter or some bits of the slot might be reserved to store the count, like in the Backpack Quotient Filter.
+These filters enable collision resolution by using slots in a more flexible way. More about this data structure will be discussed in section~\ref{sec:qf}.
+\subsection{Static vs Dynamic data structures}
+While most methods are static, requiring a full rebuild upon changes in the \kmer set, a few dynamic structures allow efficient insertion and, more rarely, deletion of k-mers.
+
+\subsection{Metadata applications and set operations}
+Operations like set union, intersection, and difference have been implemented in a few recent methods, enabling complex queries across multiple datasets
+
+
+\section{Converting ccdBGs into unitig matrices for downstream analyses: Muset}
+Matrix: every genome can be seen as a binary vector in a matrix across the alleles of the graph. This way you can use all known downstream applications on matrices: statistics and population genetics can be generalized to this model.
+
+\section{QF for METADATA and FIMPERA}
+\label{sec:qf}
+IMPROVED WITH TORICITY that was never mentioned in the CQF paper
+DYNAMICITY: automatic resize when the filter is full.
+\section{Exploring dynamic data structures}
+\label{sec:skmers}
+%\subsection{Representing sets of \kmer sets, state of the art}
+%\section{Indexing Data Structures}
+%During my thesis I focused on \kmer based algorithms, i.e. that use strings of length k as basic unit, because of their proven scalability and mathematical simplicity. Their are also the main common theoretical and technical abstraction that is used by the research group.  
+%Here I will briefly introduce some of the most used data structures and algorithms to store collections \kmers and, in some cases, their counts. The process to index a dataset using \kmers is to represent it as a set of the \kmers that from their sequences, like remembering the set of unique words inside one or multiple books. This representation has to be searchable so then I can interrogate it for the presence of a particular word.  There are three aspects to keep in count when considering such data structures: the computational complexity of building and, most of all, querying; the size of the data structure that stores the information and the kind of interrogations you can do with the data: presence/absence or metadata (like, for example, counts). This leads to the distinction between exact and approximate indexes and by the ones that support membership or metadata queries.\\
+%The membership query $memb(x)$ returns \kmers and other basic computational aspects that are at the basic of such data structure have been covered in the introduction.
+
 
 
 
 \section{Converting ccdBGs into unitig matrices for downstream analyses: Muset}
 Matrix: every genome can be seen as a binary vector in a matrix across the alleles of the graph. This way you can use all known downstream applications on matrices: statistics and population genetics can be generalized to this model.
 
-\section{Superkmer sorting}
 
-\section{Quotient filters to represent kmer sets: optimizin existing methods}
-
-
-\section{Linearize a masked human reference pangenome graph for visualization purposes}
-
-\section{Perspectives and future work}
 
 \section{Testing the scale of humang pangenome graphs}
 As a scalability and feasibility test, I built a \ccdbg using the high quality haplotypes I used for the pangenome methods evaluation proposed in the previous chapter together with the unitigs of the 1kgenomes dataset (obtained from the raw reads). This pangenome consisted of 3266 human haplotypes blended together into a single data structure (104 high quality + 3162 unitig-level assemblies). This experiment showed:
