@@ -62,13 +62,12 @@
 \contentsline {section}{\numberline {4.2}Sets of \emph {k}-mers\xspace sets and metadata association}{78}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Hashing \emph {k}-mers\xspace }{79}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Minimum set of operations and metadata}{79}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Basic data structures: sorted list and hash table}{80}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.3}Basic data structures: sorted list and hash table}{81}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.2.4}Approximate membership and filters}{81}{subsection.4.2.4}%
 \contentsline {subsubsection}{\numberline {4.2.4.1}Bloom Filters}{81}{subsubsection.4.2.4.1}%
 \contentsline {subsubsection}{\numberline {4.2.4.2}Quotient Filters}{82}{subsubsection.4.2.4.2}%
 \contentsline {subsection}{\numberline {4.2.5}Static vs Dynamic data structures}{82}{subsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.2.6}Metadata applications and set operations}{82}{subsection.4.2.6}%
-\contentsline {section}{\numberline {4.3}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{82}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{83}{section.4.3}%
 \contentsline {section}{\numberline {4.4}QF for METADATA and FIMPERA}{83}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Exploring dynamic data structures}{83}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{83}{section.4.6}%
