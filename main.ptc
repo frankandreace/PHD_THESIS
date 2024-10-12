@@ -3,8 +3,8 @@
 \contentsline {chapter}{Contents}{v}{section*.2}%
 \contentsline {chapter}{List of Figures}{vii}{section*.3}%
 \contentsline {chapter}{List of Tables}{ix}{section*.4}%
-\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
-\contentsline {chapter}{Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {1}Background}{1}{chapter.1}%
+\contentsline {chapter}{Background}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}DNA, genome variation and sequencing data}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}DNA sequencing}{3}{subsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1.1}Next Generation Sequencing}{4}{subsubsection.1.1.1.1}%
@@ -58,23 +58,36 @@
 \contentsline {subsection}{\numberline {3.7.4}Estimating core genome and pangenome growth}{59}{subsection.3.7.4}%
 \contentsline {section}{\numberline {3.8}Conclusion and Perspectives}{59}{section.3.8}%
 \contentsline {chapter}{Bibliography}{71}{section*.53}%
-\contentsline {chapter}{\chapternumberline {4}Reducing the complexity of \emph {k}-mer\xspace based methods for Pangenomics}{77}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {4}Exploring new \emph {k}-mer\xspace based methods for Pangenomics}{77}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Introduction: using \emph {k}-mer\xspace sets in pangenomics}{77}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Sets of \emph {k}-mers\xspace sets and metadata association}{78}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Introduction: sets of \emph {k}-mers\xspace and metadata association}{78}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Hashing \emph {k}-mers\xspace }{79}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Minimum set of operations and metadata}{79}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.2}Minimum set of operations and metadata}{80}{subsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.2.1}Metadata types}{80}{subsubsection.4.2.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2.2}Metadata: why it is important}{81}{subsubsection.4.2.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Basic data structures: sorted list and hash table}{81}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.3}Basic data structures: sorted list and hash table}{82}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.2.4}Approximate membership and filters}{82}{subsection.4.2.4}%
 \contentsline {subsubsection}{\numberline {4.2.4.1}Bloom Filters}{82}{subsubsection.4.2.4.1}%
 \contentsline {subsubsection}{\numberline {4.2.4.2}Quotient Filters}{83}{subsubsection.4.2.4.2}%
 \contentsline {subsection}{\numberline {4.2.5}Static vs Dynamic data structures}{83}{subsection.4.2.5}%
-\contentsline {section}{\numberline {4.3}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{84}{section.4.3}%
-\contentsline {section}{\numberline {4.4}QF for METADATA and FIMPERA}{84}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Exploring dynamic data structures}{84}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Converting ccdBGs into unitig matrices for downstream analyses: Muset}{84}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Testing the scale of humang pangenome graphs}{84}{section.4.7}%
-\contentsline {chapter}{Papers}{88}{section*.55}%
-\contentsline {chapter}{Appendices}{89}{section*.56}%
+\contentsline {section}{\numberline {4.3}Our contributions: an outline}{84}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Muset: building unitig matrices for downstream analyses}{84}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Rationale}{85}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Related work}{85}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}From sequencing data to unitig matrices}{86}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Conclusions and perspectives}{87}{subsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.4.1}Unitig matrices are pangenomes}{87}{subsubsection.4.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.5}Perpectives on other applications}{88}{subsection.4.4.5}%
+\contentsline {section}{\numberline {4.5}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: a Rank Select Quotient Filter}{89}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Brief state-of-the-art overview}{90}{subsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.1}Quotient Filter structure: Rank and Select}{91}{subsubsection.4.5.1.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.2}Counting}{92}{subsubsection.4.5.1.2}%
+\contentsline {subsection}{\numberline {4.5.2}Developing a new library for a Quotient Filter}{92}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}Allowing multiple types of counts: CQF and BQF}{94}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}Handling toricity}{94}{subsubsection.4.5.2.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}Using the Fimpera scheme to reduce space}{94}{subsubsection.4.5.2.3}%
+\contentsline {subsection}{\numberline {4.5.3}Conclusions and perspectives}{95}{subsection.4.5.3}%
+\contentsline {section}{\numberline {4.6}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: Super\emph {k}-mer\xspace sorted list}{95}{section.4.6}%
+\contentsline {chapter}{Papers}{98}{section*.57}%
+\contentsline {chapter}{Appendices}{99}{section*.58}%
 \contentsfinish 

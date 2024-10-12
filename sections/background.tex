@@ -1,6 +1,6 @@
-\chapter{Introduction}
-\addcontentsline{toc}{chapter}{Introduction}
-\chaptermark{Introduction}
+\chapter{Background}
+\addcontentsline{toc}{chapter}{Background}
+\chaptermark{Background}
 \label{sec:background}
 A fundamental grasp of the data that is produced by sequencing biological organisms is essential to comprehend the research outlined in this manuscript. If already familiar with DNA sequences, how they are obtained and how they differ between species or individuals, you may proceed to section~\ref{sec:background:pangenomics} \emph{From reads to \kmers}.
 \section{DNA, genome variation and sequencing data}
@@ -84,6 +84,7 @@ A classic operation that is done when enumerating \kmers from sequences is to ke
 \kmers are being used in lots of applications based on NGS short reads while they are less implied on methods for error-prone long reads because using \kmers on one side destroys the long range information provided by reads that span thousands of bases, on the other error-rates higher than NGS would produce too many erroneous \kmers that would be very difficult to correct if not with very deep sequencing, providing additional cost bottlenecks. With Hi-FI reads and improved quality of nanopore basecalling, it is possible to overcome the error limitation and use \kmers for long reads. One example that uses advanced concepts based on \kmers is the tool \mdbg that drastically improved assembly of Hi-Fi reads.\\ 
 
 \subsection{\kmer based objects}
+\label{sec:kmerobjects}
 \textbf{Unitigs} correspond to the string spelled by concatenating a non-branching path in a De Bruijn graph. In almost all applications unitigs are considered as maximal, i.e. the result of the maximum non-branching path in the graph. Non-branching paths are concatenations of nodes that have in-degree and out-degree of 1. They correspond to non variating string in the input sample and are extensively used on short-read assembly methods.\\
 \textbf{Minimizers} are string of fixed length that are used to subsample \kmers from sequences, since consecutive k-mers are overlapping and contain redundancy. The sampling is done by a pre-defined optimization function, with guarantees that the sampling will produce similar distribution from similar sequences. The function depends on the application and can be for example lexicographic order or the minimum value of a transformation (from here, \emph{minimizer}). There are multiple declinations of minimizers. The first distinction is on the way they are chosen: on a sliding window or the 'universe'. When minimizers are chose on a sliding window of length $w$, every \kmer is evaluated against the chosen function and each $l$ character the one with the best value is retained. Universal minimizer are instead chosen independently of any spacing in the sequence and are the ones whose output value of the defined function is, for example, smaller than a threshold. \\
 Minimizer can be also used as smaller subsequences of length $m < k$ inside \kmers to help group together \kmers based on their corresponding minimizer. In this case from each \kmer the \emph{m-mer} that minimizes the function will represent it. \\
@@ -369,7 +370,7 @@ A \dbg is a data structure that represent a collection of input sequences as a s
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.95\linewidth]{figures/background/dbg.png}
-	\caption[Example of \dbg.]{Example of \dbg for $k=3$ with a bubble representing a SNP.}
+	\caption[Example of \dbg.]{Example of \dbg for $k=3$ with a bubble representing a SNP. Image made by Rayan Chikhi.}
 	\label{fig:dbg_ex}
 \end{figure}
 The choice of $k$ depends on multiple factors and in fact is a trade-off between: 

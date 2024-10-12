@@ -2351,6 +2351,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
   </bcf:section>
@@ -2361,6 +2362,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="1">
   </bcf:section>
@@ -2374,6 +2376,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="2">
     <bcf:citekey order="1" intorder="1">nih_dna</bcf:citekey>
@@ -2437,6 +2440,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="3">
   </bcf:section>
@@ -2450,6 +2454,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="4">
     <bcf:citekey order="1" intorder="1">ucsc</bcf:citekey>
@@ -2553,6 +2558,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="5">
     <bcf:citekey order="1" intorder="1">wavefront</bcf:citekey>
@@ -2562,6 +2568,7 @@
     <bcf:citekey order="4" intorder="2">logan</bcf:citekey>
     <bcf:citekey order="5" intorder="1">akmerbroom</bcf:citekey>
     <bcf:citekey order="6" intorder="1">marchet2024kmersets</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">fimpera</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">

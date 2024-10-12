@@ -12,4 +12,5 @@
 \contentsline {table}{\numberline {3.4}{\ignorespaces URL, version, pangenome representation and parameters of the three analyzed tools.}}{50}{table.caption.39}%
 \contentsline {table}{\numberline {3.5}{\ignorespaces \emph {Lodderomyces elongisporus}\xspace samples assembly statistics}}{61}{table.caption.41}%
 \addvspace {10pt}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of running time, peak memory, and disk usage between muset (filtered unitig matrix) and ggcat (implicit and unfiltered unitigs) on 360 ancient oral samples.\relax }}{87}{table.caption.54}%
 \contentsfinish 

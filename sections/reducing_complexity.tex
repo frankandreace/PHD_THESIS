@@ -1,4 +1,4 @@
-\chapter{Reducing the complexity of \kmer based methods for Pangenomics}
+\chapter{Exploring new \kmer based methods for Pangenomics} %Reducing complexity of 
 \label{sec:complexity}
 
 \section{Introduction: using \kmer sets in pangenomics}%too big, too complex, too difficult to use
@@ -8,6 +8,7 @@ Finally, the alignment step implicitly requires high quality complete assemblies
 For this reason, \kmer based approaches provide a solid alternative: as the used \kmer lenght is usually relatively small (from 21 to 100), they can be used also on more fragmented assemblies or directly on raw sequencing reads and their scalability is proven to be order of magnitude superior than variation graphs. Even more so: they can be used to build representations from data of different quality like phased assemblies from one cohort and unitigs from another.\\
 Such tools usually use different data structures to represent internally and in an efficient way a \dbg model. The main challenge of these data structures is mainly the amount of space used to represent the \kmers versus the time used to query elements (single \kmers or sequences). For this reason, implementations decisions are often bound to optimization compromises made to achieve a specific goal: disk compression to produce small-sized indexes from large collections; fast query time of a novel sequence; time/memory trade-offs.
 In any case, the computational resources to produce \ccdbg from a set of input genomes are, as shown in the previous chapter, quite lower and the tools scale to significantly larger collections.\\
+As \kmer based methods present valid alternatives for pangenomic studies, I focused part of my PhD on studying and developing data structures that could find some useful application in pangenomics. Here I will present the three projects that gave birth to some relevant outcomes. On two of them, more than just working on by myself, I mostly collaborated, to different extents, with other researchers both in my unit and in other groups. While I cannot call these project as my personal contribution in the field, I believe I could bring significant input in each of them.
 %As presented in the previous chapter, although using \kmer based methods for pangenomics provides the aforementioned advantages, the produced \dbg is often too big or complex to use for direct downstream applications:
 %\begin{itemize}
 %	\item full visualization of \dbgs for more than 10 human haplotypes is not possible with state-of-the-art computational biology tools;
@@ -16,12 +17,12 @@ In any case, the computational resources to produce \ccdbg from a set of input g
 %	\item extraction of high level information is not directly possible and dependent on the construction tool: most enable presence/absence or color queries while not providing any information on where in the graph (in which unitig) the queried sequence can be found.
 %\end{itemize}
 %The \dbg model is therefore too complex to use for many genomic tasks, thus requiring always additional, custom scripts in order to produce information relevant for most pangenomic analyses.
-Below I will present my work on prototyping methods for \kmer sets representations, that will be organized as follows:
+The chapter will be organized as follows:
 \begin{itemize}
 	\item Introduction on \kmer sets and metadata representation: why it is needed and how;
 	\item Overview of our contributions and my part on them;
 	\item Muset: from graph to matrices for downstream analysis;
-	\item Prototyping data structures for \kmer counting;
+	\item Prototyping dynamic data structures for \kmer counting:
 	\begin{itemize}
 		\item Re-implementation of a Quotient Filter as a base for multiple applications;
 		\item Explore dynamicity without indexing: super\kmer sorting;
@@ -30,7 +31,7 @@ Below I will present my work on prototyping methods for \kmer sets representatio
 \end{itemize}
 %one of which is a step into providing a different representation of pangenomes as \kmer sets more suitable for downstream representation.
 
-\section{Sets of \kmers sets and metadata association}
+\section{Introduction: sets of \kmers and metadata association}
 Data structures to represent a set of input genomes based on \kmers that find useful applications for pangenomics should satisfy these two main characteristics, knowing that they are, to some point, in competition:
 \begin{itemize}
 	\item provide efficient storage of the data;
@@ -69,7 +70,8 @@ The most trivial case it is presence of the absence of an element inside it, usi
 	\item[\textbf{Id}] In applications in which the graph structure is relevant (for example in visualization), it is useful to know in which \kmers (in the case of \dbg) or unitigs (in the case of \cdbg) of the graph it is contained the queried sequence. This case is relevant for \dbg based models.
 	\item[\textbf{Text}] Text data can be used to associate \kmers to genetic information as genes, regulatory elements, flags to discern pathogenic variants from non-pathogenic ones and so on.
 \end{itemize}
-Of these metadata, the first two are the ones that are usually taken in consideration for query by recently developed data structures. Text data would impose a significant space requirement for the data and could be mimicked by assigning numerical labels to text and use an additional map to report the text for the \memb operation. The id information is quite overlooked by, to my knowledge, all implementations.
+Of these metadata, the first two are the ones that are usually taken in consideration for query by recently developed data structures. Text data would impose a significant space requirement for the data and could be mimicked by assigning numerical labels to text and use an additional map to report the text for the \memb operation. The id information is quite overlooked by, to my knowledge, all implementations.\\
+Finally, the main difference between representation of \kmer sets and sets of \kmer sets is that in the second each input sample is considered as a different set. This is done by using colors, that make possible to retrieve from the data structure in which sample a \kmer can be found.
 
 \subsubsection{Metadata: why it is important}
 Metadata is important to enable different kind of applications that need more information than just the presence or absence of a \kmer in a set. \\
@@ -89,7 +91,7 @@ to improve the space efficiency. While a sorted list or a hash table return alwa
 
 \subsubsection{Bloom Filters}
 Bloom filters are the most used probabilistic data structures and are used in a multitude of genomic applications, like removing from ancient DNA~\cite{akmerbroom} or non-genomic applications (non-genomic bloom filter). They are used to provide a very space-efficient representation of a set of \kmers by using a bitvector and multiple different hash functions. When an \kmer is inserted, multiple different hashes are generated and the position in the bitvector corresponding to the hashes are set to 1. When an element is queried, the same hash functions are applied and if all positions in the bitvector are set to 1 the element is considered present. If at least one position is set to 0 it means that the element is not present, thus preventing false negatives. As collision can happen, especially when using multiple hash functions, it is instead possible that a position associated to the output of a hash function of a \kmer was set to 1 by the output of another hash of another \kmer, leading to false positives, i.e. reporting a \kmer is inside the data structure while it is not present.\\
-Counting bloom filters store counts instead of presence/absence in the vector positions and return an averaged value when queried.\\
+Counting bloom filters store counts instead of presence/absence in the vector positions and return an averaged value when queried.\\n which sample a 
 Interleaved bloom filters instead are made by several bloom filters chunked together to report sample origin queries, when each filter si filled with \kmers from a sample.\\
 Multiple implementation and optimization techniques, like the blocked-bloom filters used to speed query and insert operations, are used to maximize the potential of this data structure won't be addressed here but are thoroughly explained in these two reviews [rayan's and camille's review]. 
 
@@ -105,30 +107,210 @@ A static data structure cannot be modified after construction: if a set of eleme
 A dynamic data structure allows a certain number of updating operations such that the input set it represents can be modified. A certain number of operations can performed, depending to the application the tool is designed for. The most common operation is the insertion of a new set of \kmers, that is equivalent to an union operation between the two sets when there is no metadata, or in the case of a counting data structure a change of the count value (if an element is already present the count is increased). Other operations can be deletion of the \kmer, or modification of the metadata associated to it. \\
 While most methods are static, dynamic structures that allow efficient insertion and, less frequently, deletion of k-mers are being developed in recent years~\cite{marchet2024kmersets}.
 
+\section{Our contributions: an outline}
+The three projects span different topics and can be devised at 2 different levels of engineering. The first is mainly organizing a pipeline with some already developed bioinformatics tools and contributing to the development of a tool for \kmer information manipulation. The other two are development of a tool from scratch.\\
+They can be presented as follow:
+\begin{itemize}
+	\item[\textbf{Muset}] is a pipeline to construct plain text unitig matrices from input sample. It enables to build an abundance matrix in which the unitig count in each sample is the average of the counts of its constituent \kmers and a presence/absence matrix that report an unitig as present in a sample if its constituent \kmers are present in the sample over a given threshold.\\
+	\item[A \textbf{Quotient Filter}] implementation that, in contrast to the original one, allows dynamic updates, resizing, and a framework to develop different specific data structures on top of it. It is the building block of a novel data structure, the Backpack Quotient Filter that has been recently published. I also redeveloped a Counting Quotient filter on top of it with a \emph{Fimpera} scheme to mimick large \kmers while store smaller ones to store space.\\ 
+	\item[A \textbf{Super\kmer} sorting] implementation to explore a different data structure 
+\end{itemize}
+Some of the research and development I did, mostly in the second and third projects just outlined, can be labeled as exploration and prototyping as the result is not intended to be a novel tool to be widely adopted by the community but as first step in possible route of research in this domain.
 
-\section{Converting ccdBGs into unitig matrices for downstream analyses: Muset}
-Matrix: every genome can be seen as a binary vector in a matrix across the alleles of the graph. This way you can use all known downstream applications on matrices: statistics and population genetics can be generalized to this model.
+\section{Muset: building unitig matrices for downstream analyses}
+In this section I will present the work that I have been doing on building unitig abundance matrices
+\subsection{Rationale}
+As presented in the introduction of this manuscript, recent advancements in genomic sequencing technologies have led to the generation of massive datasets from large-scale projects. Some of them very functional to human pangenomics such as the 1K Genomes Project and the HPRC (and many more are coming), others related to other genomic areas like transcriptomics with GEUVADIS and metagenomics with MetaSub and Tara Ocean. In pangenomics, large dataset present significant challenges for traditional variation graph analyses due to their size and complexity, as presented in the introduction of this chapter. \kmer-based methods can be instead used to study the data with techniques such as k-mer counting and matrix representation. These methods can lead to accuracy in abundance estimation of loci across multiple samples, paving the way for more comprehensive analyses of complex genomic datasets. One example is enabling GWAS studies on all possible variations inside genomes, as current ones focus only on SNPs and small indels. Another example is the possibility of use such matrices as training data for Deep Learning models to learn traits that discern healthy to non-healthy populations for specific diseases and so on.\\
+For these reasons, we propose a novel method to build plain text abundance unitig matrices that can be directly used for downstream applications.
 
-\section{QF for METADATA and FIMPERA}
+\subsection{Related work}
+Cutting-edge tools that compute a \cdbg or \ccdbgs form input samples have been developed in recent years. While BCALM and Cuttlefish output   a \cdbg (hence a \kmer set) that do not record the sample of origin, Bifrost and GGCAT do build \ccdbgs that use colors to trace the source of the \kmers. While \ccdbgs are an implicit representation of an unitig matrix, as they contain the same information (unitigs and origin of \kmers) but represented in a different way, tools that build them do not produce a matrix as output nor provide any APIs or scripts to do so.\\
+Recently, kmtricks, a very fast tool to build a \kmer abundance matrix from a set of samples has been proposed but the cardinality of the \kmer set obtained from input data renders these matrices poorly tractable for the aforementioned downstream applications. This is not a limitation of the tool but a feature of the \kmer spectrum of the datasets.\\
+Remembering that unitigs, as described in section~\ref{sec:kmerobjects}, are a more succinct representation for \kmers, we propose a pipeline that mix the strength of both \cdbg tools to build unitigs and kmtricks to represent \kmer color and abundance to produce unitig matrices that are more tractable for analysis. We also propose a simple pipeline to build presence absence unitig matrices from samples using a script that renders in a digestible text format the implicit representation of a \ccdbg.
+\subsection{From sequencing data to unitig matrices}
+The main idea behind the construction of an abundance unitig matrix is that it is now possible to construct \kmer matrices in a quite efficient way and that is is also possible to build unitigs in a quite efficient way. Therefore by compacting \kmers into unitigs and by estimating unitig abundance by averaging \kmer counts, it is possible to construct a more compact and manageable representation that preserve the high level information needed for for genomic variation diversity studies, loci variation visualization and ingestion by machine learning libraries. If abundance is not needed, presence-absence unitig matrices can still render sequence variation between individuals and be of use for diversity studies. Finally, the abundance matrix is also filtered in one of the main steps to retain only \kmers that reflect the difference between samples, while the presence-absence one does output the entire set of \kmers of the input genomes.\\
+Formally, given an unitig $u$ searched in a sample $S$, the \kmer presence ratio is defined as follow:
+\begin{equation}\label{Eq: Fraction of k-mers in unitig}
+	f(u, S) = \frac{\sum_{i=1}^{N}{x_i}}{N}
+\end{equation}
+while the average abundance of a unitig $u$ with respect to a sample $S$ is defined as:
+\begin{equation}\label{Eq: Average abundance of a unitig with respect to a sample}
+	A(u, S) = \frac{\sum_{i=1}^{N}{c_i}}{N}
+\end{equation}
+In the equations $N$ is the number of \kmers in $u$, and $x_i$ is a binary variable that is $1$ when the $i$-th \kmer is present in sample $S$ and $0$ otherwise, while $c_i$ is a non-negative integer count.\\
+Figure~\ref{fig:muset} shows the main steps of the muset pipeline. To produce an abundance matrix, the main steps are:
+\begin{enumerate}
+	\item A \kmer abundance matrix is built from FASTA/Q files using kmtricks;
+	\item \kmers that are present in at least 10\% of the samples and absent in at least 10\% of them are retained, while the others are discarded. The threshold are customizable;
+	\item Unitigs are created from this set of retained \kmers in order to compress the representation. Unitigs shorter than a certain value are discarded. While this variable can be modified by the user, our recommendation is to keep it as $2k-1$ with $k$ the length of the \kmer. This value is the minimum value to observe a SNP in the set as an unitig representing a SNP would have 2 times $k-1$ bases as overlap to the unitigs representing the adjacent bases in the genome and 1 base for the variation.
+	\item The abundance unitig matrix is therefore constructed. This is done by 
+	\begin{enumerate}
+		\item creating a dictionary, using SSHash, to link \kmers to the unitig in which they have been compacted;
+		\item each unitig abundance score is computed by summing the count of its constituent \kmer set divided by the cardinality of the set. This is done independently for each sample to retain the color information of the \kmer matrix.
+	\end{enumerate} 
+\end{enumerate}
+To generate a presence-absence the main steps of the pipeline are:
+\begin{enumerate}
+	\item unitig matrix the \ccdbg is built using ggcat. Unitigs are in fasta format while colors are in a compress representation accessible only via ggcat cli or APIs.
+	\item unitigs are filtered by length like in step 3 of the abundance pipeline;
+	\item filtered unitigs are queried against the ggcat color index and for each sample in which at least 1 \kmer of the unitig was present, the presence ratio is reported. If no \kmer was present in the sample, the sample is not reported.
+	\item the unitig query is then parsed (from jsonl) and the presence (1) or absence (0) is reported for every unitig in every sample in form of a matrix. The presence is determined when the fraction of present \kmers in the sample is above a pre-defined, altough modifiable, threshold. It is also possible to produce a matrix that does report the presence ratio instead of a binary value.
+\end{enumerate}
+Only the abundance pipeline has been tested against the most similar state-of-the art tool that is in fact ggcat, that produces, as mentioned, an implicit presence/absence matrix. Even without using the just presented script to produce an explicit one, the abundance matrix script is faster than ggcat when run on a large collection of 360 ancient oral samples, as shown in table~\ref{tab:muset_comparison}. No computational resources test has been done on human genomes as it was out of the scope of the pure demonstration of the usability and efficiency of the method. 
+
+\begin{table}[!t]
+	\centering
+	%\tabcolsep=2Spt
+	\begin{tabular}{lccc}
+		\toprule
+		Method & Wall-clock time & Peak memory & Disk usage \\
+		\midrule
+		\textbf{muset} & \textbf{9h 43m 12s} & \textbf{\SI[detect-weight=true]{19}{\textbf{\giga\byte}}} & \textbf{\SI[detect-weight=true]{1.5}{\textbf{\tera\byte}}}\\
+		ggcat & 24h 20m 40s & \SI{167}{\giga\byte} & \SI{641}{\giga\byte} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Comparison of running time, peak memory, and disk usage between muset (filtered unitig matrix) and ggcat (implicit and unfiltered unitigs) on 360 ancient oral samples.}\label{tab:muset_comparison}
+\end{table}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{figures/kmer_methods/muset_full.pdf}
+	\caption[The muset pipeline]{Scheme representing the main steps of the muset pipeline.}
+	\label{fig:muset}
+\end{figure}
+
+\subsection{Conclusions and perspectives}
+\subsubsection{Unitig matrices are pangenomes}
+Although not very considered in the pangenome community, matrices are a valid pangenome representation. Every genome can be seen as a binary vector in a matrix that reports the alleles of a pangenome graph. A presence-absence matrix can be inferred by both variation graphs and \ccdbgs, in which as rows there are the ids of the nodes and as columns the input samples.  
+Even if with a plain text matrix it is not possible to visualize genome variations like for graphs, they are arguably a friendlier starting point for downstream applications: biostatistics methods and population genetics can be easily generalized to this model.\\
+Before muset abundance matrices could be theoretically generated only from paths in variation graphs, while it is now possible to obtain a sufficient approximation (by averaging) for unitigs in each sample.\\
+\subsection{Perpectives on other applications}
+Muset is the first pipeline that uses various tools together to produce the unitig matrix representation. These tools have not been developed with this application in mind, except the kmattool software that is done to handle the various inputs and outputs format of the tools and for the filtering steps. This approach is important because it is the first to do so but it is not well optimized, as the pipeline uses various steps in which the data is dumped or read as plain text on disk, slowing the process. For this reason a future direction for this project would be to develop a tool to handle some or most of these operation in memory, gaining a lot of computing time.\\
+%Another, more simple, upgrade of muset would be to produce such matrices also from a variation graph to allow 
+
+\section{Prototyping Dynamic Data structures for \kmer counting: a Rank Select Quotient Filter}
 \label{sec:qf}
-IMPROVED WITH TORICITY that was never mentioned in the CQF paper
-DYNAMICITY: automatic resize when the filter is full.
-\section{Exploring dynamic data structures}
+While abundance unitig matrices are useful for specific genomics applications, they represent data in a way that is less efficient for others. Some use-cases require to undestand if a sequence is present or absent the dataset(s) of interest in the minimum possible time. Indexing is a way to organize information in data structures that enable fast queries of the data they contain. Sequence query is done by pseudo-alignment (by \kmer~izing the sequence and query each of its \kmers). As \cdbg or \ccdbg can solve the task but the graph construction is a major bottleneck and require explicitly associating each k-mer with its abundance. \\
+Approximate Membership Query (AMQ) data structures, such as Bloom filters, quotient filters, and cuckoo filters, can be used to represent a set or multiset of elements in a more efficient space. They have become essential tools not only in computational biology but also other domains like databases, storage systems and networks. Their are called approximate because they allow queries to rarely return a false positive value at a rate, $\delta$, meaning that while they will always confirm the presence of an inserted item, they might erroneously return true for non-inserted items with a probability of $\delta$. This trade-off allows the AMQ to save space. More recently, there have been developed version of these that allow to count the elements in a dataset instead of just reporting the absence or presence (cAMQ). We will focus of the ladder as they are more useful in many bioinformatics applciations, from pangenomics to transcriptomics and metagenomics. For counting data structures, false positive values should report a count greater and not inferior to the real one.\\
+At the present moment, the main areas of improvement of such data structures are:
+\begin{enumerate}
+	\item The latency of \memb operations, as it defines the kind of applications they can be used for (e.g. computer networks) and the amount of data that can be queried in a reasonable amount of time (e.g. bioinformatics). This is mostly due to a combination of the following factors:
+	\begin{itemize}
+		\item how well the data structure is designed in order to have data locality. Reducing cache misses by storing information such that data that might be needed consecutively fits the processor cache to save time.
+		\item how well the implementation is coded, i.e. how engineered are certain operations, e.g. code branches, SIMD operations and multiprocessing. This is a very important aspect, as data structures that are less efficient in theory can in fact outperform in practice as they are easier to optimize.
+	\end{itemize}
+	\item The amount of space the data structure uses to store elements, that poses a hard constraint on the computer architectures that can use it. Although the cost of RAM has been declining, the amount of data is growing faster therefore pushing for more efficient use of each bit to encode information.
+	\item the operation they allow, especially the possibility to modify the data structure after it has been initialized on some dataset. The most useful operations are:
+	\begin{itemize}
+		\item increase the count of elements, or add them if not already inside; 
+		\item decrease the count of elements, or delete them if their count reaches 0;
+		\item enumerate the elements inside with their respective count;
+		\item automatically resize the filter when it reaches maximum capacity, to avoid the necessity to use a cardinality estimation tool a priori when initializing the data structure and allow for addition of new elements.
+	\end{itemize}
+\end{enumerate}
+A data structure that tackles relatively efficiently all these problems has been proposed and takes the name of Counting Quotient Filter or CQF. It is based on a Rank-Select quotient filter on top of which a counting scheme has been devised in order to fill the slots of the filter with an efficient encoding of the count of the inserted element that offers less memory usage and loockup speedup compared to a Quotient Filter.
+
+\subsection{Brief state-of-the-art overview}
+The AMQ data structure that can be used in these applications are variations of three main ones: the Bloom filter, the Quotient Filter and the cuckoo filter. Although the first two have been described at the beginning of this chapter, here I briefly present them with the implementations built on top of them.
+\begin{definition}
+	\item[The \textbf{Bloom filter}] is a well-known AMQ, which uses hash functions to map inserted items into a bit vector. Despite its space efficiency (one to two bytes per element for common $\delta$ values like 1/50 to 1/1000), a major drawback is it cannot be resized and doesn't support deletions. Counting Bloom filters (CBF) extend Bloom filters by using saturating counters instead of bits, enabling deletions at the cost of increased space. Scalable Bloom filters, on the other hand, maintain a low false-positive rate even when the number of items is unknown by employing multiple Bloom filters.
+	\item[The \textbf{Quotient filter}] uses hashed fingerprints to manage table slots. It supports a range of operations like insertion, deletion, and resizing. It is more cache-efficient and faster than Bloom filters—though less space-efficient than CBFs—making it suitable for systems like SSDs. One downside is that its performance degrades significantly once the table exceeds 60\% occupancy.
+	\item[The \textbf{Cuckoo filter}] uses cuckoo hashing. It uses two potential slots for storing each item and moves items between their alternate locations if needed, causing a cascade of movements (kicks) until a stable arrangement is achieved. This filter is fast for lookups but can suffer from poor cache performance if many kicks occur, especially when the structure becomes full.
+\end{definition}
+About all these implementations, it is important to remember that they provide a fast loockup table in which information can be stored into fixed-size slots.\\
+Finally, from now on I will discuss only about implementation details of Quotient Filter, as it is the basic data structure that we considered for out implementation. When a new element has to be inserted in a quotient filter, it is first hashed and then the resulting value is separated into a quotient of length $q$ and a remainder of length $r$.
+\subsubsection{Quotient Filter structure: Rank and Select}
+The Ransk-Select quotient filter, or RSQF, works by hashing items into a $p$-bit fingerprint $x$ and then dividing the bits into two parts: the quotient $h0(x)$ of $q$ bits and the remainder $h1(x)$ of $r = p - q$ bits. The RSQF has an array of $2^q$ $r$-bit slots that store the remainder of each item. When inserting an item, the filter tries to place the remainder in the slot based on the quotient. If the home slot is occupied, a linear probing technique is used to locate the next available slot.
+To help tracking where the runs, i.e. the collections of subsequent slots containing the remainders of a specific quotient, are, the the RSQF uses two metadata bitvectors:
+\begin{itemize}
+	\item[occupieds] Tracks which slots are currently occupied by data.
+	\item[runends] Indicates the end of each set of consecutive entries (or a "run") in the quotient filter.
+\end{itemize}
+The combination of these two bit vectors allows the RSQF to efficiently find and manage inserted items by using rank and select operations. Specifically, the \texttt{RANK} function counts the number of occupied slots up to a certain point, and  \texttt{SELECT} identifies where in the filter a particular run ends. This allows efficient lookup, insertion, and enumeration of the data in the filter.\\
+Moreover, to store the data in a cache-friendly way, the filter is divided into blocks of 64 slots. To minimize operations requiring the scan of multiple blocks when the filter is relatively full, an offsets array tracks the distance from the start of a run to where it ends for every 64th slot. Therefore computing these offsets involves scanning only small sections of the metadata (64 bits or fewer) per operation, making the filter significantly faster.\\
+Each block fragments both the slots vector and the metadata vectors. It contains therefore one offset value, 64 occupieds, 64 runends, and 64 slots for remainders data. By storing these elements together, the system should minimize memory access and enhances cache efficiency. 
+\subsubsection{Counting}
+\label{sec:rsqfcount}
+Counting data structures, depending on the application, can store exact counts or order of magnitudes. This because in some applications the count number is expected relatively low and precision is important (like human genomics) while in others skewed abundance is more probable and an estimate of the count is good enough (for example in metagenomics).\\
+Finally, counts can be stored with three different strategies. In any case the reminders associated to a certain quotient are stored in monotonic order inside the data structure.
+\begin{enumerate}
+	\item  a count can be encoded as the number of times a reminder is inserted into consecutive slots. This is the most basic implementation and the less space-efficient one as the data structure occupation would be related to the total number of counts in it. It also makes poor use of the bits in the slots that could be used for count or not.
+	\item a count $N$ of a reminder $R$ can be encoded into multiple consecutive slots as follows: 
+	\begin{itemize}
+		\item if $1 <= N <= 2$, than the reminder $R$ is inserted $N$ times;
+		\item else $K = C - 2$ can be encoded into a sequence of slots, whole boundaries are flagged by two reminders $R$ (hence the - 2). The encoding uses the slots in between to store the actual value of the count $K$. If $K$ is greater than $R$, a 0 is placed just after the first reminder to signal that the next slots are used for encoding, else not as the monotonic insertion of the reminders would implicitly flag the count. If $K$ is greater than the max value that can be encoded in the $r$ bits of a slot (i.e. $2^r -1$), it is encoded as a sum of the slots containing the count. 
+	\end{itemize}
+	This approach uses at least 3 slots for $n>2$ and, while more efficient than the previous one, is still quite inefficient for low count values.
+	\item another way of storing $c$ is reserving $m$ extra bits for every slot to encode in it the count associated to the remainder. As this method adds $2^q * c$ bits the choice of $c$ should be calibrated for the suited application. 
+\end{enumerate}
+
+\subsection{Developing a new library for a Quotient Filter}
+The implementation of the proposed CQF is efficient but represent an object that is not modifiable and does not allow for experimentation of different models based on the RSQF or CQF.
+For this reason, we decided to reimplement such data structure in a modular way so that the basic RSQF data structure could be used as building block for multiple applications. In this way it would be possible to develop models:
+\begin{itemize}
+	\item exact (when no space trade-off is chosen) or approximate;
+	\item with exact or approximate counts;
+	\item with different count encodings;
+\end{itemize}
+The developed data structure is therefore layered as this:
+\begin{itemize}
+	\item[low level] it comprises agnostic operations in the data structure such as
+	\begin{itemize}
+		\item setting a specific slot to a certain value. The value can be a remainder, count or combination of the two. It can also be whatever metadata as it only imposes bits to a certain region of memory corresponding to a slot;
+		\item clearing of a slot to zeros for a) removals of elements from the filter and b) shifting operations;
+		\item reading the value at a specific slot;
+		\item shift of slots a certain amount $y$ of slots from a position $x$ of $z$ positions. This allow to keep elements when a new one has to be inserted in an already occupied position. By shifting right of $z$ slots the $y$ already set slots, the position $x$ to $x+z-1$ are therefore free to be used.
+		\item metadata operation to set to 1 or to 0 the occupied and runends bits in their bitvector to keep track of which slots are in use.
+		\item operation to adjourn the offset vector to keep track of the runs.
+	\end{itemize}
+	\item[medium level] it comprises operation to insert elements whitout explicitly caring about handling of metadata and shifts in the slots. They implement a RSQF data structure.
+	\begin{itemize}
+		\item addition of an element to the data structure;
+		\item removal of an element from the data structure;
+		\item query of an element from the data structure;
+	\end{itemize}
+	\item[high level] it comprises operations done on top of the RSQF. 
+	\begin{itemize}
+		\item The addition and removal are extension of the RSQF to allow for multiple operations together (i.e. adding or removing multiple slots to store the encoded counter).
+		\item a function to encode and decode counters, as described in point 2 of section~\ref{sec:rsqfcount}.
+		\item the query uses an intelligent linar probe that recognizes when a counter is starting and seeks the start and end of the counter of the queried reminder.
+	\end{itemize}
+	\item[application specific] application specific functions like
+	\begin{itemize}
+		\item hashing of \kmers
+		\item initialization of the data structure
+		\item enumeration of the elements inside the data structure;
+		\item dynamic resize of the data structure (it comprises the enumeration of the elements, doubling the size of the filter by moving a bit from the remainder to the quotient and re-inserting all the elements);
+	\end{itemize} 
+\end{itemize}
+This has been developed as a library or as standalone software to use.
+\subsubsection{Allowing multiple types of counts: CQF and BQF}
+While I focused mostly on re-implementing a CQF from the RSQF implementation, the basic implementation with low to mid level operations and application operations can be used to build other models on top of the RSQF. Viktor Levellois has successfully implemented another data structure that is called the Backpack Quotient Filter (BQF), an implementation that uses the count encoding presente in point 3 of paragraph~\ref{sec:rsqfcount}.\\
+This proves the flexibility of the proposed implementation.
+\subsubsection{Handling toricity}
+One major property of the filter that is never mentioned in the original implementation of the CQF is the handling of specific cases. Remember than runs of reminders (or counts or combination of both) associated to the same quotient are stored contiguously in a monotonic order. Moreover this has to be done in increasing slot id order. For example, when in an empty filter two elements with the same quotient are added, the slots used are the one associated with the quotient and the one \emph{on the right}, or better the one associated to the quotient+1. And so on.\\
+The problem arises on the \emph{rightmost} or final part of the filter, where if new elements are added, it is probable that at some point a slot should be pushed on the next element of the final slot. To overcome this issue, the filter is toric, i.e. the next slot from the last slot is the first slot of the filter. This property avoids any problem associated with filling the filter in the final slots as it imposes a equal property to any slots of the filter.\\
+Implementing the filter with such a characteristic is nontrivial as the toric property imposes a different handling of all the comparisons inside the functions and the shifting operations.
+[FIGURE HERE] 
+\subsubsection{Using the Fimpera scheme to reduce space}
+The size of a RSQF data structure is given by $2^q * (r + m )$ bits with $m~ 2.125$ metadata bits (and some other realtively negligible overhead). It gives that if there could be a way to store almost the same input information by reducing $r$, this would provide great space savings and allow the use of the data structure on larger datasets. To this end, bot the BQF and the CQF implementations have been developed with the Fimpera scheme on top.
+Fimpera splits each \kmer into smaller \emph{s-mers} and stores them into the filter (each of the the \kmer count). The \kmer abundance can be therefore retrieved through its constituent \emph{s-mers} as if a \kmer is present, so are all its constituent \emph{s-mers}.\\
+This approach has been demonstrated to significantly reduce the false-positive rate (by an order of magnitude) without generating false negatives or underestimating \kmer abundance~\cite{fimpera}.In this case, Fimpera is used to reduce the dimension of the filter without increasing the false-positive rate, as storing smaller hashes from \emph{s-mers} gives samller $r$.\\
+To estimate the correct abundance of a \kmer, the smallest 
+The major drawback of this scheme is the loss of the \kmer enumeration feature, as only the \emph{s-mers} can be retreived. The dynamic resizing of the data structure is instead preserved as only \emph{s-mers} are needed for that.\\
+Finally, it is possible that false poisitive \kmers are introduced: \kmers that are non present in the dataset made by \emph{s-mers} that are instead found in other \kmers are going to be reported as present. As this is a joint probability, it is the result of the multiplication of each independent probability so when $s$ is large enough it is very low. This means that the $s$ parameter has to be chosen as a trade-off between space efficiency and false positive rates. For the BQF, this has been estimated as under $10^{-5}\%$ with $s > 20$ when $k = 32$. This is a reasonable false positive rate.
+\subsection{Conclusions and perspectives}
+This implementation could allow for other metadata to be inserted, that would render it no more a cAMQ but could for example contain color information for specific pangenomics applications. This is nontrivial as color storing is memory expensive and a new encoding would be needed. A possible lossless direction would be to use Shannon coding for the colors. If the filter is built in a way that needs multiple resizes, at each resize one could evaluate the distribution of colors and encord the most probable ones with few bits while the less recurrent ones could be encoded with less compression. \\
+Finally, this implementation has not found a way as a standalone publication as the actual CQF implementation (without Fimpera) was slower than the, certainly better optimized, original one.
+Nevertheless there is value in prototyping for the community data structures that are more open to customization depending on the specific application.
+
+
+\section{Prototyping Dynamic Data structures for \kmer counting: Super\kmer sorted list}
 \label{sec:skmers}
-%\subsection{Representing sets of \kmer sets, state of the art}
-%\section{Indexing Data Structures}
-%During my thesis I focused on \kmer based algorithms, i.e. that use strings of length k as basic unit, because of their proven scalability and mathematical simplicity. Their are also the main common theoretical and technical abstraction that is used by the research group.  
-%Here I will briefly introduce some of the most used data structures and algorithms to store collections \kmers and, in some cases, their counts. The process to index a dataset using \kmers is to represent it as a set of the \kmers that from their sequences, like remembering the set of unique words inside one or multiple books. This representation has to be searchable so then I can interrogate it for the presence of a particular word.  There are three aspects to keep in count when considering such data structures: the computational complexity of building and, most of all, querying; the size of the data structure that stores the information and the kind of interrogations you can do with the data: presence/absence or metadata (like, for example, counts). This leads to the distinction between exact and approximate indexes and by the ones that support membership or metadata queries.\\
-%The membership query $memb(x)$ returns \kmers and other basic computational aspects that are at the basic of such data structure have been covered in the introduction.
 
 
 
-
-\section{Converting ccdBGs into unitig matrices for downstream analyses: Muset}
-Matrix: every genome can be seen as a binary vector in a matrix across the alleles of the graph. This way you can use all known downstream applications on matrices: statistics and population genetics can be generalized to this model.
-
-
-
+\begin{comment}
 \section{Testing the scale of humang pangenome graphs}
 As a scalability and feasibility test, I built a \ccdbg using the high quality haplotypes I used for the pangenome methods evaluation proposed in the previous chapter together with the unitigs of the 1kgenomes dataset (obtained from the raw reads). This pangenome consisted of 3266 human haplotypes blended together into a single data structure (104 high quality + 3162 unitig-level assemblies). This experiment showed:
 \begin{itemize}
@@ -150,3 +332,12 @@ For this reasons:
 	\item large and complex regions visualization is also very difficult to achieve and gives results often confounded by repetitions, like seen in the previous chapter;
 	\item downstream applications are limited by the need of in-between tools that use construction methods to achieve a representation and then use queries to infer relevant information. This is also relatively discouraged by the fact that most tools have little to no documentation and different api schemes.
 \end{itemize}
+
+
+
+\subsection{Representing sets of \kmer sets, state of the art}
+\section{Indexing Data Structures}
+During my thesis I focused on \kmer based algorithms, i.e. that use strings of length k as basic unit, because of their proven scalability and mathematical simplicity. Their are also the main common theoretical and technical abstraction that is used by the research group.  
+Here I will briefly introduce some of the most used data structures and algorithms to store collections \kmers and, in some cases, their counts. The process to index a dataset using \kmers is to represent it as a set of the \kmers that from their sequences, like remembering the set of unique words inside one or multiple books. This representation has to be searchable so then I can interrogate it for the presence of a particular word.  There are three aspects to keep in count when considering such data structures: the computational complexity of building and, most of all, querying; the size of the data structure that stores the information and the kind of interrogations you can do with the data: presence/absence or metadata (like, for example, counts). This leads to the distinction between exact and approximate indexes and by the ones that support membership or metadata queries.\\
+The membership query $memb(x)$ returns \kmers and other basic computational aspects that are at the basic of such data structure have been covered in the introduction.
+\end{comment}
