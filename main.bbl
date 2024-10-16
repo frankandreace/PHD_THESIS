@@ -2009,6 +2009,59 @@
       \verb https://doi.org/10.1038/npp.2012.112
       \endverb
     \endentry
+    \entry{back_to_sequences}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e3aa873ed7494539c47863142e6c6870}{%
+           family={Baire},
+           familyi={B\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=23a339586d631a57fbecdfba6e7ae717}{%
+           family={Marijon},
+           familyi={M\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2b542e39d8405f07e2386cbce4e574a2}{%
+           family={Andreace},
+           familyi={A\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The Open Journal}%
+      }
+      \strng{namehash}{2507acdcf986cab64b088b25277ff0f1}
+      \strng{fullhash}{8b4d7251703d618110fdb3973ab817ce}
+      \strng{bibnamehash}{8b4d7251703d618110fdb3973ab817ce}
+      \strng{authorbibnamehash}{8b4d7251703d618110fdb3973ab817ce}
+      \strng{authornamehash}{2507acdcf986cab64b088b25277ff0f1}
+      \strng{authorfullhash}{8b4d7251703d618110fdb3973ab817ce}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Source Software}
+      \field{number}{101}
+      \field{title}{Back to sequences: Find the origin of k-mers}
+      \field{volume}{9}
+      \field{year}{2024}
+      \field{pages}{7066}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.21105/joss.07066
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.21105/joss.07066
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.21105/joss.07066
+      \endverb
+    \endentry
     \entry{genome_diversity_quintana}{misc}{}
       \name{author}{4}{}{%
         {{hash=1e72fe4d35628db6ca5273908d8e55eb}{%
@@ -9774,6 +9827,15 @@
       \endverb
       \keyw{Lodderomyces,Candida parapsilosis,Mixed candidaemia}
     \endentry
+    \entry{assemblystats}{misc}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/sanger-pathogens/assembly-stats}}
+      \field{note}{Last access on 2024-8-05}
+      \field{title}{Assebly stats software by Sanger Institute}
+      \field{year}{2024}
+    \endentry
     \entry{sans}{article}{}
       \name{author}{2}{}{%
         {{hash=2cc9791c7b11a404e8eb4b97bd3748c9}{%
@@ -9793,8 +9855,8 @@
       \strng{authorbibnamehash}{c4d577c7deabbcb5ba7725e7abd19547}
       \strng{authornamehash}{c4d577c7deabbcb5ba7725e7abd19547}
       \strng{authorfullhash}{c4d577c7deabbcb5ba7725e7abd19547}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1367-4803}
@@ -9855,6 +9917,76 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1038/s41592-024-02406-3
+      \endverb
+    \endentry
+    \entry{lodelo_genomes}{article}{}
+      \name{author}{7}{}{%
+        {{hash=5830b31fb83219f7e41ed10341c076d6}{%
+           family={Brejová},
+           familyi={B\bibinitperiod},
+           given={Broňa},
+           giveni={B\bibinitperiod}}}%
+        {{hash=2bfb5be879bf30c7d9d22917c58a9fc4}{%
+           family={Hodorová},
+           familyi={H\bibinitperiod},
+           given={Viktória},
+           giveni={V\bibinitperiod}}}%
+        {{hash=e9375fa272fa4abf4cbc2198c0f21d85}{%
+           family={Mutalová},
+           familyi={M\bibinitperiod},
+           given={Sofia},
+           giveni={S\bibinitperiod}}}%
+        {{hash=91489e02d761fb680774ea52ba1d3d53}{%
+           family={Cillingová},
+           familyi={C\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b9ec7c06542c221ca5fa86389b2406a1}{%
+           family={Tomáška},
+           familyi={T\bibinitperiod},
+           given={Ľubomír},
+           giveni={Ľ\bibinitperiod}}}%
+        {{hash=cbd058c54a8b36dd76d0f3cefe02d6e3}{%
+           family={Vinař},
+           familyi={V\bibinitperiod},
+           given={Tomáš},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f7ba49b624059cab71ee71636e0ea750}{%
+           family={Nosek},
+           familyi={N\bibinitperiod},
+           given={Jozef},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{360353b72db98751ef3035ce64369f6c}
+      \strng{fullhash}{6726f825a459968be98b29ddae5be0e2}
+      \strng{bibnamehash}{6726f825a459968be98b29ddae5be0e2}
+      \strng{authorbibnamehash}{6726f825a459968be98b29ddae5be0e2}
+      \strng{authornamehash}{360353b72db98751ef3035ce64369f6c}
+      \strng{authorfullhash}{6726f825a459968be98b29ddae5be0e2}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1756-1663}
+      \field{journaltitle}{DNA Research}
+      \field{month}{04}
+      \field{number}{3}
+      \field{title}{{Chromosome-level genome assembly of the yeast Lodderomyces beijingensis reveals the genetic nature of metabolic adaptations and identifies subtelomeres as hotspots for amplification of mating type loci}}
+      \field{volume}{31}
+      \field{year}{2024}
+      \field{pages}{dsae014}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/dnares/dsae014
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/dnaresearch/article-pdf/31/3/dsae014/57725551/dsae014\_suppl\_supplementary\_figures\_s1-s9\_tables\_s1-s2.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/dnares/dsae014
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/dnares/dsae014
       \endverb
     \endentry
     \entry{Guarracino2023}{article}{}
@@ -10666,6 +10798,1111 @@
       \endverb
       \verb{url}
       \verb https://www.biorxiv.org/content/early/2024/06/12/2024.06.11.598418
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{5}
+  \datalist[entry]{none/global//global/global}
+    \entry{wavefront}{article}{}
+      \name{author}{4}{}{%
+        {{hash=388934bada3da8715f1f4cf74a2439c3}{%
+           family={Marco-Sola},
+           familyi={M\bibinithyphendelim S\bibinitperiod},
+           given={Santiago},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0d31fb7c64fde19d2d0908494394e13c}{%
+           family={Moure},
+           familyi={M\bibinitperiod},
+           given={Juan\bibnamedelima Carlos},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=0d513712a97d79e9869b60e1dab0a109}{%
+           family={Moreto},
+           familyi={M\bibinitperiod},
+           given={Miquel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=aaf56f8ef9b08cbd137492aaf0fc3396}{%
+           family={Espinosa},
+           familyi={E\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7eb02baa99695712bac39d50c994b8af}
+      \strng{fullhash}{5b3d110cf3ee43549be16adfc50bc3ac}
+      \strng{bibnamehash}{5b3d110cf3ee43549be16adfc50bc3ac}
+      \strng{authorbibnamehash}{5b3d110cf3ee43549be16adfc50bc3ac}
+      \strng{authornamehash}{7eb02baa99695712bac39d50c994b8af}
+      \strng{authorfullhash}{5b3d110cf3ee43549be16adfc50bc3ac}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{Pairwise alignment of sequences is a fundamental method in modern molecular biology, implemented within multiple bioinformatics tools and libraries. Current advances in sequencing technologies press for the development of faster pairwise alignment algorithms that can scale with increasing read lengths and production yields.In this article, we present the wavefront alignment algorithm (WFA), an exact gap-affine algorithm that takes advantage of homologous regions between the sequences to accelerate the alignment process. As opposed to traditional dynamic programming algorithms that run in quadratic time, the WFA runs in time O(ns), proportional to the read length n and the alignment score s, using O(s2) memory. Furthermore, our algorithm exhibits simple data dependencies that can be easily vectorized, even by the automatic features of modern compilers, for different architectures, without the need to adapt the code. We evaluate the performance of our algorithm, together with other state-of-the-art implementations. As a result, we demonstrate that the WFA runs 20–300× faster than other methods aligning short Illumina-like sequences, and 10–100× faster using long noisy reads like those produced by Oxford Nanopore Technologies.The WFA algorithm is implemented within the wavefront-aligner library, and it is publicly available at https://github.com/smarco/WFA.}}
+      \field{issn}{1367-4803}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{09}
+      \field{number}{4}
+      \field{title}{{Fast gap-affine pairwise alignment using the wavefront algorithm}}
+      \field{volume}{37}
+      \field{year}{2020}
+      \field{pages}{456\bibrangedash 463}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btaa777
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformatics/article-pdf/37/4/456/39629847/btaa777.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioinformatics/btaa777
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioinformatics/btaa777
+      \endverb
+    \endentry
+    \entry{spumoni2}{article}{}
+      \name{author}{5}{}{%
+        {{hash=5c19b7c903a0aee6106eca6f48b349b9}{%
+           family={Ahmed},
+           familyi={A\bibinitperiod},
+           given={Omar\bibnamedelima Y.},
+           giveni={O\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=0c3decd7361978627b0623ab30ac2ae7}{%
+           family={Rossi},
+           familyi={R\bibinitperiod},
+           given={Massimiliano},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9a75221a015b5845bdbd2334255f5cc6}{%
+           family={Gagie},
+           familyi={G\bibinitperiod},
+           given={Travis},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bc52f8cb5eb89bcd15a68d488793e84e}{%
+           family={Boucher},
+           familyi={B\bibinitperiod},
+           given={Christina},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a8ce1a82e3e69aab1bb83e47384c8977}{%
+           family={Langmead},
+           familyi={L\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{afc0085c329509256102120ab9ec8995}
+      \strng{fullhash}{2a2bb6f2eca5453a06582c31be81923b}
+      \strng{bibnamehash}{2a2bb6f2eca5453a06582c31be81923b}
+      \strng{authorbibnamehash}{2a2bb6f2eca5453a06582c31be81923b}
+      \strng{authornamehash}{afc0085c329509256102120ab9ec8995}
+      \strng{authorfullhash}{2a2bb6f2eca5453a06582c31be81923b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1474-760X}
+      \field{journaltitle}{Genome Biology}
+      \field{month}{05}
+      \field{number}{1}
+      \field{title}{SPUMONI 2: improved classification using a pangenome index of minimizer digests}
+      \field{volume}{24}
+      \field{year}{2023}
+      \field{pages}{122}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s13059-023-02958-1
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1186/s13059-023-02958-1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1186/s13059-023-02958-1
+      \endverb
+    \endentry
+    \entry{movi}{article}{}
+      \name{author}{5}{}{%
+        {{hash=d4a37f13d3913bc5a31a408e6811d345}{%
+           family={Zakeri},
+           familyi={Z\bibinitperiod},
+           given={Mohsen},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3ea47e996f6256aaac330118dbbc0a01}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Nathaniel\bibnamedelima K.},
+           giveni={N\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=5c19b7c903a0aee6106eca6f48b349b9}{%
+           family={Ahmed},
+           familyi={A\bibinitperiod},
+           given={Omar\bibnamedelima Y.},
+           giveni={O\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=9a75221a015b5845bdbd2334255f5cc6}{%
+           family={Gagie},
+           familyi={G\bibinitperiod},
+           given={Travis},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a8ce1a82e3e69aab1bb83e47384c8977}{%
+           family={Langmead},
+           familyi={L\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory}%
+      }
+      \strng{namehash}{f21d79ff9063411dd891b824d871e101}
+      \strng{fullhash}{b3b3f51a4b6d5db254103e5ce46cc0f5}
+      \strng{bibnamehash}{b3b3f51a4b6d5db254103e5ce46cc0f5}
+      \strng{authorbibnamehash}{b3b3f51a4b6d5db254103e5ce46cc0f5}
+      \strng{authornamehash}{f21d79ff9063411dd891b824d871e101}
+      \strng{authorfullhash}{b3b3f51a4b6d5db254103e5ce46cc0f5}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{Movi: a fast and cache-efficient full-text pangenome index}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1101/2023.11.04.565615
+      \endverb
+      \verb{eprint}
+      \verb https://www.biorxiv.org/content/early/2024/02/15/2023.11.04.565615.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.biorxiv.org/content/early/2024/02/15/2023.11.04.565615
+      \endverb
+      \verb{url}
+      \verb https://www.biorxiv.org/content/early/2024/02/15/2023.11.04.565615
+      \endverb
+    \endentry
+    \entry{serratus}{article}{}
+      \name{author}{15}{}{%
+        {{hash=b9fba786a7677e6255726b6d058a7d16}{%
+           family={Edgar},
+           familyi={E\bibinitperiod},
+           given={Robert\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=e7d033862405e1974a94ed9b598fedd7}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Brie},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9e54f8d6579150073047060b67f42bd5}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=9aaf387db76db8cdff1bf02ff5c78539}{%
+           family={Altman},
+           familyi={A\bibinitperiod},
+           given={Tomer},
+           giveni={T\bibinitperiod}}}%
+        {{hash=22bc7a578de720dd91e6669ad9b3ac83}{%
+           family={Barbera},
+           familyi={B\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=535313a983d20b32d59615eaa932c457}{%
+           family={Meleshko},
+           familyi={M\bibinitperiod},
+           given={Dmitry},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7230092703a7a11abd8ce27deb6a4ee5}{%
+           family={Lohr},
+           familyi={L\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=84d0c2f166721b3c13a20fd552e0d319}{%
+           family={Novakovsky},
+           familyi={N\bibinitperiod},
+           given={Gherman},
+           giveni={G\bibinitperiod}}}%
+        {{hash=eaf8f8e4e20bd4fe2df856bad6585dc3}{%
+           family={Buchfink},
+           familyi={B\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=58ea6ceb414eda12931df5a68a629cf4}{%
+           family={Al-Shayeb},
+           familyi={A\bibinithyphendelim S\bibinitperiod},
+           given={Basem},
+           giveni={B\bibinitperiod}}}%
+        {{hash=dc9e5d94dc8f0673c9e6040b1f6fae29}{%
+           family={Banfield},
+           familyi={B\bibinitperiod},
+           given={Jillian\bibnamedelima F.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=21b89f4a00d7003aace4f17aa587eb50}{%
+           family={Peña},
+           familyi={P\bibinitperiod},
+           given={Marcos},
+           giveni={M\bibinitperiod},
+           prefix={de\bibnamedelima la},
+           prefixi={d\bibinitperiod\bibinitdelim l\bibinitperiod}}}%
+        {{hash=569c26d4a8fe822536a933ebdc20d1a8}{%
+           family={Korobeynikov},
+           familyi={K\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=deeeb710d17b4d9afb5c6e3886ad1422}{%
+           family={Babaian},
+           familyi={B\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1eb3652a1be6f38f191484224c1c4cbd}
+      \strng{fullhash}{5f0c674393840d5c259c9da7a5b6438f}
+      \strng{bibnamehash}{1eb3652a1be6f38f191484224c1c4cbd}
+      \strng{authorbibnamehash}{1eb3652a1be6f38f191484224c1c4cbd}
+      \strng{authornamehash}{1eb3652a1be6f38f191484224c1c4cbd}
+      \strng{authorfullhash}{5f0c674393840d5c259c9da7a5b6438f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1476-4687}
+      \field{journaltitle}{Nature}
+      \field{month}{02}
+      \field{number}{7895}
+      \field{title}{Petabase-scale sequence alignment catalyses viral discovery}
+      \field{volume}{602}
+      \field{year}{2022}
+      \field{pages}{142\bibrangedash 147}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1038/s41586-021-04332-2
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/s41586-021-04332-2
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/s41586-021-04332-2
+      \endverb
+    \endentry
+    \entry{logan}{article}{}
+      \name{author}{5}{}{%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b46018c0f55cab5981162251f592c1fc}{%
+           family={Raffestin},
+           familyi={R\bibinitperiod},
+           given={Brice},
+           giveni={B\bibinitperiod}}}%
+        {{hash=569c26d4a8fe822536a933ebdc20d1a8}{%
+           family={Korobeynikov},
+           familyi={K\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d2a131bb73194bf25cd6da8ed34891dc}{%
+           family={Edgar},
+           familyi={E\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=deeeb710d17b4d9afb5c6e3886ad1422}{%
+           family={Babaian},
+           familyi={B\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory}%
+      }
+      \strng{namehash}{712f083629555aa5f102d452614d2cfc}
+      \strng{fullhash}{96a3886a3966e64fa609017df5882661}
+      \strng{bibnamehash}{96a3886a3966e64fa609017df5882661}
+      \strng{authorbibnamehash}{96a3886a3966e64fa609017df5882661}
+      \strng{authornamehash}{712f083629555aa5f102d452614d2cfc}
+      \strng{authorfullhash}{96a3886a3966e64fa609017df5882661}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{Logan: Planetary-Scale Genome Assembly Surveys Life{’}s Diversity}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1101/2024.07.30.605881
+      \endverb
+      \verb{eprint}
+      \verb https://www.biorxiv.org/content/early/2024/07/31/2024.07.30.605881.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.biorxiv.org/content/early/2024/07/31/2024.07.30.605881
+      \endverb
+      \verb{url}
+      \verb https://www.biorxiv.org/content/early/2024/07/31/2024.07.30.605881
+      \endverb
+    \endentry
+    \entry{akmerbroom}{article}{}
+      \name{author}{5}{}{%
+        {{hash=c2ef5cdd0533d5d8aa0cbdbba9221204}{%
+           family={{Duitama González}},
+           familyi={D\bibinitperiod},
+           given={Camila},
+           giveni={C\bibinitperiod}}}%
+        {{hash=bf4609ebfaf8a18ca9bc06ed0ca51ed1}{%
+           family={Rangavittal},
+           familyi={R\bibinitperiod},
+           given={Samarth},
+           giveni={S\bibinitperiod}}}%
+        {{hash=076111c8719b3d6540134fc71b746bb2}{%
+           family={Vicedomini},
+           familyi={V\bibinitperiod},
+           given={Riccardo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=7a710852fc827cf45594325b7363b1a3}{%
+           family={Richard},
+           familyi={R\bibinitperiod},
+           given={Hugues},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{02f3162a6cd8cf057a45156f27c51218}
+      \strng{fullhash}{45d511f650f3d6e82b755c10ac4cc030}
+      \strng{bibnamehash}{45d511f650f3d6e82b755c10ac4cc030}
+      \strng{authorbibnamehash}{45d511f650f3d6e82b755c10ac4cc030}
+      \strng{authornamehash}{02f3162a6cd8cf057a45156f27c51218}
+      \strng{authorfullhash}{45d511f650f3d6e82b755c10ac4cc030}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2589-0042}
+      \field{journaltitle}{iScience}
+      \field{number}{11}
+      \field{title}{aKmerBroom: Ancient oral DNA decontamination using Bloom filters on k-mer sets}
+      \field{volume}{26}
+      \field{year}{2023}
+      \field{pages}{108057}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.isci.2023.108057
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S258900422302134X
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S258900422302134X
+      \endverb
+      \keyw{Microbial genomics,Biocomputational method,Sequence analysis,Paleogenetics}
+    \endentry
+    \entry{marchet2024kmersets}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d180a327a35fdf2ad743ff5e87cb0749}{%
+           family={Marchet},
+           familyi={M\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{fullhash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{bibnamehash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{authorbibnamehash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{authornamehash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{authorfullhash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \field{extraname}{1}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{q-bio.GN}
+      \field{eprinttype}{arXiv}
+      \field{title}{Advances in practical k-mer sets: essentials for the curious}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 2409.05210
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2409.05210
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2409.05210
+      \endverb
+    \endentry
+    \entry{marchet2021kmer}{article}{}
+      \name{author}{6}{}{%
+        {{hash=d180a327a35fdf2ad743ff5e87cb0749}{%
+           family={Marchet},
+           familyi={M\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=bc52f8cb5eb89bcd15a68d488793e84e}{%
+           family={Boucher},
+           familyi={B\bibinitperiod},
+           given={Christina},
+           giveni={C\bibinitperiod}}}%
+        {{hash=40a14994c2589ec9179c52a99f25e871}{%
+           family={Puglisi},
+           familyi={P\bibinitperiod},
+           given={Simon\bibnamedelima J.},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
+           family={Medvedev},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=dcfb0adc21f7ab8996764493a8b328dd}{%
+           family={Salson},
+           familyi={S\bibinitperiod},
+           given={Mikaël},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9f733b707f95f404d1facb8efa3abf6}
+      \strng{fullhash}{443573dfd6723747baba2a031c50fa8e}
+      \strng{bibnamehash}{443573dfd6723747baba2a031c50fa8e}
+      \strng{authorbibnamehash}{443573dfd6723747baba2a031c50fa8e}
+      \strng{authornamehash}{d9f733b707f95f404d1facb8efa3abf6}
+      \strng{authorfullhash}{443573dfd6723747baba2a031c50fa8e}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Genome Research}
+      \field{number}{1}
+      \field{title}{Data structures based on k-mers for querying large collections of sequencing data sets}
+      \field{volume}{31}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1101/gr.260604.119
+      \endverb
+      \verb{eprint}
+      \verb http://genome.cshlp.org/content/31/1/1.full.pdf+html
+      \endverb
+      \verb{urlraw}
+      \verb http://genome.cshlp.org/content/31/1/1.abstract
+      \endverb
+      \verb{url}
+      \verb http://genome.cshlp.org/content/31/1/1.abstract
+      \endverb
+    \endentry
+    \entry{marchet2024coloredkmersets}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d180a327a35fdf2ad743ff5e87cb0749}{%
+           family={Marchet},
+           familyi={M\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{fullhash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{bibnamehash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{authorbibnamehash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{authornamehash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \strng{authorfullhash}{d180a327a35fdf2ad743ff5e87cb0749}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{q-bio.GN}
+      \field{eprinttype}{arXiv}
+      \field{title}{Advances in colored k-mer sets: essentials for the curious}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 2409.05214
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2409.05214
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2409.05214
+      \endverb
+    \endentry
+    \entry{kmer-file-format}{article}{}
+      \name{author}{9}{}{%
+        {{hash=ceac90d386e9368f27734f9e36578a4b}{%
+           family={Dufresne},
+           familyi={D\bibinitperiod},
+           given={Yoann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cdcc71c79bb0326dfbacba0e445a1eb4}{%
+           family={Lemane},
+           familyi={L\bibinitperiod},
+           given={Teo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=23a339586d631a57fbecdfba6e7ae717}{%
+           family={Marijon},
+           familyi={M\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=306d258d5d59b6a79292305f21b90212}{%
+           family={Rahman},
+           familyi={R\bibinitperiod},
+           given={Amatur},
+           giveni={A\bibinitperiod}}}%
+        {{hash=54e5f5b8e70b8257614a7be22a10c5d1}{%
+           family={Kokot},
+           familyi={K\bibinitperiod},
+           given={Marek},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
+           family={Medvedev},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b056dbd6b3c2b1c8831f6a6b31d930db}{%
+           family={Deorowicz},
+           familyi={D\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{063403fb2957d716a5ca79fac15a3118}
+      \strng{fullhash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{bibnamehash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{authorbibnamehash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{authornamehash}{063403fb2957d716a5ca79fac15a3118}
+      \strng{authorfullhash}{38702be17db62957eb7724a5cfd54a37}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{Bioinformatics applications increasingly rely on ad hoc disk storage of k-mer sets, e.g. for de Bruijn graphs or alignment indexes. Here, we introduce the K-mer File Format as a general lossless framework for storing and manipulating k-mer sets, realizing space savings of 3–5× compared to other formats, and bringing interoperability across tools.Format specification, C++/Rust API, tools: https://github.com/Kmer-File-Format/.Supplementary data are available at Bioinformatics online.}}
+      \field{issn}{1367-4803}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{07}
+      \field{number}{18}
+      \field{title}{{The K-mer File Format: a standardized and compact disk representation of sets of k-mers}}
+      \field{volume}{38}
+      \field{year}{2022}
+      \field{pages}{4423\bibrangedash 4425}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btac528
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformatics/article-pdf/38/18/4423/49885747/btac528.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioinformatics/btac528
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioinformatics/btac528
+      \endverb
+    \endentry
+    \entry{kmtricks}{article}{}
+      \name{author}{4}{}{%
+        {{hash=f2918d87b63e2a193d405e909b3b4938}{%
+           family={Lemane},
+           familyi={L\bibinitperiod},
+           given={Téo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
+           family={Medvedev},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{081e549764d43fb12760d77b103e98be}
+      \strng{fullhash}{c0c8c659c5eda66740e2d80e83fb5198}
+      \strng{bibnamehash}{c0c8c659c5eda66740e2d80e83fb5198}
+      \strng{authorbibnamehash}{c0c8c659c5eda66740e2d80e83fb5198}
+      \strng{authornamehash}{081e549764d43fb12760d77b103e98be}
+      \strng{authorfullhash}{c0c8c659c5eda66740e2d80e83fb5198}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{When indexing large collections of short-read sequencing data, a common operation that has now been implemented in several tools (Sequence Bloom Trees and variants, BIGSI) is to construct a collection of Bloom filters, one per sample. Each Bloom filter is used to represent a set of k-mers which approximates the desired set of all the non-erroneous k-mers present in the sample. However, this approximation is imperfect, especially in the case of metagenomics data. Erroneous but abundant k-mers are wrongly included, and non-erroneous but low-abundant ones are wrongly discarded. We propose kmtricks, a novel approach for generating Bloom filters from terabase-sized collections of sequencing data. Our main contributions are (i) an efficient method for jointly counting k-mers across multiple samples, including a streamlined Bloom filter construction by directly counting, partitioning and sorting hashes instead of k-mers, which is approximately four times faster than state-of-the-art tools; (ii) a novel technique that takes advantage of joint counting to preserve low-abundant k-mers present in several samples, improving the recovery of non-erroneous k-mers. Our experiments highlight that this technique preserves around 8× more k-mers than the usual yet crude filtering of low-abundance k-mers in a large metagenomics dataset.https://github.com/tlemane/kmtricks.Supplementary data are available at Bioinformatics Advances online.}}
+      \field{issn}{2635-0041}
+      \field{journaltitle}{Bioinformatics Advances}
+      \field{month}{04}
+      \field{number}{1}
+      \field{title}{{kmtricks: efficient and flexible construction of Bloom filters for large sequencing data collections}}
+      \field{volume}{2}
+      \field{year}{2022}
+      \field{pages}{vbac029}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/bioadv/vbac029
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformaticsadvances/article-pdf/2/1/vbac029/47086129/vbac029\_supplementary\_data.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioadv/vbac029
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioadv/vbac029
+      \endverb
+    \endentry
+    \entry{fimpera}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0a99dc91c82d3138a4f9ac80f2f4d731}{%
+           family={Robidou},
+           familyi={R\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{657062dba8d320966a411f667dc95870}
+      \strng{fullhash}{657062dba8d320966a411f667dc95870}
+      \strng{bibnamehash}{657062dba8d320966a411f667dc95870}
+      \strng{authorbibnamehash}{657062dba8d320966a411f667dc95870}
+      \strng{authornamehash}{657062dba8d320966a411f667dc95870}
+      \strng{authorfullhash}{657062dba8d320966a411f667dc95870}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1367-4811}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{{fimpera: drastic improvement of Approximate Membership Query data-structures with counts}}
+      \field{volume}{39}
+      \field{year}{2023}
+      \field{pages}{btad305}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btad305
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformatics/article-pdf/39/5/btad305/50453937/btad305.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioinformatics/btad305
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioinformatics/btad305
+      \endverb
+    \endentry
+    \entry{recombseq}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{title}{Recomseq conference website.}
+      \verb{urlraw}
+      \verb https://recomb-seq.github.io/
+      \endverb
+      \verb{url}
+      \verb https://recomb-seq.github.io/
+      \endverb
+    \endentry
+    \entry{bqf}{article}{}
+      \name{author}{5}{}{%
+        {{hash=0777c54a98f34f7e5f6556063d97239a}{%
+           family={Levallois},
+           familyi={L\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=2b542e39d8405f07e2386cbce4e574a2}{%
+           family={Andreace},
+           familyi={A\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=0728c67f89cd50f737003275704a32d4}{%
+           family={Gal},
+           familyi={G\bibinitperiod},
+           given={Bertrand\bibnamedelima Le},
+           giveni={B\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=ceac90d386e9368f27734f9e36578a4b}{%
+           family={Dufresne},
+           familyi={D\bibinitperiod},
+           given={Yoann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory}%
+      }
+      \strng{namehash}{0d1399f2b2b93a9bf034c1262118aea7}
+      \strng{fullhash}{2d087451225f66e31f05f306da3e25e3}
+      \strng{bibnamehash}{2d087451225f66e31f05f306da3e25e3}
+      \strng{authorbibnamehash}{2d087451225f66e31f05f306da3e25e3}
+      \strng{authornamehash}{0d1399f2b2b93a9bf034c1262118aea7}
+      \strng{authorfullhash}{2d087451225f66e31f05f306da3e25e3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{The Backpack Quotient Filter: a dynamic and space-efficient data structure for querying k-mers with abundance}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1101/2024.02.15.580441
+      \endverb
+      \verb{eprint}
+      \verb https://www.biorxiv.org/content/early/2024/02/18/2024.02.15.580441.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.biorxiv.org/content/early/2024/02/18/2024.02.15.580441
+      \endverb
+      \verb{url}
+      \verb https://www.biorxiv.org/content/early/2024/02/18/2024.02.15.580441
+      \endverb
+    \endentry
+    \entry{blight}{article}{}
+      \name{author}{3}{}{%
+        {{hash=d180a327a35fdf2ad743ff5e87cb0749}{%
+           family={Marchet},
+           familyi={M\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b68bb2254e539bc4c3e7121588aa6fa2}{%
+           family={Kerbiriou},
+           familyi={K\bibinitperiod},
+           given={Mael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=964d493db2d3c2e6cc51ac3160896e64}{%
+           family={Limasset},
+           familyi={L\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{e230f841daedb23cf796248668b58422}
+      \strng{fullhash}{e230f841daedb23cf796248668b58422}
+      \strng{bibnamehash}{e230f841daedb23cf796248668b58422}
+      \strng{authorbibnamehash}{e230f841daedb23cf796248668b58422}
+      \strng{authornamehash}{e230f841daedb23cf796248668b58422}
+      \strng{authorfullhash}{e230f841daedb23cf796248668b58422}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1367-4803}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{04}
+      \field{number}{18}
+      \field{title}{{BLight: efficient exact associative structure for k-mers}}
+      \field{volume}{37}
+      \field{year}{2021}
+      \field{pages}{2858\bibrangedash 2865}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btab217
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformatics/article-pdf/37/18/2858/50579086/btab217.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioinformatics/btab217
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioinformatics/btab217
+      \endverb
+    \endentry
+    \entry{sshash}{article}{}
+      \name{author}{1}{}{%
+        {{hash=8de7cec561835acb49c3df3423959d47}{%
+           family={Pibiri},
+           familyi={P\bibinitperiod},
+           given={Giulio\bibnamedelima Ermanno},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{8de7cec561835acb49c3df3423959d47}
+      \strng{fullhash}{8de7cec561835acb49c3df3423959d47}
+      \strng{bibnamehash}{8de7cec561835acb49c3df3423959d47}
+      \strng{authorbibnamehash}{8de7cec561835acb49c3df3423959d47}
+      \strng{authornamehash}{8de7cec561835acb49c3df3423959d47}
+      \strng{authorfullhash}{8de7cec561835acb49c3df3423959d47}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We consider the problem of representing a set of {\$}{\$}k{\$}{\$}-mers and their abundance counts, or weights, in compressed space so that assessing membership and retrieving the weight of a {\$}{\$}k{\$}{\$}-mer is efficient. The representation is called a weighted dictionary of {\$}{\$}k{\$}{\$}-mers and finds application in numerous tasks in Bioinformatics that usually count {\$}{\$}k{\$}{\$}-mers as a pre-processing step. In fact, {\$}{\$}k{\$}{\$}-mer counting tools produce very large outputs that may result in a severe bottleneck for subsequent processing. In this work we extend the recently introduced SSHash dictionary (Pibiri in Bioinformatics 38:185--194, 2022) to also store compactly the weights of the {\$}{\$}k{\$}{\$}-mers. From a technical perspective, we exploit the order of the {\$}{\$}k{\$}{\$}-mers represented in SSHash to encode runs of weights, hence allowing much better compression than the empirical entropy of the weights. We study the problem of reducing the number of runs in the weights to improve compression even further and give an optimal algorithm for this problem. Lastly, we corroborate our findings with experiments on real-world datasets and comparison with competitive alternatives. Up to date, SSHash is the only {\$}{\$}k{\$}{\$}-mer dictionary that is exact, weighted, associative, fast, and small.}
+      \field{issn}{1748-7188}
+      \field{journaltitle}{Algorithms for Molecular Biology}
+      \field{month}{06}
+      \field{number}{1}
+      \field{title}{On weighted k-mer dictionaries}
+      \field{volume}{18}
+      \field{year}{2023}
+      \field{pages}{3}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s13015-023-00226-2
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1186/s13015-023-00226-2
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1186/s13015-023-00226-2
+      \endverb
+    \endentry
+    \entry{smsketch}{article}{}
+      \name{author}{3}{}{%
+        {{hash=0875d7529d7b7ba61a02eacc4c7d8db9}{%
+           family={Shibuya},
+           familyi={S\bibinitperiod},
+           given={Yoshihiro},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e78988c5582445f628e3470b3a2591aa}{%
+           family={Belazzougui},
+           familyi={B\bibinitperiod},
+           given={Djamal},
+           giveni={D\bibinitperiod}}}%
+        {{hash=60b7d38bf4e068144aef9ce3702a8c33}{%
+           family={Kucherov},
+           familyi={K\bibinitperiod},
+           given={Gregory},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{e6a0dbc9fd6f744b2a038533a5b46d8b}
+      \strng{fullhash}{e6a0dbc9fd6f744b2a038533a5b46d8b}
+      \strng{bibnamehash}{e6a0dbc9fd6f744b2a038533a5b46d8b}
+      \strng{authorbibnamehash}{e6a0dbc9fd6f744b2a038533a5b46d8b}
+      \strng{authornamehash}{e6a0dbc9fd6f744b2a038533a5b46d8b}
+      \strng{authorfullhash}{e6a0dbc9fd6f744b2a038533a5b46d8b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computational Biology}
+      \field{note}{PMID: 35049334}
+      \field{number}{2}
+      \field{title}{Set-Min Sketch: A Probabilistic Map for Power-Law Distributions with Application to k-Mer Annotation}
+      \field{volume}{29}
+      \field{year}{2022}
+      \field{pages}{140\bibrangedash 154}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1089/cmb.2021.0429
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1089/cmb.2021.0429
+      \endverb
+      \verb{urlraw}
+      \verb 	 https://doi.org/10.1089/cmb.2021.0429
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1089/cmb.2021.0429
+      \endverb
+    \endentry
+    \entry{genome_scale}{book}{}
+      \name{author}{4}{}{%
+        {{hash=24dc49ae587a47447b491a6a8b9c3435}{%
+           family={Mäkinen},
+           familyi={M\bibinitperiod},
+           given={Veli},
+           giveni={V\bibinitperiod}}}%
+        {{hash=aa6592f8eb5c993e29677caca6443be8}{%
+           family={Cunial},
+           familyi={C\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod}}}%
+        {{hash=e78988c5582445f628e3470b3a2591aa}{%
+           family={Belazzougui},
+           familyi={B\bibinitperiod},
+           given={Djamal},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f4eb9516130366e638853ebf7e226764}{%
+           family={Tomescu},
+           familyi={T\bibinitperiod},
+           given={Alexandru\bibnamedelima I.},
+           giveni={A\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Helsinki}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{b6391ac66cec25fa87df7fb082157e82}
+      \strng{fullhash}{eed9a4714e0e144a72a3be1625ceff6b}
+      \strng{bibnamehash}{eed9a4714e0e144a72a3be1625ceff6b}
+      \strng{authorbibnamehash}{eed9a4714e0e144a72a3be1625ceff6b}
+      \strng{authornamehash}{b6391ac66cec25fa87df7fb082157e82}
+      \strng{authorfullhash}{eed9a4714e0e144a72a3be1625ceff6b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Genome-Scale Algorithm Design, 1st edition}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.genome-scale.info/1stedition/
+      \endverb
+      \verb{url}
+      \verb https://www.genome-scale.info/1stedition/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{6}
+  \datalist[entry]{none/global//global/global}
+    \entry{kff}{article}{}
+      \name{author}{9}{}{%
+        {{hash=ceac90d386e9368f27734f9e36578a4b}{%
+           family={Dufresne},
+           familyi={D\bibinitperiod},
+           given={Yoann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cdcc71c79bb0326dfbacba0e445a1eb4}{%
+           family={Lemane},
+           familyi={L\bibinitperiod},
+           given={Teo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=23a339586d631a57fbecdfba6e7ae717}{%
+           family={Marijon},
+           familyi={M\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=306d258d5d59b6a79292305f21b90212}{%
+           family={Rahman},
+           familyi={R\bibinitperiod},
+           given={Amatur},
+           giveni={A\bibinitperiod}}}%
+        {{hash=54e5f5b8e70b8257614a7be22a10c5d1}{%
+           family={Kokot},
+           familyi={K\bibinitperiod},
+           given={Marek},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
+           family={Medvedev},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b056dbd6b3c2b1c8831f6a6b31d930db}{%
+           family={Deorowicz},
+           familyi={D\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{063403fb2957d716a5ca79fac15a3118}
+      \strng{fullhash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{bibnamehash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{authorbibnamehash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{authornamehash}{063403fb2957d716a5ca79fac15a3118}
+      \strng{authorfullhash}{38702be17db62957eb7724a5cfd54a37}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{Bioinformatics applications increasingly rely on ad hoc disk storage of k-mer sets, e.g. for de Bruijn graphs or alignment indexes. Here, we introduce the K-mer File Format as a general lossless framework for storing and manipulating k-mer sets, realizing space savings of 3–5× compared to other formats, and bringing interoperability across tools.Format specification, C++/Rust API, tools: https://github.com/Kmer-File-Format/.Supplementary data are available at Bioinformatics online.}}
+      \field{issn}{1367-4803}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{07}
+      \field{number}{18}
+      \field{title}{{The K-mer File Format: a standardized and compact disk representation of sets of k-mers}}
+      \field{volume}{38}
+      \field{year}{2022}
+      \field{pages}{4423\bibrangedash 4425}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btac528
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformatics/article-pdf/38/18/4423/49885747/btac528.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioinformatics/btac528
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioinformatics/btac528
+      \endverb
+    \endentry
+    \entry{kmtricks}{article}{}
+      \name{author}{4}{}{%
+        {{hash=f2918d87b63e2a193d405e909b3b4938}{%
+           family={Lemane},
+           familyi={L\bibinitperiod},
+           given={Téo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
+           family={Medvedev},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{081e549764d43fb12760d77b103e98be}
+      \strng{fullhash}{c0c8c659c5eda66740e2d80e83fb5198}
+      \strng{bibnamehash}{c0c8c659c5eda66740e2d80e83fb5198}
+      \strng{authorbibnamehash}{c0c8c659c5eda66740e2d80e83fb5198}
+      \strng{authornamehash}{081e549764d43fb12760d77b103e98be}
+      \strng{authorfullhash}{c0c8c659c5eda66740e2d80e83fb5198}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{When indexing large collections of short-read sequencing data, a common operation that has now been implemented in several tools (Sequence Bloom Trees and variants, BIGSI) is to construct a collection of Bloom filters, one per sample. Each Bloom filter is used to represent a set of k-mers which approximates the desired set of all the non-erroneous k-mers present in the sample. However, this approximation is imperfect, especially in the case of metagenomics data. Erroneous but abundant k-mers are wrongly included, and non-erroneous but low-abundant ones are wrongly discarded. We propose kmtricks, a novel approach for generating Bloom filters from terabase-sized collections of sequencing data. Our main contributions are (i) an efficient method for jointly counting k-mers across multiple samples, including a streamlined Bloom filter construction by directly counting, partitioning and sorting hashes instead of k-mers, which is approximately four times faster than state-of-the-art tools; (ii) a novel technique that takes advantage of joint counting to preserve low-abundant k-mers present in several samples, improving the recovery of non-erroneous k-mers. Our experiments highlight that this technique preserves around 8× more k-mers than the usual yet crude filtering of low-abundance k-mers in a large metagenomics dataset.https://github.com/tlemane/kmtricks.Supplementary data are available at Bioinformatics Advances online.}}
+      \field{issn}{2635-0041}
+      \field{journaltitle}{Bioinformatics Advances}
+      \field{month}{04}
+      \field{number}{1}
+      \field{title}{{kmtricks: efficient and flexible construction of Bloom filters for large sequencing data collections}}
+      \field{volume}{2}
+      \field{year}{2022}
+      \field{pages}{vbac029}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/bioadv/vbac029
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformaticsadvances/article-pdf/2/1/vbac029/47086129/vbac029\_supplementary\_data.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioadv/vbac029
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioadv/vbac029
       \endverb
     \endentry
   \enddatalist
