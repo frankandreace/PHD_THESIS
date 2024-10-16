@@ -33,7 +33,7 @@
 \contentsline {chapter}{\chapternumberline {3}Comparing methods for constructing and representing human pangenome graphs}{33}{chapter.3}%
 \ttl@starttoc {chapters@1}
 \contentsline {section}{\numberline {3.1}Introduction}{34}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Results}{36}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Results}{35}{section.3.2}%
 \contentsline {paragraph}{\textbf {\textup {Extraction of HLA-E and a complex HLA region from complete pangenome graphs}}}{39}{paragraph*.26}%
 \contentsline {paragraph}{\textbf {\textup {HLA-E: a low complexity region}}}{40}{paragraph*.27}%
 \contentsline {paragraph}{\textbf {\textup {HLA complex locus: high complexity region}}}{40}{paragraph*.29}%
@@ -44,7 +44,7 @@
 \contentsline {paragraph}{\textbf {\textup {Ease of Visualization}}}{45}{paragraph*.35}%
 \contentsline {paragraph}{\textbf {\textup {Quality of Metadata and Annotation}}}{45}{paragraph*.36}%
 \contentsline {section}{\numberline {3.3}Discussion}{46}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Conclusions}{48}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Conclusions}{47}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Methods}{48}{section.3.5}%
 \contentsline {paragraph}{Authors' affiliations}{52}{paragraph*.40}%
 \contentsline {section}{\numberline {3.6}Perspectives}{54}{section.3.6}%
@@ -88,6 +88,15 @@
 \contentsline {subsubsection}{\numberline {4.5.2.3}Using the Fimpera scheme to reduce space}{94}{subsubsection.4.5.2.3}%
 \contentsline {subsection}{\numberline {4.5.3}Conclusions and perspectives}{95}{subsection.4.5.3}%
 \contentsline {section}{\numberline {4.6}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: Super\emph {k}-mer\xspace sorted list}{95}{section.4.6}%
-\contentsline {chapter}{Papers}{98}{section*.57}%
-\contentsline {chapter}{Appendices}{99}{section*.58}%
+\contentsline {subsection}{\numberline {4.6.1}Super\emph {k}-mer\xspace sorted lists: Input ad output}{96}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Super\emph {k}-mer\xspace list model}{97}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Sorting \emph {k}-mers\xspace in the same position}{97}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Returning overlaps between \emph {k}-mers\xspace }{97}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}Maximal set of overlapping \emph {k}-mers\xspace : colinear chaining}{98}{subsection.4.6.5}%
+\contentsline {subsection}{\numberline {4.6.6}Reconciliation and final output}{99}{subsection.4.6.6}%
+\contentsline {subsection}{\numberline {4.6.7}Searching the list}{99}{subsection.4.6.7}%
+\contentsline {subsection}{\numberline {4.6.8}Counting \emph {k}-mers\xspace }{100}{subsection.4.6.8}%
+\contentsline {subsection}{\numberline {4.6.9}Conclusion and future work}{100}{subsection.4.6.9}%
+\contentsline {chapter}{Papers}{104}{section*.57}%
+\contentsline {chapter}{Appendices}{105}{section*.58}%
 \contentsfinish 

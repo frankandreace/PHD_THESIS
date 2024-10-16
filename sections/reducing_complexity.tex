@@ -254,7 +254,7 @@ For this reason, we decided to reimplement such data structure in a modular way 
 \end{itemize}
 The developed data structure is therefore layered as this:
 \begin{itemize}
-	\item[low level] it comprises agnostic operations in the data structure such as
+	\item[\textbf{low level}] it comprises agnostic operations in the data structure such as
 	\begin{itemize}
 		\item setting a specific slot to a certain value. The value can be a remainder, count or combination of the two. It can also be whatever metadata as it only imposes bits to a certain region of memory corresponding to a slot;
 		\item clearing of a slot to zeros for a) removals of elements from the filter and b) shifting operations;
@@ -263,19 +263,19 @@ The developed data structure is therefore layered as this:
 		\item metadata operation to set to 1 or to 0 the occupied and runends bits in their bitvector to keep track of which slots are in use.
 		\item operation to adjourn the offset vector to keep track of the runs.
 	\end{itemize}
-	\item[medium level] it comprises operation to insert elements whitout explicitly caring about handling of metadata and shifts in the slots. They implement a RSQF data structure.
+	\item[\textbf{medium level}] it comprises operation to insert elements whitout explicitly caring about handling of metadata and shifts in the slots. They implement a RSQF data structure.
 	\begin{itemize}
 		\item addition of an element to the data structure;
 		\item removal of an element from the data structure;
 		\item query of an element from the data structure;
 	\end{itemize}
-	\item[high level] it comprises operations done on top of the RSQF. 
+	\item[\textbf{high level}] it comprises operations done on top of the RSQF. 
 	\begin{itemize}
 		\item The addition and removal are extension of the RSQF to allow for multiple operations together (i.e. adding or removing multiple slots to store the encoded counter).
 		\item a function to encode and decode counters, as described in point 2 of section~\ref{sec:rsqfcount}.
 		\item the query uses an intelligent linar probe that recognizes when a counter is starting and seeks the start and end of the counter of the queried reminder.
 	\end{itemize}
-	\item[application specific] application specific functions like
+	\item[\textbf{application specific}] application specific functions like
 	\begin{itemize}
 		\item hashing of \kmers
 		\item initialization of the data structure
@@ -304,10 +304,105 @@ This implementation could allow for other metadata to be inserted, that would re
 Finally, this implementation has not found a way as a standalone publication as the actual CQF implementation (without Fimpera) was slower than the, certainly better optimized, original one.
 Nevertheless there is value in prototyping for the community data structures that are more open to customization depending on the specific application.
 
-
 \section{Prototyping Dynamic Data structures for \kmer counting: Super\kmer sorted list}
 \label{sec:skmers}
+As seen until now in this chapter, there is no single recipe to represent \kmers in an efficient way. It depends on the specific application that is addressed. For example when comparing two different sets of datasets, one possibility is, for each set, to enumerate all the \kmers and then store them in a sorted manner in a list. The difference between the two sets will be therefore be estimated with a set metric (like the Jaccard index) that does take into account the difference between the \kmers in the two lists. This is straightforward when the two lists are sorted. Sorted lists of \kmers are also a quite fast representation for \kmer queries without indexing. Through binary search it is possible to speed the query time to $log(N)$ with N being the cardinality of the set.\\
+So we know that the advantages of sorted \kmer lists are the absence of the indexation step, the predisposition for set comparison operations and the relatively fast query of the \kmer into the list. The drawback is that this representation is very expensive in terms of space. To partially overcome this issue, one can look at another side of \kmer research that is the space compression of \kmer by encoding them within a string set, i.e. all the \emph{-tigs}. The rationale is to build a set of strings in which all enumerated \kmers and nothing else can be spelled. In recent years various models have been proposed, among which untigis, eulertigs and simplitings. Alhough they provide efficient storing of \kmers, sometimes together with relative biological meaninig (like unitigs), they are not easy to directly query.\\
+Here we propose another data structure that is in between the two sides. Its aim is to:
+\begin{enumerate}
+	\item encode \kmers into longer strings in order to save space;
+	\item maintain the sorted list structure for relative fast query of non-indexed elements.
+\end{enumerate}
+To do so, we build a super\kmer sorted list.\\
+Super\kmers are sequences of adjacent \kmers that share the same minimizer. \\
+A known uses of super\kmers is to used them in hash tables: grouping super\kmers by their minimizer enables rapid membership queries. To perform a query, one finds the set of super\kmer linked to the minimizer of the query k-mer and checks if the query k-mer appears as a substring within those super\kmer. Implementations like BLight and the newer ssHash, which also has an extension that supports \kmer counts, use Minimal Perfect Hash Functions (MPHF) to facilitate mapping of minimizers to their corresponding super\kmers. The problem of using MPHF is that they generate a static dictionary that cannot be updated. For this reason we generate a dynamic data structure that uses sorted lists of super\kmers to store \kmer sets and, optionally, their count directly from a sequence set.
+Finally, another advantage of storing super\kmers is that, since consecutive \kmers are stored together, querying sequences is quite fast, as all the ones inside the same super\kmer will be queried very fast.
 
+\subsection{Super\kmer sorted lists: Input ad output}
+The super\kmer sorting algorithm we propose is encapsulated inside a larger super\kmer data structure development I contributed to, whose details are going to be omitted for the sake of space, that already processes a set of sequences and to output an enumeration of super\kmers. Therefore the input of the algorithm is going to be a list of pre-computed super\kmers. The output is instead a list of sorted super\kmers to be used for fast lookup. While most of the operation are going to be displayed in text format, they space in which the algorithm works is binary. This is done by multiple reasons, i.e. for the parsimony of space and for fast machine operations and comparisons.
+
+\subsection{Super\kmer list model}
+In order to understand the steps of the sorting algorithm, it is helpful to imagine the super\kmer list not only as a succession of objects representing the strings but also as a matrix. The matrix is defined by 2 parameters: the number of super\kmers $N$ and the maximum length of a super\kmer $M$. $M$ is defined as $M = 2k - m$ with $k$ as the length of \kmer and $m$ as the length of the minimizer. In this model the rows are the distinct strings and the columns identify a precise position in them. As not all su per\kmers are going to be maximal,it is possible that in a certain position described by a column some super\kmer won't contain any character. This information is not explicitly encoded in the matrix but instead in the object that represent the super\kmer. Figure XXX shows the equivalences between the two models. Most of the steps of the algorithm can be considered as operations on the columns of such matrix. Another important part of this model is that at each columns position a super\kmer can have the first nucleotide of a valid \kmer or not. This depends if at that position it has a nucleotide and the next $k-1$ columns contain also valid nucleotides. If not, that column position is not valid for a \kmer. 
+
+\subsection{Sorting \kmers in the same position}
+\label{sec:skmersorting}
+The fist step in the sorting algorithm requires to produce a sorted list of super\kmer ids for each column of the matrix. The sorting is done by comparing the valid \kmers at the column position using as ordering function the value of the hash of the \kmer. If the hash is smaller, it comes first.\\
+To do so, a first scan over the input super\kmer is done to select the super\kmer ids of the ones that have a valid \kmer at the column position. Then, the ordering is done overt the selected list by comparing the \kmer hashes and finally the list of sorted super\kmer ids is returned. This process is done for every column of the matrix.
+
+\subsection{Returning overlaps between \kmers}
+\label{sec:skmeroverlap}
+The next step is, for each pairs of consecutive columns, to detect the overlap between the $k-1$ suffix of a \kmer of the first column with the $k-1$ prefix of the subsequent. This process therefore done independently on each possible pair of consecutive columns. The $k-1$ prefixes of the \kmers of the second column are inserted in a vector. Then for each $k-1$ suffix computed from the first column, the matching value is searched in the prefix vector. If found, the pair of super\kmer ids of the first and second column is inserted in the list of candidate overlaps. Overlap is possible between a single element of one column and multiple elements of another column. In this case, all the possible overlaps are reported. At the end of the scan, each pair of column will have the list of candidate overlaps between the two.
+
+\subsection{Maximal set of overlapping \kmers: colinear chaining}
+Colinear chaining is an algorithmic technique that is known to be used in alignment algorithms. In the context of pairing elements in a sequence, it can be summarized as finding pairs of connected elements such that no "crossing" connections occur when visualized geometrically. \\
+When aligning a read to a reference sequence, it takes as input pairs of maximal exact matches (MEMs). It then computes a chain of pairs such that the order of the selected pairs is concordant with the order in which they appear in the two strings while maximizing the amount of bases covered by the chain in the read. Lately it has been also used on alignment of sequences to graph in pangenomics applications.\\
+In this implementation of super\kmer sorting, it is used to find the maximal chain of valid pairs computed in the previous step. A pair is not valid in a chain when one of the two super\kmer ids it contains is already present in another pair of the chain or when at least one of its ids does not respect the relative order in which the elements appear in the ordered list computed in the first step. Figure XXX shows and example of non valid pairs and of a maximal chain. A more formal definition is provided below.\\
+\begin{definition}[Co-linear chaining of \kmers in the matrix]
+	Given \begin{itemize}
+		\item two ordered lists of super\kmer ids of two contiguous columns computed as in section~\ref{sec:skmersorting}.
+		\begin{itemize}
+			\item $ A = \{a_1, a_2, ..., a_n\}, |A| = N $, representing the left column,
+			\item $ B = \{b_1, b_2, ..., b_m\}, |B| = M $, representing the right column;
+		\end{itemize}
+		\item a set of tuples $ V = \{(v_1,w_1),(v_2,w_2), ..., (v_k,w_k) \}$ such as $ v_i \in A$ and $ w_i \in B$ and $(v_i,w_i)$ represents an overlap between \kmers of the two contiguous columns, as computed in section~\ref{sec:skmeroverlap};
+	\end{itemize}
+	The goal is to find the maximal list of tuples $ U$, with $set(U) \subseteq V$ such that 
+	\begin{itemize}
+		\item if $v_i \prec v_j$ in $U \land v_i=a_i, v_j=a_j \implies a_i \prec a_j$ in $A$, and the same for $B$;
+		\item $\forall v, w \in U | v_i = a_x \lor w_i = b_y \implies \nexists v_j != v_i | v_j = a_x \land \nexists w_j != w_i | w_j = b_y$.  
+	\end{itemize}
+	The first condition implies that the ordering of the column lists $A, B$ is respected in $U$, while the second implies that each super\kmer id from $A$ can occur only once in the list of tuples U and the same for $B$.
+\end{definition}
+This problem is solved using dynamic programming and the invariant technique.\\
+First the tuples in $V$ are sorted by their order in $B$. This guarantees that no "crossing" happens in the $w$ ids because $w_i = b_i: b_i \prec b_j$ will always be processed before $w_j = b_j$. To break ties on equal $v$ values, the ordering of $v_i = a_i$ in $A$ is used. Then the dynamic programming is done over the $A$ ids to find the largest set of pairs where the $A$ ids form a non-decreasing sequence. The score is therefore stored for each element $v_i$ in the list of pairs and a table $C$ of length $M$ is filled, in which index $j$ gives the maximum possible score using tuples from $V$ such that $(v,w) has w \in \{b_1,...,b_j\}$. For any tuple a recurrence is obtained depending if it violates or not the conditions above. To calculate the recurrence, 
+\begin{equation} 
+C[j] = \max_{j':w_{j'} \prec w_j} C[j'] + 1 \text{ if } (v_j,w_j) \text{ does not overlap with } \{V_{j'} \subseteq (v_1,w_1),...,(v_{j-1},w_{j-1})\} \text{i.e. the non-overlapping subset selected in the previous step}
+\end{equation}
+The recurrence is solved using a search tree to query the maximum possible value at step $j'$.
+
+\subsection{Reconciliation and final output}
+The lists of non "crossing" overlaps for each pairs of columns are then reconciled. In order to output an ordered list of 
+
+\subsection{Searching the list}
+As described at the beginning of this section, the sorted super\kmer list produced by the algorithm can be used for relatively fast search without indexing the \kmers. To this end, a binary search is a fast strategy to query \kmers inside the list. Binary search is an efficient algorithm used to find the position of a target value within a sorted array. It repeatedly divides the search interval in half, comparing the middle element to the target. If the middle element matches the target, the search ends. If the target is smaller, it searches the left half, and if it's larger, it searches the right half. This process continues until the element is found or the search interval is empty.\\
+When querying a \kmer in the super\kmer list, the search algorithm works as follows:
+\begin{enumerate}
+	\item the minimizer of the \kmers is computed and the \kmer position in a super\kmer is determined.
+	\item a mask associated to that position is selected;
+	\item the range of the searched list is given by $[x,y]$ and set to $[0,N]$, with $N$ being the length of the list;
+	\item the binary search algorithm jumps the middle super\kmer of the range $[x,y]$;
+	\item if the super\kmer does not have a \kmer at the searched position, the search moves to on to the next ones until it finds one that does;
+	\item the mask is applied to the super\kmer;
+	\item the resulting binary value is compared to the one of the \kmer. Here one of these 3 situations can occurr:
+	\begin{itemize}
+		\item the masked super\kmer value is greater than the \kmer, than $[x,y]$ gets updated to $[x,y] = [(y-x/2),y]$ ;
+		\item the masked super\kmer value is smaller than the \kmer, than $[x,y]$ gets updated to $[x,y] = [x,(y-x/2)]$ ;
+		\item the item is found, return \texttt{FOUND} or \texttt{TRUE};
+	\end{itemize}
+	\item if $x = y$ return \texttt{NOT FOUND} or \texttt{FALSE}, else go back to point 4;
+\end{enumerate}
+The advantage of the used super\kmer representation is the search algorithm jumps an element (the super\kmer) and then looks if at a specific position, that we will call offset, there is a \kmer. By knowing the minimizer position of queried \kmer, the query can be done directly to a specific offset instead of doing a linear probe on the entire super\kmer.\\
+The drawback is that, since not all super\kmers will be maximal, some queries on a specific super\kmer won't be possible, as they won't have a \kmer in the searched position. An offset will be valid if the super\kmer contains a \kmer in that position and invalid if it does not. To address this issue, when a lookup is done on a invalid offset of a super\kmer, the lookup will move as a linear probe on the previous or subsequent elements of the list until finds the first super\kmer having that offset valid.
+[Could be useful to have a figure here].
+
+\subsection{Counting \kmers}
+As for the cqf, the super\kmer list can be also used to store \kmer counts. The storage of the count is done in another data structure like an hash table that can be used to store the average count of the \kmers in a super\kmer.
+[What more to say? And about dynamicity?]
+
+\subsection{Conclusion and future work}
+This project worked as a prototype of data structure to represent a \kmer set as a sorted list of super\kmers. The advantages of using such a representation are:
+\begin{itemize}
+	\item it can enumerate the \kmers in the set, differently from some hashing data structures (see bloom filters);
+	\item it can compress \kmers into super\kmers thus reducing the space used to store them compared to a ordered list of \kmers;
+	\item it allows fast direct queries, compared to other \emph{tigs} representations;
+	\item it allows metadata to be added by a separate data structure;
+\end{itemize}
+This work has not been published yet but we count to close it and submit it in the coming months.
+
+\subsubsection{Possible improvement}
+As just described, the super\kmer sorted list can be queried using a variation of binary search in which, when the next super\kmer to be searched has not a valid offset, it has to linear probe the elements in the list for one that does. This slows the query operation, especially in cases where the super\kmers with a valid offset are sparse. \\
+A future improvement of this algorithm would be to mitigate this issue, by adding information on non valid offsets to direct the binary search on the right direction without doing a linear probing. This strategy can be implemented by fill the bits of the super\kmer left blank when a \kmer is not stored in an informative way.\\
+Given two super\kmers $S_1$ and $S_2$ in a super\kmer sorted list and an offset $t$. If there are $n$ super\kmers between $S_1$ and $S_2$ that do not have a valid \kmer at that position $t$ while $S_1$ and $S_2$ do. The strategy is to fill the bits not used by \kmers in the super\kmer with "fake" nucleotides that do not serve as genetic information but that help the search by giving information on where to find the queried \kmer. This can be done by filling the empty bits with an average between the value found in $S_1$ and $S_2$ at the same position, starting to fill the bits from the most significant one, for all $n$ super\kmers. Another approach would also take into account the cardinality $n$ of the elements to fill and, instead of filling all the super\kmers with the same averaged value, it would fill the $n$ elements with progressive values from $S_1$ to $S_2$.
 
 
 \begin{comment}
