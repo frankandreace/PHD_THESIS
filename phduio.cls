@@ -25,17 +25,17 @@
 %% Screen mode
 \DeclareOption{screen}
 {
-    \AtBeginDocument
-    {
-        \@ifpackageloaded{url}
-            {\urlstyle{same}}
-            {\ClassWarningNoLine{phduio}{Package 'url' missing}}
-        \@ifpackageloaded{hyperref}
-            {\hypersetup{colorlinks, allcolors = uiolink}}
-            {\ClassWarningNoLine{phduio}{Package 'hyperref' missing}}
-        \setlrmarginsandblock{24.35mm}{24.35mm}{*}
-        \checkandfixthelayout
-    }
+	\AtBeginDocument
+	{
+		\@ifpackageloaded{url}
+		{\urlstyle{same}}
+		{\ClassWarningNoLine{phduio}{Package 'url' missing}}
+		\@ifpackageloaded{hyperref}
+		{\hypersetup{colorlinks, allcolors = uiolink}}
+		{\ClassWarningNoLine{phduio}{Package 'hyperref' missing}}
+		\setlrmarginsandblock{24.35mm}{24.35mm}{*}
+		\checkandfixthelayout
+	}
 }
 
 
@@ -85,96 +85,110 @@
 %% Custom title page
 \newcommand{\maintitle}
 {
-    \begin{titlingpage}
-        \sffamily
-        \renewcommand{\and}{\vskip1mm}
-        \newcommand{\AND}{\vskip9mm}
-
-        \calccentering{\unitlength}
-        \begin{adjustwidth*}{\unitlength}{-\unitlength}
-
-            \raggedright
-
-            \vspace*{-5mm}
-            \includegraphics[width = 0.33\textwidth]{gfx/institut_pasteur.png}
-            \vskip18mm
-
-            \resizebox
-            {
-                \ifdim \width > \textwidth
-                \textwidth
-                \else
-                \width
-                \fi
-            }{!}
-            {%
-                \LARGE
-                \theauthor
-            }
-
-            \vskip1.5\onelineskip
-
-            {
-                \Huge
-                \bfseries
-                \boldmath
-                \thetitle
-                \par
-            }
-
-            {
-                \ifcsempty{\phduio@subtitle}
-                {}
-                {
-                    \vskip2mm
-                    \huge
-                    \phduio@subtitle
-                    \par
-                }
-            }
-
-            \vskip-\lastskip
-            \vskip16mm
-
-            \resizebox{\textwidth}{!}
-            {%
-                \bfseries
-                \phduio@thesis\
-                submitted for the degree of Philosophiae Doctor
-            }
-
-            \AND
-
-            {
-                \Large
-                \phduio@dept\
-                \and
-                \phduio@faculty\
-                \AND
-                \phduio@affiliation\
-            }
-
-            \vfill
-
-            \begin{minipage}[c][26mm]{28mm}
-                \LARGE
-                \bfseries
-                \the\year
-            \end{minipage}%
-            \begin{minipage}[c]{\textwidth - 28mm}
-                \hfill
-                \includegraphics[width = 26mm]{gfx/sorbonne.png}
-            \end{minipage}
-
-            \vspace{2mm}
-
-        \end{adjustwidth*}
-
-        \null
-        \clearpage
-        \ifdefstring{\phduio@colophon}{true}{\phduio@print@colophon}{}
-
-    \end{titlingpage}
+	\begin{titlingpage}
+		\sffamily
+		\renewcommand{\and}{\vskip1mm}
+		\newcommand{\AND}{\vskip9mm}
+		
+		\calccentering{\unitlength}
+		\begin{adjustwidth*}{\unitlength}{-\unitlength}
+			
+			\raggedright
+			
+			\vspace*{-5mm}
+			\includegraphics[width = 32mm]{gfx/sorbonne.png}
+			\vskip18mm
+			
+			%\resizebox{\textwidth}{!}
+			%{
+				%\ifdim \width > \textwidth
+				%\textwidth
+				%\else
+				%\width
+				%\fi
+			%}{!}
+			
+			\rule{\textwidth}{1pt} \\ % Horizontal line
+			
+			{
+				\centering
+				\Huge
+				\bfseries
+				\boldmath
+				\thetitle
+				\par
+			}
+			
+			{
+				\ifdefined\phduio@subtitle
+				\vskip2mm
+				\huge
+				\phduio@subtitle
+				\par
+				\fi
+				
+			}
+			\rule{\textwidth}{1pt} \\ % Horizontal line
+			\vskip-\lastskip
+			\vskip8mm
+			
+			\centering
+			{%
+				\LARGE
+				\theauthor
+			}
+			\vskip-\lastskip
+			\vskip8mm
+			\resizebox{\textwidth}{!}
+			{%
+				\large
+				\phduio@thesis\
+				submitted for the degree of Philosophiae Doctor
+			}
+			\and
+			{
+				\Large
+				\phduio@affiliation\
+				\and
+				\phduio@uni\
+			}
+			\vfill
+			\and 
+			\Large
+			{
+				Members of the jury :		
+				\begin{center}
+					\resizebox{\textwidth}{!}{%
+						\begin{tabular}{l@{\hskip 1cm}l@{\hskip 1cm}l}
+						Dr. Matthias Zytnicki & INRAE  & President of the jury? and reviewer \\
+						Dr. Francois Sabot   & Université de Montpellier & Reviewer \\
+						Dr. Paola Bonizzoni & University of Milano – Bicocca & Examiner \\
+						Dr. Camille Marchet  & CNRS, Université de Lille & Examiner \\
+						Dr. Pierre Peterlongo & IRISA, Université de Rennes & Examiner \\
+						Dr. Rayan Chikhi  & Institut Pasteur & Supervisor\\
+						Dr. Yoann Dufresne  & Institut Pasteur & Supervisor \\	
+				\end{tabular}}\\[1cm]
+			\end{center}   
+		   }
+			\begin{minipage}[c][26mm]{28mm}
+				\LARGE
+				\bfseries
+				\the\year
+			\end{minipage}%
+			\begin{minipage}[c]{\textwidth - 28mm}
+				\hfill
+				\includegraphics[width = 26mm]{gfx/institut_pasteur.png}
+			\end{minipage}
+			
+			\vspace{2mm}
+			
+		\end{adjustwidth*}
+		
+		\null
+		\clearpage
+		\ifdefstring{\phduio@colophon}{true}{\phduio@print@colophon}{}
+		
+	\end{titlingpage}
 }
 
 
@@ -202,49 +216,49 @@
 
 \makechapterstyle{phduio}
 {
-    \renewcommand*{\chapnamefont}{\huge\sffamily}
-    \renewcommand*{\chapnumfont}{\huge\sffamily}
-    \renewcommand*{\chaptitlefont}
-    {\Huge\bfseries\boldmath\sffamily\raggedright}
-    \renewcommand*{\authorsfont}{\Large\bfseries\sffamily}
-    \renewcommand*{\metadatafont}{\normalfont\normalsize\sffamily}
-
-    \setlength{\beforechapskip}{-1.35\baselineskip}
-    \setlength{\midchapskip}{10pt}
-    \setlength{\afterchapskip}{20pt}
-    \setlength{\afterauthorsskip}{6pt}
-    \setlength{\aftermetadataskip}{15pt}
-
-    \renewcommand*{\afterchaptertitle}
-    {
-        \vskip\afterchapskip
-        \ifboolexpr
-        {
-            test{ \ifcsempty{phduio@authors} }
-            and
-            test{ \ifcsempty{phduio@metadata} }
-        }
-        {}
-        {
-        \begin{minipage}[t]{\textwidth}
-            \authorsfont
-            \phduio@authors
-            \vskip\afterauthorsskip
-            \metadatafont
-            \phduio@metadata
-            \gdef \phduio@authors{}
-            \gdef \phduio@metadata{}
-        \end{minipage}
-        \vskip\aftermetadataskip
-        }
-    }
-
-    \renewcommand*{\printchapternonum}
-    {
-        \vphantom{\chapnumfont Chapter}
-        \afterchapternum
-        \vskip\topskip
-    }
+	\renewcommand*{\chapnamefont}{\huge\sffamily}
+	\renewcommand*{\chapnumfont}{\huge\sffamily}
+	\renewcommand*{\chaptitlefont}
+	{\Huge\bfseries\boldmath\sffamily\raggedright}
+	\renewcommand*{\authorsfont}{\Large\bfseries\sffamily}
+	\renewcommand*{\metadatafont}{\normalfont\normalsize\sffamily}
+	
+	\setlength{\beforechapskip}{-1.35\baselineskip}
+	\setlength{\midchapskip}{10pt}
+	\setlength{\afterchapskip}{20pt}
+	\setlength{\afterauthorsskip}{6pt}
+	\setlength{\aftermetadataskip}{15pt}
+	
+	\renewcommand*{\afterchaptertitle}
+	{
+		\vskip\afterchapskip
+		\ifboolexpr
+		{
+			test{ \ifcsempty{phduio@authors} }
+			and
+			test{ \ifcsempty{phduio@metadata} }
+		}
+		{}
+		{
+			\begin{minipage}[t]{\textwidth}
+				\authorsfont
+				\phduio@authors
+				\vskip\afterauthorsskip
+				\metadatafont
+				\phduio@metadata
+				\gdef \phduio@authors{}
+				\gdef \phduio@metadata{}
+			\end{minipage}
+			\vskip\aftermetadataskip
+		}
+	}
+	
+	\renewcommand*{\printchapternonum}
+	{
+		\vphantom{\chapnumfont Chapter}
+		\afterchapternum
+		\vskip\topskip
+	}
 }
 
 \chapterstyle{phduio}
@@ -298,15 +312,15 @@
 \makeoddfoot {phduio}{}{}{\sffamily\thepage}
 \makepsmarks{phduio}
 {
-    \nouppercaseheads
-    \createmark{chapter}{left}{shownumber}{}{. \space}
-    \createmark{section}{right}{nonumber}{}{}
-    \createplainmark{toc}{both}{\contentsname}
-    \createplainmark{lof}{both}{\listfigurename}
-    \createplainmark{lot}{both}{\listtablename}
-    \createplainmark{bib}{both}{\bibname}
-    \createplainmark{index}{both}{\indexname}
-    \createplainmark{glossary}{both}{\glossaryname}
+	\nouppercaseheads
+	\createmark{chapter}{left}{shownumber}{}{. \space}
+	\createmark{section}{right}{nonumber}{}{}
+	\createplainmark{toc}{both}{\contentsname}
+	\createplainmark{lof}{both}{\listfigurename}
+	\createplainmark{lot}{both}{\listtablename}
+	\createplainmark{bib}{both}{\bibname}
+	\createplainmark{index}{both}{\indexname}
+	\createplainmark{glossary}{both}{\glossaryname}
 }
 \pagestyle{phduio}
 
@@ -321,19 +335,19 @@
 %% Title for papers
 \renewcommand{\maketitle}
 {
-    \paperauthors{\theauthor}
-    \edef\papertitle{{\thetitle}}
-    \expandafter\chapter\papertitle
-    \paperthumb
-    \saythanks
+	\paperauthors{\theauthor}
+	\edef\papertitle{{\thetitle}}
+	\expandafter\chapter\papertitle
+	\paperthumb
+	\saythanks
 }
 
 
 %% Specify authors for separate paper
 \newcommand{\paperauthors}[1]
 {
-    \renewcommand{\and}{\leavevmode\unskip,\space}
-    \def \phduio@authors{#1}
+	\renewcommand{\and}{\leavevmode\unskip,\space}
+	\def \phduio@authors{#1}
 }
 \paperauthors{}
 
@@ -346,26 +360,26 @@
 %% Rename 'Chapter' to 'Paper'
 \newcommand*{\paper}
 {
-    \setcounter{chapter}{0}
-    \setcounter{section}{0}
-    \ifdef{\theHchapter}
-    {
-        \renewcommand{\theHchapter}{papter.\arabic{chapter}}
-    }
-    {}
-    \def \@chapapp{Paper}
-    \let \c@paper \c@chapter
-    \def \thechapter{\@Roman\c@chapter}
-    \let \thepaper \thechapter
-    \ifdef{\memendofchapterhook}
-    {
-        \renewcommand{\memendofchapterhook}
-        {
-            \addtocounter{paper}{-1}
-            \refstepcounter{paper}
-        }
-    }
-    {}
+	\setcounter{chapter}{0}
+	\setcounter{section}{0}
+	\ifdef{\theHchapter}
+	{
+		\renewcommand{\theHchapter}{papter.\arabic{chapter}}
+	}
+	{}
+	\def \@chapapp{Paper}
+	\let \c@paper \c@chapter
+	\def \thechapter{\@Roman\c@chapter}
+	\let \thepaper \thechapter
+	\ifdef{\memendofchapterhook}
+	{
+		\renewcommand{\memendofchapterhook}
+		{
+			\addtocounter{paper}{-1}
+			\refstepcounter{paper}
+		}
+	}
+	{}
 }
 \newcounter{paper}
 
@@ -374,26 +388,26 @@
 %% Fix hyperlinks to appendices
 \renewcommand*{\appendix}
 {
-    \setcounter{chapter}{0}
-    \setcounter{section}{0}
-    \ifdef{\theHchapter}
-    {
-        \renewcommand{\theHchapter}{\arabic{chapter}}
-    }
-    {}
-    \def \@chapapp{\appendixname}
-    \let \c@appendix \c@chapter
-    \def \thechapter{\@Alph\c@chapter}
-    \let \theappendix \thechapter
-    \ifdef{\memendofchapterhook}
-    {
-        \renewcommand{\memendofchapterhook}
-        {
-            \addtocounter{appendix}{-1}
-            \refstepcounter{appendix}
-        }
-    }
-    {}
+	\setcounter{chapter}{0}
+	\setcounter{section}{0}
+	\ifdef{\theHchapter}
+	{
+		\renewcommand{\theHchapter}{\arabic{chapter}}
+	}
+	{}
+	\def \@chapapp{\appendixname}
+	\let \c@appendix \c@chapter
+	\def \thechapter{\@Alph\c@chapter}
+	\let \theappendix \thechapter
+	\ifdef{\memendofchapterhook}
+	{
+		\renewcommand{\memendofchapterhook}
+		{
+			\addtocounter{appendix}{-1}
+			\refstepcounter{appendix}
+		}
+	}
+	{}
 }
 \newcounter{appendix}
 
@@ -401,9 +415,9 @@
 %% Print 'Papers'
 \newcommand{\paperpage}
 {
-    \part*{Papers}
-    \addcontentsline{toc}{chapter}{Papers}
-    \cleartorecto
+	\part*{Papers}
+	\addcontentsline{toc}{chapter}{Papers}
+	\cleartorecto
 }
 
 
@@ -414,21 +428,21 @@
 %% Thumb index to separate papers
 \newcommand{\paperthumb}
 {
-    \ifnum \value{thumbpos} = \value{totpapernum}
-        \setcounter{thumbpos}{0}
-    \fi
-    
-    \stepcounter{thumbnum}
-    \stepcounter{thumbpos}
-    
-    \pgfmathsetlength{\thumbheight}{\paperheight / \value{totpapernum}}
-    
-    \begin{tikzpicture}[remember picture, overlay]
-        \node [thumb, align = right, anchor = north east]
-        at
-        ($(current page.north east) - (0,{(\value{thumbpos}-1)*\thumbheight})$)
-        {\Roman{thumbnum}};
-    \end{tikzpicture}
+	\ifnum \value{thumbpos} = \value{totpapernum}
+	\setcounter{thumbpos}{0}
+	\fi
+	
+	\stepcounter{thumbnum}
+	\stepcounter{thumbpos}
+	
+	\pgfmathsetlength{\thumbheight}{\paperheight / \value{totpapernum}}
+	
+	\begin{tikzpicture}[remember picture, overlay]
+		\node [thumb, align = right, anchor = north east]
+		at
+		($(current page.north east) - (0,{(\value{thumbpos}-1)*\thumbheight})$)
+		{\Roman{thumbnum}};
+	\end{tikzpicture}
 }
 
 \newcounter{thumbnum}
@@ -442,26 +456,26 @@
 
 \tikzset
 {
-    thumb/.style =
-    {
-        fill           = uioblack,
-        text           = uiowhite,
-        font           = \sffamily\bfseries\Huge,
-        text width     = \thumbwidth,
-        minimum height = \thumbheight,
-        outer sep      = 0pt,
-        inner xsep     = 1.5em
-    }
+	thumb/.style =
+	{
+		fill           = uioblack,
+		text           = uiowhite,
+		font           = \sffamily\bfseries\Huge,
+		text width     = \thumbwidth,
+		minimum height = \thumbheight,
+		outer sep      = 0pt,
+		inner xsep     = 1.5em
+	}
 }
 
 
 %% Unmarked footnote
 \newcommand{\papernote}[1]
 {
-    \begingroup
-        \renewcommand{\thefootnote}{}
-        \footnotetext{#1}
-     \endgroup
+	\begingroup
+	\renewcommand{\thefootnote}{}
+	\footnotetext{#1}
+	\endgroup
 }
 
 
@@ -470,12 +484,12 @@
 \thanks{}
 \renewcommand{\saythanks}
 {
-    \ifcsempty{phduio@thanks}
-    {}
-    {
-        \papernote{\phduio@thanks}
-        \thanks{}
-    }
+	\ifcsempty{phduio@thanks}
+	{}
+	{
+		\papernote{\phduio@thanks}
+		\thanks{}
+	}
 }
 
 
@@ -483,33 +497,33 @@
 %% Based on code by Dag Langmyhr
 \newcommand{\includearticle}[2][]
 {
-    \cleartorecto
-
-    \def \ps@default
-    {
-        \let \@mkboth\@gobbletwo
-        \let \@oddhead\@empty
-        \def \@oddfoot{\hfil\sffamily\thepage}
-        \let \@evenhead\@empty
-        \def \@evenfoot{\sffamily\thepage\hfil}
-    }
-
-    \def \phduio@ps{default}
-
-    \def \ps@low
-    {
-        \let\@mkboth\@gobbletwo
-        \let\@oddhead\@empty
-        \def\@oddfoot{\hfil\raisebox{-7.5mm}{\sffamily\thepage}}
-        \let\@evenhead\@empty
-        \def\@evenfoot{\raisebox{-7.5mm}{\sffamily\thepage}\hfil}
-    }
-
-    \let \ps@none = \ps@empty
-
-    \setkeys{phduio@keys}{#1}
-
-    \includepdf[pages = {-}, pagecommand = {\thispagestyle{\phduio@ps}}]{#2}
+	\cleartorecto
+	
+	\def \ps@default
+	{
+		\let \@mkboth\@gobbletwo
+		\let \@oddhead\@empty
+		\def \@oddfoot{\hfil\sffamily\thepage}
+		\let \@evenhead\@empty
+		\def \@evenfoot{\sffamily\thepage\hfil}
+	}
+	
+	\def \phduio@ps{default}
+	
+	\def \ps@low
+	{
+		\let\@mkboth\@gobbletwo
+		\let\@oddhead\@empty
+		\def\@oddfoot{\hfil\raisebox{-7.5mm}{\sffamily\thepage}}
+		\let\@evenhead\@empty
+		\def\@evenfoot{\raisebox{-7.5mm}{\sffamily\thepage}\hfil}
+	}
+	
+	\let \ps@none = \ps@empty
+	
+	\setkeys{phduio@keys}{#1}
+	
+	\includepdf[pages = {-}, pagecommand = {\thispagestyle{\phduio@ps}}]{#2}
 }
 
 \define@key{phduio@keys}{numbers}{ \def \phduio@ps{#1} }
@@ -536,11 +550,11 @@
 
 
 %% Specify affiliation
-\newcommand{\department}[1]{ \def \phduio@dept{#1} }
-\newcommand{\faculty}[1]{ \def \phduio@faculty{#1} }
+\newcommand{\uni}[1]{ \def \phduio@uni{#1} }
+\newcommand{\institute}[1]{ \def \phduio@institute{#1} }
 \newcommand{\affiliation}[1]{ \def \phduio@affiliation{#1} }
-\department{}
-\faculty{}
+\uni{}
+\institute{}
 \affiliation{}
 
 
@@ -565,58 +579,55 @@
 %% Print colophon
 \newcommand{\phduio@print@colophon}
 {
-    \thispagestyle{empty}
-    \vspace*{\stretch{3}}
-        \begin{flushleft}
-            \textbf{\sffamily\textcopyright\space\theauthor,\space\the\year}
-            \vskip2\baselineskip
-            \textit{Series of dissertations submitted to the}
-            \par
-            \textit{\phduio@faculty, Sorbonne Universite'}
-            \par
-            \ifcsempty{phduio@dissertationseries}
-            {}
-            {\textit{No.}\space\phduio@dissertationseries}
-            \vskip\baselineskip
-            \phduio@ISN
-            \vskip2\baselineskip
-            \small
-            All rights reserved.
-            No part of this publication may be
-            \par
-            reproduced or transmitted,
-            in any form or by any means,
-            without permission.
-            \vskip7\baselineskip
-            Cover: \phduio@cover.
-            \par
-            Print production: \phduio@printinghouse.
-    \end{flushleft}
-    \vspace*{\stretch{1}}
-    \null
-    \newpage
+	\thispagestyle{empty}
+	\vspace*{\stretch{3}}
+	\begin{flushleft}
+		\textbf{\sffamily\textcopyright\space\theauthor,\space\the\year}
+		\vskip2\baselineskip
+		\textit{Series of dissertations submitted to the}
+		\par
+		\textit{Faculté d’Informatique, Sorbonne Université}
+		\par
+		\ifcsempty{phduio@dissertationseries}
+		{}
+		{\textit{No.}\space\phduio@dissertationseries}
+		\vskip2\baselineskip
+		\small
+		All rights reserved.
+		No part of this publication may be
+		\par
+		reproduced or transmitted,
+		in any form or by any means,
+		without permission.
+		\vskip7\baselineskip
+		\par
+		Print production: Insitut Pasteur.
+	\end{flushleft}
+	\vspace*{\stretch{1}}
+	\null
+	\newpage
 }
 
 
 %% Print current month
 \newcommand{\MONTH}
 {%
-    \leavevmode\unskip\space
-    \ifcase\the\month
-    \or January
-    \or February
-    \or March
-    \or April
-    \or May
-    \or June
-    \or July
-    \or August
-    \or September
-    \or October
-    \or November
-    \or December
-    \fi
-    \ignorespaces
+	\leavevmode\unskip\space
+	\ifcase\the\month
+	\or January
+	\or February
+	\or March
+	\or April
+	\or May
+	\or June
+	\or July
+	\or August
+	\or September
+	\or October
+	\or November
+	\or December
+	\fi
+	\ignorespaces
 }
 
 

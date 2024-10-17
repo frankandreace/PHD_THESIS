@@ -339,9 +339,14 @@ To do so, a first scan over the input super\kmer is done to select the super\kme
 The next step is, for each pairs of consecutive columns, to detect the overlap between the $k-1$ suffix of a \kmer of the first column with the $k-1$ prefix of the subsequent. This process therefore done independently on each possible pair of consecutive columns. The $k-1$ prefixes of the \kmers of the second column are inserted in a vector. Then for each $k-1$ suffix computed from the first column, the matching value is searched in the prefix vector. If found, the pair of super\kmer ids of the first and second column is inserted in the list of candidate overlaps. Overlap is possible between a single element of one column and multiple elements of another column. In this case, all the possible overlaps are reported. At the end of the scan, each pair of column will have the list of candidate overlaps between the two.
 
 \subsection{Maximal set of overlapping \kmers: co-linear chaining}
+In the previous step all the possible \kmer overlap pairs are computed. As the ordering of the \kmers in the columns has to be respected to produce a sorted list, it naturally follows that it is possible that some overlaps won't be compatible between each other because one of the two situations occur: 
+\begin{itemize}
+	\item[a] the same \kmer overlaps with more than one \kmer of the the other column, but can be used just once;
+	\item[b] pairs that (if visualized as edges between positions in the column) cross each other cannot be used together because they would not respect the relative order of the columns.
+\end{itemize}
+Figure XXX shows and example of non valid pairs and of a maximal chain while a more formal definition is provided below. To choose the maximal set of "non-crossing" pairs between the ones calculated at the previous step, we use co-linear chaining.\\
 Co-linear chaining is an algorithmic technique that is known to be used in alignment algorithms. In the context of pairing elements in a sequence, it can be summarized as finding pairs of connected elements such that no "crossing" connections occur when visualized geometrically. \\
 When aligning a read to a reference sequence, it takes as input pairs of maximal exact matches (MEMs). It then computes a chain of pairs such that the order of the selected pairs is concordant with the order in which they appear in the two strings while maximizing the amount of bases covered by the chain in the read. Lately it has been also used on alignment of sequences to graph in pangenomics applications.\\
-In this implementation of super\kmer sorting, it is used to find the maximal chain of valid pairs computed in the previous step. A pair is not valid in a chain when one of the two super\kmer ids it contains is already present in another pair of the chain or when at least one of its ids does not respect the relative order in which the elements appear in the ordered list computed in the first step. Figure XXX shows and example of non valid pairs and of a maximal chain. A more formal definition is provided below.\\
 \begin{definition}[Co-linear chaining of \kmers in the matrix]
 	Given 
 	\begin{itemize}
@@ -359,15 +364,16 @@ In this implementation of super\kmer sorting, it is used to find the maximal cha
 	\end{itemize}
 	The first condition implies that the ordering of the column lists $A, B$ is respected in $U$, while the second implies that each super\kmer id from $A$ can occur only once in the list of tuples U and the same for $B$.
 \end{definition}
-This problem is solved using dynamic programming and the invariant technique~\cite{genome_scale}.\\
+This problem is solved using dynamic programming~\cite{genome_scale}.\\
 First the tuples in $V$ are sorted by their order in $B$. This guarantees that no "crossing" happens in the $w$ ids because $w_i = b_i: b_i \prec b_j$ will always be processed before $w_j = b_j$. To break ties on equal $v$ values, the ordering of $v_i = a_i$ in $A$ is used. Then the dynamic programming is done over the $A$ ids to find the largest set of pairs where the $A$ ids form a non-decreasing sequence. The score is therefore stored for each element $v_i$ in the list of pairs and a table $C$ of length $M$ is filled, in which index $j$ gives the maximum possible score using tuples from $V$ such that $(v,w) has w \in \{b_1,...,b_j\}$. For any tuple a recurrence is obtained depending if it violates or not the conditions above. To calculate the recurrence, 
 \begin{equation} 
-C[j] = \max_{j':w_{j'} \prec w_j} C[j'] + 1 \text{ if } (v_j,w_j) \text{ does not overlap with } \\ V_{j'} \subseteq \{\}(v_1,w_1),...,(v_{j-1},w_{j-1})\} \text{ i.e. the non-overlapping subset selected in the previous step}
+C[j] = \max_{j':w_{j'} \prec w_j} C[j'] + 1
 \end{equation}
-The recurrence is solved using a search tree to query the maximum possible value at step $j'$.
-
+if  $(v_j,w_j)$ does not overlap with $ V_{j'} \subseteq \{\}(v_1,w_1),...,(v_{j-1},w_{j-1})\}$ i.e. the non-overlapping subset selected in the previous step.
+To optimize the search of the best solutions $j'$ between the ones already computed, a binary search tree that contains the best score for each value $w \in A$ is queried and updated, with $O(\log{n})$ complexity. The search tree contains the $w$ values sorted by $A$ ordering. The lookup is $O(\log{n})$   From this follows that the co-linear chaining costs $O(n\log{n})$.
 \subsection{Reconciliation and final output}
-The lists of non "crossing" overlaps for each pairs of columns are then reconciled. In order to output an ordered list of 
+Once the lists of non "crossing" overlaps for each pairs have been computed using the co-linear chaining algorithm, the next step is to reconcile their information to output the sorted list. To do so, consider the matrix representation of the super\kmers, in which for each column the \kmers are sorted from top to bottom. Using the lists of non-crossing overlaps, each \kmer in the matrix is added in a map as key with value an id associated to which super\kmer it is going to be inserted. Take the case in which one of the overlap lists returns the pair (x,y) and the subsequent returns the pair (y,z). This means that \kmers x,y and z have to be compacted into the same super\kmer in the sorted list and are therefore going to be inserted in the map with the same value, e.g. 1. Other \kmers not to be compacted in the same super\kmer will have different values.\\
+To output the list in an ordered way, each column of the matrix is pointed by a pointer that tracks the row in which there is the next \kmer to be inserted. A \kmer or a super\kmer is inserted in the final sorted list by iterating over the pointers. If a \kmer or super\kmer has all its elements flagged by a pointer, it is inserted in a list. Ties are broken by directly comparing the two super\kmers and inserting first the one with smallest hash. After an element is inserted, the pointers on top of its \kmers are moved to the row below. This process ir repeated until all pointer reach the last element of their column.\\
 
 \subsection{Searching the list}
 As described at the beginning of this section, the sorted super\kmer list produced by the algorithm can be used for relatively fast search without indexing the \kmers. To this end, a binary search is a fast strategy to query \kmers inside the list. Binary search is an efficient algorithm used to find the position of a target value within a sorted array. It repeatedly divides the search interval in half, comparing the middle element to the target. If the middle element matches the target, the search ends. If the target is smaller, it searches the left half, and if it's larger, it searches the right half. This process continues until the element is found or the search interval is empty.\\
@@ -391,12 +397,12 @@ The advantage of the used super\kmer representation is the search algorithm jump
 The drawback is that, since not all super\kmers will be maximal, some queries on a specific super\kmer won't be possible, as they won't have a \kmer in the searched position. An offset will be valid if the super\kmer contains a \kmer in that position and invalid if it does not. To address this issue, when a lookup is done on a invalid offset of a super\kmer, the lookup will move as a linear probe on the previous or subsequent elements of the list until finds the first super\kmer having that offset valid.
 [Could be useful to have a figure here].
 
-\subsection{Counting \kmers}
-As for the cqf, the super\kmer list can be also used to store \kmer counts. The storage of the count is done in another data structure like an hash table that can be used to store the average count of the \kmers in a super\kmer.
-[What more to say? And about dynamicity?]
+%\subsection{Counting \kmers}
+%As for the cqf, the super\kmer list can be also used to store \kmer counts. The storage of the count is done in another data structure like an hash table that can be used to store the average count of the \kmers in a super\kmer.
+%[What more to say? And about dynamicity?]
 
 \subsection{Conclusion and future work}
-This project worked as a prototype of data structure to represent a \kmer set as a sorted list of super\kmers. The advantages of using such a representation are:
+This project culminated with a prototype data structure to represent a \kmer set as a sorted list of super\kmers. The advantages of using such a representation are:
 \begin{itemize}
 	\item it can enumerate the \kmers in the set, differently from some hashing data structures (see bloom filters);
 	\item it can compress \kmers into super\kmers thus reducing the space used to store them compared to a ordered list of \kmers;
@@ -410,7 +416,7 @@ As just described, the super\kmer sorted list can be queried using a variation o
 A future improvement of this algorithm would be to mitigate this issue, by adding information on non valid offsets to direct the binary search on the right direction without doing a linear probing. This strategy can be implemented by fill the bits of the super\kmer left blank when a \kmer is not stored in an informative way.\\
 Given two super\kmers $S_1$ and $S_2$ in a super\kmer sorted list and an offset $t$. If there are $n$ super\kmers between $S_1$ and $S_2$ that do not have a valid \kmer at that position $t$ while $S_1$ and $S_2$ do. The strategy is to fill the bits not used by \kmers in the super\kmer with "fake" nucleotides that do not serve as genetic information but that help the search by giving information on where to find the queried \kmer. This can be done by filling the empty bits with an average between the value found in $S_1$ and $S_2$ at the same position, starting to fill the bits from the most significant one, for all $n$ super\kmers. Another approach would also take into account the cardinality $n$ of the elements to fill and, instead of filling all the super\kmers with the same averaged value, it would fill the $n$ elements with progressive values from $S_1$ to $S_2$.
 
-\section{Does it fit to have a general conclusion here?}
+\section{Does it fit to have a general conclusion of the whole chapter here?}
 
 \printbibliography
 \begin{comment}

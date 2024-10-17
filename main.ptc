@@ -44,7 +44,7 @@
 \contentsline {paragraph}{\textbf {\textup {Ease of Visualization}}}{45}{paragraph*.35}%
 \contentsline {paragraph}{\textbf {\textup {Quality of Metadata and Annotation}}}{45}{paragraph*.36}%
 \contentsline {section}{\numberline {3.3}Discussion}{46}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Conclusions}{48}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Conclusions}{47}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Methods}{48}{section.3.5}%
 \contentsline {paragraph}{Authors' affiliations}{52}{paragraph*.40}%
 \contentsline {section}{\numberline {3.6}Perspectives}{54}{section.3.6}%
@@ -94,16 +94,14 @@
 \contentsline {subsection}{\numberline {4.6.4}Returning overlaps between \emph {k}-mers\xspace }{97}{subsection.4.6.4}%
 \contentsline {subsection}{\numberline {4.6.5}Maximal set of overlapping \emph {k}-mers\xspace : co-linear chaining}{98}{subsection.4.6.5}%
 \contentsline {subsection}{\numberline {4.6.6}Reconciliation and final output}{99}{subsection.4.6.6}%
-\contentsline {subsection}{\numberline {4.6.7}Searching the list}{99}{subsection.4.6.7}%
-\contentsline {subsection}{\numberline {4.6.8}Counting \emph {k}-mers\xspace }{100}{subsection.4.6.8}%
-\contentsline {subsection}{\numberline {4.6.9}Conclusion and future work}{100}{subsection.4.6.9}%
-\contentsline {subsubsection}{\numberline {4.6.9.1}Possible improvement}{101}{subsubsection.4.6.9.1}%
-\contentsline {section}{\numberline {4.7}Does it fit to have a general conclusion here?}{101}{section.4.7}%
+\contentsline {subsection}{\numberline {4.6.7}Searching the list}{100}{subsection.4.6.7}%
+\contentsline {subsection}{\numberline {4.6.8}Conclusion and future work}{101}{subsection.4.6.8}%
+\contentsline {subsubsection}{\numberline {4.6.8.1}Possible improvement}{101}{subsubsection.4.6.8.1}%
+\contentsline {section}{\numberline {4.7}Does it fit to have a general conclusion of the whole chapter here?}{102}{section.4.7}%
 \contentsline {chapter}{Bibliography}{103}{section*.57}%
-\contentsline {chapter}{\chapternumberline {5}Perspectives and future work}{107}{chapter.5}%
-\contentsline {section}{\numberline {5.1}On human pangenomics: graphs and beyond}{107}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Exploring \emph {k}-mer\xspace data structures for pangenomics}{108}{section.5.2}%
-\contentsline {chapter}{\chapternumberline {5}Conclusions}{21}{chapter.5}%
-\contentsline {chapter}{Papers}{24}{section*.59}%
-\contentsline {chapter}{Appendices}{25}{section*.60}%
+\contentsline {chapter}{\chapternumberline {5}List of Papers}{107}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {6}Perspectives and future work}{109}{chapter.6}%
+\contentsline {section}{\numberline {6.1}On human pangenomics: graphs and beyond}{109}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Exploring \emph {k}-mer\xspace data structures for pangenomics}{110}{section.6.2}%
+\contentsline {chapter}{\chapternumberline {7}Conclusions}{111}{chapter.7}%
 \contentsfinish 

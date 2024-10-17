@@ -11,128 +11,95 @@
 
 %end local defs
 
-% Add [final] to remove marginal notes,
-% remove [colophon] for a blank colophon page:
 \documentclass[colophon, english]{phduio}
 
 \usepackage{phdstyle}   % Custom style
 \usepackage{kantlipsum} % Dummy text
 
-
-%\makeglossaries
-%\newacronym{AMQ}{AMQ}{Approximate Memmbership Query}
-%\newacronym{API}{API}{Application Programming Interface}
-%\newacronym{BQF}{BQF}{Backpack Quotient Filter}
-%\newacronym{cAMQ}{cAMQ}{counting Approximate Memmbership Query}
-%\newacronym{CBF}{CBF}{Counting Bloom Filter}
-%\newacronym{cli}{cli}{Command Line Interface}
-%\newacronym{CNV}{CNV}{Copy Number Variant}
-%\newacronym{CQF}{CQF}{Counting Quotient Filter}
-%\newacronym{DNA}{DNA}{Deoxyribonucleic acid }
-%\newacronym{ENA}{ENA}{European Nucleotide Archive}
-%\newacronym{GWAS}{GWAS}{Genome Wide Association Study}
-%\newacronym{HiFi}{HiFi}{High Fidelity}
-%\newacronym{HPRC}{HPRC}{Human Pangenome Reference Consortium}
-%\newacronym{kff}{kff}{\kmer file format}
-%\newacronym{MPHF}{MPHF}{Minimal Perfect Hash Functions}
-%\newacronym{MSA}{MSA}{Multiple Sequence Alignment}
-%\newacronym{NGS}{NGS}{Next Generation Sequencing}
-%\newacronym{PCR}{PCR}{Polymerase Chain Reaction}
-%\newacronym{QC}{QC}{Quality Control}
-%\newacronym{QF}{QF}{Quotient Filter}
-%\newacronym{RNA}{RNA}{Ribonucleic acid}
-%\newacronym{RSQF}{RSQF}{Rank Select Quotient Filter}
-%\newacronym{SIMD}{SIMD}{Single Instruction Multiple Data}
-%\newacronym{SNP}{SNP}}{Single Nucleotide Polymorphism}
-%\newacronym{SNV}{SNV}}{Single Nucleotide Variant}
-%\newacronym{SRA}{SRA}{Sequence Read Archive}
-%\newacronym{SV}{SV}{Structural Variation}
-%\newacronym{TGS}{TGS}{Third Generation Sequencing}
-%\newacronym{T2T}{T2T}{Telomere to Telomere consortium}
+%\makenoidxglossaries
+\makeglossaries
+\newacronym{AMQ}{AMQ}{Approximate Memmbership Query}
+\newacronym{API}{API}{Application Programming Interface}
+\newacronym{BQF}{BQF}{Backpack Quotient Filter}
+\newacronym{cAMQ}{cAMQ}{counting Approximate Memmbership Query}
+\newacronym{CBF}{CBF}{Counting Bloom Filter}
+\newacronym{cli}{cli}{Command Line Interface}
+\newacronym{CNV}{CNV}{Copy Number Variant}
+\newacronym{CQF}{CQF}{Counting Quotient Filter}
+\newacronym{DNA}{DNA}{Deoxyribonucleic acid }
+\newacronym{ENA}{ENA}{European Nucleotide Archive}
+\newacronym{GWAS}{GWAS}{Genome Wide Association Study}
+\newacronym{HiFi}{HiFi}{High Fidelity}
+\newacronym{HPRC}{HPRC}{Human Pangenome Reference Consortium}
+\newacronym{kff}{kff}{\kmer file format}
+\newacronym{MPHF}{MPHF}{Minimal Perfect Hash Functions}
+\newacronym{MSA}{MSA}{Multiple Sequence Alignment}
+\newacronym{NGS}{NGS}{Next Generation Sequencing}
+\newacronym{PCR}{PCR}{Polymerase Chain Reaction}
+\newacronym{QC}{QC}{Quality Control}
+\newacronym{QF}{QF}{Quotient Filter}
+\newacronym{RNA}{RNA}{Ribonucleic acid}
+\newacronym{RSQF}{RSQF}{Rank Select Quotient Filter}
+\newacronym{SIMD}{SIMD}{Single Instruction Multiple Data}
+\newacronym{SNP}{SNP}{Single Nucleotide Polymorphism}
+\newacronym{SNV}{SNV}{Single Nucleotide Variant}
+\newacronym{SRA}{SRA}{Sequence Read Archive}
+\newacronym{SV}{SV}{Structural Variation}
+\newacronym{TGS}{TGS}{Third Generation Sequencing}
+\newacronym{T2T}{T2T}{Telomere to Telomere consortium}
 
 %HbS,DARC,STARR-seq, ATAC-seq, ChIP-seq, RNA-seq
 
-
 \author{Francesco Andreace}
-\title{Can I decide it or should I put the official one?}
-\subtitle{Analysis of human pangenome graphs using k-mer-based applications}
-\department{Department of Computational Biology}
-\faculty{Insitut Pasteur Paris, Universite' de Paris Cite}
-\affiliation
-{
-    Edite doctoral school, Sorbonne Université
-}
-\ISSN{1234-5678}           
-\dissertationseries{1234}  
+\title{Thesis Manuscript Draft}
+\subtitle{Analysis of human pangenome graphs using \kmer based applications}
+\uni{Sorbonne Université}
+\institute{Department of Computational Biology - Insitut Pasteur Paris, Université de Paris Cité}
+\affiliation{Ecole Doctorale Informatique, Télécommunications et Electronique EDITE
+	(ED130)}
 
 
 \includeonly
 {
-    sections/dedication,
-    sections/preface,
-    sections/abstract-en,
-    sections/abstract-fr,
-    sections/papers,
-    sections/introduction,
-    sections/background,
-    %sections/cqf,
-    %sections/paperI,
-    %sections/paperII,
-    %sections/paperIII,
-    %sections/appendixA,
-    %sections/appendixB,
-    sections/perspectives,
-    sections/pushing_the_limit,
-    sections/reducing_complexity,
-    sections/explorations
-    sections/conclusions,
+	sections/dedication,
+	sections/preface,
+	sections/introduction,
+	sections/background,
+	sections/pushing_the_limit,
+	sections/reducing_complexity,
+	sections/explorations,
+	sections/perspectives,
+	sections/papers,
+	sections/conclusions
 }
 
-
+%	\frontmatter
 \begin{document}
-
-    \frontmatter        % Folios in Roman numerals, unnumbered chapters.
-
-    \maintitle
-
-    \include{sections/dedication}
-    % \include{sections/abstract-en}
-    % \include{sections/abstract-fr}
-    \include{sections/preface}
-
-    \cleartorecto
-    \microtypesetup{protrusion = false}
-    \tableofcontents    % Or \tableofcontents*
-    \cleartorecto
-    \listoffigures      % Or \listoffigures*
-    \cleartorecto
-    \listoftables       % Or \listoftables*
-    \microtypesetup{protrusion = true}
-
-    \mainmatter         % Folios in Arabic numerals, numbered chapters.
-
-   % \include{sections/introduction}
-    \include{sections/background}
-    \include{sections/pushing_the_limit}
-    \include{sections/reducing_complexity}
-    \include{sections/perspectives}
-    \include{sections/conclusions}
-    %\include{sections/papers}
-    %\include{sections/other_contributions}
-    \paper              % "Chapter" is renamed "Paper"
-    \paperpage          % Similar to \part*{Papers}, but appears in TOC
-    \numberofpapers{1}  % Specify size of thumb indices
-
-    %\include{sections/paperI}
-    %\include{sections/paperII}
-    %\include{sections/paperIII}
-
-    \appendix           % "Chapter" is renamed "Appendix"
-    \appendixpage       % Similar to \part*{Appendices}, but appears in TOC
-
-    % \include{sections/appendixA}
-    % \include{sections/appendixB}
-    %\printbibliography
-
-
+	 \frontmatter
+	 
+	\maintitle
+	
+	\include{sections/dedication}
+	\include{sections/preface}
+	
+	\cleartorecto
+	\microtypesetup{protrusion = false}
+	\tableofcontents    % Or \tableofcontents*
+	\cleartorecto
+	\listoffigures      % Or \listoffigures*
+	\cleartorecto
+	\listoftables       % Or \listoftables*
+	\microtypesetup{protrusion = true}
+	
+	\mainmatter
+	\include{sections/background}
+	\include{sections/pushing_the_limit}
+	\include{sections/reducing_complexity}
+	\include{sections/papers}
+	\include{sections/perspectives}
+	\include{sections/conclusions}
+	
+	%\printnoidxglossary[type=\acronymtype,title=Acronyms]
+	\printglossary[type=\acronymtype]
+	
 \end{document}

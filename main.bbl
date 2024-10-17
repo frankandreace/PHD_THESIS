@@ -1858,7 +1858,7 @@
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{A $100 genome? New DNA sequencers could be a ‘game changer’ for biology, medicine.}
+      \field{title}{A \$100 genome? New DNA sequencers could be a ‘game changer’ for biology, medicine.}
       \verb{urlraw}
       \verb https://www.science.org/content/article/100-genome-new-dna-sequencers-could-be-game-changer-biology-medicine
       \endverb
@@ -4638,7 +4638,6 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{q-bio.GN}
       \field{eprinttype}{arXiv}
       \field{title}{Advances in colored k-mer sets: essentials for the curious}
       \field{year}{2024}
@@ -11766,7 +11765,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{6}
+\refsection{7}
   \datalist[entry]{none/global//global/global}
     \entry{kff}{article}{}
       \name{author}{9}{}{%
