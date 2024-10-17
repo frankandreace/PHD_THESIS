@@ -160,8 +160,8 @@
 				\begin{center}
 					\resizebox{\textwidth}{!}{%
 						\begin{tabular}{l@{\hskip 1cm}l@{\hskip 1cm}l}
-						Dr. Matthias Zytnicki & INRAE  & President of the jury? and reviewer \\
 						Dr. Francois Sabot   & Université de Montpellier & Reviewer \\
+						Dr. Matthias Zytnicki & INRAE  & Reviewer \\
 						Dr. Paola Bonizzoni & University of Milano – Bicocca & Examiner \\
 						Dr. Camille Marchet  & CNRS, Université de Lille & Examiner \\
 						Dr. Pierre Peterlongo & IRISA, Université de Rennes & Examiner \\
