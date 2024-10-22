@@ -4,34 +4,34 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces The DNA molecule.\relax }}{2}{figure.caption.5}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Third generation sequencing technologies.\relax }}{6}{figure.caption.6}%
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Small genomic variants.}}{13}{figure.caption.9}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Large genomic variants.}}{13}{figure.caption.10}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Inter-individual and inter-population variation for 4 primate species.}}{14}{figure.caption.11}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Genomic difference in chromosome 7 and 16 of 5 primate species.}}{15}{figure.caption.12}%
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Spectrum of Human Genetic Variation.}}{16}{figure.caption.13}%
-\contentsline {figure}{\numberline {1.8}{\ignorespaces The Sequence Read Archive.}}{17}{figure.caption.15}%
-\contentsline {figure}{\numberline {1.9}{\ignorespaces The Pangenome model.}}{19}{figure.caption.16}%
-\contentsline {figure}{\numberline {1.10}{\ignorespaces Graph pangenome models.}}{21}{figure.caption.17}%
-\contentsline {figure}{\numberline {1.11}{\ignorespaces The Variation Graph model.}}{22}{figure.caption.18}%
-\contentsline {figure}{\numberline {1.12}{\ignorespaces The Variation Graph origin.}}{23}{figure.caption.19}%
-\contentsline {figure}{\numberline {1.13}{\ignorespaces Example of dBG\xspace .}}{23}{figure.caption.20}%
-\contentsline {figure}{\numberline {1.14}{\ignorespaces Compaction and colors in a ccdBG\xspace .}}{25}{figure.caption.21}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Large genomic variants.}}{14}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Inter-individual and inter-population variation for 4 primate species.}}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Genomic difference in chromosome 7 and 16 of 5 primate species.}}{16}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Spectrum of Human Genetic Variation.}}{17}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces The Sequence Read Archive.}}{18}{figure.caption.15}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces The Pangenome model.}}{20}{figure.caption.16}%
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Graph pangenome models.}}{22}{figure.caption.17}%
+\contentsline {figure}{\numberline {1.11}{\ignorespaces The Variation Graph model.}}{23}{figure.caption.18}%
+\contentsline {figure}{\numberline {1.12}{\ignorespaces The Variation Graph origin.}}{24}{figure.caption.19}%
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Example of dBG\xspace .}}{24}{figure.caption.20}%
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Compaction and colors in a ccdBG\xspace .}}{26}{figure.caption.21}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The complete human pangenome construction scheme and visualization.}}{37}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Representations of the HLA-E locus on large human pangenomes.}}{41}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Representations of the HLA-A locus on large human pangenomes.}}{43}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces ccdBG\xspace representation and phylogeny analysis of the \emph {Lodderomyces elongisporus}\xspace pangenome.}}{62}{figure.caption.42}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Sequence Identity of \emph {Lodderomyces elongisporus}\xspace samples's contigs assigned to reference chromosomes.}}{63}{figure.caption.43}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \texttt {gfaestus}\xspace visualization of a \emph {Lodderomyces elongisporus}\xspace variation graph.}}{64}{figure.caption.44}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Difference in output between \texttt {Minigraph}\xspace and \texttt {Minigraph-Cactus}\xspace .}}{65}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Community partition of the contigs to detect inter-chromosome events.}}{65}{figure.caption.46}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Linear reference visualization of the \emph {Lodderomyces elongisporus}\xspace inter-chromosomal recombination.}}{66}{figure.caption.47}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Visualization of chromosomes tangle in the \texttt {Minigraph-Cactus}\xspace variation graph.}}{66}{figure.caption.48}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces 1D visualization of differences between \texttt {pggb}\xspace and \texttt {Minigraph-Cactus}\xspace output.}}{67}{figure.caption.49}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Pangenome core and growth of \texttt {pggb}\xspace variation graph.}}{68}{figure.caption.50}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Pangenome core and growth of \texttt {Minigraph-Cactus}\xspace variation graph.}}{69}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The complete human pangenome construction scheme and visualization.}}{35}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Representations of the HLA-E locus on large human pangenomes.}}{39}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Representations of the HLA-A locus on large human pangenomes.}}{41}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces ccdBG\xspace representation and phylogeny analysis of the \emph {Lodderomyces elongisporus}\xspace pangenome.}}{60}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Sequence Identity of \emph {Lodderomyces elongisporus}\xspace samples's contigs assigned to reference chromosomes.}}{61}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \texttt {gfaestus}\xspace visualization of a \emph {Lodderomyces elongisporus}\xspace variation graph.}}{62}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Difference in output between \texttt {Minigraph}\xspace and \texttt {Minigraph-Cactus}\xspace .}}{63}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Community partition of the contigs to detect inter-chromosome events.}}{63}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Linear reference visualization of the \emph {Lodderomyces elongisporus}\xspace inter-chromosomal recombination.}}{64}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Visualization of chromosomes tangle in the \texttt {Minigraph-Cactus}\xspace variation graph.}}{64}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces 1D visualization of differences between \texttt {pggb}\xspace and \texttt {Minigraph-Cactus}\xspace output.}}{65}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Pangenome core and growth of \texttt {pggb}\xspace variation graph.}}{66}{figure.caption.48}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Pangenome core and growth of \texttt {Minigraph-Cactus}\xspace variation graph.}}{67}{figure.caption.49}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The \texttt {muset}\xspace pipeline}}{88}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The \texttt {muset}\xspace pipeline}}{80}{figure.caption.51}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
