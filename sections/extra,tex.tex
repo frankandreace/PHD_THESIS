@@ -1,0 +1,29 @@
+\section{Testing the scale of humang pangenome graphs}
+As a scalability and feasibility test, I built a \ccdbg using the high quality haplotypes I used for the pangenome methods evaluation proposed in the previous chapter together with the unitigs of the 1kgenomes dataset (obtained from the raw reads). This pangenome consisted of 3266 human haplotypes blended together into a single data structure (104 high quality + 3162 unitig-level assemblies). This experiment showed:
+\begin{itemize}
+	\item that \ccdbgs can be constructed for at least one order of magnitude more genomes than what variation graphs are now used to;
+	\item that this approach could be used for several applications such as:
+	\begin{itemize}
+		\item structural variation inference of lower quality assemblies: even if unitigs alone cannot be used to reconstruct complex structural variations in an individual, their association in a single data structure with high quality genomes can help infer which variations are there;
+		\item improvement of assembly quality by extending the unitigs of an assemblies with all the nucleotides that 
+	\end{itemize}
+\end{itemize}
+Even if \dbg-based tools offer promising results when building pangenome graphs in terms of scalability and computational cost their use in pangenomics is still low mainly due to:
+\begin{itemize}
+	\item limited operations that can be performed on the data except basic \kmer interrogations on a query sequence to understand in which other genome in the model they are present;
+	\item the complexity and dimension of the \ccdbgs that makes visualization and other high-level operations very difficult to be achieved.
+\end{itemize}
+For this reasons:
+\begin{itemize}
+	\item total graph visualization is not achievable for large collections (except in the case of minimizer \dbgs introduced in the previous chapter, that can give still relatively limited biological insight);
+	\item large and complex regions visualization is also very difficult to achieve and gives results often confounded by repetitions, like seen in the previous chapter;
+	\item downstream applications are limited by the need of in-between tools that use construction methods to achieve a representation and then use queries to infer relevant information. This is also relatively discouraged by the fact that most tools have little to no documentation and different api schemes.
+\end{itemize}
+
+
+
+\subsection{Representing sets of \kmer sets, state of the art}
+\section{Indexing Data Structures}
+During my thesis I focused on \kmer based algorithms, i.e. that use strings of length k as basic unit, because of their proven scalability and mathematical simplicity. Their are also the main common theoretical and technical abstraction that is used by the research group.  
+Here I will briefly introduce some of the most used data structures and algorithms to store collections \kmers and, in some cases, their counts. The process to index a dataset using \kmers is to represent it as a set of the \kmers that from their sequences, like remembering the set of unique words inside one or multiple books. This representation has to be searchable so then I can interrogate it for the presence of a particular word.  There are three aspects to keep in count when considering such data structures: the computational complexity of building and, most of all, querying; the size of the data structure that stores the information and the kind of interrogations you can do with the data: presence/absence or metadata (like, for example, counts). This leads to the distinction between exact and approximate indexes and by the ones that support membership or metadata queries.\\
+The membership query $memb(x)$ returns \kmers and other basic computational aspects that are at the basic of such data structure have been covered in the introduction.

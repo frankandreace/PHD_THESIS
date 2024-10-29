@@ -2379,12 +2379,40 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="2">
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 3 -->
+  <bcf:bibdata section="3">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="3">
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 4 -->
+  <bcf:bibdata section="4">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="4">
     <bcf:citekey order="1" intorder="1">franklin</bcf:citekey>
     <bcf:citekey order="2" intorder="1">nih_dna</bcf:citekey>
     <bcf:citekey order="3" intorder="1">nih_dna</bcf:citekey>
     <bcf:citekey order="4" intorder="1">sugarcane</bcf:citekey>
     <bcf:citekey order="5" intorder="1">telomeres</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">centromeres</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">centromeres_eichler</bcf:citekey>
     <bcf:citekey order="7" intorder="1">garrison_pangenome</bcf:citekey>
     <bcf:citekey order="8" intorder="1">sanger_sequencing</bcf:citekey>
     <bcf:citekey order="9" intorder="1">mitochondrialDNA</bcf:citekey>
@@ -2449,8 +2477,8 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 3 -->
-  <bcf:bibdata section="3">
+  <!-- SECTION 5 -->
+  <bcf:bibdata section="5">
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
@@ -2458,13 +2486,13 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="3">
+  <bcf:section number="5">
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 4 -->
-  <bcf:bibdata section="4">
+  <!-- SECTION 6 -->
+  <bcf:bibdata section="6">
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
@@ -2472,7 +2500,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="4">
+  <bcf:section number="6">
     <bcf:citekey order="1" intorder="1">ucsc</bcf:citekey>
     <bcf:citekey order="2" intorder="1">vg</bcf:citekey>
     <bcf:citekey order="2" intorder="2">computational_pangenomics</bcf:citekey>
@@ -2567,55 +2595,6 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 5 -->
-  <bcf:bibdata section="5">
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
-  </bcf:bibdata>
-  <bcf:section number="5">
-    <bcf:citekey order="1" intorder="1">wavefront</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">spumoni2</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">movi</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">serratus</bcf:citekey>
-    <bcf:citekey order="4" intorder="2">logan</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">akmerbroom</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">marchet2024kmersets</bcf:citekey>
-    <bcf:citekey order="6" intorder="2">marchet2021kmer</bcf:citekey>
-    <bcf:citekey order="6" intorder="3">marchet2024coloredkmersets</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">marchet2024kmersets</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">kmer-file-format</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">kmtricks</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">fimpera</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">fimpera</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">recombseq</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">bqf</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">marchet2024kmersets</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">blight</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">sshash</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">smsketch</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">genome_scale</bcf:citekey>
-  </bcf:section>
-  <!-- SECTION 0 (cont.) -->
-  <bcf:section number="0">
-  </bcf:section>
-  <!-- SECTION 6 -->
-  <bcf:bibdata section="6">
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
-  </bcf:bibdata>
-  <bcf:section number="6">
-  </bcf:section>
-  <!-- SECTION 0 (cont.) -->
-  <bcf:section number="0">
-  </bcf:section>
   <!-- SECTION 7 -->
   <bcf:bibdata section="7">
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
@@ -2626,8 +2605,32 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="7">
-    <bcf:citekey order="1" intorder="1">kff</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">kmtricks</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">wavefront</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">spumoni2</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">movi</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">serratus</bcf:citekey>
+    <bcf:citekey order="4" intorder="2">logan</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">mphf</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">ggcat</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">kamrat</bcf:citekey>
+    <bcf:citekey order="7" intorder="2">transipedia</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">metadbg</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">sshash</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">akmerbroom</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">marchet2024kmersets</bcf:citekey>
+    <bcf:citekey order="11" intorder="2">marchet2021kmer</bcf:citekey>
+    <bcf:citekey order="11" intorder="3">marchet2024coloredkmersets</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">marchet2024kmersets</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">kmtricks</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">fimpera</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">fimpera</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">recombseq</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">bqf</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">marchet2024kmersets</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">blight</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">sshash</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">smsketch</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">genome_scale</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2656,6 +2659,36 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="9">
+    <bcf:citekey order="1" intorder="1">kff</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">kmtricks</bcf:citekey>
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 10 -->
+  <bcf:bibdata section="10">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="10">
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 11 -->
+  <bcf:bibdata section="11">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="11">
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2670,15 +2703,6 @@
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
-  <bcf:datalist section="2"
-                name="none/global//global/global"
-                type="entry"
-                sortingtemplatename="none"
-                sortingnamekeytemplatename="global"
-                labelprefix=""
-                uniquenametemplatename="global"
-                labelalphanametemplatename="global">
-  </bcf:datalist>
   <bcf:datalist section="4"
                 name="none/global//global/global"
                 type="entry"
@@ -2688,7 +2712,16 @@
                 uniquenametemplatename="global"
                 labelalphanametemplatename="global">
   </bcf:datalist>
-  <bcf:datalist section="5"
+  <bcf:datalist section="6"
+                name="none/global//global/global"
+                type="entry"
+                sortingtemplatename="none"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
+  <bcf:datalist section="7"
                 name="none/global//global/global"
                 type="entry"
                 sortingtemplatename="none"

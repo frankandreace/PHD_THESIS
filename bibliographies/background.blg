@@ -1,0 +1,5 @@
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'background.blg'
+[132] biber:340> INFO - === lun. oct. 28, 2024, 19:20:52
+[244] Utils.pm:399> ERROR - Cannot find 'background.bcf'!
+[244] Biber.pm:135> INFO - ERRORS: 1
