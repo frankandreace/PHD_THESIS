@@ -76,38 +76,40 @@
 \contentsline {subsection}{\numberline {4.2.5}Static vs Dynamic data structures}{86}{subsection.4.2.5}%
 \contentsline {section}{\numberline {4.3}Our contributions: an outline}{87}{section.4.3}%
 \contentsline {section}{\numberline {4.4}\texttt {muset}\xspace : building unitig matrices for downstream analyses}{87}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Rationale}{87}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.1}Rationale}{88}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Related work}{88}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}From sequencing data to unitig matrices}{88}{subsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.3.1}Main features and differences of unitig matrices}{88}{subsubsection.4.4.3.1}%
+\contentsline {subsection}{\numberline {4.4.3}From sequencing data to unitig matrices}{89}{subsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}Main features and differences of unitig matrices}{89}{subsubsection.4.4.3.1}%
 \contentsline {subsubsection}{\numberline {4.4.3.2}Matrix construction overview}{89}{subsubsection.4.4.3.2}%
-\contentsline {subsection}{\numberline {4.4.4}Conclusions and perspectives}{90}{subsection.4.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.4.1}Unitig matrices are pangenomes}{90}{subsubsection.4.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.4}Conclusions and perspectives}{92}{subsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.4.1}Unitig matrices are pangenomes}{92}{subsubsection.4.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.5}Improving the method}{92}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: a Rank Select Quotient Filter}{92}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Brief state-of-the-art overview}{94}{subsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.1.1}Quotient Filter structure: Rank and Select}{95}{subsubsection.4.5.1.1}%
-\contentsline {subsubsection}{\numberline {4.5.1.2}Counting}{95}{subsubsection.4.5.1.2}%
-\contentsline {subsection}{\numberline {4.5.2}Developing a new library for a Quotient Filter}{97}{subsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Allowing multiple types of counts: CQF and BQF}{98}{subsubsection.4.5.2.1}%
-\contentsline {subsubsection}{\numberline {4.5.2.2}Handling toricity}{98}{subsubsection.4.5.2.2}%
-\contentsline {subsubsection}{\numberline {4.5.2.3}Using the Fimpera scheme to reduce space}{99}{subsubsection.4.5.2.3}%
-\contentsline {subsection}{\numberline {4.5.3}Conclusions and perspectives}{99}{subsection.4.5.3}%
-\contentsline {section}{\numberline {4.6}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: Super\emph {k}-mer\xspace sorted list}{100}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Super\emph {k}-mer\xspace sorted lists: Input ad output}{101}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Super\emph {k}-mer\xspace list model}{101}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Sorting \emph {k}-mers\xspace in the same position}{101}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Returning overlaps between \emph {k}-mers\xspace }{101}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Maximal set of overlapping \emph {k}-mers\xspace : co-linear chaining}{102}{subsection.4.6.5}%
-\contentsline {subsection}{\numberline {4.6.6}Reconciliation and final output}{103}{subsection.4.6.6}%
-\contentsline {subsection}{\numberline {4.6.7}Searching the list}{104}{subsection.4.6.7}%
-\contentsline {subsection}{\numberline {4.6.8}Conclusion and future work}{105}{subsection.4.6.8}%
-\contentsline {subsubsection}{\numberline {4.6.8.1}Possible improvement}{105}{subsubsection.4.6.8.1}%
-\contentsline {section}{\numberline {4.7}Does it fit to have a general conclusion of the whole chapter here?}{106}{section.4.7}%
-\contentsline {chapter}{Bibliography}{107}{section*.62}%
-\contentsline {chapter}{\chapternumberline {5}List of Papers}{111}{chapter.5}%
-\contentsline {chapter}{\chapternumberline {6}Perspectives and future work}{113}{chapter.6}%
-\contentsline {section}{\numberline {6.1}On human pangenomics: graphs and beyond}{113}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Exploring \emph {k}-mer\xspace data structures for pangenomics}{114}{section.6.2}%
-\contentsline {chapter}{\chapternumberline {7}Conclusions}{115}{chapter.7}%
+\contentsline {section}{\numberline {4.5}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: a Rank Select Quotient Filter}{93}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Brief filter data structures overview}{93}{subsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.1}Filter data structures}{94}{subsubsection.4.5.1.1}%
+\contentsline {subsection}{\numberline {4.5.2}Quotient Filter structure: Rank and Select}{95}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}Counting}{96}{subsubsection.4.5.2.1}%
+\contentsline {subsection}{\numberline {4.5.3}Developing a new library for a Quotient Filter}{97}{subsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}Allowing multiple types of counts: CQF and BQF}{99}{subsubsection.4.5.3.1}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}Handling toricity}{99}{subsubsection.4.5.3.2}%
+\contentsline {subsubsection}{\numberline {4.5.3.3}Dynamic resizing strategy}{99}{subsubsection.4.5.3.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.4}Using the Fimpera scheme to reduce space}{100}{subsubsection.4.5.3.4}%
+\contentsline {subsection}{\numberline {4.5.4}Conclusions and perspectives}{101}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: Super\emph {k}-mer\xspace sorted list}{102}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Super\emph {k}-mer\xspace sorted lists: Input ad output}{103}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Super\emph {k}-mer\xspace list model}{103}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Sorting \emph {k}-mers\xspace in the same position}{103}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Returning overlaps between \emph {k}-mers\xspace }{103}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}Maximal set of overlapping \emph {k}-mers\xspace : co-linear chaining}{104}{subsection.4.6.5}%
+\contentsline {subsection}{\numberline {4.6.6}Reconciliation and final output}{105}{subsection.4.6.6}%
+\contentsline {subsection}{\numberline {4.6.7}Searching the list}{106}{subsection.4.6.7}%
+\contentsline {subsection}{\numberline {4.6.8}Conclusion and future work}{107}{subsection.4.6.8}%
+\contentsline {subsubsection}{\numberline {4.6.8.1}Possible improvement}{107}{subsubsection.4.6.8.1}%
+\contentsline {section}{\numberline {4.7}\emph {k}-mer\xspace based method exploration: conclusions}{108}{section.4.7}%
+\contentsline {chapter}{Bibliography}{109}{section*.62}%
+\contentsline {chapter}{\chapternumberline {5}List of Papers}{113}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {6}Perspectives and future work}{115}{chapter.6}%
+\contentsline {section}{\numberline {6.1}On human pangenomics: graphs and beyond}{115}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Exploring \emph {k}-mer\xspace data structures for pangenomics}{116}{section.6.2}%
+\contentsline {chapter}{\chapternumberline {7}Conclusions}{117}{chapter.7}%
 \contentsfinish 
