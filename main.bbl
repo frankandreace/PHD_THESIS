@@ -11959,6 +11959,59 @@
       \verb https://doi.org/10.1186/s13015-023-00226-2
       \endverb
     \endentry
+    \entry{back_to_sequences}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e3aa873ed7494539c47863142e6c6870}{%
+           family={Baire},
+           familyi={B\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=23a339586d631a57fbecdfba6e7ae717}{%
+           family={Marijon},
+           familyi={M\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2b542e39d8405f07e2386cbce4e574a2}{%
+           family={Andreace},
+           familyi={A\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The Open Journal}%
+      }
+      \strng{namehash}{2507acdcf986cab64b088b25277ff0f1}
+      \strng{fullhash}{8b4d7251703d618110fdb3973ab817ce}
+      \strng{bibnamehash}{8b4d7251703d618110fdb3973ab817ce}
+      \strng{authorbibnamehash}{8b4d7251703d618110fdb3973ab817ce}
+      \strng{authornamehash}{2507acdcf986cab64b088b25277ff0f1}
+      \strng{authorfullhash}{8b4d7251703d618110fdb3973ab817ce}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Source Software}
+      \field{number}{101}
+      \field{title}{Back to sequences: Find the origin of k-mers}
+      \field{volume}{9}
+      \field{year}{2024}
+      \field{pages}{7066}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.21105/joss.07066
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.21105/joss.07066
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.21105/joss.07066
+      \endverb
+    \endentry
     \entry{akmerbroom}{article}{}
       \name{author}{5}{}{%
         {{hash=7aadeb22cf3a82313d70b6c16d449ab7}{%
@@ -12201,61 +12254,218 @@
       \verb https://doi.org/10.1093/bioadv/vbac029
       \endverb
     \endentry
-    \entry{fimpera}{article}{}
-      \name{author}{2}{}{%
-        {{hash=0a99dc91c82d3138a4f9ac80f2f4d731}{%
-           family={Robidou},
-           familyi={R\bibinitperiod},
-           given={Lucas},
-           giveni={L\bibinitperiod}}}%
-        {{hash=27081751357b604f4e6820444a866545}{%
-           family={Peterlongo},
+    \entry{squeakr}{article}{}
+      \name{author}{4}{}{%
+        {{hash=8678b35641533d05fddb28a5cc563f52}{%
+           family={Pandey},
            familyi={P\bibinitperiod},
-           given={Pierre},
+           given={Prashant},
            giveni={P\bibinitperiod}}}%
+        {{hash=73b35b4e99fa82d2e693c149ec5d1d17}{%
+           family={Bender},
+           familyi={B\bibinitperiod},
+           given={Michael\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e4f16441e3859580a81b43a585d9a8ae}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+        {{hash=eccda3e34049a4d8774491fdaa7fe7b0}{%
+           family={Patro},
+           familyi={P\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
       }
-      \strng{namehash}{657062dba8d320966a411f667dc95870}
-      \strng{fullhash}{657062dba8d320966a411f667dc95870}
-      \strng{bibnamehash}{657062dba8d320966a411f667dc95870}
-      \strng{authorbibnamehash}{657062dba8d320966a411f667dc95870}
-      \strng{authornamehash}{657062dba8d320966a411f667dc95870}
-      \strng{authorfullhash}{657062dba8d320966a411f667dc95870}
+      \strng{namehash}{7a6b97078315e7ad1892b0d545e86163}
+      \strng{fullhash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{bibnamehash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{authorbibnamehash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{authornamehash}{7a6b97078315e7ad1892b0d545e86163}
+      \strng{authorfullhash}{5a5e79a8488951cd5117e29586de5c34}
+      \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{1367-4811}
+      \field{issn}{1367-4803}
       \field{journaltitle}{Bioinformatics}
-      \field{month}{05}
-      \field{number}{5}
-      \field{title}{Fimpera: drastic improvement of Approximate Membership Query data-structures with counts}
-      \field{volume}{39}
-      \field{year}{2023}
-      \field{pages}{btad305}
-      \range{pages}{-1}
+      \field{month}{10}
+      \field{number}{4}
+      \field{title}{{Squeakr: an exact and approximate k-mer counting system}}
+      \field{volume}{34}
+      \field{year}{2017}
+      \field{pages}{568\bibrangedash 575}
+      \range{pages}{8}
       \verb{doi}
-      \verb 10.1093/bioinformatics/btad305
+      \verb 10.1093/bioinformatics/btx636
       \endverb
       \verb{eprint}
-      \verb https://academic.oup.com/bioinformatics/article-pdf/39/5/btad305/50453937/btad305.pdf
+      \verb https://academic.oup.com/bioinformatics/article-pdf/34/4/568/48913860/bioinformatics\_34\_4\_568.pdf
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.1093/bioinformatics/btad305
+      \verb https://doi.org/10.1093/bioinformatics/btx636
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1093/bioinformatics/btad305
+      \verb https://doi.org/10.1093/bioinformatics/btx636
       \endverb
     \endentry
-    \entry{recombseq}{misc}{}
+    \entry{pandey}{article}{}
+      \name{author}{4}{}{%
+        {{hash=8678b35641533d05fddb28a5cc563f52}{%
+           family={Pandey},
+           familyi={P\bibinitperiod},
+           given={Prashant},
+           giveni={P\bibinitperiod}}}%
+        {{hash=73b35b4e99fa82d2e693c149ec5d1d17}{%
+           family={Bender},
+           familyi={B\bibinitperiod},
+           given={Michael\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e4f16441e3859580a81b43a585d9a8ae}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+        {{hash=eccda3e34049a4d8774491fdaa7fe7b0}{%
+           family={Patro},
+           familyi={P\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{7a6b97078315e7ad1892b0d545e86163}
+      \strng{fullhash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{bibnamehash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{authorbibnamehash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{authornamehash}{7a6b97078315e7ad1892b0d545e86163}
+      \strng{authorfullhash}{5a5e79a8488951cd5117e29586de5c34}
+      \field{extraname}{2}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Recomseq conference website.}
+      \field{issn}{1367-4803}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{07}
+      \field{number}{14}
+      \field{title}{{deBGR: an efficient and near-exact representation of the weighted de Bruijn graph}}
+      \field{volume}{33}
+      \field{year}{2017}
+      \field{pages}{i133\bibrangedash i141}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btx261
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformatics/article-pdf/33/14/i133/50315096/bioinformatics\_33\_14\_i133.pdf
+      \endverb
       \verb{urlraw}
-      \verb https://recomb-seq.github.io
+      \verb https://doi.org/10.1093/bioinformatics/btx261
       \endverb
       \verb{url}
-      \verb https://recomb-seq.github.io
+      \verb https://doi.org/10.1093/bioinformatics/btx261
+      \endverb
+    \endentry
+    \entry{cqf}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=8678b35641533d05fddb28a5cc563f52}{%
+           family={Pandey},
+           familyi={P\bibinitperiod},
+           given={Prashant},
+           giveni={P\bibinitperiod}}}%
+        {{hash=73b35b4e99fa82d2e693c149ec5d1d17}{%
+           family={Bender},
+           familyi={B\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e4f16441e3859580a81b43a585d9a8ae}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+        {{hash=eccda3e34049a4d8774491fdaa7fe7b0}{%
+           family={Patro},
+           familyi={P\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chicago, Illinois, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{7a6b97078315e7ad1892b0d545e86163}
+      \strng{fullhash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{bibnamehash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{authorbibnamehash}{5a5e79a8488951cd5117e29586de5c34}
+      \strng{authornamehash}{7a6b97078315e7ad1892b0d545e86163}
+      \strng{authorfullhash}{5a5e79a8488951cd5117e29586de5c34}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2017 ACM International Conference on Management of Data}
+      \field{isbn}{9781450341974}
+      \field{series}{SIGMOD '17}
+      \field{title}{A General-Purpose Counting Filter: Making Every Bit Count}
+      \field{year}{2017}
+      \field{pages}{775\bibrangedash 787}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1145/3035918.3035963
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3035918.3035963
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3035918.3035963
+      \endverb
+      \keyw{bloom filters and hashing,computational biology,network monitoring,sketching and sampling}
+    \endentry
+    \entry{comin_count}{article}{}
+      \name{author}{2}{}{%
+        {{hash=e8b63a11dd4bb6d2c407060563fde512}{%
+           family={Rossignolo},
+           familyi={R\bibinitperiod},
+           given={Enrico},
+           giveni={E\bibinitperiod}}}%
+        {{hash=1ac67787639a4fd081b1c523200ead42}{%
+           family={Comin},
+           familyi={C\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{9810b491cd4e46ab600a065c07b85549}
+      \strng{fullhash}{9810b491cd4e46ab600a065c07b85549}
+      \strng{bibnamehash}{9810b491cd4e46ab600a065c07b85549}
+      \strng{authorbibnamehash}{9810b491cd4e46ab600a065c07b85549}
+      \strng{authornamehash}{9810b491cd4e46ab600a065c07b85549}
+      \strng{authorfullhash}{9810b491cd4e46ab600a065c07b85549}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computational Biology}
+      \field{note}{PMID: 38820168}
+      \field{number}{6}
+      \field{title}{Enhanced Compression of k-Mer Sets with Counters via de Bruijn Graphs}
+      \field{volume}{31}
+      \field{year}{2024}
+      \field{pages}{524\bibrangedash 538}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1089/cmb.2024.0530
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1089/cmb.2024.0530
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1089/cmb.2024.0530
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1089/cmb.2024.0530
       \endverb
     \endentry
     \entry{bqf}{article}{}
@@ -12315,6 +12525,63 @@
       \verb https://www.biorxiv.org/content/early/2024/02/18/2024.02.15.580441
       \endverb
     \endentry
+    \entry{fimpera}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0a99dc91c82d3138a4f9ac80f2f4d731}{%
+           family={Robidou},
+           familyi={R\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{657062dba8d320966a411f667dc95870}
+      \strng{fullhash}{657062dba8d320966a411f667dc95870}
+      \strng{bibnamehash}{657062dba8d320966a411f667dc95870}
+      \strng{authorbibnamehash}{657062dba8d320966a411f667dc95870}
+      \strng{authornamehash}{657062dba8d320966a411f667dc95870}
+      \strng{authorfullhash}{657062dba8d320966a411f667dc95870}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1367-4811}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{Fimpera: drastic improvement of Approximate Membership Query data-structures with counts}
+      \field{volume}{39}
+      \field{year}{2023}
+      \field{pages}{btad305}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btad305
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformatics/article-pdf/39/5/btad305/50453937/btad305.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioinformatics/btad305
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioinformatics/btad305
+      \endverb
+    \endentry
+    \entry{recombseq}{misc}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{title}{Recomseq conference website.}
+      \verb{urlraw}
+      \verb https://recomb-seq.github.io
+      \endverb
+      \verb{url}
+      \verb https://recomb-seq.github.io
+      \endverb
+    \endentry
     \entry{blight}{article}{}
       \name{author}{3}{}{%
         {{hash=d180a327a35fdf2ad743ff5e87cb0749}{%
@@ -12339,8 +12606,8 @@
       \strng{authorbibnamehash}{e230f841daedb23cf796248668b58422}
       \strng{authornamehash}{e230f841daedb23cf796248668b58422}
       \strng{authorfullhash}{e230f841daedb23cf796248668b58422}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1367-4803}

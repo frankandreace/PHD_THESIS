@@ -98,18 +98,18 @@
 \contentsline {section}{\numberline {4.6}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: Super\emph {k}-mer\xspace sorted list}{102}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Super\emph {k}-mer\xspace sorted lists: Input ad output}{103}{subsection.4.6.1}%
 \contentsline {subsection}{\numberline {4.6.2}Super\emph {k}-mer\xspace list model}{103}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Sorting \emph {k}-mers\xspace in the same position}{103}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Returning overlaps between \emph {k}-mers\xspace }{103}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.3}Sorting \emph {k}-mers\xspace from the same matrix column}{103}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Construction of overlap lists between consecutive columns}{104}{subsection.4.6.4}%
 \contentsline {subsection}{\numberline {4.6.5}Maximal set of overlapping \emph {k}-mers\xspace : co-linear chaining}{104}{subsection.4.6.5}%
-\contentsline {subsection}{\numberline {4.6.6}Reconciliation and final output}{105}{subsection.4.6.6}%
+\contentsline {subsection}{\numberline {4.6.6}Reconciliation and final output}{106}{subsection.4.6.6}%
 \contentsline {subsection}{\numberline {4.6.7}Searching the list}{106}{subsection.4.6.7}%
-\contentsline {subsection}{\numberline {4.6.8}Conclusion and future work}{107}{subsection.4.6.8}%
-\contentsline {subsubsection}{\numberline {4.6.8.1}Possible improvement}{107}{subsubsection.4.6.8.1}%
+\contentsline {subsection}{\numberline {4.6.8}Bonus optimizations}{107}{subsection.4.6.8}%
+\contentsline {subsection}{\numberline {4.6.9}Conclusion and future work}{108}{subsection.4.6.9}%
 \contentsline {section}{\numberline {4.7}\emph {k}-mer\xspace based method exploration: conclusions}{108}{section.4.7}%
-\contentsline {chapter}{Bibliography}{109}{section*.62}%
-\contentsline {chapter}{\chapternumberline {5}List of Papers}{113}{chapter.5}%
-\contentsline {chapter}{\chapternumberline {6}Perspectives and future work}{115}{chapter.6}%
-\contentsline {section}{\numberline {6.1}On human pangenomics: graphs and beyond}{115}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Exploring \emph {k}-mer\xspace data structures for pangenomics}{116}{section.6.2}%
-\contentsline {chapter}{\chapternumberline {7}Conclusions}{117}{chapter.7}%
+\contentsline {chapter}{Bibliography}{111}{section*.63}%
+\contentsline {chapter}{\chapternumberline {5}List of Papers}{115}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {6}Perspectives and future work}{117}{chapter.6}%
+\contentsline {section}{\numberline {6.1}On human pangenomics: graphs and beyond}{117}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Exploring \emph {k}-mer\xspace data structures for pangenomics}{118}{section.6.2}%
+\contentsline {chapter}{\chapternumberline {7}Conclusions}{119}{chapter.7}%
 \contentsfinish 
