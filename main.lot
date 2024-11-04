@@ -3,18 +3,18 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {1.1}{\ignorespaces \emph {k}-mer\xspace computation from a sequence}}{9}{table.caption.11}%
-\contentsline {table}{\numberline {1.2}{\ignorespaces Example of canonical \emph {k}-mer\xspace counting.}}{10}{table.caption.12}%
-\contentsline {table}{\numberline {1.3}{\ignorespaces Scale of DNA data increase over the years.}}{18}{table.caption.18}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces \emph {k}-mer\xspace computation from a sequence}}{13}{table.caption.10}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Example of canonical \emph {k}-mer\xspace counting.}}{14}{table.caption.11}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Scale of DNA data increase over the years.}}{22}{table.caption.17}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {3.1}{\ignorespaces Computational metrics comparison between pangenome building tools.}}{41}{table.caption.29}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Relative strengths of five pangenome graph construction tools.}}{48}{table.caption.41}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Description of the three datasets generated to test the scalability of the tools.}}{51}{table.caption.42}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces URL, version, pangenome representation and parameters of the three analyzed tools.}}{52}{table.caption.43}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces \emph {Lodderomyces elongisporus}\xspace samples assembly statistics}}{63}{table.caption.45}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Computational metrics comparison between pangenome building tools.}}{45}{table.caption.28}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Relative strengths of five pangenome graph construction tools.}}{52}{table.caption.40}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Description of the three datasets generated to test the scalability of the tools.}}{55}{table.caption.41}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces URL, version, pangenome representation and parameters of the three analyzed tools.}}{56}{table.caption.42}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces \emph {Lodderomyces elongisporus}\xspace samples assembly statistics}}{67}{table.caption.44}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of running time, peak memory, and disk usage between \texttt {muset}\xspace (filtered unitig matrix) and \texttt {ggcat}\xspace (implicit and unfiltered unitigs) on 360 ancient oral samples.\relax }}{91}{table.caption.58}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Comparison of running time, peak memory, and disk usage between \texttt {muset}\xspace (filtered unitig matrix) and \texttt {ggcat}\xspace (implicit and unfiltered unitigs) on 360 ancient oral samples.\relax }}{95}{table.caption.57}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

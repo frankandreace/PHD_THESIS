@@ -3,112 +3,114 @@
 \contentsline {chapter}{Summary}{v}{chapter*.2}%
 \contentsline {section}{English summary}{v}{section*.3}%
 \contentsline {section}{Résumé en français}{v}{section*.4}%
-\contentsline {chapter}{Introduction}{vii}{chapter*.5}%
-\contentsline {chapter}{Contents}{ix}{section*.6}%
-\contentsline {chapter}{List of Figures}{xi}{section*.7}%
-\contentsline {chapter}{List of Tables}{xiii}{section*.8}%
-\contentsline {chapter}{\chapternumberline {1}Background}{1}{chapter.1}%
-\contentsline {chapter}{Background}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}DNA, genome variation and sequencing data}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}DNA sequencing}{3}{subsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1.1}Next Generation Sequencing}{4}{subsubsection.1.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1.2}Third Generation Sequencing}{5}{subsubsection.1.1.1.2}%
-\contentsline {section}{\numberline {1.2}From reads to \emph {k}-mers\xspace and beyond}{5}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}\emph {k}-mer\xspace based objects}{8}{subsection.1.2.1}%
-\contentsline {section}{\numberline {1.3}Genetic diversity: focus on humans.}{11}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Causes and drivers of genetic diversity in humans}{11}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Human Genomic variation: types of variants}{12}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}The importance of studying genomic diversity in populations context}{14}{subsection.1.3.3}%
-\contentsline {section}{\numberline {1.4}Pangenomics, pangenomes and pangenome graphs}{15}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}The premises for Pangenomics}{15}{subsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.1.1}A single linear genome for all analyses}{15}{subsubsection.1.4.1.1}%
-\contentsline {subsubsection}{\numberline {1.4.1.2}A quantity and quality revolution }{16}{subsubsection.1.4.1.2}%
-\contentsline {subsubsection}{\numberline {1.4.1.3}The need to better understand difference between genomes}{18}{subsubsection.1.4.1.3}%
-\contentsline {subsection}{\numberline {1.4.2}Pangenomics}{19}{subsection.1.4.2}%
-\contentsline {subsubsection}{\numberline {1.4.2.1}Pangenomes}{19}{subsubsection.1.4.2.1}%
-\contentsline {subsubsection}{\numberline {1.4.2.2}Pangenome Graphs}{21}{subsubsection.1.4.2.2}%
-\contentsline {subsection}{\numberline {1.4.3}Variation Graphs}{23}{subsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.4.4}De Bruijn Graphs}{23}{subsection.1.4.4}%
-\contentsline {subsubsection}{\numberline {1.4.4.1}Colored and Compacted De Bruijn Graphs}{25}{subsubsection.1.4.4.1}%
-\contentsline {section}{\numberline {1.5}Outline}{26}{section.1.5}%
-\contentsline {chapter}{Bibliography}{29}{section*.27}%
-\contentsline {chapter}{\chapternumberline {2}Pushing the limit of pan-genome\xspace construction methods}{33}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Motivation}{33}{section.2.1}%
-\contentsline {chapter}{\chapternumberline {3}Comparing methods for constructing and representing human pangenome graphs}{35}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{36}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Results}{38}{section.3.2}%
-\contentsline {paragraph}{\textbf {\textup {Extraction of HLA-E and a complex HLA region from complete pangenome graphs}}}{41}{paragraph*.30}%
-\contentsline {paragraph}{\textbf {\textup {HLA-E: a low complexity region}}}{42}{paragraph*.31}%
-\contentsline {paragraph}{\textbf {\textup {HLA complex locus: high complexity region}}}{42}{paragraph*.33}%
-\contentsline {paragraph}{\textbf {\textup {Editability and dynamic updates}}}{44}{paragraph*.35}%
-\contentsline {paragraph}{\textbf {\textup {Stability}}}{46}{paragraph*.36}%
-\contentsline {paragraph}{\textbf {\textup {Accessibility by downstream applications}}}{46}{paragraph*.37}%
-\contentsline {paragraph}{\textbf {\textup {Haplotype compression}}}{47}{paragraph*.38}%
-\contentsline {paragraph}{\textbf {\textup {Ease of Visualization}}}{47}{paragraph*.39}%
-\contentsline {paragraph}{\textbf {\textup {Quality of Metadata and Annotation}}}{47}{paragraph*.40}%
-\contentsline {section}{\numberline {3.3}Discussion}{48}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Conclusions}{49}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Methods}{50}{section.3.5}%
-\contentsline {paragraph}{Authors' affiliations}{54}{paragraph*.44}%
-\contentsline {section}{\numberline {3.6}Perspectives}{56}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Building a \emph {Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}{57}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}\emph {Lodderomyces elongisporus}: genetic characteristichs, interest and used data}{58}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Building ad hoc pangenome reference}{58}{subsection.3.7.2}%
-\contentsline {subsubsection}{\numberline {3.7.2.1}Determining chromosomal communities}{59}{subsubsection.3.7.2.1}%
-\contentsline {subsubsection}{\numberline {3.7.2.2}Producing a variation graph using pggb}{59}{subsubsection.3.7.2.2}%
-\contentsline {subsubsection}{\numberline {3.7.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{60}{subsubsection.3.7.2.3}%
-\contentsline {subsection}{\numberline {3.7.3}Representing translocation events from groups of genomes}{60}{subsection.3.7.3}%
-\contentsline {subsection}{\numberline {3.7.4}Estimating core genome and pangenome growth}{61}{subsection.3.7.4}%
-\contentsline {section}{\numberline {3.8}Conclusion and Perspectives}{61}{section.3.8}%
-\contentsline {chapter}{Bibliography}{73}{section*.57}%
-\contentsline {chapter}{\chapternumberline {4}Exploring new \emph {k}-mer\xspace based methods for Pangenomics}{79}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction: using \emph {k}-mer\xspace sets in pangenomics}{79}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Introduction: sets of \emph {k}-mers\xspace and metadata association}{80}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Hashing \emph {k}-mers\xspace }{81}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Minimum set of operations and metadata}{82}{subsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.2.1}Metadata types}{83}{subsubsection.4.2.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2.2}Metadata: why it is important}{84}{subsubsection.4.2.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Basic data structures: sorted list and hash table}{84}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Approximate membership and filters}{85}{subsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.4.1}Bloom Filters}{85}{subsubsection.4.2.4.1}%
-\contentsline {subsubsection}{\numberline {4.2.4.2}Quotient Filters}{86}{subsubsection.4.2.4.2}%
-\contentsline {subsection}{\numberline {4.2.5}Static vs Dynamic data structures}{86}{subsection.4.2.5}%
-\contentsline {section}{\numberline {4.3}Our contributions: an outline}{87}{section.4.3}%
-\contentsline {section}{\numberline {4.4}\texttt {muset}\xspace : building unitig matrices for downstream analyses}{87}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Rationale}{88}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Related work}{88}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}From sequencing data to unitig matrices}{89}{subsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.3.1}Main features and differences of unitig matrices}{89}{subsubsection.4.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.4.3.2}Matrix construction overview}{89}{subsubsection.4.4.3.2}%
-\contentsline {subsection}{\numberline {4.4.4}Conclusions and perspectives}{92}{subsection.4.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.4.1}Unitig matrices are pangenomes}{92}{subsubsection.4.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.5}Improving the method}{92}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: a Rank Select Quotient Filter}{93}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Brief filter data structures overview}{93}{subsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.1.1}Filter data structures}{94}{subsubsection.4.5.1.1}%
-\contentsline {subsection}{\numberline {4.5.2}Quotient Filter structure: Rank and Select}{95}{subsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Counting}{96}{subsubsection.4.5.2.1}%
-\contentsline {subsection}{\numberline {4.5.3}Developing a new library for a Quotient Filter}{97}{subsection.4.5.3}%
-\contentsline {subsubsection}{\numberline {4.5.3.1}Allowing multiple types of counts: CQF and BQF}{99}{subsubsection.4.5.3.1}%
-\contentsline {subsubsection}{\numberline {4.5.3.2}Handling toricity}{99}{subsubsection.4.5.3.2}%
-\contentsline {subsubsection}{\numberline {4.5.3.3}Dynamic resizing strategy}{99}{subsubsection.4.5.3.3}%
-\contentsline {subsubsection}{\numberline {4.5.3.4}Using the Fimpera scheme to reduce space}{100}{subsubsection.4.5.3.4}%
-\contentsline {subsection}{\numberline {4.5.4}Conclusions and perspectives}{101}{subsection.4.5.4}%
-\contentsline {section}{\numberline {4.6}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: Super\emph {k}-mer\xspace sorted list}{102}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Super\emph {k}-mer\xspace sorted lists: Input ad output}{103}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Super\emph {k}-mer\xspace list model}{103}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Sorting \emph {k}-mers\xspace from the same matrix column}{103}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Construction of overlap lists between consecutive columns}{104}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Maximal set of overlapping \emph {k}-mers\xspace : co-linear chaining}{104}{subsection.4.6.5}%
-\contentsline {subsection}{\numberline {4.6.6}Reconciliation and final output}{106}{subsection.4.6.6}%
-\contentsline {subsection}{\numberline {4.6.7}Searching the list}{106}{subsection.4.6.7}%
-\contentsline {subsection}{\numberline {4.6.8}Bonus optimizations}{107}{subsection.4.6.8}%
-\contentsline {subsection}{\numberline {4.6.9}Conclusion and future work}{108}{subsection.4.6.9}%
-\contentsline {section}{\numberline {4.7}\emph {k}-mer\xspace based method exploration: conclusions}{108}{section.4.7}%
-\contentsline {chapter}{Bibliography}{111}{section*.63}%
-\contentsline {chapter}{\chapternumberline {5}List of Papers}{115}{chapter.5}%
-\contentsline {chapter}{\chapternumberline {6}Perspectives and future work}{117}{chapter.6}%
-\contentsline {section}{\numberline {6.1}On human pangenomics: graphs and beyond}{117}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Exploring \emph {k}-mer\xspace data structures for pangenomics}{118}{section.6.2}%
-\contentsline {chapter}{\chapternumberline {7}Conclusions}{119}{chapter.7}%
+\contentsline {chapter}{Contents}{vii}{section*.5}%
+\contentsline {chapter}{List of Figures}{ix}{section*.6}%
+\contentsline {chapter}{List of Tables}{xi}{section*.7}%
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Research Output}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}General Outline}{2}{section.1.2}%
+\contentsline {chapter}{\chapternumberline {2}Background}{5}{chapter.2}%
+\contentsline {chapter}{Background}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}DNA, genome variation and sequencing data}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}DNA sequencing}{7}{subsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.1.1}Next Generation Sequencing}{8}{subsubsection.2.1.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.1.2}Third Generation Sequencing}{9}{subsubsection.2.1.1.2}%
+\contentsline {section}{\numberline {2.2}From reads to \emph {k}-mers\xspace and beyond}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}\emph {k}-mer\xspace based objects}{12}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Genetic diversity: focus on humans.}{15}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Causes and drivers of genetic diversity in humans}{15}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Human Genomic variation: types of variants}{16}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}The importance of studying genomic diversity in populations context}{18}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Pangenomics, pangenomes and pangenome graphs}{19}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}The premises for Pangenomics}{19}{subsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.1.1}A single linear genome for all analyses}{19}{subsubsection.2.4.1.1}%
+\contentsline {subsubsection}{\numberline {2.4.1.2}A quantity and quality revolution }{20}{subsubsection.2.4.1.2}%
+\contentsline {subsubsection}{\numberline {2.4.1.3}The need to better understand difference between genomes}{22}{subsubsection.2.4.1.3}%
+\contentsline {subsection}{\numberline {2.4.2}Pangenomics}{23}{subsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.2.1}Pangenomes}{23}{subsubsection.2.4.2.1}%
+\contentsline {subsubsection}{\numberline {2.4.2.2}Pangenome Graphs}{25}{subsubsection.2.4.2.2}%
+\contentsline {subsection}{\numberline {2.4.3}Variation Graphs}{27}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}De Bruijn Graphs}{27}{subsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.4.1}Colored and Compacted De Bruijn Graphs}{29}{subsubsection.2.4.4.1}%
+\contentsline {section}{\numberline {2.5}Outline}{30}{section.2.5}%
+\contentsline {chapter}{Bibliography}{33}{section*.26}%
+\contentsline {chapter}{\chapternumberline {3}Pushing the limit of pan-genome\xspace construction methods}{37}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Motivation}{37}{section.3.1}%
+\contentsline {chapter}{\chapternumberline {4}Comparing methods for constructing and representing human pangenome graphs}{39}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{40}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Results}{42}{section.4.2}%
+\contentsline {paragraph}{\textbf {\textup {Extraction of HLA-E and a complex HLA region from complete pangenome graphs}}}{45}{paragraph*.29}%
+\contentsline {paragraph}{\textbf {\textup {HLA-E: a low complexity region}}}{46}{paragraph*.30}%
+\contentsline {paragraph}{\textbf {\textup {HLA complex locus: high complexity region}}}{46}{paragraph*.32}%
+\contentsline {paragraph}{\textbf {\textup {Editability and dynamic updates}}}{48}{paragraph*.34}%
+\contentsline {paragraph}{\textbf {\textup {Stability}}}{50}{paragraph*.35}%
+\contentsline {paragraph}{\textbf {\textup {Accessibility by downstream applications}}}{50}{paragraph*.36}%
+\contentsline {paragraph}{\textbf {\textup {Haplotype compression}}}{51}{paragraph*.37}%
+\contentsline {paragraph}{\textbf {\textup {Ease of Visualization}}}{51}{paragraph*.38}%
+\contentsline {paragraph}{\textbf {\textup {Quality of Metadata and Annotation}}}{51}{paragraph*.39}%
+\contentsline {section}{\numberline {4.3}Discussion}{52}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Conclusions}{53}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Methods}{54}{section.4.5}%
+\contentsline {paragraph}{Authors' affiliations}{58}{paragraph*.43}%
+\contentsline {section}{\numberline {4.6}Perspectives}{60}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Building a \emph {Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}{61}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}\emph {Lodderomyces elongisporus}: genetic characteristichs, interest and used data}{62}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Building ad hoc pangenome reference}{62}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}Determining chromosomal communities}{63}{subsubsection.4.7.2.1}%
+\contentsline {subsubsection}{\numberline {4.7.2.2}Producing a variation graph using pggb}{63}{subsubsection.4.7.2.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{64}{subsubsection.4.7.2.3}%
+\contentsline {subsection}{\numberline {4.7.3}Representing translocation events from groups of genomes}{64}{subsection.4.7.3}%
+\contentsline {subsection}{\numberline {4.7.4}Estimating core genome and pangenome growth}{65}{subsection.4.7.4}%
+\contentsline {section}{\numberline {4.8}Conclusion and Perspectives}{65}{section.4.8}%
+\contentsline {chapter}{Bibliography}{77}{section*.56}%
+\contentsline {chapter}{\chapternumberline {5}Exploring new \emph {k}-mer\xspace based methods for Pangenomics}{83}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction: using \emph {k}-mer\xspace sets in pangenomics}{83}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Introduction: sets of \emph {k}-mers\xspace and metadata association}{84}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Hashing \emph {k}-mers\xspace }{85}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Minimum set of operations and metadata}{86}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}Metadata types}{87}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}Metadata: why it is important}{88}{subsubsection.5.2.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Basic data structures: sorted list and hash table}{88}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Approximate membership and filters}{89}{subsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.4.1}Bloom Filters}{89}{subsubsection.5.2.4.1}%
+\contentsline {subsubsection}{\numberline {5.2.4.2}Quotient Filters}{90}{subsubsection.5.2.4.2}%
+\contentsline {subsection}{\numberline {5.2.5}Static vs Dynamic data structures}{90}{subsection.5.2.5}%
+\contentsline {section}{\numberline {5.3}Our contributions: an outline}{91}{section.5.3}%
+\contentsline {section}{\numberline {5.4}\texttt {muset}\xspace : building unitig matrices for downstream analyses}{91}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Rationale}{92}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Related work}{92}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}From sequencing data to unitig matrices}{93}{subsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.3.1}Main features and differences of unitig matrices}{93}{subsubsection.5.4.3.1}%
+\contentsline {subsubsection}{\numberline {5.4.3.2}Matrix construction overview}{93}{subsubsection.5.4.3.2}%
+\contentsline {subsection}{\numberline {5.4.4}Conclusions and perspectives}{96}{subsection.5.4.4}%
+\contentsline {subsubsection}{\numberline {5.4.4.1}Unitig matrices are pangenomes}{96}{subsubsection.5.4.4.1}%
+\contentsline {subsection}{\numberline {5.4.5}Improving the method}{96}{subsection.5.4.5}%
+\contentsline {section}{\numberline {5.5}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: a Rank Select Quotient Filter}{97}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Brief filter data structures overview}{97}{subsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.1.1}Filter data structures}{98}{subsubsection.5.5.1.1}%
+\contentsline {subsection}{\numberline {5.5.2}Quotient Filter structure: Rank and Select}{99}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}Counting}{100}{subsubsection.5.5.2.1}%
+\contentsline {subsection}{\numberline {5.5.3}Developing a new library for a Quotient Filter}{101}{subsection.5.5.3}%
+\contentsline {subsubsection}{\numberline {5.5.3.1}Allowing multiple types of counts: CQF and BQF}{103}{subsubsection.5.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.5.3.2}Handling toricity}{103}{subsubsection.5.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.5.3.3}Dynamic resizing strategy}{103}{subsubsection.5.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.5.3.4}Using the Fimpera scheme to reduce space}{104}{subsubsection.5.5.3.4}%
+\contentsline {subsection}{\numberline {5.5.4}Conclusions and perspectives}{105}{subsection.5.5.4}%
+\contentsline {section}{\numberline {5.6}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: Super\emph {k}-mer\xspace sorted list}{106}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Super\emph {k}-mer\xspace sorted lists: Input ad output}{107}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Super\emph {k}-mer\xspace list model}{107}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Sorting \emph {k}-mers\xspace from the same matrix column}{107}{subsection.5.6.3}%
+\contentsline {subsection}{\numberline {5.6.4}Construction of overlap lists between consecutive columns}{108}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.5}Maximal set of overlapping \emph {k}-mers\xspace : co-linear chaining}{108}{subsection.5.6.5}%
+\contentsline {subsection}{\numberline {5.6.6}Reconciliation and final output}{110}{subsection.5.6.6}%
+\contentsline {subsection}{\numberline {5.6.7}Searching the list}{110}{subsection.5.6.7}%
+\contentsline {subsection}{\numberline {5.6.8}Bonus optimizations}{111}{subsection.5.6.8}%
+\contentsline {subsection}{\numberline {5.6.9}Conclusion and future work}{112}{subsection.5.6.9}%
+\contentsline {section}{\numberline {5.7}\emph {k}-mer\xspace based method exploration: conclusions}{112}{section.5.7}%
+\contentsline {chapter}{Bibliography}{115}{section*.62}%
+\contentsline {chapter}{\chapternumberline {6}List of Papers}{119}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}Perspectives and future work}{121}{chapter.7}%
+\contentsline {section}{\numberline {7.1}On human pangenomics: graphs and beyond}{121}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Exploring \emph {k}-mer\xspace data structures for pangenomics}{122}{section.7.2}%
+\contentsline {chapter}{\chapternumberline {8}Conclusions}{123}{chapter.8}%
 \contentsfinish 

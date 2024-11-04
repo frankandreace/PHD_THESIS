@@ -412,7 +412,8 @@ The term color can be somewhat confusing, as it is used in two distinct contexts
 	\caption[Compaction and colors in a \ccdbg.]{Compaction and colors: the two main characteristic of a \ccdbg compared to a \dbg. Figure from~\cite{marchet_kmersets}}
 	\label{fig:ccdbg}
 \end{figure}
-\section{Outline}
+
+\section{Main contributions outline}
 In the work presented below, we investigate the graphical pangenome representation on the features presented in the sections above. We focused mainly on the construction of such models, their underlying data structures and the downstream applications they enable.\\
 The contributions presented in this manuscript are the following:
 \begin{enumerate}
@@ -421,7 +422,6 @@ The contributions presented in this manuscript are the following:
 	\item \textbf{A unitig matrix construction pipeline for presence/absence or counts.} We proposed a small pipeline, based on already published tools and a novel method, \kmat, a pipeline to build unitig matrices with abundances from a set of genomes via \kmer matrix and to directly generate a presence absence unitig matrix using \ccdbgs. 
 	\item  \textbf{A novel super\kmers enumeration and sorting method.} We propose a novel way to encode and store super\kmers that preserves locality for the ones sharing the same minimizer to improve sequence queries. We also propose a tool to enumerate and sort super\kmers from a set of sequences using this model.
 \end{enumerate}
-
-The next chapters present this work and discuss the possible directions for future work based on it.
+The next chapters present this work and discuss the possible directions for future improvements.
 
 \printbibliography

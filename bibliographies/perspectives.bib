@@ -30,5 +30,51 @@
 	eprint = {https://academic.oup.com/bioinformatics/article-pdf/38/24/5443/47887027/btac689.pdf},
 }
 
+@Article{ora,
+author={Lemane, T{\'e}o
+and Lezzoche, Nolan
+and Lecubin, Julien
+and Pelletier, Eric
+and Lescot, Magali
+and Chikhi, Rayan
+and Peterlongo, Pierre},
+title={Indexing and real-time user-friendly queries in terabyte-sized complex genomic datasets with kmindex and ORA},
+journal={Nature Computational Science},
+year={2024},
+month={Feb},
+day={01},
+volume={4},
+number={2},
+pages={104-109},
+abstract={Public sequencing databases contain vast amounts of biological information, yet they are largely underutilized as it is challenging to efficiently search them for any sequence(s) of interest. We present kmindex, an approach that can index thousands of metagenomes and perform sequence searches in a fraction of a second. The index construction is an order of magnitude faster than previous methods, while search times are two orders of magnitude faster. With negligible false positive rates below 0.01{\%}, kmindex outperforms the precision of existing approaches by four orders of magnitude. Here we demonstrate the scalability of kmindex by successfully indexing 1,393 marine seawater metagenome samples from the Tara Oceans project. Additionally, we introduce the publicly accessible web server Ocean Read Atlas, which enables real-time queries on the Tara Oceans dataset.},
+issn={2662-8457},
+doi={10.1038/s43588-024-00596-6},
+url={https://doi.org/10.1038/s43588-024-00596-6}
+}
+
+@article {logan,
+	author = {Chikhi, Rayan and Raffestin, Brice and Korobeynikov, Anton and Edgar, Robert and Babaian, Artem},
+	title = {Logan: Planetary-Scale Genome Assembly Surveys Life{\textquoteright}s Diversity},
+	elocation-id = {2024.07.30.605881},
+	year = {2024},
+	doi = {10.1101/2024.07.30.605881},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {The NCBI Sequence Read Archive (SRA) is the largest public repository of DNA sequencing data, containing the most comprehensive snapshot of Earth{\textquoteright}s genetic diversity to date. As its size exceeds 50.0 petabases across \&gt;27 million sequencing datasets, the entirety of these data cannot be searched for genetic sequences of interest in a reasonable time. To drastically increase the accessibility of this data we perform genome assembly over each SRA dataset using massively parallel cloud computing. The resulting Logan assemblage is the largest dataset of assembled sequencing data to date, and we believe will enable a new-era of accessible petabase-scale computational biology inquiry. We provide free and unrestricted access to the Logan assemblage and disseminate these datasets to foster early adoption. To illustrate the usefulness of Logan we align a diverse set of sequence queries across all of the SRA, completing queries in as little as 11 hours.Competing Interest StatementThe authors have declared no competing interest.},
+	URL = {https://www.biorxiv.org/content/early/2024/07/31/2024.07.30.605881},
+	eprint = {https://www.biorxiv.org/content/early/2024/07/31/2024.07.30.605881.full.pdf},
+	journal = {bioRxiv}
+}
 
 
+@article {metagraph,
+	author = {Karasikov, Mikhail and Mustafa, Harun and Danciu, Daniel and Zimmermann, Marc and Barber, Christopher and R{\"a}tsch, Gunnar and Kahles, Andr{\'e}},
+	title = {Indexing All Life{\textquoteright}s Known Biological Sequences},
+	elocation-id = {2020.10.01.322164},
+	year = {2024},
+	doi = {10.1101/2020.10.01.322164},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {The amount of biological sequencing data available in public repositories is growing exponentially, forming an invaluable biomedical research resource. Yet, making it full-text searchable and easily accessible to researchers in life and data science is an unsolved problem. In this work, we take advantage of recently developed, very efficient data structures and algorithms for representing sequence sets. We make Petabases of DNA sequences across all clades of life, including viruses, bacteria, fungi, plants, animals, and humans, fully searchable. Our indexes are freely available to the research community. This highly compressed representation of the input sequences (up to 5800{\texttimes}) fits on a single consumer hard drive (≈100 USD), making this valuable resource cost-effective to use and easily transportable. We present the underlying methodological framework, called MetaGraph, that allows us to scalably index very large sets of DNA or protein sequences using annotated De Bruijn graphs. We demonstrate the feasibility of indexing the full extent of existing sequencing data and present new approaches for efficient and cost-effective full-text search at an on-demand cost of $0.10 per queried Mpb. We explore several practical use cases to mine existing archives for interesting associations and demonstrate the utility of our indexes for integrative analyses.Competing Interest StatementThe authors have declared no competing interest.},
+	URL = {https://www.biorxiv.org/content/early/2024/06/07/2020.10.01.322164},
+	eprint = {https://www.biorxiv.org/content/early/2024/06/07/2020.10.01.322164.full.pdf},
+	journal = {bioRxiv}
+}
