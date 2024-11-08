@@ -11632,6 +11632,7 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{abstract}{The NCBI Sequence Read Archive (SRA) is the largest public repository of DNA sequencing data, containing the most comprehensive snapshot of Earth{’}s genetic diversity to date. As its size exceeds 50.0 petabases across \&gt;27 million sequencing datasets, the entirety of these data cannot be searched for genetic sequences of interest in a reasonable time. To drastically increase the accessibility of this data we perform genome assembly over each SRA dataset using massively parallel cloud computing. The resulting Logan assemblage is the largest dataset of assembled sequencing data to date, and we believe will enable a new-era of accessible petabase-scale computational biology inquiry. We provide free and unrestricted access to the Logan assemblage and disseminate these datasets to foster early adoption. To illustrate the usefulness of Logan we align a diverse set of sequence queries across all of the SRA, completing queries in as little as 11 hours.Competing Interest StatementThe authors have declared no competing interest.}
       \field{journaltitle}{bioRxiv}
       \field{title}{Logan: Planetary-Scale Genome Assembly Surveys Life{’}s Diversity}
       \field{year}{2024}
@@ -12728,86 +12729,6 @@
 
 \refsection{9}
   \datalist[entry]{none/global//global/global}
-    \entry{kff}{article}{}
-      \name{author}{9}{}{%
-        {{hash=ceac90d386e9368f27734f9e36578a4b}{%
-           family={Dufresne},
-           familyi={D\bibinitperiod},
-           given={Yoann},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=cdcc71c79bb0326dfbacba0e445a1eb4}{%
-           family={Lemane},
-           familyi={L\bibinitperiod},
-           given={Teo},
-           giveni={T\bibinitperiod}}}%
-        {{hash=23a339586d631a57fbecdfba6e7ae717}{%
-           family={Marijon},
-           familyi={M\bibinitperiod},
-           given={Pierre},
-           giveni={P\bibinitperiod}}}%
-        {{hash=27081751357b604f4e6820444a866545}{%
-           family={Peterlongo},
-           familyi={P\bibinitperiod},
-           given={Pierre},
-           giveni={P\bibinitperiod}}}%
-        {{hash=306d258d5d59b6a79292305f21b90212}{%
-           family={Rahman},
-           familyi={R\bibinitperiod},
-           given={Amatur},
-           giveni={A\bibinitperiod}}}%
-        {{hash=54e5f5b8e70b8257614a7be22a10c5d1}{%
-           family={Kokot},
-           familyi={K\bibinitperiod},
-           given={Marek},
-           giveni={M\bibinitperiod}}}%
-        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
-           family={Medvedev},
-           familyi={M\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod}}}%
-        {{hash=b056dbd6b3c2b1c8831f6a6b31d930db}{%
-           family={Deorowicz},
-           familyi={D\bibinitperiod},
-           given={Sebastian},
-           giveni={S\bibinitperiod}}}%
-        {{hash=2c4c17b9e143709d5453c268900358f8}{%
-           family={Chikhi},
-           familyi={C\bibinitperiod},
-           given={Rayan},
-           giveni={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{063403fb2957d716a5ca79fac15a3118}
-      \strng{fullhash}{38702be17db62957eb7724a5cfd54a37}
-      \strng{bibnamehash}{38702be17db62957eb7724a5cfd54a37}
-      \strng{authorbibnamehash}{38702be17db62957eb7724a5cfd54a37}
-      \strng{authornamehash}{063403fb2957d716a5ca79fac15a3118}
-      \strng{authorfullhash}{38702be17db62957eb7724a5cfd54a37}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{1367-4803}
-      \field{journaltitle}{Bioinformatics}
-      \field{month}{07}
-      \field{number}{18}
-      \field{title}{{The K-mer File Format: a standardized and compact disk representation of sets of k-mers}}
-      \field{volume}{38}
-      \field{year}{2022}
-      \field{pages}{4423\bibrangedash 4425}
-      \range{pages}{3}
-      \verb{doi}
-      \verb 10.1093/bioinformatics/btac528
-      \endverb
-      \verb{eprint}
-      \verb https://academic.oup.com/bioinformatics/article-pdf/38/18/4423/49885747/btac528.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1093/bioinformatics/btac528
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1093/bioinformatics/btac528
-      \endverb
-    \endentry
     \entry{kmtricks}{article}{}
       \name{author}{4}{}{%
         {{hash=f2918d87b63e2a193d405e909b3b4938}{%
@@ -12837,8 +12758,9 @@
       \strng{authorbibnamehash}{c0c8c659c5eda66740e2d80e83fb5198}
       \strng{authornamehash}{081e549764d43fb12760d77b103e98be}
       \strng{authorfullhash}{c0c8c659c5eda66740e2d80e83fb5198}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{When indexing large collections of short-read sequencing data, a common operation that has now been implemented in several tools (Sequence Bloom Trees and variants, BIGSI) is to construct a collection of Bloom filters, one per sample. Each Bloom filter is used to represent a set of k-mers which approximates the desired set of all the non-erroneous k-mers present in the sample. However, this approximation is imperfect, especially in the case of metagenomics data. Erroneous but abundant k-mers are wrongly included, and non-erroneous but low-abundant ones are wrongly discarded. We propose kmtricks, a novel approach for generating Bloom filters from terabase-sized collections of sequencing data. Our main contributions are (i) an efficient method for jointly counting k-mers across multiple samples, including a streamlined Bloom filter construction by directly counting, partitioning and sorting hashes instead of k-mers, which is approximately four times faster than state-of-the-art tools; (ii) a novel technique that takes advantage of joint counting to preserve low-abundant k-mers present in several samples, improving the recovery of non-erroneous k-mers. Our experiments highlight that this technique preserves around 8× more k-mers than the usual yet crude filtering of low-abundance k-mers in a large metagenomics dataset.https://github.com/tlemane/kmtricks.Supplementary data are available at Bioinformatics Advances online.}}
@@ -12862,6 +12784,201 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1093/bioadv/vbac029
+      \endverb
+    \endentry
+    \entry{ora}{article}{}
+      \name{author}{7}{}{%
+        {{hash=f2918d87b63e2a193d405e909b3b4938}{%
+           family={Lemane},
+           familyi={L\bibinitperiod},
+           given={Téo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=90edff3016f6acf3555e6bfd3cb7ca7c}{%
+           family={Lezzoche},
+           familyi={L\bibinitperiod},
+           given={Nolan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=734e526717ce0974c5bcf1d939a20d15}{%
+           family={Lecubin},
+           familyi={L\bibinitperiod},
+           given={Julien},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c413806fdf25d1b3674c52137f7a5ee4}{%
+           family={Pelletier},
+           familyi={P\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=2fc54906a5cfd8852a2a45262ca5f4ec}{%
+           family={Lescot},
+           familyi={L\bibinitperiod},
+           given={Magali},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{081e549764d43fb12760d77b103e98be}
+      \strng{fullhash}{1ac8f8aabe3a328975949809ca8212df}
+      \strng{bibnamehash}{1ac8f8aabe3a328975949809ca8212df}
+      \strng{authorbibnamehash}{1ac8f8aabe3a328975949809ca8212df}
+      \strng{authornamehash}{081e549764d43fb12760d77b103e98be}
+      \strng{authorfullhash}{1ac8f8aabe3a328975949809ca8212df}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Public sequencing databases contain vast amounts of biological information, yet they are largely underutilized as it is challenging to efficiently search them for any sequence(s) of interest. We present kmindex, an approach that can index thousands of metagenomes and perform sequence searches in a fraction of a second. The index construction is an order of magnitude faster than previous methods, while search times are two orders of magnitude faster. With negligible false positive rates below 0.01{\%}, kmindex outperforms the precision of existing approaches by four orders of magnitude. Here we demonstrate the scalability of kmindex by successfully indexing 1,393 marine seawater metagenome samples from the Tara Oceans project. Additionally, we introduce the publicly accessible web server Ocean Read Atlas, which enables real-time queries on the Tara Oceans dataset.}
+      \field{issn}{2662-8457}
+      \field{journaltitle}{Nature Computational Science}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{Indexing and real-time user-friendly queries in terabyte-sized complex genomic datasets with kmindex and ORA}
+      \field{volume}{4}
+      \field{year}{2024}
+      \field{pages}{104\bibrangedash 109}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1038/s43588-024-00596-6
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/s43588-024-00596-6
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/s43588-024-00596-6
+      \endverb
+    \endentry
+    \entry{logan}{article}{}
+      \name{author}{5}{}{%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b46018c0f55cab5981162251f592c1fc}{%
+           family={Raffestin},
+           familyi={R\bibinitperiod},
+           given={Brice},
+           giveni={B\bibinitperiod}}}%
+        {{hash=569c26d4a8fe822536a933ebdc20d1a8}{%
+           family={Korobeynikov},
+           familyi={K\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d2a131bb73194bf25cd6da8ed34891dc}{%
+           family={Edgar},
+           familyi={E\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=deeeb710d17b4d9afb5c6e3886ad1422}{%
+           family={Babaian},
+           familyi={B\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory}%
+      }
+      \strng{namehash}{712f083629555aa5f102d452614d2cfc}
+      \strng{fullhash}{96a3886a3966e64fa609017df5882661}
+      \strng{bibnamehash}{96a3886a3966e64fa609017df5882661}
+      \strng{authorbibnamehash}{96a3886a3966e64fa609017df5882661}
+      \strng{authornamehash}{712f083629555aa5f102d452614d2cfc}
+      \strng{authorfullhash}{96a3886a3966e64fa609017df5882661}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The NCBI Sequence Read Archive (SRA) is the largest public repository of DNA sequencing data, containing the most comprehensive snapshot of Earth{’}s genetic diversity to date. As its size exceeds 50.0 petabases across \&gt;27 million sequencing datasets, the entirety of these data cannot be searched for genetic sequences of interest in a reasonable time. To drastically increase the accessibility of this data we perform genome assembly over each SRA dataset using massively parallel cloud computing. The resulting Logan assemblage is the largest dataset of assembled sequencing data to date, and we believe will enable a new-era of accessible petabase-scale computational biology inquiry. We provide free and unrestricted access to the Logan assemblage and disseminate these datasets to foster early adoption. To illustrate the usefulness of Logan we align a diverse set of sequence queries across all of the SRA, completing queries in as little as 11 hours.Competing Interest StatementThe authors have declared no competing interest.}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{Logan: Planetary-Scale Genome Assembly Surveys Life{’}s Diversity}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1101/2024.07.30.605881
+      \endverb
+      \verb{eprint}
+      \verb https://www.biorxiv.org/content/early/2024/07/31/2024.07.30.605881.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.biorxiv.org/content/early/2024/07/31/2024.07.30.605881
+      \endverb
+      \verb{url}
+      \verb https://www.biorxiv.org/content/early/2024/07/31/2024.07.30.605881
+      \endverb
+    \endentry
+    \entry{metagraph}{article}{}
+      \name{author}{7}{}{%
+        {{hash=25f46ddf16a969c8fbe2adac364507a0}{%
+           family={Karasikov},
+           familyi={K\bibinitperiod},
+           given={Mikhail},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d7e382475ceaca6a51d9ba5cccb5602e}{%
+           family={Mustafa},
+           familyi={M\bibinitperiod},
+           given={Harun},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c24bc7c0ec6b73f2455246eccc26d97f}{%
+           family={Danciu},
+           familyi={D\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=bb994e54535177a11797f18ff9c063d5}{%
+           family={Zimmermann},
+           familyi={Z\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a58ce74ff737706ab3598278b4c53690}{%
+           family={Barber},
+           familyi={B\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ca596a0a9d87ca9f7999db4d71c7e577}{%
+           family={Rätsch},
+           familyi={R\bibinitperiod},
+           given={Gunnar},
+           giveni={G\bibinitperiod}}}%
+        {{hash=f9eb457c33f6b8e203053ffa3458eb69}{%
+           family={Kahles},
+           familyi={K\bibinitperiod},
+           given={André},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory}%
+      }
+      \strng{namehash}{e4767a23adaaaaa9a7452221ebdb2701}
+      \strng{fullhash}{b8f25d54e6721fac759b398c9546e98f}
+      \strng{bibnamehash}{b8f25d54e6721fac759b398c9546e98f}
+      \strng{authorbibnamehash}{b8f25d54e6721fac759b398c9546e98f}
+      \strng{authornamehash}{e4767a23adaaaaa9a7452221ebdb2701}
+      \strng{authorfullhash}{b8f25d54e6721fac759b398c9546e98f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The amount of biological sequencing data available in public repositories is growing exponentially, forming an invaluable biomedical research resource. Yet, making it full-text searchable and easily accessible to researchers in life and data science is an unsolved problem. In this work, we take advantage of recently developed, very efficient data structures and algorithms for representing sequence sets. We make Petabases of DNA sequences across all clades of life, including viruses, bacteria, fungi, plants, animals, and humans, fully searchable. Our indexes are freely available to the research community. This highly compressed representation of the input sequences (up to 5800{\texttimes}) fits on a single consumer hard drive (≈100 USD), making this valuable resource cost-effective to use and easily transportable. We present the underlying methodological framework, called MetaGraph, that allows us to scalably index very large sets of DNA or protein sequences using annotated De Bruijn graphs. We demonstrate the feasibility of indexing the full extent of existing sequencing data and present new approaches for efficient and cost-effective full-text search at an on-demand cost of $0.10 per queried Mpb. We explore several practical use cases to mine existing archives for interesting associations and demonstrate the utility of our indexes for integrative analyses.Competing Interest StatementThe authors have declared no competing interest.}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{Indexing All Life{’}s Known Biological Sequences}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1101/2020.10.01.322164
+      \endverb
+      \verb{eprint}
+      \verb https://www.biorxiv.org/content/early/2024/06/07/2020.10.01.322164.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.biorxiv.org/content/early/2024/06/07/2020.10.01.322164
+      \endverb
+      \verb{url}
+      \verb https://www.biorxiv.org/content/early/2024/06/07/2020.10.01.322164
       \endverb
     \endentry
   \enddatalist
