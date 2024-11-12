@@ -1,16 +1,17 @@
+\chapter{Pushing the limit of pan-genome construction methods}
 
-\chapter{Pushing the limit of \pangenome construction methods}
 \label{sec:pushing}
-In this first chapter I present and discuss two projects in which I have pushed the current limit of \pangenome constructing methods to provide useful insight of their features, of their relative advantages and of the improved capabilities compared to current genomic approaches.\\ In the first one I have analyzed the current state of the art methods available at the moment and stress-tested them by also generating what was, to the best of my knowledge, the largest human \pangenome produced at the time. \\ The second one is the generation of a yeast \pangenome reference for the species \emph{Lodderomyces elongisporus}, with some of the tools used in the aforementioned work, to demonstrate how pan-genomes are a superior representation to investigate cross-chromosomal rearrangements compared to the linear reference used by commonly used genomic tools. In order to best capture this large rearrangement between three chromosomes, I had to modify and customize one of the most used variation graph pangenome construction pipeline and compared to other two graphs. Here I present the challenges faced, discuss which data structure to use to achieve biological correctness, genome variation resolution, scalability or downstram application usability and show how a \pangenome enables improved analysis of inter-chromosome rearrangements.
+In this first chapter I present and discuss two projects in which I have pushed the current limit of \pangenome construction methods to provide useful insight of their features, of their relative advantages and of the improved capabilities compared to current genomic approaches.\\ In the first one I have analyzed the current state of the art methods available at the moment and stress-tested them by also generating what was, to the best of my knowledge, the largest human \pangenome produced at the time.\\ The second one is the generation of a yeast \pangenome reference for the species \emph{Lodderomyces elongisporus}, with some of the tools used in the aforementioned work, to demonstrate how pan-genomes are a superior representation to investigate cross-chromosomal rearrangements compared to the linear reference used by commonly used genomic tools. In order to best capture this large rearrangement between three chromosomes, I had to modify and customize one of the most used variation graph pangenome construction pipeline and compared to other two graphs. Here I present the challenges faced, discuss which data structure to use to achieve biological correctness, genome variation resolution, scalability or downstream application usability and show how a \pangenome enables improved analysis of inter-chromosome rearrangements.
 
-\section{Motivation}
+\subsection{Motivation}
 The paper that follows this section originates from a discussion early in my PhD journey on which were the best tools suited for large cohort \pangenome construction, specifically for large 
 Eukaryote genomes, like primates. As pointed out in the introduction, there is no one-fits-all solution and most of the tools, at the time of the analysis, were freshly released or distributed under development. It was therefore important for the community of developers and users of such new tools and models to understand the limitations and the potential of the new pan-genomic methods.\\
 In order to perform a thorough assessment of the best available methods, we tried to mimic the conditions that they could face in the near future. We therefore decided to test on the largest collection of high quality human data as it is paramount to understand how pangenomes can be used and adapted to be the platform of future large genomic studies.\\
 As introduced in section~\ref{sec:background_pangenomics}, there are multiple ways of representing a group of genomes to be analyzed or used jointly. One that took traction in the last few years has been graphs. Graphs can represent the sequences as labels of nodes, relationship between them (adjacency or overlap) as edges and infer difference in the genomes as different set of nodes in them.\\
-We specifically focused our attention on the most used graph models: variation graphs and De Bruijn Graphs. In variation graph edges represent adjacencies, i.e the genome is spelled by a walk on nodes connected by an edge. In De Bruijn Graphs they represent overlaps, i.e. the suffix of a node is the prefix of the next node connected to it: this implies that edges can exists between nodes that are not adjacent in the genome. As discussed in the next sessions, this distinction implies several differences in how these graphs can be used for downstream analysis. \\ 
+We specifically focused our attention on the most used graph models: variation graphs and De Bruijn Graphs. In variation graph edges represent adjacencies, i.e the genome is spelled by a walk on nodes connected by an edge. In De Bruijn Graphs they represent overlaps, i.e. the suffix of a node is the prefix of the next node connected to it: this implies that edges can exist between nodes that are not adjacent in the genome. As discussed in the next sessions, this distinction implies several differences in how these graphs can be used for downstream analysis. \\ 
 In this article, we surveyed the the methods and tools that build such graphs, then tested them on different dataset sizes and permutations, and finally analyzed the resulting representation's features. The outcome is a small guide on which are the best applications for each of these tools and an analysis of how they represent variations in genomes. \\
 %The work we performed was intended for publication, but, to the best of my knowledge, the manuscript has never been put in production.
+\newpage
 
 \author
 {
@@ -42,10 +43,10 @@ In this article, we surveyed the the methods and tools that build such graphs, t
 	\noindent \textbf{Conclusion:} This work sheds light on key differences between pangenome graph representations, informing end-users on how to select the most appropriate graph type for their application.
 \end{abstract}
 
-\startcontents[chapters]
-\printcontents[chapters]{}{1}{\section*{\contentsname}}
+%\startcontents[chapters]
+%\printcontents[chapters]{}{1}{\section*{\contentsname}}
 
-\section{Introduction}
+\subsection{Introduction}
 In recent years, the majority of studies on human genetics have been conducted on the basis of comparing new samples against a single, standard reference sequence. This reference sequence is a linear succession of nucleotides that acts as a blueprint of the human genome. It is routinely used to align raw sequencing data to it in order to find variations between genomes, e.g. single-nucleotide polymorphisms (SNPs), insertions or deletions (indels). It also is the backbone of the UCSC Genome Browser~\cite{ucsc} which enables inspection of genomic and epigenomic features. Despite updates that have improved the quality of the human reference sequence in the last two decades, its linear form severely limits the ability to capture population genetic diversity. For instance the locations of frequently observed structural variations cannot be easily integrated into a linear reference. To see this, consider the difficulty of designing a suitable coordinate system in the presence of (possibly nested) structural variants. Having a single genome as reference sequence also introduces an observational bias towards the chosen alleles that were integrated into that sequence, negatively impacting many primary analyses such as reads mapping, variant calling, genotyping and haplotype phasing. As a result our ability to precisely characterize structural variants, SNPs and small indels is limited \cite{vg,computational_pangenomics,giraffe}. The GRCh38 human reference genome is estimated to miss up to 10\% of our species genetic information \mbox{\cite{human-pangenomics-era}}.
 Improvements in sequencing data quality and length, as well as  genome assembly methods, are providing a fast expanding collection of haplotype-resolved human genome assemblies. If adequately combined together, these high-quality individual genomes may offer an powerful alternative to the linear reference. There now is an active line of research on pangenomes, i.e. data structures that represent a collection of genomic sequences to be analyzed jointly or to form a reference \cite{computational_pangenomics,hpp}. 
 Pangenome-based approaches have been shown to improve biological analyses. Pangenomes are at the basis of bioinformatics tools that perform high-quality short read mapping \mbox{\cite{giraffe}}, genotyping of SNPs, indels and SVs \mbox{\cite{pangenie}}, RNA-seq mapping \mbox{\cite{hdpr}}; de novo variant calling \mbox{\cite{vg}}; to store, compress and retrieve high quality genomes \mbox{\cite{gbz}}; to condensate all the information from a high number of genomes to then visualize specific regions or perform ad-hoc analysis, particularly on complex loci, SVs and tandem repeats \mbox{\cite{hdpr}}.
@@ -57,7 +58,7 @@ Pantools~\cite{pantools} and Bifrost~\cite{bifrost} are two methods that have be
 Many human pangenomes have been generated, e.g. using Pantools~\cite{pantools} (7 genomes),  \minigraph~\cite{minigraph} (94 haplotypes), \mcactus~\cite{cactus,mcactus} and \pggb~\cite{hdpr} (94 single chromosomes), and \twopaco~\cite{twopaco} (100 simulated genomes). Lastly, a draft version of a human reference pangenome constructed using \pggb\ and the \mcactus pipeline has appeared in a very recent article from the Human Pangenome Reference Consortium~\cite{hdpr}.
 These pangenomes are still limited by some factors: at the present moment, the number of high-quality haplotype assemblies is still low, even if it is expected to grow in the future; the vcf files containing variation are limited in term of bias, type of variation or number of samples; the population representation, even if opened up in recent years to more ethnicities, is still affected by sampling bias.
 
-\section{Results}
+\subsection{Results}
 In this article we provide a comprehensive view of whole-genome human pangenomics through the lens of five methods that each implement a different graph data structure: \mbox{\bifrost}, \mbox{\mdbg}, \mbox{\minigraph}, \mbox{\mcactus} and \mbox{\pggb}. We examine several features of pangenome graphs, in particular their scalability and how they represent genetic diversity. To this end we collected all publicly available high-quality human haplotypes and attempted to construct pangenomes of various complexity with each selected tool.
 Although \mbox{\vg} has been widely used at the basis of relevant pangenome-based discoveries, for example on fast and accurate short read mapping \mbox{\cite{giraffe}}, we decided to not consider it in our analysis for two main reasons: the bias introduced by the reference sequence that is used as the backbone of the graph (and associated to the vcf) together with the limited capacity of this method to integrate structural variations from many genomes. We believe both aspects are drivers of the use of pangenome graphs.
 \begin{figure}[htp]
@@ -68,7 +69,7 @@ Although \mbox{\vg} has been widely used at the basis of relevant pangenome-base
 \end{figure}
 
 
-\subsection*{\textbf{Scalability and characteristics of pangenome graph construction tools \label{sec:results}}}
+\subsubsection*{\textbf{Scalability and characteristics of pangenome graph construction tools \label{sec:results}}}
 \label{sec:scalablility}
 We ran the above five tools on three datasets consisting of 2, 10, and 104 human haplotypes respectively (Table~\mbox{\ref{tab:datasets}}). We compared the computational performance of construction algorithms as well as characteristics of the produced pangenome graphs.
 The goal is to assess the ability of each method to scale to data available in the near future, i.e. thousands or even millions of human genomes~\cite{human-pangenomics-era}. \\
@@ -82,7 +83,7 @@ In terms of memory usage, \mdbg consistently uses less than half the memory of o
 All tools used reasonable disk space to store the resulting graph, $\leq 12$ GB for H10 and $\leq 38$ GB for H104. Although \mcactus and \pggb retain all variations and are the only two tools able to reconstruct the input haplotypes directly from the graph, they are the second and third most efficient in term of disk space (for \mcactus, 3.6 GB on H2 and 7 GB on H10). 
 While \bifrost and \minigraph perform all computation in memory, \pggb, \mcactus, and \mdbg store intermediate files on disk, taking comparable space to the input size (up to 3x for \mcactus).  \\
 
-\subsection*{\textbf{Different tools yield different pangenome graphs topologies}}
+\subsubsection*{\textbf{Different tools yield different pangenome graphs topologies}}
 Graph metrics such as the number of nodes, edges and connected components provide useful insights on the level of detail of the represented variations and on the complexity and accessibility of the information inside the pangenome.
 
 The number of graph nodes varies between 17,000 and 11 millions for the H2 dataset across all tools. In all cases, the number of nodes is at least 3 orders of magnitude smaller than the number of bases in the haplotypes, indicating that pangenome graphs are effective at compressing linear parts of the haplotypes.
@@ -155,7 +156,7 @@ In the \mcactus graph all chromosomes are linked into a single giant component e
 	\label{tab:computational_metrics}
 \end{table}
 
-\subsection*{\textbf{Interpretation of variation in pangenome graphs: focus on two HLA loci}}
+\subsubsection*{\textbf{Interpretation of variation in pangenome graphs: focus on two HLA loci}}
 \label{sec:loci}
 The ability to detect and annotate variations among input haplotypes defines the scope of each pangenome graph construction method. Previous work~\cite{chin} recommends to build graphs on a specific loci rather than the entire genome for the purpose of i) identifying genomic diversity and ii) mapping raw reads to divergent regions, specifically difficult-to-map repeats. Here we evaluate how pangenomes built from entire haplotypes represent specific biologically relevant loci.
 
@@ -200,7 +201,7 @@ These differences between representations are further accentuated in the H10 dat
 	\label{fig:HLA-A}
 \end{figure}
 
-\subsection*{\textbf{Uncovering characteristics of graphical pangenome tools}}
+\subsubsection*{\textbf{Uncovering characteristics of graphical pangenome tools}}
 \label{sec:uncovering}
 The data structures generated by pangenome building tools are expected to facilitate comparisons between the input genomes. In addition pangenome graphs should be stored in such a way to be easily used by downstream applications.
 We identify 8 important features for pangenome graph construction tools: i) stability, ii) editability, iii) accessibility by downstream applications, iv) haplotype compression performance v) ease of visualization, vi) quality of metadata and annotation. Two other but important features, scalability and interpretability of produced graphs, were already discussed in Sections "Scalability and characteristics of pangenome graph construction tools" and "Interpretation of variation in pangenome graphs: focus on two HLA loci". %\ref{sec:scalablility} and \ref{sec:loci}. 
@@ -305,7 +306,7 @@ Specifically, in order to enhance a pangenome graph with metadata (for example w
 	\label{tab:tools_consideration}
 \end{table}
 
-\section{Discussion}
+\subsection{Discussion}
 Five state-of-the-art pangenome graphs construction tools were compared on the representation of up to 104 human haplotypes. The approaches significantly differ in terms of speed, graph size, and representation of variations. We find that it remains computationally prohibitive to generate human pangenome graphs for hundreds of haplotypes, especially while retaining all variations. Each approach has its own set of strengths, and ultimately the choice of the method depends on the downstream application. In addition, several takeaway points emerged from our analysis.
 
 First, our focused analysis of HLA loci revealed that de Bruijn graphs and variation graphs represent genomic variations equally well as pangenomes.  This is of particular importance as also shown by the draft human pangenome references~\mbox{\cite{hdpr}}: pangenomes are pivotal to trace complex and clinically relevant loci. While de Bruijn graphs are faster to construct, more stable, and scale better in terms of input size, the resulting graphs are challenging to interpret downstream. Variations graphs on the other hand are more practical to analyze at the expense of a less efficient construction step. Their visualization are more straightforward to interpret, mostly due to not having cycles, and provide insights into loci differences. 
@@ -319,14 +320,14 @@ The pipeline \mcactus, that uses the \cactus base aligner, can be used to add sm
 \bifrost illustrates that classical de Bruijn graphs are scalable, stable, dynamic, and store all variations. However, extracting information from them remain a challenge.
 Lastly, \mdbg\ is the fastest construction method which generates an approximate representation of differences between haplotypes. As discussed in Section "Accessibility by downstream applications", these features enable different genomic analyses and downstream applications.
 
-\section{Conclusions}
+\subsection{Conclusions}
 In conclusion, our results highligh the strengths and weaknesses of current pagnenome construction tools for human applications, with specific focus on how do they represent specific loci of medical relevance. We also provide insights on the features they possess and point out their best application domains.
 In our view, future directions for human pangenomes building tools should focus on tackling efficiency bottlenecks, aiming to represent hundreds to thousands of haplotypes. Representations should further be lossless and represent the input haplotypes as paths in the graph. 
 Such features would unlock many other applications such as lossless compression of haplotypes and cancer copy number variant analysis. 
 Finally, we recognize the need for more user-friendly tools that can be used by biologists and that can translate complicated questions into  graph queries. While \odgi begins to address these questions in variation graphs, other approaches have not yet provided user-friendly interfaces. A package similar to \odgi for de Bruijn graphs would help fully realize their potential.
 
-\section{Methods}
-\subsection*{\textbf{Datasets and haplotypes collection}}
+\subsection{Methods}
+\subsubsection*{\textbf{Datasets and haplotypes collection}}
 \label{sec:datasets}
 In order to evaluate the state of current human pangenome representations, we sought to build a human pangenome that contains all publicly available high-quality human haplotypes. We collected from two different sources 102 different haplotypes from the genome of 51 individuals, and also used the two reference genomes, GRCh38 from the Genome Reference Consortium (GRC) \cite{grc} and CHM13 v2.0 cell line of the T2T Consortium~\cite{t2t}.
 Five haplotypes correspond to Google Brain Genomics DeepConsensus \cite{deepconsensus} assembly dataset: they are hifiasm assemblies of PacBio Hi-Fi reads corrected with DeepConsensus. The average of their N50 is 37,99 Mbp. 
@@ -357,7 +358,7 @@ To evaluate the scalability of pangenome construction tools, we created three da
 	\end{tabular}
 \end{table}
 
-\subsection*{\textbf{Pangenome graph construction tools}}
+\subsubsection*{\textbf{Pangenome graph construction tools}}
 \label{sec:tools}
 
 We evaluated tools that generate graph pangenomes as variation graphs and colored compacted de Bruijn graphs. Variation graphs are generally locally acyclic while de Bruijn graphs have cycles. In variation graphs, nodes represent sequences and edges represent immediate sequence adjacency without overlap. Variation graphs are generally easier to visualize and to interpret while challenging to construct at scale and, apart from \pggb, require a reference genome. In de Bruijn graphs (\dbg), nodes are \kmers (string of length k) and edges are (k-1)-overlaps between nodes. In practice, \dbgs are represented in a compact way where all nodes along unbranching paths are compacted into \emph{unitigs}. The resulting graph is called compacted De Bruijn Graph, where nodes are unitigs and edges represent (k-1)-overlaps. 
@@ -410,31 +411,31 @@ result in large graphs that pose visualization and interpretation challenges, in
 
 
 
-\section*{Supplementary Information}
+\subsection*{Supplementary Information}
 
-\subsection*{\textbf{Benchmark infrastructure}}
+\subsubsection*{\textbf{Benchmark infrastructure}}
 
 Running time of pangenome construction tools was measured as wall clock time and peak memory as maximum resident set size using the \texttt{time} command. Other metrics were obtained with custom Python scripts. All benchmarks were performed on a Supermicro Superserver SYS-2049U-TR4, with 3 TB RAM and 4 Intel SKL 6132 14-cores @ 2.6 GHz, using 8 cores. \\
 
-\subsection*{\textbf{TwoPaCo}}
+\subsubsection*{\textbf{TwoPaCo}}
 \label{app:twopaco}
 We did not consider \twopaco as it is redundant with \bifrost. Both methods construct the same de Bruijn graphs.
 \twopaco is a method for constructing \ccdbgs by finding junction \kmers at the boundaries of unitigs or in branching nodes. It consists of two main steps in which it approximates the dBG with a Bloom filter in order to reduce the size of the problem and then runs a two pass highly parallel algorithm on it. It constructs ccdBGs similarly to \bifrost. \bifrost  is faster, supports edit operations, and accepts also reads other than assemblies as input. We tested both tools on NCBI datasets from three different known human variation regions part of the human leukocyte antigen (HLA) complex: HLA-A, MICB and TAP1. These loci have different number of sequences and have complexity and length. The resulting graphs have exactly the same k-mer content and substantially equal topology. The difference is that \twopaco considers sequences with IUPAC 'N' bases while \bifrost does not and that in some cases \twopaco renders some unitigs split in two or more consecutive nodes.
 
-\subsection*{\textbf{Loci extraction method}}
+\subsubsection*{\textbf{Loci extraction method}}
 \label{app:extraction}
 For \bifrost and \mdbg graphs, nodes corresponding to the input sequences are identified with \graphaligner\cite{graphaligner} and the subgraph is extracted using the \bandage \emph{reduce} function. As the aligned nodes are not expected to represent the full diversity of the population in the pangenomes, the considered portion of the graph contains also nodes up to a certain distance from the aligned ones: 1 for \mdbg and 3 for \bifrost. This number is based on the size of the sequences spelled by the nodes and on the considered variations. Artifacts, mostly tips, that are not part of the locus of interest are removed with a custom python script. For \minigraph generated graphs, the \minigraph own alignment function has been used to identify the nodes and then \bandage is used to extract the subgraph. For \pggb, first we generate a bed file of the position of the region of interest in every haplotype used to construct the graph. The ranges are derived from aligning them to the locus sequence(s) using minimap2 \cite{minimap2}. The graph corresponding to the region is then extracted using the \odgi extract and \odgi view functions. For \mcactus we use the same strategy as \pggb, with the difference that the bed file is only for the reference CHM13, present in the graph. \\
 The annotation of the specific loci in the subgraph is done using nodes from the alignment with \minigraph or \graphaligner to the subgraph. This makes it possible to highlight multiple sections in the region, as, for example, genes and pseudogenes of interest. 
 
-\section*{\textbf{Availability of data and materials}} %Reproducibility and Data Availability
+\subsection*{\textbf{Availability of data and materials}} %Reproducibility and Data Availability
 The scripts used to generate and analyse the pangenomes can be found at \cite{source-code-github}\cite{source-code-zenodo} under MIT license.
 Google Brain Genomic assemblies can be found at \cite{google-assemblies}. \\
 HPRC assemblies, CHM13 and GRCh38 can be found at \cite{HPRC-haplotypes}.
 
-\section*{\textbf{Funding}}
+\subsection*{\textbf{Funding}}
 R.C was supported by ANR Full-RNA, SeqDigger, Inception and PRAIRIE grants (ANR-22-CE45-0007, ANR-19-CE45-0008, PIA/ANR16-CONV-0005, ANR-19-P3IA-0001). This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grants agreements No. 872539 and 956229.
 
-\section*{\textbf{Author's contributions}}
+\subsection*{\textbf{Author's contributions}}
 FA, YD and RC conceived and designed the project. FA implemented the scripts. FA and PL ran the experiments. FA, YD, PL and RC wrote the paper. The authors read and approved the final manuscript.
 
 %% Format bibliography like a section, not a chapter:
@@ -471,20 +472,20 @@ reproduced or transmitted, in any form or by any means, without permission
 \end{description}
 \newpage
 
-\section{Perspectives}
-The results of the work outlined in this section suggest several directions for future investigation and software development: they can be divided into a few axis.
+\subsection{Perspectives}
+The results of the work outlined in this section suggest several directions for future investigation and software development: they can be divided into a few axes.
 On one side, the scripts and software that I developed to produce the analysis of this paper could have been extended into an automatic reproducible pipeline. By integrating the code into platforms like nextflow or Snakemake, this could become a benchmark for current and future pangenome tools, as, at the moment, there is no other way to independently compare the output of tools that produce variation graphs and \dbgs. \\
-On another side, there are many more features that could be added to the analysis workflow to produce a more in-depth and accurate description of the resulting pangenomes, like node (sequence) length distribution, node degree distribution, count of SNPs and indels. It is important to stress that detection of specific pattern of variation is non-trivial in data-structures like \dbgs. Finally, another experiment that could be done is to convert, using path information, the variation graph into a \ccdbg, to compare against a \ccdbg built directly from the input sequences: this would allow to verify if the information stored into the two data structures is equivalent. \\
-Another very interesting avenue would be to develop a tool that enables complex information extraction from \ccdbgs. Construction tools usually offer commands or apis to perform simple absence/presence queries, that are mostly useful when they are used for metagenomic purposes but offer less actionable insight in pangenomics analysis. An idea that I have started exploring during this PhD is to extract a subgraph of a \ccdbg that represent a locus or gene of interest in the whole dataset provided as input. \\ 
+On another side, there are many more features that could be added to the analysis workflow to produce a more in-depth and accurate description of the resulting pangenomes, like node (sequence) length distribution, node degree distribution, count of SNPs and indels. It is important to stress that detection of specific patterns of variation is non-trivial in data-structures like \dbgs. Finally, another experiment that could be done is to convert, using path information, the variation graph into a \ccdbg, to compare against a \ccdbg built directly from the input sequences: this would allow to verify if the information stored into the two data structures is equivalent. \\
+Another very interesting avenue would be to develop a tool that enables complex information extraction from \ccdbgs. Construction tools usually offer commands or APIs to perform simple absence/presence queries, that are mostly useful when they are used for metagenomic purposes but offer less actionable insight in pangenomics analysis. An idea that I have started exploring during this PhD is to extract a subgraph of a \ccdbg that represent a locus or gene of interest in the whole dataset provided as input. \\ 
 Finally, it would be very useful to define a \ccdbg output color format that every tool should also use to output the colors, like gfa is used to output graphs. As of now, each tool implements its own binary format for color storage, discouraging downstream analysis software development, as it would be bound to specific construction tools and not the common data structure used.
 
 \newpage
 
 \section{Building a \emph{Lodderomyces elongisporus} pangenome reference: overcoming current limitations.}
-Here we present another example of pushing the boundaries of variation graph pangenome building strategies, precisely in producing a graph that can represent inter-chromosomal events, like rearrangements, for the medically interesting yeast strain of \lodelo. We show also how a pangenome based approach can help produce a more comprehensive insight of such events than a linear genome based one.\\
-The work presented here is also in part a team effort with other PhD students and researcher I was co-leading with Daniel Doerr during a winter-school organized by my consortium: Simon Heumos, which I would like to thank for the discussion we had on the construction of such graphs and Nicola Rizzo. Most of the results and findings reported here are moslty my own, subsequent, work.\\
-The following sections will explain the process needed to produce custom, biologically-significant and biologically-driven pangenome graphs of a yeast strain with the current state-of-the-art tools and offer insights on workarounds that can be used in cases with special needs, where current tools features limit the analysis that can be done. This will also show how pangenome models can offer more powerful tools to analyze specific variation in a group of similar genomes compared to linear reference based ones.\\ 
-In this specific case, the goal was to produce a variation graph that considered, and showed, the long chromosomal translocations that were noticed by the team that produced the assemblies from short and long reads. Chromosome-crossing syntenies for multiple contigs in alignment hits of chromosomes C, G, and H, were detected, suggesting that they could correspond to a singular same recombination group. This finding was consistent with an independent SNP-based genomic study. It was performed on the isolates of a fungemia outbreak in a neonatal intensive care unit in Delhi between 2021 and 2022 and it noticed that this translocation events are more frequent in hospital and patient associated populations than in fruit ones~\cite{lodelo_india}. \\
+We present another example of extending variation graph pangenome building strategies, specifically in producing a graph that can represent inter-chromosomal events, such as rearrangements, for the medically relevant yeast strain of \lodelo.We also demonstrate how a pangenome-based approach can provide more comprehensive insights into such events compared to a linear genome-based approach.\\
+he work presented here is partially a collaborative effort with other PhD students and researchers, co-led by Daniel Doerr and myself during a winter school organized by our consortium. I would like to acknowledge Simon Heumos for our discussions on the construction of such graphs, and Nicola Rizzo. The majority of the results and findings reported here are primarily my own subsequent work.\\
+The following sections will explain the process required to produce custom, biologically significant, and biologically driven pangenome graphs of a yeast strain using current state-of-the-art tools. We will offer insights into workarounds that can be employed in cases with special requirements, where current tool features limit the analysis that can be performed. This will also demonstrate how pangenome models can offer more powerful tools for analyzing specific variations in a group of similar genomes compared to linear reference-based models.\\ 
+In this specific case, the goal was to produce a variation graph that represents the long chromosomal translocations observed by the team that produced the assemblies from short and long reads. Chromosome-crossing syntenies for multiple contigs in alignment hits of chromosomes C, G, and H were detected, suggesting that they could correspond to a single recombination group. This finding was consistent with an independent SNP-based genomic study performed on isolates from a fungemia outbreak in a neonatal intensive care unit in Delhi between 2021 and 2022. The study noted that these translocation events are more frequent in hospital and patient-associated populations than in fruit-associated populations~\cite{lodelo_india}. \\
 In summary, the work here presented will be organized as follows:
 \begin{enumerate}
 	\item Brief characterization of \lodelo genome and relevance;
@@ -559,39 +560,40 @@ Increasing reports of (mostly bloodstream) infection in mainly immunosuppressed 
 \subsection{Building ad hoc pangenome reference}
 We produced a \dbg from all 11 assemblies described in table~\ref{tab:assembly_stats} using \bifrost, but their usefulness remains limited for visual analysis of complex biological events interpretation and study.\\
 Figure~\ref{fig:lodelo_dbg} shows the visualization of the \dbg for \kmer length equal to 25: repetitions make the visualization of the graph challenging. This is the same phenomenon previously described for human genomes, as better insight can be acquired when just a small region is visualized. 
-De Bruijn Graphs can instead be useful for to produce quite straightforward whole-genome alignment- and reference-free phylogenetic analysis in a fraction of time required by competitor methods that use all vs. all alignment. The tool \sans~\cite{sans} can process directly a \bifrost generated \ccdbg to estimate the phylogenetic splits between the genomes contained in the graph. Figure~\ref{fig:dbg_phyl} shows the visualization of the phylogenetic network produced by \sans using the tool \splitstree~\cite{splitstree}. By adding another genome from a close species it is possible control that the \dbg-based analysis provides correct results. Figure~\ref{fig:beig_phyl} shows the phylogenetic network when an assembly of \emph{Lodderomyces Beijingensis} is added to the graph: the new genome is very separated compared to the other ones from the same species. This results shows how \dbgs are a powerful model when applied to specific applications.\\
+De Bruijn Graphs can instead be useful to produce quite straightforward whole-genome alignment-free and reference-free phylogenetic analysis in a fraction of time required by competitor methods that use all vs. all alignment. The tool \sans~\cite{sans} can process directly a \bifrost generated \ccdbg to estimate the phylogenetic splits between the genomes contained in the graph. Figure~\ref{fig:dbg_phyl} shows the visualization of the phylogenetic network produced by \sans using the tool \splitstree~\cite{splitstree}. By adding another genome from a close species it is possible control that the \dbg-based analysis provides results compatible with expectations. Figure~\ref{fig:beig_phyl} shows the phylogenetic network when an assembly of \emph{Lodderomyces Beijingensis} is added to the graph: the new genome is very separated compared to the other ones from the same species. This results shows how \dbgs are a powerful model when applied to specific applications.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{figures/lodelo/lodElo_k25.png}
+	\caption{\bandage visualization of the pangenome \dbg of the cohort of 11 \lodelo strains. As for human genomes, visualization of the whole data offers no particular insight, apart from the large variations visible on the rounded parts away from the dense part.}
+	\label{fig:lodelo_dbg}
+\end{figure}%
+
 \begin{figure}[h!]
 	\centering
-	\begin{subfigure}[b]{0.75\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{figures/lodelo/lodElo_k25.png}
-		\caption{\bandage visualization of the pangenome \dbg of the cohort of 11 \lodelo strains. As for human genomes, visualization of the whole data offers no particular insight, apart from the large variations visible on the rounded parts away from the dense part.}
-		\label{fig:lodelo_dbg}
-	\end{subfigure}%
-	\\
-	\begin{subfigure}[b]{0.75\textwidth}
+	\begin{subfigure}[b]{\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{figures/lodelo/direct_nobei.png}
 		\caption{\splitstree visualization of the phylogeny network generated using \sans from the \ccdbg constructed using \bifrost.}
 		\label{fig:dbg_phyl}
 	\end{subfigure}%
 	\\
-	\begin{subfigure}[b]{0.75\textwidth}
+	\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics[width=1\linewidth]{figures/lodelo/lodelo_bei.png}
-	\caption{Phylogeny network of the 11 \lodelo strains plus one genome of \emph{Lodderomyces Beijingensis} shows the ladder separated on the right while the group of figure~\ref{fig:dbg_phyl} compacted on the left. As they are two different species, although close in the Candida/Lodderomyces clade\cite{lodelo_genomes}, this result provides positive control for the phylogeny network generated using \sans from the \ccdbg constructed using \bifrost. This image was produced by Nicola Rizzo.}
+	\caption{Phylogeny network of the 11 \lodelo strains plus one genome of \emph{Lodderomyces Beijingensis} shows the ladder separated on the right while the group of subfigure b compacted on the left. As they are two different species, although close in the Candida/Lodderomyces clade\cite{lodelo_genomes}, this result provides positive control for the phylogeny network generated using \sans from the \ccdbg constructed using \bifrost. This image was produced by Nicola Rizzo.}
 	\label{fig:beig_phyl}
 	\end{subfigure}%
 	\caption[\ccdbg representation and phylogeny analysis of the \lodelo pangenome.]{Visualization of the \ccdbg representation and phylogeny analysis of the \lodelo pangenome.}
 \end{figure}
-Given high quality assemblies generated by the sequences of these 11 samples, we decided to also build a pangenome graph with small variant resolution using \pggb and \mcactus, in a similar way to what has been done with the Human Draft Pangenome Reference~\cite{hdpr}. It is important to notice that in order to produce the best biological correct result, several rounds of parameter tuning and manual curation are needed, with knowledge far superior of the one of a first-time user.\\
+Given high quality assemblies generated by the sequences of these 11 samples, we decided to also build a pangenome graph with small variant resolution using \pggb and \mcactus, in a similar way to what has been done with the Human Draft Pangenome Reference~\cite{hdpr}. In order to produce a graph with a structure that resembles biologically expected variation structures, several rounds of parameter tuning and manual curation are needed, with knowledge which is out of reach from inexperienced users.\\
 The first step to build such pangenomes is to divide the genome assemblies into communities of sequences belonging to chromosomes.
 
 %As explained before, variation graphs generation is given by communities separation. \pggb works by building a single graph from a given community, so it fits well for this specific use-case: by grouping together the contigs corresponding to the three chromosomes where the recombination occurred, the pipeline should produce a graph that consider this event.
 \subsubsection{Determining chromosomal communities}
-Variation graphs construction pipelines use mapping or alignment between the input set of genomes to infer graphs. Their first step consists in grouping the sequences from the assemblies into communities representing a chromosome in order to run a single computation instance and produce a separate graph for each of them. The final graph is then given by joining together the output of each group. This means that without any pre-processing, no inter-chromosomal event can be detected.\\ 
+Variation graphs construction pipelines use mapping or alignment between the input set of genomes to infer graphs. Their first step consists in grouping the sequences from the assemblies into communities representing a chromosome in order to run a single computation instance and produce a separate graph for each of them. The final graph is then obtained by joining together the output of each group. This means that without any pre-processing, no inter-chromosomal event can be detected.\\ 
 In this specific use-case, in order to identify inter-chromosomal events, contigs associated to any of the 3 chromosomes conjectured to be part of the rearrangement had to fall into the same community and be provided together in input to the pipeline. This would ensure that, if such rearrangement exists, it would produce a feature in the graph that would show as a tangle between the chromosomes.\\
-As the rest of the assemblies, with the exception of the J2 sample, were not resolved into single chromosomes, each of them was aligned to the reference B2 using \wfmash alignment segment size of 10k and 95\% sequence identity (and lower segment size, 90\% sequence identity if unmapped). The identity scores of the alignment of the genomes to the reference B2 assembly is shown in figure~\ref{fig:lodelo_alignment_scores}. From this alignment, contigs were assigned to the chromosomal community to which they best mapped. Finally, chromosomes C,G,H were grouped manually into a single community.
+As the rest of the assemblies, with the exception of the J2 sample, were not resolved into single chromosomes, each of them was aligned to the reference B2 using \wfmash alignment segment size of 10k and 95\% sequence identity (and lower segment size, 90\% sequence identity if unmapped). The identity scores of the alignment of the genomes to the reference B2 assembly is shown in figure~\ref{fig:lodelo_alignment_scores}. From this alignment, contigs were assigned to the chromosomal community to which they best mapped. Finally, contigs assigned to chromosomes C,G,H were grouped manually into a single community.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.8\linewidth]{figures/lodelo/Alignment_scores.pdf}
@@ -600,9 +602,9 @@ As the rest of the assemblies, with the exception of the J2 sample, were not res
 \end{figure}
 
 \subsubsection{Producing a variation graph using pggb}
-As \pggb uses all-vs-all alignment of a collection of sequence as first step to infer the graph, it enables the representation of recombination among chromosomes placed inside the same community, as seen also for human acrocentric chromosomes~\cite{Guarracino2023}.\\
+As \pggb uses all-vs-all alignment of a collection of sequences as first step to infer the graph, it enables the representation of recombination among chromosomes placed inside the same community, as seen also for human acrocentric chromosomes~\cite{Guarracino2023}.\\
 The \texttt{nextflow/pangenome} (\pggb) pipeline was run for each of the identified chromosomal communities to produce a first pangenome representation of the 11 yeast strains. The tangle visible in figure~\ref{fig:lodelo_gfaestus} clearly shows the recombination happening between the three chromosomes. This work was mainly done by Simon Heumos and the graph shown in figure ~\ref{fig:lodelo_gfaestus} is the result of more than 25 rounds of parameters tuning.
-The detection of the event with a variation graph using \pggb encouraged the effort to produce a similar representation with \mcactus, a pipeline that is not designed to construct grouped chromosomes pangenomes.
+The detection of the event with a variation graph using \pggb encouraged the effort to produce a similar representation with \mcactus, a pipeline that is not designed to construct grouped chromosomes pangenomes. The goal was to double check with another pangenome construction software the structure of the translocation in the pangenome graph.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[angle=90,width=.4\linewidth]{figures/lodelo/pggb_full.png}
@@ -612,10 +614,10 @@ The detection of the event with a variation graph using \pggb encouraged the eff
 
 
 \subsubsection{Overcoming \mcactus limitation by modifying both the data and the pipeline}
-In order to produce a graph that represents variation between multiple chromosome with \mcactus, a custom pipeline has to be used. \mcactus communities are implicitly inferred by the first step, performed by \minigraph. For this tool, the chromosomes present in the first reference genome given as input are used as communities and backbone for the whole graph and no sequence can be both assigned to different chromosome. This is an intrinsic characteristic of \minigraph and cannot be changed with input parameters: it means that there is no feature to have chromosome C,G and H considered together in input.\\
+In order to produce a graph that represents variation between multiple chromosomes with \mcactus, a custom pipeline has to be used. \mcactus communities are implicitly inferred by the first step, performed by \minigraph. For this tool, the chromosomes present in the first reference genome given as input are used as communities and backbone for the whole graph and no sequence can be both assigned to different chromosome. This is an intrinsic characteristic of \minigraph and cannot be changed with input parameters: it means that there is no feature to have chromosome C,G and H considered together in input.\\
 To try to overcome this limitation of the approach we tried to produce a graph that respected the condition of having the three chromosome inside the same connected component, at the cost of producing a representation that was not biologically correct. We therefore produced a chimeric contig consisting of the concatenation of the three chromosomes assemblies of the B2 sample. The rationale was to provide the 3 chromosomes chained together as a single backbone in the \minigraph construction step. This would allow sequences to be mapped to any of chr C, G and H to be considered together in the subsequent steps of alignment and graph the \mcactus pipeline. The expectation was to therefore produce a graph that showed the recombination from the mapping of the contigs of the other genomes. \\
-By building a graph using \minigraph with the chimeric chromosome CGH and all the contigs of the other genomes assigned to chromsome C, G and H does not represent any recombination event, as can be seen in figure~\ref{fig:cgh_mingraph}. This was somewhat expected, as it is known that \minigraph does not also consider inversion between genomes.
-When the complete modified pipeline of \mcactus is run, it is possible to see the tangle between the chromosomes, as shown in figures~\ref{fig:cgh_mcactus}~\ref{fig:lodelo_graph_tangle}.
+We generated a graph using \minigraph with the chimeric chromosome CGH and all the contigs of the other genomes assigned to chromsome C, G and H. As shown in figure~\ref{fig:cgh_mingraph}, it does not represent any recombination event. This was somewhat expected, as it is known that \minigraph does not also consider inversion between genomes.
+When the pipeline of \mcactus is run using by chromosome communities, with the chimeric chromosome CGH and its assigned contigs as a single community, it is possible to see the tangle between the chromosomes, as shown in figures~\ref{fig:cgh_mcactus}~\ref{fig:lodelo_graph_tangle}.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{\textwidth}
@@ -661,15 +663,15 @@ The only way to see the rearrangement for those assemblies is through a variatio
 
 \subsection{Estimating core genome and pangenome growth}
 \label{sec:core_pg}
-Finally, pangenome graphs are also useful to quantify the part of the genome that is shared between genomes (what is called core-genome) and the parts that are mostly shared or private to each one. It is also interesting to estimate its growth, i.e. to measure how much the total genomic content grows with the increase of the size of the sample. These metrics can be obtained by using the tool \panacus~\cite{panacus}. \texttt{Panacus} is a tool that calculates coverage distributions of countable elements in variation graphs: it uses paths to detect how many genomes are associated to any node, edge or basepair of the pangenome graph. From these distribution it computes the pangenome growth and core curves as function of the number of genomes.\\
+Finally, pangenome graphs are also useful to quantify the part of the genome that is shared between genomes (what is called core-genome) and the parts that are mostly shared or private to each one. It is also interesting to estimate its growth, i.e. to measure how much the total genomic content grows with the increase of the size of the sample. These metrics can be obtained by using the tool \panacus~\cite{panacus}. \texttt{Panacus} is a tool that calculates coverage distributions of countable elements in variation graphs: it uses paths to detect how many genomes are associated to any node, edge or basepair of the pangenome graph. From these distributions it computes the pangenome growth and core curves as function of the number of genomes.\\
 Calculating these metrics can be used to validate that the two variation graphs built with \pggb and \mcactus agree on the underlying genetic distribution of the input sample.\\
-Figure~\ref{fig:panacus} shows very concordant metrics for the two variation graphs. First, they show similar basepair coverage histogram, that highlight a great portion of genome shared by all the samples, and a non-negligible share of sequences that are private to each genome (~1.5Mbp in total). Secondly, both growth curves show similar pattern, that seems plateauing. This is also highlighted by the fraction of new base pairs introduced by each sample, that decreases from ~700k new basepairs with the new sample to less than ~142k base pairs in on the 11th genome. Finally, the core pangenome can be estimated by the basepairs that are spelled by all the genomes in the graph: the computed value for the 11 samples is ~13,2 Mbp for \pggb and ~13,6 Mbp for \mcactus. The variability in the results are expected and due to different graph construction methods.
+Figure~\ref{fig:panacus} shows very concordant metrics for the two variation graphs. First, they show similar basepair coverage histogram, that highlight a great portion of genome shared by all the samples, and a non-negligible share of sequences that are private to each genome ($\sim1.5$ Mbp in total). Secondly, both growth curves show a similar pattern of a plateau. This is also highlighted by the fraction of new base pairs introduced by each sample, that decreases from $\sim700$k new basepairs with the new sample to less than $\sim142$k base pairs in the 11th genome. Finally, the core pangenome can be estimated by the basepairs that are spelled by all the genomes in the graph: the computed value for the 11 samples is $\sim13,2$ Mbp for \pggb and $\sim13,6$ Mbp for \mcactus. The variability in the results is expected and due to different graph construction methods.
 
 \section{Conclusion and Perspectives}
-The work presented above shows how pangenomes can serve as analysis platform of samples from same-strain yeast. \\
+The work presented above shows how pangenomes can serve as analysis platforms of samples from same-strain yeast. \\
 \dbg-based tools currently offer a limited range of possibilities, especially for lower sample sizes. They best serve as fast and memory-efficient container for large amounts of data that require simple interrogations like absence-presence queries. This model can nevertheless help answer simple biological questions on such small samples, like phylogenetic analysis shown in figure~\ref{fig:dbg_phyl}.\\
-Variation Graphs on the other side are powerful and very useful on few genomes analysis as they can be built quickly enough and provide a well-established platform for downstream analysis tools. On the other side, there is still need to very labor-intensive manual revision of the output graphs to find the input parameters that produce the best result, as it took more than 25 rounds to find the best \pggb parameters to produce the graph shown in figure~\ref{fig:lodelo_gfaestus}. As they are produced on heuristics and not on mathematically defined concepts, each variation graphs-construction tool produces different results: in figure~\ref{fig:chrE_difference}, it is possible to see the difference 1d-representation of the small chromosome E between \pggb and \mcactus. Finally, in order to detect the inter-chromosomal rearrangement with \mcactus as in figure~\ref{fig:lodelo_graph_tangle}, I had to rewrite the pipeline and modify the input data. \\
-Apart from the aforementioned limitations, that show how such methods are still more prototypes than sound and established tools, this analysis shows how much potential there is to improve the current state-of-the art in genomes analysis. Linear-sequences tools are based on well-established genome-to-genome comparison methods that fail to adapt to heterogeneous data, like different levels of assembly quality. As \syri fails to detect rearrangements on genomes that are not assembled to the chromosome level, variation graphs are able to show the variation among all samples, even if the majority of the genomes contain contigs. \\
+Variation Graphs on the other side are powerful and very useful on few genomes analysis as they can be built quickly enough and provide a well-established platform for downstream analysis tools. On the other side, there is still a need for very labor-intensive manual revision of the output graphs to find the input parameters that produce the best result, as, for example, it takes more than 25 rounds to find the best \pggb parameters to produce the graph shown in figure~\ref{fig:lodelo_gfaestus}. As they are produced on heuristics and not on mathematically defined concepts, each variation graphs-construction tool produces different results: in figure~\ref{fig:chrE_difference}, it is possible to see the difference of the small chromosome E between \pggb and \mcactus using a one dimensional representation. Finally, in order to detect the inter-chromosomal rearrangement with \mcactus as in figure~\ref{fig:lodelo_graph_tangle}, I had to rewrite the pipeline and modify the input data. \\
+Apart from the aforementioned limitations, that show how such methods, although established, could be more robust, this analysis shows how much potential there is to improve the current state-of-the art in genomes analysis. Linear-sequences tools are based on well-established genome-to-genome comparison methods that fail to adapt to heterogeneous data, like different levels of assembly quality. As \syri fails to detect rearrangements on genomes that are not assembled to the chromosome level, variation graphs are able to show the variation among all samples, even if the majority of the genomes contain contigs. \\
 This work is another display of the great potential pangenome approaches have. In the future it would be very interesting to build pipelines or develop tools that enable visualizations and straightforward analysis from variation graphs or \ccdbgs to the same level as the current linear-genomes tools. As I have already conceptualized some possible approaches for \ccdbgs, in the future it would be useful to develop simple prototypes and test how fast and precise these would be.\\
 In the future it would be very informative to produce a more comprehensive report of the work done by my group and me, together with the other groups that worked on analyzing these novel \lodelo samples, to offer a comprehensive view of how specific pangenomes can be built and used to provide improved genomic analysis capabilities.
 

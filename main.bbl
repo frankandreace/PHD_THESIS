@@ -474,6 +474,73 @@
       \verb https://doi.org/10.1038/s41586-024-07278-3
       \endverb
     \endentry
+    \entry{matrilocal}{article}{}
+      \name{author}{7}{}{%
+        {{hash=d16c12e3d9710121ff07a23ff5872d2e}{%
+           family={Gunnarsdóttir},
+           familyi={G\bibinitperiod},
+           given={Ellen\bibnamedelima Dröfn},
+           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=7ed1b0cff3fbe386f8f56e3b90260da1}{%
+           family={Nandineni},
+           familyi={N\bibinitperiod},
+           given={Madhusudan\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=1a7c413dc9b06001bd2034fd0d6573e3}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Mingkun},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0d3998e9cf6eafeefafd4883792c2d27}{%
+           family={Myles},
+           familyi={M\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod}}}%
+        {{hash=00626b0b4145f2e688d96108fa295d8c}{%
+           family={Gil},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=375c034fcb980db8c0cf261983b1ff01}{%
+           family={Pakendorf},
+           familyi={P\bibinitperiod},
+           given={Brigitte},
+           giveni={B\bibinitperiod}}}%
+        {{hash=a79fd2bee3625d6ec8bd2ef25ea513ad}{%
+           family={Stoneking},
+           familyi={S\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{53d3ae412e67c45e6e709eef39d02a0d}
+      \strng{fullhash}{ddb7d237c0d3035da6477bff2a878651}
+      \strng{bibnamehash}{ddb7d237c0d3035da6477bff2a878651}
+      \strng{authorbibnamehash}{ddb7d237c0d3035da6477bff2a878651}
+      \strng{authornamehash}{53d3ae412e67c45e6e709eef39d02a0d}
+      \strng{authorfullhash}{ddb7d237c0d3035da6477bff2a878651}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2041-1723}
+      \field{journaltitle}{Nature Communications}
+      \field{month}{03}
+      \field{number}{1}
+      \field{title}{Larger mitochondrial DNA than Y-chromosome differences between matrilocal and patrilocal groups from Sumatra}
+      \field{volume}{2}
+      \field{year}{2011}
+      \field{pages}{228}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/ncomms1235
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/ncomms1235
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/ncomms1235
+      \endverb
+    \endentry
     \entry{garrison_pangenome}{misc}{}
       \name{author}{1}{}{%
         {{hash=ed2afc937ebadd8cc2df8ef63f91f2ae}{%
@@ -488,8 +555,8 @@
       \strng{authorbibnamehash}{ed2afc937ebadd8cc2df8ef63f91f2ae}
       \strng{authornamehash}{ed2afc937ebadd8cc2df8ef63f91f2ae}
       \strng{authorfullhash}{ed2afc937ebadd8cc2df8ef63f91f2ae}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Building and Understanding the Human Pangenome.}
@@ -525,8 +592,8 @@
       \strng{authorbibnamehash}{dd2ceb3027f18b1a9c01a99026d50dd5}
       \strng{authornamehash}{dd2ceb3027f18b1a9c01a99026d50dd5}
       \strng{authorfullhash}{dd2ceb3027f18b1a9c01a99026d50dd5}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proceedings of the National Academy of Sciences}
@@ -630,8 +697,8 @@
       \strng{authorbibnamehash}{69ea1391895b47d968180c0c5e41ba56}
       \strng{authornamehash}{69ea1391895b47d968180c0c5e41ba56}
       \strng{authorfullhash}{e0fa530e092fb51bf358be14779fbd5f}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The complete sequence of the 16,569-base pair human mitochondrial genome is presented. The genes for the 12S and 16S rRNAs, 22 tRNAs, cytochrome c oxidase subunits I, II and III, ATPase subunit 6, cytochrome b and eight other predicted protein coding genes have been located. The sequence shows extreme economy in that the genes have none or only a few noncoding bases between them, and in many cases the termination codons are not coded in the DNA but are created post-transcriptionally by polyadenylation of the mRNAs.}
@@ -2033,8 +2100,8 @@
       \strng{authorbibnamehash}{ed9f38c3b4b7206305b47eaf22d85641}
       \strng{authornamehash}{ed9f38c3b4b7206305b47eaf22d85641}
       \strng{authorfullhash}{e4e8c67eb6642297ff1e52106aff3681}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Science}
@@ -2356,6 +2423,48 @@
       \verb https://doi.org/10.1186/s13059-018-1590-2
       \endverb
     \endentry
+    \entry{genome_diversity_quintana}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=1e72fe4d35628db6ca5273908d8e55eb}{%
+           family={Quintana-Murci},
+           familyi={Q\bibinithyphendelim M\bibinitperiod},
+           given={Lluis},
+           giveni={L\bibinitperiod}}}%
+        {{hash=2bf0c5fc5abbad71f3754875ce026689}{%
+           family={Patin},
+           familyi={P\bibinitperiod},
+           given={Etienne},
+           giveni={E\bibinitperiod}}}%
+        {{hash=00cab41bbf5150b2dc10f5326557fc83}{%
+           family={Ségurel},
+           familyi={S\bibinitperiod},
+           given={Laure},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b9783b2a01e663019c69a44b3601f7c3}{%
+           family={Verdu},
+           familyi={V\bibinitperiod},
+           given={Paul.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{98e2ff7cdc5d9d52509b8f8c4d2f6983}
+      \strng{fullhash}{acdbd035f810779bd4b69b2bcfde666a}
+      \strng{bibnamehash}{acdbd035f810779bd4b69b2bcfde666a}
+      \strng{authorbibnamehash}{acdbd035f810779bd4b69b2bcfde666a}
+      \strng{authornamehash}{98e2ff7cdc5d9d52509b8f8c4d2f6983}
+      \strng{authorfullhash}{acdbd035f810779bd4b69b2bcfde666a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Diversity of the human genome.}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://lms.fun-mooc.fr/courses/course-v1:pasteur+96014+session03/info
+      \endverb
+      \verb{url}
+      \verb https://lms.fun-mooc.fr/courses/course-v1:pasteur+96014+session03/info
+      \endverb
+    \endentry
     \entry{lactase}{article}{}
       \name{author}{5}{}{%
         {{hash=129df59e312fce70c22f799336e905fc}{%
@@ -2407,48 +2516,6 @@
       \field{year}{2010}
       \field{pages}{36}
       \range{pages}{1}
-    \endentry
-    \entry{genome_diversity_quintana}{misc}{}
-      \name{author}{4}{}{%
-        {{hash=1e72fe4d35628db6ca5273908d8e55eb}{%
-           family={Quintana-Murci},
-           familyi={Q\bibinithyphendelim M\bibinitperiod},
-           given={Lluis},
-           giveni={L\bibinitperiod}}}%
-        {{hash=2bf0c5fc5abbad71f3754875ce026689}{%
-           family={Patin},
-           familyi={P\bibinitperiod},
-           given={Etienne},
-           giveni={E\bibinitperiod}}}%
-        {{hash=00cab41bbf5150b2dc10f5326557fc83}{%
-           family={Ségurel},
-           familyi={S\bibinitperiod},
-           given={Laure},
-           giveni={L\bibinitperiod}}}%
-        {{hash=b9783b2a01e663019c69a44b3601f7c3}{%
-           family={Verdu},
-           familyi={V\bibinitperiod},
-           given={Paul.},
-           giveni={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{98e2ff7cdc5d9d52509b8f8c4d2f6983}
-      \strng{fullhash}{acdbd035f810779bd4b69b2bcfde666a}
-      \strng{bibnamehash}{acdbd035f810779bd4b69b2bcfde666a}
-      \strng{authorbibnamehash}{acdbd035f810779bd4b69b2bcfde666a}
-      \strng{authornamehash}{98e2ff7cdc5d9d52509b8f8c4d2f6983}
-      \strng{authorfullhash}{acdbd035f810779bd4b69b2bcfde666a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Diversity of the human genome.}
-      \field{year}{2024}
-      \verb{urlraw}
-      \verb https://lms.fun-mooc.fr/courses/course-v1:pasteur+96014+session03/info
-      \endverb
-      \verb{url}
-      \verb https://lms.fun-mooc.fr/courses/course-v1:pasteur+96014+session03/info
-      \endverb
     \endentry
     \entry{lactase_persistance}{article}{}
       \name{author}{41}{}{%
@@ -2664,8 +2731,8 @@
       \strng{authorbibnamehash}{24a3c2c5334e611352b5cdf2079b3b44}
       \strng{authornamehash}{24a3c2c5334e611352b5cdf2079b3b44}
       \strng{authorfullhash}{7828082f953f2608dfe88041577cd3f5}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1664-8021}
@@ -2696,8 +2763,8 @@
       \strng{authornamehash}{0352fa9dbf5677f98c9a97bb83d9d515}
       \strng{authorfullhash}{0352fa9dbf5677f98c9a97bb83d9d515}
       \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{NIH fact sheets about human genomic variation.}
@@ -3620,8 +3687,8 @@
       \strng{authorbibnamehash}{517afe729b2eb59735ba80628d943bb0}
       \strng{authornamehash}{517afe729b2eb59735ba80628d943bb0}
       \strng{authorfullhash}{517afe729b2eb59735ba80628d943bb0}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Assembly and analysis of geneom sequences across the tree of life.}
@@ -4333,6 +4400,46 @@
       \endverb
       \verb{url}
       \verb https://www.annualreviews.org/content/journals/10.1146/annurev-genom-120219-080406
+      \endverb
+    \endentry
+    \entry{cpmarshall}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e4227f410c43f9cdd3cb8bd0836e91ac}{%
+           family={Consortium},
+           familyi={C\bibinitperiod},
+           given={The\bibnamedelimb Computational\bibnamedelima Pan-Genomics},
+           giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim P\bibinithyphendelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{e4227f410c43f9cdd3cb8bd0836e91ac}
+      \strng{fullhash}{e4227f410c43f9cdd3cb8bd0836e91ac}
+      \strng{bibnamehash}{e4227f410c43f9cdd3cb8bd0836e91ac}
+      \strng{authorbibnamehash}{e4227f410c43f9cdd3cb8bd0836e91ac}
+      \strng{authornamehash}{e4227f410c43f9cdd3cb8bd0836e91ac}
+      \strng{authorfullhash}{e4227f410c43f9cdd3cb8bd0836e91ac}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1477-4054}
+      \field{journaltitle}{Briefings in Bioinformatics}
+      \field{month}{10}
+      \field{number}{1}
+      \field{title}{{Computational pan-genomics: status, promises and challenges}}
+      \field{volume}{19}
+      \field{year}{2016}
+      \field{pages}{118\bibrangedash 135}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1093/bib/bbw089
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bib/article-pdf/19/1/118/25406834/bbw089.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bib/bbw089
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bib/bbw089
       \endverb
     \endentry
     \entry{apes_genomes}{article}{}
@@ -5119,8 +5226,8 @@
       \strng{authorbibnamehash}{b0380d429015f60dfbea9182fd219233}
       \strng{authornamehash}{952e2b8539dffdf36a5e45bceec1430c}
       \strng{authorfullhash}{b0380d429015f60dfbea9182fd219233}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Genome biology}
@@ -5144,8 +5251,8 @@
       \strng{authorbibnamehash}{d180a327a35fdf2ad743ff5e87cb0749}
       \strng{authornamehash}{d180a327a35fdf2ad743ff5e87cb0749}
       \strng{authorfullhash}{d180a327a35fdf2ad743ff5e87cb0749}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprinttype}{arXiv}
@@ -5206,7 +5313,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{6}
+\refsection{5}
   \datalist[entry]{none/global//global/global}
     \entry{ucsc}{article}{}
       \true{moreauthor}
@@ -11310,7 +11417,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{7}
+\refsection{6}
   \datalist[entry]{none/global//global/global}
     \entry{wavefront}{article}{}
       \name{author}{4}{}{%
@@ -12727,8 +12834,88 @@
   \enddatalist
 \endrefsection
 
-\refsection{9}
+\refsection{8}
   \datalist[entry]{none/global//global/global}
+    \entry{kff}{article}{}
+      \name{author}{9}{}{%
+        {{hash=ceac90d386e9368f27734f9e36578a4b}{%
+           family={Dufresne},
+           familyi={D\bibinitperiod},
+           given={Yoann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cdcc71c79bb0326dfbacba0e445a1eb4}{%
+           family={Lemane},
+           familyi={L\bibinitperiod},
+           given={Teo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=23a339586d631a57fbecdfba6e7ae717}{%
+           family={Marijon},
+           familyi={M\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=27081751357b604f4e6820444a866545}{%
+           family={Peterlongo},
+           familyi={P\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=306d258d5d59b6a79292305f21b90212}{%
+           family={Rahman},
+           familyi={R\bibinitperiod},
+           given={Amatur},
+           giveni={A\bibinitperiod}}}%
+        {{hash=54e5f5b8e70b8257614a7be22a10c5d1}{%
+           family={Kokot},
+           familyi={K\bibinitperiod},
+           given={Marek},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
+           family={Medvedev},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b056dbd6b3c2b1c8831f6a6b31d930db}{%
+           family={Deorowicz},
+           familyi={D\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2c4c17b9e143709d5453c268900358f8}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Rayan},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{063403fb2957d716a5ca79fac15a3118}
+      \strng{fullhash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{bibnamehash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{authorbibnamehash}{38702be17db62957eb7724a5cfd54a37}
+      \strng{authornamehash}{063403fb2957d716a5ca79fac15a3118}
+      \strng{authorfullhash}{38702be17db62957eb7724a5cfd54a37}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1367-4803}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{07}
+      \field{number}{18}
+      \field{title}{{The K-mer File Format: a standardized and compact disk representation of sets of k-mers}}
+      \field{volume}{38}
+      \field{year}{2022}
+      \field{pages}{4423\bibrangedash 4425}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btac528
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/bioinformatics/article-pdf/38/18/4423/49885747/btac528.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/bioinformatics/btac528
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/bioinformatics/btac528
+      \endverb
+    \endentry
     \entry{kmtricks}{article}{}
       \name{author}{4}{}{%
         {{hash=f2918d87b63e2a193d405e909b3b4938}{%
@@ -12759,8 +12946,8 @@
       \strng{authornamehash}{081e549764d43fb12760d77b103e98be}
       \strng{authorfullhash}{c0c8c659c5eda66740e2d80e83fb5198}
       \field{extraname}{1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{When indexing large collections of short-read sequencing data, a common operation that has now been implemented in several tools (Sequence Bloom Trees and variants, BIGSI) is to construct a collection of Bloom filters, one per sample. Each Bloom filter is used to represent a set of k-mers which approximates the desired set of all the non-erroneous k-mers present in the sample. However, this approximation is imperfect, especially in the case of metagenomics data. Erroneous but abundant k-mers are wrongly included, and non-erroneous but low-abundant ones are wrongly discarded. We propose kmtricks, a novel approach for generating Bloom filters from terabase-sized collections of sequencing data. Our main contributions are (i) an efficient method for jointly counting k-mers across multiple samples, including a streamlined Bloom filter construction by directly counting, partitioning and sorting hashes instead of k-mers, which is approximately four times faster than state-of-the-art tools; (ii) a novel technique that takes advantage of joint counting to preserve low-abundant k-mers present in several samples, improving the recovery of non-erroneous k-mers. Our experiments highlight that this technique preserves around 8× more k-mers than the usual yet crude filtering of low-abundance k-mers in a large metagenomics dataset.https://github.com/tlemane/kmtricks.Supplementary data are available at Bioinformatics Advances online.}}
@@ -12831,8 +13018,8 @@
       \strng{authornamehash}{081e549764d43fb12760d77b103e98be}
       \strng{authorfullhash}{1ac8f8aabe3a328975949809ca8212df}
       \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Public sequencing databases contain vast amounts of biological information, yet they are largely underutilized as it is challenging to efficiently search them for any sequence(s) of interest. We present kmindex, an approach that can index thousands of metagenomes and perform sequence searches in a fraction of a second. The index construction is an order of magnitude faster than previous methods, while search times are two orders of magnitude faster. With negligible false positive rates below 0.01{\%}, kmindex outperforms the precision of existing approaches by four orders of magnitude. Here we demonstrate the scalability of kmindex by successfully indexing 1,393 marine seawater metagenome samples from the Tara Oceans project. Additionally, we introduce the publicly accessible web server Ocean Read Atlas, which enables real-time queries on the Tara Oceans dataset.}
@@ -12892,8 +13079,8 @@
       \strng{authorbibnamehash}{96a3886a3966e64fa609017df5882661}
       \strng{authornamehash}{712f083629555aa5f102d452614d2cfc}
       \strng{authorfullhash}{96a3886a3966e64fa609017df5882661}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The NCBI Sequence Read Archive (SRA) is the largest public repository of DNA sequencing data, containing the most comprehensive snapshot of Earth{’}s genetic diversity to date. As its size exceeds 50.0 petabases across \&gt;27 million sequencing datasets, the entirety of these data cannot be searched for genetic sequences of interest in a reasonable time. To drastically increase the accessibility of this data we perform genome assembly over each SRA dataset using massively parallel cloud computing. The resulting Logan assemblage is the largest dataset of assembled sequencing data to date, and we believe will enable a new-era of accessible petabase-scale computational biology inquiry. We provide free and unrestricted access to the Logan assemblage and disseminate these datasets to foster early adoption. To illustrate the usefulness of Logan we align a diverse set of sequence queries across all of the SRA, completing queries in as little as 11 hours.Competing Interest StatementThe authors have declared no competing interest.}
@@ -12960,8 +13147,8 @@
       \strng{authorbibnamehash}{b8f25d54e6721fac759b398c9546e98f}
       \strng{authornamehash}{e4767a23adaaaaa9a7452221ebdb2701}
       \strng{authorfullhash}{b8f25d54e6721fac759b398c9546e98f}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The amount of biological sequencing data available in public repositories is growing exponentially, forming an invaluable biomedical research resource. Yet, making it full-text searchable and easily accessible to researchers in life and data science is an unsolved problem. In this work, we take advantage of recently developed, very efficient data structures and algorithms for representing sequence sets. We make Petabases of DNA sequences across all clades of life, including viruses, bacteria, fungi, plants, animals, and humans, fully searchable. Our indexes are freely available to the research community. This highly compressed representation of the input sequences (up to 5800{\texttimes}) fits on a single consumer hard drive (≈100 USD), making this valuable resource cost-effective to use and easily transportable. We present the underlying methodological framework, called MetaGraph, that allows us to scalably index very large sets of DNA or protein sequences using annotated De Bruijn graphs. We demonstrate the feasibility of indexing the full extent of existing sequencing data and present new approaches for efficient and cost-effective full-text search at an on-demand cost of $0.10 per queried Mpb. We explore several practical use cases to mine existing archives for interesting associations and demonstrate the utility of our indexes for integrative analyses.Competing Interest StatementThe authors have declared no competing interest.}

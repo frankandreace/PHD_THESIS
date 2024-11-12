@@ -2,7 +2,7 @@
 \contentsline {chapter}{Preface}{iii}{chapter*.1}%
 \contentsline {chapter}{Summary}{v}{chapter*.2}%
 \contentsline {section}{English summary}{v}{section*.3}%
-\contentsline {section}{Résumé en français}{v}{section*.4}%
+\contentsline {section}{Résumé en français}{vi}{section*.4}%
 \contentsline {chapter}{Contents}{vii}{section*.5}%
 \contentsline {chapter}{List of Figures}{ix}{section*.6}%
 \contentsline {chapter}{List of Tables}{xi}{section*.7}%
@@ -15,26 +15,26 @@
 \contentsline {subsection}{\numberline {2.1.1}DNA sequencing}{7}{subsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.1.1}Next Generation Sequencing}{8}{subsubsection.2.1.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.1.2}Third Generation Sequencing}{9}{subsubsection.2.1.1.2}%
-\contentsline {section}{\numberline {2.2}From reads to \emph {k}-mers\xspace and beyond}{9}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}\emph {k}-mer\xspace based objects}{12}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Genetic diversity: focus on humans.}{15}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Causes and drivers of genetic diversity in humans}{15}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Human Genomic variation: types of variants}{16}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}The importance of studying genomic diversity in populations context}{18}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Pangenomics, pangenomes and pangenome graphs}{19}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}The premises for Pangenomics}{19}{subsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.1.1}A single linear genome for all analyses}{19}{subsubsection.2.4.1.1}%
-\contentsline {subsubsection}{\numberline {2.4.1.2}A quantity and quality revolution }{20}{subsubsection.2.4.1.2}%
-\contentsline {subsubsection}{\numberline {2.4.1.3}The need to better understand difference between genomes}{22}{subsubsection.2.4.1.3}%
-\contentsline {subsection}{\numberline {2.4.2}Pangenomics}{23}{subsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.2.1}Pangenomes}{23}{subsubsection.2.4.2.1}%
-\contentsline {subsubsection}{\numberline {2.4.2.2}Pangenome Graphs}{25}{subsubsection.2.4.2.2}%
-\contentsline {subsection}{\numberline {2.4.3}Variation Graphs}{27}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}De Bruijn Graphs}{27}{subsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.4.1}Colored and Compacted De Bruijn Graphs}{29}{subsubsection.2.4.4.1}%
-\contentsline {section}{\numberline {2.5}Main contributions outline}{30}{section.2.5}%
+\contentsline {section}{\numberline {2.2}From reads to \emph {k}-mers\xspace and beyond}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}\emph {k}-mer\xspace based objects}{13}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Genetic diversity: focus on humans.}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Causes and drivers of genetic diversity in humans}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Human Genomic variation: types of variants}{17}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}The importance of studying genomic diversity in populations context}{19}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Pangenomics, pangenomes and pangenome graphs}{20}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}The premises for Pangenomics}{20}{subsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.1.1}A single linear genome for all analyses}{20}{subsubsection.2.4.1.1}%
+\contentsline {subsubsection}{\numberline {2.4.1.2}A quantity and quality revolution }{21}{subsubsection.2.4.1.2}%
+\contentsline {subsubsection}{\numberline {2.4.1.3}The need to better understand difference between genomes}{23}{subsubsection.2.4.1.3}%
+\contentsline {subsection}{\numberline {2.4.2}Pangenomics}{24}{subsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.2.1}Pangenomes}{24}{subsubsection.2.4.2.1}%
+\contentsline {subsubsection}{\numberline {2.4.2.2}Pangenome Graphs}{26}{subsubsection.2.4.2.2}%
+\contentsline {subsection}{\numberline {2.4.3}Variation Graphs}{28}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}De Bruijn Graphs}{28}{subsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.4.1}Colored and Compacted De Bruijn Graphs}{30}{subsubsection.2.4.4.1}%
+\contentsline {section}{\numberline {2.5}Main contributions outline}{31}{section.2.5}%
 \contentsline {chapter}{Bibliography}{33}{section*.26}%
-\contentsline {chapter}{\chapternumberline {3}Pushing the limit of pan-genome\xspace construction methods}{37}{chapter.3}%
+\contentsline {chapter}{\chapternumberline {3}Pushing the limit of pan-genome construction methods}{37}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Motivation}{37}{section.3.1}%
 \contentsline {chapter}{\chapternumberline {4}Comparing methods for constructing and representing human pangenome graphs}{39}{chapter.4}%
 \ttl@starttoc {chapters@1}
@@ -113,5 +113,5 @@
 \contentsline {chapter}{\chapternumberline {7}Perspectives and future work}{121}{chapter.7}%
 \contentsline {section}{\numberline {7.1}On human pangenomics: graphs and beyond}{121}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Exploring \emph {k}-mer\xspace data structures}{122}{section.7.2}%
-\contentsline {chapter}{\chapternumberline {8}Conclusions}{123}{chapter.8}%
+\contentsline {chapter}{\chapternumberline {8}Conclusions}{125}{chapter.8}%
 \contentsfinish 

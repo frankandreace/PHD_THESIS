@@ -214,24 +214,23 @@
 \newlength{\afterauthorsskip}
 \newlength{\aftermetadataskip}
 
-\makechapterstyle{phduio}
+\makesectionstyle{phduio}
 {
-	\renewcommand*{\chapnamefont}{\huge\sffamily}
-	\renewcommand*{\chapnumfont}{\huge\sffamily}
-	\renewcommand*{\chaptitlefont}
-	{\Huge\bfseries\boldmath\sffamily\raggedright}
-	\renewcommand*{\authorsfont}{\Large\bfseries\sffamily}
-	\renewcommand*{\metadatafont}{\normalfont\normalsize\sffamily}
+ 		\renewcommand*{\secnamefont}{\Large\sffamily}
+		\renewcommand*{\secnumfont}{\Large\sffamily}
+		\renewcommand*{\sectitlefont}{\LARGE\bfseries\boldmath\sffamily\raggedright}
+		\renewcommand*{\authorsfont}{\large\bfseries\sffamily}
+		\renewcommand*{\metadatafont}{\normalfont\normalsize\sffamily}
 	
-	\setlength{\beforechapskip}{-1.35\baselineskip}
-	\setlength{\midchapskip}{10pt}
-	\setlength{\afterchapskip}{20pt}
-	\setlength{\afterauthorsskip}{6pt}
-	\setlength{\aftermetadataskip}{15pt}
+		\setlength{\beforesecskip}{-1\baselineskip}
+		\setlength{\midsecskip}{8pt}
+		\setlength{\aftersecskip}{15pt}
+		\setlength{\afterauthorsskip}{4pt}
+		\setlength{\aftermetadataskip}{10pt}
 	
-	\renewcommand*{\afterchaptertitle}
+	\renewcommand*{\aftersectiontitle}
 	{
-		\vskip\afterchapskip
+		\vskip\aftersecskip
 		\ifboolexpr
 		{
 			test{ \ifcsempty{phduio@authors} }
@@ -253,15 +252,15 @@
 		}
 	}
 	
-	\renewcommand*{\printchapternonum}
+	\renewcommand*{\printsectionnonum}
 	{
-		\vphantom{\chapnumfont Chapter}
-		\afterchapternum
+		\vphantom{\secnumfont Section}
+		\aftersectionnum
 		\vskip\topskip
 	}
 }
 
-\chapterstyle{phduio}
+\sectionstyle{phduio}
 
 
 %% Lower level sections
@@ -337,7 +336,7 @@
 {
 	\paperauthors{\theauthor}
 	\edef\papertitle{{\thetitle}}
-	\expandafter\chapter\papertitle
+	\expandafter\section\papertitle
 	\paperthumb
 	\saythanks
 }
