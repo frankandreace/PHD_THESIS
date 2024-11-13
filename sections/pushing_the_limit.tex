@@ -1,5 +1,5 @@
+%\chapter{Pushing the limit of pan-genome construction methods}
 \chapter{Pushing the limit of pan-genome construction methods}
-
 \label{sec:pushing}
 In this first chapter I present and discuss two projects in which I have pushed the current limit of \pangenome construction methods to provide useful insight of their features, of their relative advantages and of the improved capabilities compared to current genomic approaches.\\ In the first one I have analyzed the current state of the art methods available at the moment and stress-tested them by also generating what was, to the best of my knowledge, the largest human \pangenome produced at the time.\\ The second one is the generation of a yeast \pangenome reference for the species \emph{Lodderomyces elongisporus}, with some of the tools used in the aforementioned work, to demonstrate how pan-genomes are a superior representation to investigate cross-chromosomal rearrangements compared to the linear reference used by commonly used genomic tools. In order to best capture this large rearrangement between three chromosomes, I had to modify and customize one of the most used variation graph pangenome construction pipeline and compared to other two graphs. Here I present the challenges faced, discuss which data structure to use to achieve biological correctness, genome variation resolution, scalability or downstream application usability and show how a \pangenome enables improved analysis of inter-chromosome rearrangements.
 
@@ -12,7 +12,6 @@ We specifically focused our attention on the most used graph models: variation g
 In this article, we surveyed the the methods and tools that build such graphs, then tested them on different dataset sizes and permutations, and finally analyzed the resulting representation's features. The outcome is a small guide on which are the best applications for each of these tools and an analysis of how they represent variations in genomes. \\
 %The work we performed was intended for publication, but, to the best of my knowledge, the manuscript has never been put in production.
 \newpage
-
 \author
 {
 	Francesco Andreace
@@ -35,6 +34,8 @@ In this article, we surveyed the the methods and tools that build such graphs, t
 	\doi{10.1186/s13059-023-03098-2}.
 }
 \maketitle
+%\startcontents[chapters]
+%\printcontents[chapters]{}{1}{}
 \label{pap:first}
 
 \begin{abstract}
@@ -470,6 +471,7 @@ reproduced or transmitted, in any form or by any means, without permission
 	Institut Pasteur, Université Paris Cité, G5 Sequence Bioinformatics \\
 	25-28 Rue du Dr Roux, 75015 Paris
 \end{description}
+%\stopcontents[chapters]
 \newpage
 
 \subsection{Perspectives}
@@ -607,7 +609,7 @@ The \texttt{nextflow/pangenome} (\pggb) pipeline was run for each of the identif
 The detection of the event with a variation graph using \pggb encouraged the effort to produce a similar representation with \mcactus, a pipeline that is not designed to construct grouped chromosomes pangenomes. The goal was to double check with another pangenome construction software the structure of the translocation in the pangenome graph.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[angle=90,width=.4\linewidth]{figures/lodelo/pggb_full.png}
+	\includegraphics[angle=90,width=.6\linewidth]{figures/lodelo/pggb_full.png}
 	\caption[\gfaestus visualization of a \lodelo variation graph.]{\gfaestus visualization of the \pggb variation graph of the 11 \lodelo samples. Image produced by Simon Heumos.}
 	\label{fig:lodelo_gfaestus}
 \end{figure}
@@ -622,14 +624,14 @@ When the pipeline of \mcactus is run using by chromosome communities, with the c
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=.4\linewidth]{figures/lodelo/minigraph_cgh.png}
+		\includegraphics[width=.8\linewidth]{figures/lodelo/minigraph_cgh.png}
 		\caption{Graph of chimeric chromosome CGH from sample B2 and all the contigs of the other genomes aligning to it produced with \minigraph. The graph is linear and no inter-chromosomal event is visible.}
 		\label{fig:cgh_mingraph}
 	\end{subfigure}%
 
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=.4\linewidth]{figures/lodelo/mcactus_cgh_u1000_by_depth.png}
+		\includegraphics[width=.8\linewidth]{figures/lodelo/mcactus_cgh_u1000_by_depth.png}
 		\caption{The graph after all the other steps of the \mcactus pipeline, colored by depth, after simplification of variants < 1kbp using the command \gfatools  \texttt{asm -b 1000 -u}. The large recombination event is now visible.}
 		\label{fig:cgh_mcactus}
 	\end{subfigure}

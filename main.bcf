@@ -2607,28 +2607,34 @@
     <bcf:citekey order="9" intorder="1">sshash</bcf:citekey>
     <bcf:citekey order="10" intorder="1">back_to_sequences</bcf:citekey>
     <bcf:citekey order="11" intorder="1">akmerbroom</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">marchet2024kmersets</bcf:citekey>
-    <bcf:citekey order="12" intorder="2">marchet2021kmer</bcf:citekey>
-    <bcf:citekey order="12" intorder="3">marchet2024coloredkmersets</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">dbbf</bcf:citekey>
+    <bcf:citekey order="12" intorder="2">chromebf</bcf:citekey>
     <bcf:citekey order="13" intorder="1">marchet2024kmersets</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">kmtricks</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">marchet2024kmersets</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">sshash</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">squeakr</bcf:citekey>
-    <bcf:citekey order="17" intorder="2">pandey</bcf:citekey>
-    <bcf:citekey order="17" intorder="3">cqf</bcf:citekey>
-    <bcf:citekey order="17" intorder="4">comin_count</bcf:citekey>
-    <bcf:citekey order="17" intorder="5">sshash</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">bqf</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">fimpera</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">fimpera</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">recombseq</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">bqf</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">marchet2024kmersets</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">blight</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">sshash</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">smsketch</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">genome_scale</bcf:citekey>
+    <bcf:citekey order="13" intorder="2">marchet2021kmer</bcf:citekey>
+    <bcf:citekey order="13" intorder="3">marchet2024coloredkmersets</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">marchet2024kmersets</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">geuvadis</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">metasub</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">tara</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">kmtricks</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">marchet2024kmersets</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">sshash</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">squeakr</bcf:citekey>
+    <bcf:citekey order="21" intorder="2">pandey</bcf:citekey>
+    <bcf:citekey order="21" intorder="3">cqf</bcf:citekey>
+    <bcf:citekey order="21" intorder="4">comin_count</bcf:citekey>
+    <bcf:citekey order="21" intorder="5">sshash</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">cqf</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">bqf</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">fimpera</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">fimpera</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">recombseq</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">bqf</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">marchet2024kmersets</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">blight</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">sshash</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">smsketch</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">genome_scale</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">

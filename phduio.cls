@@ -214,23 +214,24 @@
 \newlength{\afterauthorsskip}
 \newlength{\aftermetadataskip}
 
-\makesectionstyle{phduio}
+\makechapterstyle{phduio}
 {
- 		\renewcommand*{\secnamefont}{\Large\sffamily}
-		\renewcommand*{\secnumfont}{\Large\sffamily}
-		\renewcommand*{\sectitlefont}{\LARGE\bfseries\boldmath\sffamily\raggedright}
-		\renewcommand*{\authorsfont}{\large\bfseries\sffamily}
-		\renewcommand*{\metadatafont}{\normalfont\normalsize\sffamily}
+	\renewcommand*{\chapnamefont}{\huge\sffamily}
+	\renewcommand*{\chapnumfont}{\huge\sffamily}
+	\renewcommand*{\chaptitlefont}
+	{\Huge\bfseries\boldmath\sffamily\raggedright}
+	\renewcommand*{\authorsfont}{\Large\bfseries\sffamily}
+	\renewcommand*{\metadatafont}{\normalfont\normalsize\sffamily}
 	
-		\setlength{\beforesecskip}{-1\baselineskip}
-		\setlength{\midsecskip}{8pt}
-		\setlength{\aftersecskip}{15pt}
-		\setlength{\afterauthorsskip}{4pt}
-		\setlength{\aftermetadataskip}{10pt}
+	\setlength{\beforechapskip}{-1.35\baselineskip}
+	\setlength{\midchapskip}{10pt}
+	\setlength{\afterchapskip}{20pt}
+	\setlength{\afterauthorsskip}{6pt}
+	\setlength{\aftermetadataskip}{15pt}
 	
-	\renewcommand*{\aftersectiontitle}
+	\renewcommand*{\afterchaptertitle}
 	{
-		\vskip\aftersecskip
+		\vskip\afterchapskip
 		\ifboolexpr
 		{
 			test{ \ifcsempty{phduio@authors} }
@@ -252,15 +253,15 @@
 		}
 	}
 	
-	\renewcommand*{\printsectionnonum}
+	\renewcommand*{\printchapternonum}
 	{
-		\vphantom{\secnumfont Section}
-		\aftersectionnum
+		\vphantom{\chapnumfont Chapter}
+		\afterchapternum
 		\vskip\topskip
 	}
 }
 
-\sectionstyle{phduio}
+\chapterstyle{phduio}
 
 
 %% Lower level sections
@@ -332,11 +333,31 @@
 
 
 %% Title for papers
+
+\newcommand{\papersectiontitle}[1]{%
+	\section{\huge\sffamily#1}%
+}
 \renewcommand{\maketitle}
 {
-	\paperauthors{\theauthor}
+	%\paperauthors{\theauthor}
 	\edef\papertitle{{\thetitle}}
 	\expandafter\section\papertitle
+	%\section{{\huge\sffamily\thetitle}}
+	%\par\noindent{\huge\sffamily\thetitle}\par
+	%\vspace{1em}
+	\paperauthors{\theauthor}
+	%\papersectiontitle{\thetitle}
+	%\addcontentsline{toc}{section}{\thetitle}
+	\begin{minipage}[t]{\textwidth}
+		\authorsfont
+		\phduio@authors
+		\vskip\afterauthorsskip
+		\metadatafont
+		\phduio@metadata
+		\gdef \phduio@authors{}
+		\gdef \phduio@metadata{}
+	\end{minipage}
+	\vskip\aftermetadataskip
 	\paperthumb
 	\saythanks
 }

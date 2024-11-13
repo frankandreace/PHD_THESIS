@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {2.1.1}DNA sequencing}{7}{subsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.1.1}Next Generation Sequencing}{8}{subsubsection.2.1.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.1.2}Third Generation Sequencing}{9}{subsubsection.2.1.1.2}%
-\contentsline {section}{\numberline {2.2}From reads to \emph {k}-mers\xspace and beyond}{10}{section.2.2}%
+\contentsline {section}{\numberline {2.2}From reads to \emph {k}-mers\xspace and beyond}{11}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}\emph {k}-mer\xspace based objects}{13}{subsection.2.2.1}%
 \contentsline {section}{\numberline {2.3}Genetic diversity: focus on humans.}{16}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Causes and drivers of genetic diversity in humans}{16}{subsection.2.3.1}%
@@ -39,9 +39,9 @@
 \contentsline {section}{\numberline {3.1}Comparing methods for constructing and representing human pangenome graphs}{39}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Introduction}{39}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Results}{41}{subsection.3.1.2}%
-\contentsline {paragraph}{\textbf {\textup {Extraction of HLA-E and a complex HLA region from complete pangenome graphs}}}{44}{paragraph*.29}%
+\contentsline {paragraph}{\textbf {\textup {Extraction of HLA-E and a complex HLA region from complete pangenome graphs}}}{45}{paragraph*.29}%
 \contentsline {paragraph}{\textbf {\textup {HLA-E: a low complexity region}}}{45}{paragraph*.30}%
-\contentsline {paragraph}{\textbf {\textup {HLA complex locus: high complexity region}}}{45}{paragraph*.32}%
+\contentsline {paragraph}{\textbf {\textup {HLA complex locus: high complexity region}}}{46}{paragraph*.32}%
 \contentsline {paragraph}{\textbf {\textup {Editability and dynamic updates}}}{47}{paragraph*.34}%
 \contentsline {paragraph}{\textbf {\textup {Stability}}}{49}{paragraph*.35}%
 \contentsline {paragraph}{\textbf {\textup {Accessibility by downstream applications}}}{49}{paragraph*.36}%
@@ -59,9 +59,9 @@
 \contentsline {subsubsection}{\numberline {3.2.2.1}Determining chromosomal communities}{61}{subsubsection.3.2.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2.2}Producing a variation graph using pggb}{63}{subsubsection.3.2.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.2.3}Overcoming \texttt {Minigraph-Cactus}\xspace limitation by modifying both the data and the pipeline}{64}{subsubsection.3.2.2.3}%
-\contentsline {subsection}{\numberline {3.2.3}Representing translocation events from groups of genomes}{66}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Estimating core genome and pangenome growth}{66}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}Conclusion and Perspectives}{68}{section.3.3}%
+\contentsline {subsection}{\numberline {3.2.3}Representing translocation events from groups of genomes}{64}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Estimating core genome and pangenome growth}{65}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Conclusion and Perspectives}{65}{section.3.3}%
 \contentsline {chapter}{Bibliography}{75}{section*.57}%
 \contentsline {chapter}{\chapternumberline {4}Exploring new \emph {k}-mer\xspace based methods for Pangenomics}{81}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Introduction: using \emph {k}-mer\xspace sets in pangenomics}{81}{section.4.1}%
@@ -83,13 +83,11 @@
 \contentsline {subsubsection}{\numberline {4.4.3.1}Main features and differences of unitig matrices}{91}{subsubsection.4.4.3.1}%
 \contentsline {subsubsection}{\numberline {4.4.3.2}Matrix construction overview}{91}{subsubsection.4.4.3.2}%
 \contentsline {subsection}{\numberline {4.4.4}Conclusions and perspectives}{93}{subsection.4.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.4.1}Unitig matrices are pangenomes}{93}{subsubsection.4.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.5}Improving the method}{94}{subsection.4.4.5}%
 \contentsline {section}{\numberline {4.5}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: a Rank Select Quotient Filter}{95}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Brief filter data structures overview}{95}{subsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.1.1}Filter data structures}{97}{subsubsection.4.5.1.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.1}Filter data structures}{96}{subsubsection.4.5.1.1}%
 \contentsline {subsection}{\numberline {4.5.2}Quotient Filter structure: Rank and Select}{97}{subsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Counting}{98}{subsubsection.4.5.2.1}%
 \contentsline {subsection}{\numberline {4.5.3}Developing a new library for a Quotient Filter}{99}{subsection.4.5.3}%
 \contentsline {subsubsection}{\numberline {4.5.3.1}Allowing multiple types of counts: CQF and BQF}{101}{subsubsection.4.5.3.1}%
 \contentsline {subsubsection}{\numberline {4.5.3.2}Handling toricity}{101}{subsubsection.4.5.3.2}%
@@ -97,7 +95,7 @@
 \contentsline {subsubsection}{\numberline {4.5.3.4}Using the Fimpera scheme to reduce space}{103}{subsubsection.4.5.3.4}%
 \contentsline {subsection}{\numberline {4.5.4}Conclusions and perspectives}{103}{subsection.4.5.4}%
 \contentsline {section}{\numberline {4.6}Prototyping Dynamic Data structures for \emph {k}-mer\xspace counting: Super\emph {k}-mer\xspace sorted list}{104}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Super\emph {k}-mer\xspace sorted lists: Input ad output}{105}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.1}Super\emph {k}-mer\xspace sorted lists: Input and output}{105}{subsection.4.6.1}%
 \contentsline {subsection}{\numberline {4.6.2}Super\emph {k}-mer\xspace list model}{105}{subsection.4.6.2}%
 \contentsline {subsection}{\numberline {4.6.3}Sorting \emph {k}-mers\xspace from the same matrix column}{106}{subsection.4.6.3}%
 \contentsline {subsection}{\numberline {4.6.4}Construction of overlap lists between consecutive columns}{106}{subsection.4.6.4}%
@@ -111,6 +109,6 @@
 \contentsline {chapter}{\chapternumberline {5}List of Papers}{117}{chapter.5}%
 \contentsline {chapter}{\chapternumberline {6}Perspectives and future work}{119}{chapter.6}%
 \contentsline {section}{\numberline {6.1}On human pangenomics: graphs and beyond}{119}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Exploring \emph {k}-mer\xspace data structures}{121}{section.6.2}%
+\contentsline {section}{\numberline {6.2}Exploring \emph {k}-mer\xspace data structures}{120}{section.6.2}%
 \contentsline {chapter}{\chapternumberline {7}Conclusions}{123}{chapter.7}%
 \contentsfinish 
