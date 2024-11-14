@@ -342,17 +342,17 @@ Graphical models are largely adopted to represent pangenomes. They differ in the
 	\label{fig:graph_types.png}
 \end{figure}
 The choice of a particular model depends largely on the intended application, as there is no one-size-fits-all solution due to trade-offs between different desirable features. For instance, a model that facilitates effective visualization may not be suitable for handling large collections of genomes. Similarly, models that support the addition of new genomes without requiring complete recomputation—often referred to as dynamic updates—may not be the most efficient in terms of compression.\\
-In the context of genomic variations represented in graphs, "bubbles" depict alternative paths between a source node and an end node. Different types of variations lead to distinct bubble structures, and different models generate bubbles with varying patterns. Examples of such bubbles for de Bruijn graphs and genome graphs are shown in Figures \ref{fig:vg_example} and \ref{fig:dbg_ex}.\\
-Below, I introduce the two most widely used models for constructing pangenome graphs: Variation Graphs and De Bruijn Graphs.
+In the context of genomic variations represented in graphs, "bubbles" depict alternative paths between a source node and an end node. Different types of variations lead to distinct bubble structures, and different models generate bubbles with varying patterns.\\
+Below, I introduce the two most widely used models for constructing pangenome graphs: Variation Graphs and De Bruijn Graphs. An example of how de Bruijn graphs and variation graphs represent variations in genomes is shown in Figure \ref{fig:dbg_vg}.\\
 
 \subsection{Variation Graphs}
-Variation graphs are an enhancement of bidirected genome graphs with paths. Paths correspond to walks in the graph that visit nodes in an assigned orientation to reproduce sequences provided as input, as shown in figure~\ref{fig:vg_example}. It therefore consists of a bidirected genome graph constructed from the sequences in the input genomes plus a list of paths that spell such sequences inside the graph.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.65\linewidth]{figures/background/vg.png}
-	\caption[The Variation Graph model.]{An example of variation graph, in which haplotype1 spells the sequence \emph{ACTACAGTACTGGCAGT}, while haplotype 2 spells the sequence \emph{ACTACAGTAAAGTACAGT}~\cite{garrison_pangenome}.}
-	\label{fig:vg_example}
-\end{figure}
+Variation graphs are an enhancement of bidirected genome graphs with paths. Paths correspond to walks in the graph that visit nodes in an assigned orientation to reproduce sequences provided as input, as shown in figure~\ref{fig:dbg_vg}. It therefore consists of a bidirected genome graph constructed from the sequences in the input genomes plus a list of paths that spell such sequences inside the graph.
+%\begin{figure}[h!]
+	%\centering
+	%\includegraphics[width=.65\linewidth]{figures/background/vg.png}
+	%\caption[The Variation Graph model.]{An example of variation graph, in which haplotype1 spells the sequence %\emph{ACTACAGTACTGGCAGT}, while haplotype 2 spells the sequence \emph{ACTACAGTAAAGTACAGT}~\cite{garrison_pangenome}.}
+%	\label{fig:vg_example}
+%\end{figure}
 This data structure has been first proposed to represent textual variations. As shown in figure~\ref{fig:campagna_romana}, the variation graphs represent the conservation and variation in a system: it is therefore a very good model to represent the direct relationships between a group of genomes.
 \begin{figure}[h!]
 	\centering
@@ -374,12 +374,12 @@ Variation graphs can be generated in a direct, all-v-all unbiased way or in a it
 Similar to variation graphs,  \dbgs were not originally developed for pangenomics. They are a well-known data structure that has been widely used in genome assembly, particularly in the context of Next Generation Sequencing.
 A \dbg represents a collection of input sequences as a set of \kmers. By storing each unique \kmer only once, the structure reduces redundancy in the input data. In the graph, nodes are labeled with \kmers, and directed edges between nodes represent an overlap of $k-1$ bases between the two \kmers. \dbgs are also bidirected, as each \kmer includes its reverse complement; the version present in the node label is usually the canonical one. Bidirected edges thus encode the strand orientation of both the starting and ending \kmers.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.95\linewidth]{figures/background/dbg.png}
-	\caption[Example of \dbg.]{Example of \dbg for $k=3$ with a bubble representing a SNP. Image made by Rayan Chikhi.}
-	\label{fig:dbg_ex}
-\end{figure}
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[width=.95\linewidth]{figures/background/dbg.png}
+%	\caption[Example of \dbg.]{Example of \dbg for $k=3$ with a bubble representing a SNP. Image made by Rayan Chikhi.}
+%	\label{fig:dbg_ex}
+%\end{figure}
 The choice of $k$ depends on multiple factors and in fact is a trade-off between: 
 \begin{itemize}[leftmargin=1.8cm]
 	\item[\textbf{Specificity}] The larger the $k$, the sparser is the set of \kmers of the \dbg in the space. While smaller $k$ (21-31) is more general and suitable for most applications, larger values of $k$ (61-100) provide greater specificity. The \kmers in genomes are not random and follow a skewed heavy-tail distribution~\cite{chor2009genomic}. Using larger $k$ value reduces the probability that two genomes share the same \kmer by chance.
@@ -390,27 +390,27 @@ The choice of $k$ depends on multiple factors and in fact is a trade-off between
 \label{sec:ccdbg}
 In order to produce a more compact and informative representation, in pangenomics it is used a particular version of the \dbg, called \ccdbg: colored compacted \dbg. The main characteristics of this data structure are:
 \begin{itemize}
-	\item Paths that do not contain any branches or bubbles are compacted into a single node. Given a chain of nodes in the graph, if the internal nodes have an in-degree of 1 and an out-degree of 1, the starting node has an out-degree of 1, and the final node has an in-degree of 1, the entire chain can be compacted into a single node. The resulting label is the extension of the first \kmer with the last nucleotide of the labels of the subsequent nodes. These compacted labels are no longer of length k and are thus not \kmers; they are referred to as unitigs, providing a more succinct representation of the \kmers in the de Bruijn graph, as shown in Figure~\ref{fig:ccdbg}.
+	\item Paths that do not contain any branches or bubbles are compacted into a single node. Given a chain of nodes in the graph, if the internal nodes have an in-degree of 1 and an out-degree of 1, the starting node has an out-degree of 1, and the final node has an in-degree of 1, the entire chain can be compacted into a single node. The resulting label is the extension of the first \kmer with the last nucleotide of the labels of the subsequent nodes. These compacted labels are no longer of length $k$ and are thus not \kmers; they are referred to as unitigs, providing a more succinct representation of the \kmers in the de Bruijn graph, as shown in Figure~\ref{fig:dbg_vg}.
 	\item The genome of origin for each \kmer is recorded, and this information is referred to as its color, indicating which genomes the \kmer is present in. The color of each \kmer in the colored compacted de Bruijn graph is stored in a highly compressed format to minimize space usage. This color encoding enables more advanced analyses by allowing us to not only examine the presence or absence of a \kmer in the de Bruijn graph, but also to determine in which genomes the \kmer was observed.
 \end{itemize}
 While \kmer compaction into unitigs can be performed as a post-processing step starting from a de Bruijn graph, many modern methods compute unitigs directly, bypassing the need for constructing the full \dbg.\\
-The term color can be somewhat confusing, as it is used in two distinct contexts: it may either refer to the dataset of origin for a \kmer, or it can represent any combination of datasets in which a \kmer is observed (commonly referred to as color sets)~\cite{marchet_kmersets}. The color set model is the most widely used, as it assigns an integer identifier to every unique combination of datasets in which a \kmer is found, instead of storing the precise dataset affiliations for each \kmer. This approach greatly reduces space usage, as illustrated in Figure~\ref{fig:ccdbg}. 
-\begin{figure}[h!]
-	\centering
-	\begin{subfigure}[b]{0.95\textwidth}
-		\centering
-		\includegraphics[width=.75\linewidth]{figures/background/compacting.png}
-		\caption[Compacting a \dbg.]{Compacting a \dbg from the two sequences \texttt{AACAGGTGC} and \texttt{AACATAGTGG} into a \cdbg reduces paths of nodes with in-degree and out-degree of 1 into a single node. Figure from~\cite{embedding_dbg}}
-	\end{subfigure}%
-	\\
-	\begin{subfigure}[b]{0.95\textwidth}
-		\centering
-		\includegraphics[width=0.95\textwidth]{figures/background/colors_dbg.png}
-		\caption[The colors in a \ccdbg.]{The two kind of colors that can be used on \ccdbg: colors and color sets.} 
-	\end{subfigure}
-	\caption[Compaction and colors in a \ccdbg.]{Compaction and colors: the two main characteristics of a \ccdbg compared to a \dbg. Figure from~\cite{marchet_kmersets}}
-	\label{fig:ccdbg}
-\end{figure}
+The term color can be somewhat confusing, as it is used in two distinct contexts: it may either refer to the dataset of origin for a \kmer, or it can represent any combination of datasets in which a \kmer is observed (commonly referred to as color sets)~\cite{marchet_kmersets}. The color set model is the most widely used, as it assigns an integer identifier to every unique combination of datasets in which a \kmer is found, instead of storing the precise dataset affiliations for each \kmer. This approach greatly reduces space usage, as illustrated in Figure~\ref{fig:dbg_vg}. 
+%\begin{figure}[h!]
+%	\centering
+	%\begin{subfigure}[b]{0.95\textwidth}
+		%\centering
+		%\includegraphics[width=.75\linewidth]{figures/background/compacting.png}
+		%\caption[Compacting a \dbg.]{Compacting a \dbg from the two sequences \texttt{AACAGGTGC} and \texttt{AACATAGTGG} into a \cdbg reduces paths of nodes with in-degree and out-degree of 1 into a single node. Figure from~\cite{embedding_dbg}}
+	%\end{subfigure}%
+	%\\
+	%\begin{subfigure}[b]{0.95\textwidth}
+		%\centering
+		%\includegraphics[width=0.95\textwidth]{figures/background/colors_dbg.png}
+		%\caption[The colors in a \ccdbg.]{The two kind of colors that can be used on \ccdbg: colors and color sets.} 
+	%\end{subfigure}
+	%\caption[Compaction and colors in a \ccdbg.]{Compaction and colors: the two main characteristics of a \ccdbg compared to a \dbg. Figure from~\cite{marchet_kmersets}}
+	%\label{fig:ccdbg}
+%\end{figure}
 
 \section{Main contributions outline}
 In the work presented below, we investigate the graphical pangenome representation on the features presented in the sections above. We focused mainly on the construction of such models, their underlying data structures and the downstream applications they enable.\\
@@ -422,5 +422,19 @@ The contributions presented in this manuscript are the following:
 	\item  \textbf{A novel super\kmers enumeration and sorting method.} We propose a novel way to encode and store super\kmers that preserves locality for the ones sharing the same minimizer to improve sequence queries. We also propose a tool to enumerate and sort super\kmers from a set of sequences using this model.
 \end{enumerate}
 The next chapters present this work and discuss the possible directions for future improvements.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{figures/background/vg_dbg.pdf}
+	\caption[Variation and de Bruijn graphs models.]{Example of variation and de Bruijn graphs models. a) The 4 haplotypes of two individuals with their variations highlighted;
+		b) The variation graph obtained from the haplotypes is a), with paths spelling the haplotypes;
+		c) the \dbg ($k=6$) obtained from the haplotypes in \emph{a)}. For simplicity, nodes with a '-' flag when the overlap is between a \kmer and the reverse complement of the other. 
+		d) The compacted \dbg from \emph{c)} shows the reduction in redundancy, and the increased ease of visualization. Still does not provide direct visualization insights like the variation graph, as redundant part of the genome make the graph not linear.
+		e) the compacted \dbg of the same haplotypes in  \emph{a)}, with $k=4$. This shows the increased complexity in the graph with smaller values of $k$.
+		f) The color compacted \dbg from  \emph{d)} with colors. Colors are assigned to \kmers and displayed in the figure on top of unitigs, for simplicity. Each color represent an haplotype.
+		g) The color compacted \dbg from  \emph{d)}, using color sets instead of colors. A map from color sets to colors is provided. This shows the difference between the two representations (colors and color sets). }
+	\label{fig:dbg_vg}
+\end{figure}
+
 
 \printbibliography

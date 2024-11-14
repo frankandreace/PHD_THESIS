@@ -329,8 +329,8 @@ This toroidal implementation enhances the robustness and efficiency of the filte
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\linewidth]{figures/kmer_methods/cqf_toricity_export.pdf}
-	\caption[The RSQF data structure scheme and toroidal property]{a) Scheme of the RSQF data structure partitioned into 16 elements blocks. Along with the remainders vector, each block consists of the correspondent block of \occs and \rends bitvectors and one offset value. When elements associated to a certain quotient (here $16*x + 7$) cannot be stored in the relative slot because it is already used by another run, they are placed into the next contiguous available slots.\\
-	b) example of toroidal insertion. One remainder associated to quotient $16*N + 14$ is inserted in the already partially filled data structure. Since there are no free slots in the final part of the remainder vector, the next available free slot is at the beginning of the vector. The first slot of the vector, which was free, is then filled with the remainder. Metadata bits are then updated. The \occ bit of the quotient $16*N + 14$ is set to 1. The \rend at position 0 is then set to 1 and this updates the offset.} 
+	\caption[The RSQF data structure scheme and toroidal property]{a) Scheme of the RSQF data structure. Along with the remainders vector, each block consists of the correspondent block of \occs and \rends bitvectors and one offset value. When elements associated to a quotient (here $16*x + 7$) cannot be stored in the relative slot because it is already used by another run, they are placed into the next contiguous available slots.
+	b) Toroidal insertion. The remainder associated to quotient $16*N + 14$ is inserted in the partially filled data structure. Since there are no free slots in the final part of the remainder vector, the next available free slot is at the beginning of the vector. The first slot of the vector, which was free, is then filled with the remainder. Metadata bits are then updated. The \occ bit of the quotient $16*N + 14$ is set to 1. The \rend at position 0 is then set to 1 and this updates the offset.} 
 	\label{fig:cqf_toricity}
 \end{figure}
 
@@ -381,9 +381,16 @@ The following sections provide a detailed overview of the sorting steps, beginni
 
 \subsection{Super\kmer list model}
 \label{sec:skmer_model}
-To better comprehend the sorting algorithm's steps, it is useful to conceptualize the \skmer list as both a succession of string-representing objects and a matrix. This matrix is defined by two key parameters: $N$, the number of enumerated super\kmers; $M$, the maximum number of \kmers that a \skmer can handle, where $M = k-m+1$ ($k$ = \kmer length, $m$ = minimizer length). In this matrix model, rows represent distinct strings (\skmers), while columns identify specific positions within each \skmer. An important aspect of this representation is that a horizontal position in the matrix (column) corresponds to the position of a \kmer within its \skmer. Position 0 represents the first \kmer of the \skmer. This position also corresponds to the suffix size of the \kmer, where the suffix is defined as the number of nucleotides following the minimizer.\\
+To better comprehend the sorting algorithm's steps, it is useful to conceptualize the \skmer list as both a succession of string-representing objects and a matrix. This matrix is defined by two key parameters: $N$, the number of enumerated super\kmers; $M$, the maximum number of \kmers that a \skmer can handle, where $M = k-m+1$ ($k$ = \kmer length, $m$ = minimizer length). In this matrix model, rows represent distinct strings (\skmers), while columns identify specific positions within each \skmer. An important aspect of this representation is that a horizontal position in the matrix (column) corresponds to the position of a \kmer within its \skmer. Position 0 represents the \kmer in the first possible position of the \skmer. This position also corresponds to the suffix size of the \kmer, where the suffix is defined as the number of nucleotides following the minimizer.\\
 Most algorithm steps can be conceptualized as operations on the matrix columns. A crucial feature of this model is that a specific position in the matrix represents the presence or absence of a \kmer in the data structure.\\
 The matrix-based concept is going to be used in the next sections to provide a clearer and simplified representation of the \skmer list structure to understand algorithmic operations.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{figures/kmer_methods/skmer_export.pdf}
+	\caption[Representation of a \skmer list as a matrix.]{Representation of a \skmer list as a matrix. a) Given, as example, a set of $N$ enumerated \skmers consisting of just a \kmer in input. b) The \kmers can be divided by the position of their minimizer. c) \kmers are organized in the matrix based on their rows (as they are provided as different \skmers in input, each \kmer has a different one). Position in the column is given by the previous division. A \kmer whose minimizer is at the end, having suffix 0, is in column 0, while a \kmer with the minimizer at the beginning will be in the last column. d) A simpler conceptualization of the matrix in \emph{c)} has in each entry the row value if the \skmer has a valid \kmer in that position.}
+	\label{fig:matrix}
+\end{figure}
+
 
 %Figure YYY shows the equivalences between these two models.\\
 \subsection{The $log{N}$ query model}
@@ -402,7 +409,7 @@ The sorting algorithm's initial step involves a column-wise bucketing of the inp
 
 \subsection{Construction of overlap lists between consecutive columns}
 \label{sec:skmeroverlap}
-The next step in the algorithm focuses on detecting overlaps between consecutive columns. For each pair of adjacent columns, we aim to identify where the $k-1$ suffix of a \kmer in the first column overlaps with the $k-1$ prefix of a \kmer in the subsequent column. This process is performed independently for each pair of consecutive columns and can be divided into several steps. First, the algorithm inserts the $k-1$ prefixes of the \kmers from the second column into a hash table, using the prefix as the key and the \skmer ID as the value. Then for each $k-1$ suffix computed from the first column, it searches for a matching entry in the hash table. When a match is found, the pair of \skmer IDs (one from each column) is inserted into a list of candidate overlaps. It's crucial to note that a single element in one column may overlap with multiple elements in the adjacent column. In such cases, all possible overlaps are recorded.\\
+The next step in the algorithm focuses on detecting overlaps between consecutive columns. For each pair of adjacent columns, we aim to identify where the $k-1$ suffix of a \kmer in the first column overlaps with the $k-1$ prefix of a \kmer in the subsequent column. This process is performed independently for each pair of consecutive columns and can be divided into several steps. First, the algorithm inserts the $k-1$ prefixes of the \kmers from the second column into a hash table, using the prefix as the key and the \skmer ID as the value. Then for each $k-1$ suffix computed from the first column, it searches for a matching entry in the hash table. When a match is found, the pair of matrix coordinates (one from each column) is inserted into a list of candidate overlaps. It's crucial to note that a single element in one column may overlap with multiple elements in the adjacent column. In such cases, all possible overlaps are recorded.\\
 Once the scan is completed, each pair of adjacent columns will have its own list of candidate overlaps. This step is essential for identifying potential connections between \kmers across different \skmers, which will be utilized in subsequent stages of the algorithm. The independent logic of these operations allows for effective parallelization, potentially improving computational efficiency.
 
 \subsection{Maximal set of overlapping \kmers: co-linear chaining}
@@ -411,10 +418,17 @@ The previous step computed all possible \kmer overlap pairs. However, to produce
 	\item[a] a \kmer overlaps with multiple \kmers in the adjacent column, but can be used just once;
 	\item[b] Pairs that, when visualized as edges between column positions, cross each other cannot be used together as they would violate the relative column order.
 \end{itemize}
-Figure YYY illustrates examples of invalid pairs and a maximal chain. To select the maximal set of "non-crossing" pairs from those calculated earlier, we employ co-linear chaining.\\
+In figure~\ref{fig:chain}, point c) shows an example of overlap pairs, with some incompatible ones and a maximal set of overlaps. To select the maximal set of "non-crossing" pairs from those calculated earlier, we employ co-linear chaining.\\
 Co-linear chaining is an algorithmic technique commonly used in alignment algorithms. In the context of pairing shared subsequences between two sequences, it can be summarized as finding pairs of connected elements such that no "crossing" connections occur when visualized geometrically. \\
 In read-to-reference sequence alignment, co-linear chaining takes pairs of maximal exact matches (MEMs) as input. It then computes a chain of pairs where the selected pairs' order aligns with their appearance in both strings, while maximizing the number of bases covered by the chain in the read. Recently, this technique has also been applied to sequence-to-graph alignment in pangenomics applications.\\
 In the context of this method, co-linear chaining is used to resolve the compatibility issues between \kmer overlap pairs, ensuring a consistent order across columns while maximizing the number of valid overlaps. This step is crucial to produce a coherent and efficiently searchable structure.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{figures/kmer_methods/sk_alg_export.pdf}
+	\caption[Main steps of the super\kmer sorting algorithm.]{Main steps of the super\kmer sorting algorithm. a) This example shows the case of single \kmers in \skmers using the matrix representation. b) sorting is shown for a pair of contiguous columns. c) Overlap between \kmers is registered as pair of \skmer IDs. Here it is shown as edges between the \skmer IDs of the two columns. Some overlaps are incompatible: 4-7 crosses 3-5 and 2-8; 4-8 points to the same \kmer. d) Co-linear chaining computes the maximal set of overlapping \kmer, shown with the dark orange edges. Selected edges do not cross other ones and uniquely connect a pair of \kmers. }
+	\label{fig:chain}
+\end{figure}
 
 \begin{definition}[Co-linear chaining of \kmers in the matrix]
 	Given 
@@ -457,38 +471,8 @@ After computing the lists of "non-crossing" overlaps for each pair using the co-
 \end{enumerate}
 By using this approach, we guarantee that the final list is sorted. Part 2 of the process could be done in parallel from the top and the bottom of the matrix to reduce computation time.
 
-\subsection{Searching the list}
-The sorted \skmer list produced by the outlined algorithm enables relatively fast search without indexing \kmers, using binary search. Binary search is an efficient algorithm used to locate a target value within a sorted array: it repeatedly divides the search interval in half and compares the middle element to the target.\\
-In the case of looking in a sorted array with smaller values on the left and larger values on the right, if the target is smaller than the middle element, it continues the search in the remaining the left half, if it's larger, in the right half. The process continues until the element is found or the search interval is empty.\\
-The \kmer query process in our sorted \skmer list operates as follows:
-\begin{enumerate}
-	\item the minimizer of the \kmers is computed and the \kmer position in a \skmer is determined.
-	\item a mask associated to that position is selected;
-	\item the range of the searched list is given by $[x,y]$ and set to $[0,N]$, with $N$ being the length of the list;
-	\item the binary search algorithm jumps the middle \skmer of the range $[x,y]$;
-	\item if the \skmer does not have a \kmer at the searched position, the search moves to on to the next ones until it finds one that does;
-	\item the mask is applied to the \skmer;
-	\item the resulting binary value is compared to the one of the \kmer. Here one of these 3 situations can occur:
-	\begin{itemize}
-		\item the masked \skmer value is greater than the \kmer, than $[x,y]$ gets updated to $[x,y] = [(y-x/2),y]$ ;
-		\item the masked \skmer value is smaller than the \kmer, than $[x,y]$ gets updated to $[x,y] = [x,(y-x/2)]$ ;
-		\item the item is found, return \texttt{FOUND} or \texttt{TRUE};
-	\end{itemize}
-	\item if $x = y$ return \texttt{NOT FOUND} or \texttt{FALSE}, else go back to point 4;
-\end{enumerate}
-The advantage of this \skmer representation is that it allows the search algorithm to jump elements (\skmers) and directly query specific positions (offsets) based on the minimizer position of the queried \kmer. This approach avoids linear probing of entire \skmers.\\
-Finally, the time complexity may be worse than binary search due to gaps in the elements of the matrix. Not all \skmers are maximal, therefore some queries at specific positions may be impossible due to the absence of a \kmer. An offset is valid if the \skmer contains a \kmer in that position, and invalid otherwise. To address this, when a lookup encounters an invalid offset, it performs a linear probe on previous or subsequent elements in the list until it finds a \skmer with a valid offset.
-
-\subsection{Bonus optimizations}
-We propose three potential optimizations for the presented algorithm:
-\begin{itemize}
-	\item Adding information to guide the binary search when looking in a \skmer at an invalid offset and having to use linear probing to find a a valid one in the neighbors. This can be achieved by filling the bits of an empty offset in a \skmer with "synthetic" nucleotides. These synthetic nucleotides don't serve as genetic information but provide a middle value between the two closest valid offset values, informing the search direction.
-	\item The current lexicographic ordering of \skmers is suboptimal due to its bias towards homopolymers and poly-A regions. We propose an improved ordering strategy that gives more weight to central nucleotides, particularly those in or closer to the minimizer. This approach could lead to a more balanced and efficient search structure.
-	\item Instead of using binary search, which compares the searched element with the middle of the remaining search space at each step, we could implement interpolation search to potentially accelerate the process~\cite{pla_complexity}. Interpolation search calculates where in the remaining space the element is likely to be, based on the values at the boundaries of the space and the searched value. If the element isn't found at the calculated position, it uses the same splitting strategy as binary search.
-\end{itemize}
-
 \subsection{Conclusion and future work}
-This project has resulted in a prototype data structure that represents a k-mer set as a sorted list of super-k-mers. The advantages of this representation include:
+This project has resulted in a prototype data structure that represents a \kmer set as a sorted list of \skmers. The advantages of this representation include:
 \begin{itemize}
 	\item unlike some hashing data structures such as Bloom filters, our structure enables the enumeration of \kmers within the set;
 	\item by compressing \kmers into \skmers, we achieve reduced storage space compared to an ordered list of individual \kmers;
@@ -497,7 +481,7 @@ This project has resulted in a prototype data structure that represents a k-mer 
 \end{itemize}
 While this work is ongoing, our objective is to produce a paper shortly after the defense as a novel approach to organizing dynamic datasets using \kmers. As the method is not fully completed and tested at the time of the writing of this manuscript, we also lack of benchmarking to show the computational performances of such a method.\\
 Furthermore, this prototype could serve as a pre-processing step for storing \kmers in a RSQF. We could use it to produce a sorted and compact \kmer enumeration for direct insertion into the filter.
-This approach sheds light on the gap between space-efficient representations of \kmers as string sets and queryable structures, offering a balance of compression and functionality. The potential applications extend storage, as indicated by its possible use in RSQF pre-processing. As we continue to work on this prototype, we aim to use it as valuable building block for more complex applications in large-scale genomic data.
+This approach sheds light on the gap between space-efficient representations of \kmers as string sets and query-able structures, offering a balance of compression and functionality. The potential applications extend storage, as indicated by its possible use in RSQF pre-processing. As we continue to work on this prototype, we aim to use it as valuable building block for more complex applications in large-scale genomic data.
 
 %\subsubsection{Possible improvements}
 %As just described, the super\kmer sorted list can be queried using a variation of binary search in which, when the next super\kmer to be searched has not a valid offset, it has to linear probe the elements in the list for one that does. This slows the query operation, especially in cases where the super\kmers with a valid offset are sparse. \\

@@ -17,6 +17,54 @@
 \endgroup
 
 
+\refsection{10}
+  \datalist[entry]{none/global//global/global}
+    \entry{pla_complexity}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6f56fbe30bbda4508a29259f3a319caa}{%
+           family={Abrar},
+           familyi={A\bibinitperiod},
+           given={Md.\bibnamedelimi Hasin},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
+           family={Medvedev},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory}%
+      }
+      \strng{namehash}{29a43a66f60a86da44cf7d2b10ebc126}
+      \strng{fullhash}{29a43a66f60a86da44cf7d2b10ebc126}
+      \strng{bibnamehash}{29a43a66f60a86da44cf7d2b10ebc126}
+      \strng{authorbibnamehash}{29a43a66f60a86da44cf7d2b10ebc126}
+      \strng{authornamehash}{29a43a66f60a86da44cf7d2b10ebc126}
+      \strng{authorfullhash}{29a43a66f60a86da44cf7d2b10ebc126}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Motivation Understanding structural properties of k-mer multisets is crucial to designing space-efficient indices to query them. A potentially novel source of structure can be found in the rank function of a k-mer multiset. In particular, the rank function of a k-mer multiset can be approximated by a piece-wise linear function with very few segments. Such an approximation was shown to speed up suffix array queries and sequence alignment. However, a more comprehensive study of the structure of rank functions of k-mer multisets and their potential applications is lacking.Results We study a measure of a k-mer multiset complexity, which we call the PLA-complexity. The PLA-complexity is the number of segments necessary to approximate the rank function of a k-mer multiset with a piece-wise linear function so that the maximum error is bounded by a predefined threshold. We describe, implement, and evaluate the PLA-index, which is able to construct, compact, and query a piece-wise linear approximation of the k-mer rank function. We examine the PLA-complexity of more than 500 genome spectra and several other genomic multisets. Finally, we show how the PLA-index can be applied to several downstream applications to improve on existing methods: speeding up suffix array queries, decreasing the index memory of a short-read aligner, and decreasing the space of a direct access table of k-mer ranks.Availability The software and reproducibility information is freely available at https://github.com/medvedevgroup/pla-indexCompeting Interest StatementThe authors have declared no competing interest.}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{PLA-complexity of k-mer multisets}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1101/2024.02.08.579510
+      \endverb
+      \verb{eprint}
+      \verb https://www.biorxiv.org/content/early/2024/02/11/2024.02.08.579510.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.biorxiv.org/content/early/2024/02/11/2024.02.08.579510
+      \endverb
+      \verb{url}
+      \verb https://www.biorxiv.org/content/early/2024/02/11/2024.02.08.579510
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
 \refsection{4}
   \datalist[entry]{none/global//global/global}
     \entry{franklin}{article}{}
@@ -5226,8 +5274,8 @@
       \strng{authorbibnamehash}{b0380d429015f60dfbea9182fd219233}
       \strng{authornamehash}{952e2b8539dffdf36a5e45bceec1430c}
       \strng{authorfullhash}{b0380d429015f60dfbea9182fd219233}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Genome biology}
@@ -5266,48 +5314,6 @@
       \endverb
       \verb{url}
       \verb https://arxiv.org/abs/2409.05214
-      \endverb
-    \endentry
-    \entry{embedding_dbg}{article}{}
-      \name{author}{2}{}{%
-        {{hash=bc033763ac03fe1f6b2af9664b049e3b}{%
-           family={Menegaux},
-           familyi={M\bibinitperiod},
-           given={Romain},
-           giveni={R\bibinitperiod}}}%
-        {{hash=0df2e0c86d89bfaf4f3726c0bc382d4f}{%
-           family={Vert},
-           familyi={V\bibinitperiod},
-           given={Jean-Philippe},
-           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Cold Spring Harbor Laboratory}%
-      }
-      \strng{namehash}{cc69b062d54f308db0473d83c438f6fc}
-      \strng{fullhash}{cc69b062d54f308db0473d83c438f6fc}
-      \strng{bibnamehash}{cc69b062d54f308db0473d83c438f6fc}
-      \strng{authorbibnamehash}{cc69b062d54f308db0473d83c438f6fc}
-      \strng{authornamehash}{cc69b062d54f308db0473d83c438f6fc}
-      \strng{authorfullhash}{cc69b062d54f308db0473d83c438f6fc}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{bioRxiv}
-      \field{title}{Embedding the de Bruijn graph, and applications to metagenomics}
-      \field{year}{2020}
-      \verb{doi}
-      \verb 10.1101/2020.03.06.980979
-      \endverb
-      \verb{eprint}
-      \verb https://www.biorxiv.org/content/early/2020/03/08/2020.03.06.980979.full.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://www.biorxiv.org/content/early/2020/03/08/2020.03.06.980979
-      \endverb
-      \verb{url}
-      \verb https://www.biorxiv.org/content/early/2020/03/08/2020.03.06.980979
       \endverb
     \endentry
   \enddatalist
@@ -13817,49 +13823,6 @@
       \endverb
       \verb{url}
       \verb https://www.genome-scale.info/1stedition/
-      \endverb
-    \endentry
-    \entry{pla_complexity}{article}{}
-      \name{author}{2}{}{%
-        {{hash=6f56fbe30bbda4508a29259f3a319caa}{%
-           family={Abrar},
-           familyi={A\bibinitperiod},
-           given={Md.\bibnamedelimi Hasin},
-           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=6c4ac0193817519c7ac22f6ba17bb4a3}{%
-           family={Medvedev},
-           familyi={M\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Cold Spring Harbor Laboratory}%
-      }
-      \strng{namehash}{29a43a66f60a86da44cf7d2b10ebc126}
-      \strng{fullhash}{29a43a66f60a86da44cf7d2b10ebc126}
-      \strng{bibnamehash}{29a43a66f60a86da44cf7d2b10ebc126}
-      \strng{authorbibnamehash}{29a43a66f60a86da44cf7d2b10ebc126}
-      \strng{authornamehash}{29a43a66f60a86da44cf7d2b10ebc126}
-      \strng{authorfullhash}{29a43a66f60a86da44cf7d2b10ebc126}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Motivation Understanding structural properties of k-mer multisets is crucial to designing space-efficient indices to query them. A potentially novel source of structure can be found in the rank function of a k-mer multiset. In particular, the rank function of a k-mer multiset can be approximated by a piece-wise linear function with very few segments. Such an approximation was shown to speed up suffix array queries and sequence alignment. However, a more comprehensive study of the structure of rank functions of k-mer multisets and their potential applications is lacking.Results We study a measure of a k-mer multiset complexity, which we call the PLA-complexity. The PLA-complexity is the number of segments necessary to approximate the rank function of a k-mer multiset with a piece-wise linear function so that the maximum error is bounded by a predefined threshold. We describe, implement, and evaluate the PLA-index, which is able to construct, compact, and query a piece-wise linear approximation of the k-mer rank function. We examine the PLA-complexity of more than 500 genome spectra and several other genomic multisets. Finally, we show how the PLA-index can be applied to several downstream applications to improve on existing methods: speeding up suffix array queries, decreasing the index memory of a short-read aligner, and decreasing the space of a direct access table of k-mer ranks.Availability The software and reproducibility information is freely available at https://github.com/medvedevgroup/pla-indexCompeting Interest StatementThe authors have declared no competing interest.}
-      \field{journaltitle}{bioRxiv}
-      \field{title}{PLA-complexity of k-mer multisets}
-      \field{year}{2024}
-      \verb{doi}
-      \verb 10.1101/2024.02.08.579510
-      \endverb
-      \verb{eprint}
-      \verb https://www.biorxiv.org/content/early/2024/02/11/2024.02.08.579510.full.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://www.biorxiv.org/content/early/2024/02/11/2024.02.08.579510
-      \endverb
-      \verb{url}
-      \verb https://www.biorxiv.org/content/early/2024/02/11/2024.02.08.579510
       \endverb
     \endentry
   \enddatalist

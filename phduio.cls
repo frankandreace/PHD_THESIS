@@ -162,7 +162,7 @@
 						\begin{tabular}{l@{\hskip 1cm}l@{\hskip 1cm}l}
 						Dr. Francois Sabot   & Université de Montpellier & Reviewer \\
 						Dr. Matthias Zytnicki & INRAE  & Reviewer \\
-						Dr. Paola Bonizzoni & University of Milano – Bicocca & Examiner \\
+						Dr. Paola Bonizzoni & Università degli Studi di Milano Bicocca & Examiner \\
 						Dr. Camille Marchet  & CNRS, Université de Lille & Examiner \\
 						Dr. Pierre Peterlongo & IRISA, Université de Rennes & Examiner \\
 						Dr. Rayan Chikhi  & Institut Pasteur & Supervisor\\

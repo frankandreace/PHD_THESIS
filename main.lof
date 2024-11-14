@@ -13,29 +13,29 @@
 \contentsline {figure}{\numberline {2.8}{\ignorespaces The Sequence Read Archive.}}{23}{figure.caption.18}%
 \contentsline {figure}{\numberline {2.9}{\ignorespaces The Pangenome model.}}{25}{figure.caption.19}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Graph pangenome models.}}{27}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces The Variation Graph model.}}{28}{figure.caption.21}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces The Variation Graph origin.}}{29}{figure.caption.22}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Example of dBG\xspace .}}{29}{figure.caption.23}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Compaction and colors in a ccdBG\xspace .}}{31}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces The Variation Graph origin.}}{28}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Variation and de Bruijn graphs models.}}{32}{figure.caption.22}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The complete human pangenome construction scheme and visualization.}}{42}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Representations of the HLA-E locus on large human pangenomes.}}{46}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Representations of the HLA-A locus on large human pangenomes.}}{48}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces \texttt {Bandage}\xspace visualization of the pangenome dBG\xspace of the cohort of 11 \emph {Lodderomyces elongisporus}\xspace strains. As for human genomes, visualization of the whole data offers no particular insight, apart from the large variations visible on the rounded parts away from the dense part.\relax }}{61}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces ccdBG\xspace representation and phylogeny analysis of the \emph {Lodderomyces elongisporus}\xspace pangenome.}}{62}{figure.caption.46}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Sequence Identity of \emph {Lodderomyces elongisporus}\xspace samples's contigs assigned to reference chromosomes.}}{63}{figure.caption.47}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces \texttt {gfaestus}\xspace visualization of a \emph {Lodderomyces elongisporus}\xspace variation graph.}}{68}{figure.caption.48}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Difference in output between \texttt {Minigraph}\xspace and \texttt {Minigraph-Cactus}\xspace .}}{69}{figure.caption.49}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Community partition of the contigs to detect inter-chromosome events.}}{70}{figure.caption.50}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Linear reference visualization of the \emph {Lodderomyces elongisporus}\xspace inter-chromosomal recombination.}}{70}{figure.caption.51}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Visualization of chromosomes tangle in the \texttt {Minigraph-Cactus}\xspace variation graph.}}{71}{figure.caption.52}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces 1D visualization of differences between \texttt {pggb}\xspace and \texttt {Minigraph-Cactus}\xspace output.}}{72}{figure.caption.53}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Pangenome core and growth of \texttt {pggb}\xspace variation graph.}}{73}{figure.caption.54}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Pangenome core and growth of \texttt {Minigraph-Cactus}\xspace variation graph.}}{74}{figure.caption.55}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The complete human pangenome construction scheme and visualization.}}{42}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Representations of the HLA-E locus on large human pangenomes.}}{46}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Representations of the HLA-A locus on large human pangenomes.}}{48}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \texttt {Bandage}\xspace visualization of the pangenome dBG\xspace of the cohort of 11 \emph {Lodderomyces elongisporus}\xspace strains. As for human genomes, visualization of the whole data offers no particular insight, apart from the large variations visible on the rounded parts away from the dense part.\relax }}{61}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces ccdBG\xspace representation and phylogeny analysis of the \emph {Lodderomyces elongisporus}\xspace pangenome.}}{62}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sequence Identity of \emph {Lodderomyces elongisporus}\xspace samples's contigs assigned to reference chromosomes.}}{63}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces \texttt {gfaestus}\xspace visualization of a \emph {Lodderomyces elongisporus}\xspace variation graph.}}{68}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Difference in output between \texttt {Minigraph}\xspace and \texttt {Minigraph-Cactus}\xspace .}}{69}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Community partition of the contigs to detect inter-chromosome events.}}{70}{figure.caption.48}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Linear reference visualization of the \emph {Lodderomyces elongisporus}\xspace inter-chromosomal recombination.}}{70}{figure.caption.49}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Visualization of chromosomes tangle in the \texttt {Minigraph-Cactus}\xspace variation graph.}}{71}{figure.caption.50}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces 1D visualization of differences between \texttt {pggb}\xspace and \texttt {Minigraph-Cactus}\xspace output.}}{72}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Pangenome core and growth of \texttt {pggb}\xspace and \texttt {Minigraph-Cactus}\xspace variation graphs.}}{73}{figure.caption.52}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The \texttt {muset}\xspace pipeline}}{94}{figure.caption.59}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of a quotient filter.}}{99}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces The RSQF data structure scheme and toroidal property}}{114}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The \texttt {muset}\xspace pipeline}}{94}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of a quotient filter.}}{99}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The RSQF data structure scheme and toroidal property}}{112}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Representation of a super-\emph {k}-mer\xspace list as a matrix.}}{113}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Main steps of the super\emph {k}-mer\xspace sorting algorithm.}}{114}{figure.caption.60}%
+\addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

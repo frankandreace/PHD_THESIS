@@ -2351,6 +2351,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
@@ -2362,6 +2363,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="1">
@@ -2376,6 +2378,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="2">
@@ -2390,6 +2393,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="3">
@@ -2404,6 +2408,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="4">
@@ -2464,18 +2469,12 @@
     <bcf:citekey order="54" intorder="1">odgi</bcf:citekey>
     <bcf:citekey order="55" intorder="1">eizenga</bcf:citekey>
     <bcf:citekey order="56" intorder="1">eizenga</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">garrison_pangenome</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">garrison_pangenome</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">variant_graph</bcf:citekey>
-    <bcf:citekey order="59" intorder="2">garrison_pangenome</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">variant_graph</bcf:citekey>
-    <bcf:citekey order="60" intorder="2">garrison_pangenome</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">chor2009genomic</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">marchet_kmersets</bcf:citekey>
-    <bcf:citekey order="63" intorder="1">embedding_dbg</bcf:citekey>
-    <bcf:citekey order="64" intorder="1">embedding_dbg</bcf:citekey>
-    <bcf:citekey order="65" intorder="1">marchet_kmersets</bcf:citekey>
-    <bcf:citekey order="66" intorder="1">marchet_kmersets</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">variant_graph</bcf:citekey>
+    <bcf:citekey order="57" intorder="2">garrison_pangenome</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">variant_graph</bcf:citekey>
+    <bcf:citekey order="58" intorder="2">garrison_pangenome</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">chor2009genomic</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">marchet_kmersets</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2487,6 +2486,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="5">
@@ -2591,6 +2591,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="6">
@@ -2635,7 +2636,6 @@
     <bcf:citekey order="30" intorder="1">sshash</bcf:citekey>
     <bcf:citekey order="31" intorder="1">smsketch</bcf:citekey>
     <bcf:citekey order="32" intorder="1">genome_scale</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">pla_complexity</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2647,6 +2647,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="7">
@@ -2661,6 +2662,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="8">
@@ -2680,6 +2682,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="9">
@@ -2694,9 +2697,26 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="10">
+    <bcf:citekey order="1" intorder="1">pla_complexity</bcf:citekey>
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 11 -->
+  <bcf:bibdata section="11">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/paperI.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/pushing_the_limit.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/perspectives.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/reducing_complexity_appendix.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliographies/background.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="11">
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">

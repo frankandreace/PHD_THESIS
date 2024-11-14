@@ -1,0 +1,32 @@
+\chapter{}
+\section*{Prototyping Dynamic Data structures for \kmer counting: \skmer sorted list}
+\label{skmer_appendix}
+\subsection*{Searching the list}
+The sorted \skmer list produced by the outlined algorithm enables relatively fast search without indexing \kmers, using binary search. Binary search is an efficient algorithm used to locate a target value within a sorted array: it repeatedly divides the search interval in half and compares the middle element to the target.\\
+In the case of looking in a sorted array with smaller values on the left and larger values on the right, if the target is smaller than the middle element, it continues the search in the remaining the left half, if it's larger, in the right half. The process continues until the element is found or the search interval is empty.\\
+The \kmer query process in our sorted \skmer list operates as follows:
+\begin{enumerate}
+	\item the minimizer of the \kmers is computed and the \kmer position in a \skmer is determined.
+	\item a mask associated to that position is selected;
+	\item the range of the searched list is given by $[x,y]$ and set to $[0,N]$, with $N$ being the length of the list;
+	\item the binary search algorithm jumps the middle \skmer of the range $[x,y]$;
+	\item if the \skmer does not have a \kmer at the searched position, the search moves to on to the next ones until it finds one that does;
+	\item the mask is applied to the \skmer;
+	\item the resulting binary value is compared to the one of the \kmer. Here one of these 3 situations can occur:
+	\begin{itemize}
+		\item the masked \skmer value is greater than the \kmer, than $[x,y]$ gets updated to $[x,y] = [(y-x/2),y]$ ;
+		\item the masked \skmer value is smaller than the \kmer, than $[x,y]$ gets updated to $[x,y] = [x,(y-x/2)]$ ;
+		\item the item is found, return \texttt{FOUND} or \texttt{TRUE};
+	\end{itemize}
+	\item if $x = y$ return \texttt{NOT FOUND} or \texttt{FALSE}, else go back to point 4;
+\end{enumerate}
+The advantage of this \skmer representation is that it allows the search algorithm to jump elements (\skmers) and directly query specific positions (offsets) based on the minimizer position of the queried \kmer. This approach avoids linear probing of entire \skmers.\\
+Finally, the time complexity may be worse than binary search due to gaps in the elements of the matrix. Not all \skmers are maximal, therefore some queries at specific positions may be impossible due to the absence of a \kmer. An offset is valid if the \skmer contains a \kmer in that position, and invalid otherwise. To address this, when a lookup encounters an invalid offset, it performs a linear probe on previous or subsequent elements in the list until it finds a \skmer with a valid offset.
+
+\subsection*{Bonus optimizations}
+We propose three potential optimizations for the presented algorithm:
+\begin{itemize}
+	\item Adding information to guide the binary search when looking in a \skmer at an invalid offset and having to use linear probing to find a a valid one in the neighbors. This can be achieved by filling the bits of an empty offset in a \skmer with "synthetic" nucleotides. These synthetic nucleotides don't serve as genetic information but provide a middle value between the two closest valid offset values, informing the search direction.
+	\item The current lexicographic ordering of \skmers is suboptimal due to its bias towards homopolymers and poly-A regions. We propose an improved ordering strategy that gives more weight to central nucleotides, particularly those in or closer to the minimizer. This approach could lead to a more balanced and efficient search structure.
+	\item Instead of using binary search, which compares the searched element with the middle of the remaining search space at each step, we could implement interpolation search to potentially accelerate the process~\cite{pla_complexity}. Interpolation search calculates where in the remaining space the element is likely to be, based on the values at the boundaries of the space and the searched value. If the element isn't found at the calculated position, it uses the same splitting strategy as binary search.
+\end{itemize}
