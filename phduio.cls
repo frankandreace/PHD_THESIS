@@ -122,6 +122,7 @@
 			{
 				\ifdefined\phduio@subtitle
 				\vskip2mm
+				\centering
 				\huge
 				\phduio@subtitle
 				\par
