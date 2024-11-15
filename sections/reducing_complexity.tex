@@ -426,7 +426,7 @@ In the context of this method, co-linear chaining is used to resolve the compati
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{figures/kmer_methods/sk_alg_export.pdf}
-	\caption[Main steps of the super\kmer sorting algorithm.]{Main steps of the super\kmer sorting algorithm. a) This example shows the case of single \kmers in \skmers using the matrix representation. b) sorting is shown for a pair of contiguous columns. c) Overlap between \kmers is registered as pair of \skmer IDs. Here it is shown as edges between the \skmer IDs of the two columns. Some overlaps are incompatible: 4-7 crosses 3-5 and 2-8; 4-8 points to the same \kmer. d) Co-linear chaining computes the maximal set of overlapping \kmer, shown with the dark orange edges. Selected edges do not cross other ones and uniquely connect a pair of \kmers. }
+	\caption[Main steps of the super\kmer sorting algorithm.]{Main steps of the super\kmer sorting algorithm. a) This example shows the case of single \kmers in \skmers using the matrix representation, as in Figure~\ref{fig:matrix}. b) sorting is shown for a pair of contiguous columns. c) Overlap between \kmers is registered as pair of \skmer IDs. Here it is shown as edges between the \skmer IDs of the two columns. Some overlaps are incompatible: 4-7 crosses 3-5 and 2-8; 4-8 points to the same \kmer. d) Co-linear chaining computes the maximal set of overlapping \kmer, shown with the dark orange edges. Selected edges do not cross other ones and uniquely connect a pair of \kmers. e) The information from each pair of columns is combined to find the new, ordered, \skmers, as described in section~\ref{sec:reconciliation}. Chains of overlapping \kmers are combined together as a \skmer (shown here as list of \kmers for convenience).}
 	\label{fig:chain}
 \end{figure}
 
@@ -458,6 +458,7 @@ if $(v_j,w_j)$ does not overlap with $ V_{j'} \subseteq \{\}(v_1,w_1),...,(v_{j-
 To optimize the search for the best solutions $j'$ among those already computed, we use a binary search tree. It contains the best score for each value $w \in A$. As they are maintained sorted based on $A$ ordering, it allows for $O(\log{n})$ complexity when querying for the best score. When new scores are computed, the tree can also be updated in $O(log{n})$ time. From this follows that the co-linear chaining costs $O(n\log{n})$.
 
 \subsection{Reconciliation and final output}
+\label{sec:reconciliation}
 After computing the lists of "non-crossing" overlaps for each pair using the co-linear chaining algorithm, the next step is to reconcile this information to produce the sorted list. To better understand the rationale of the reconciliation, this process is described using the matrix representation, where \kmers in each column are sorted from top to bottom. The reconciliation process can be divided into two main parts:
 \begin{enumerate}
 	\item Map creation. Using the lists of non-crossing overlaps, each \kmer in the matrix is added to a map as a key, with its value being the ID of the \skmer it will be inserted into. When one overlap list returns the pair (x,y) and the subsequent list returns (y,z), \kmers x, y, and z will be compacted into the same \skmer in the sorted list. Consequently, they are inserted into the map with the same value (e.g., 1). Other \skmers not to be compacted in the same \skmer will have different values.
