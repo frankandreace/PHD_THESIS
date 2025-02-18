@@ -4,6 +4,7 @@
 \subsection*{Searching the list}
 The sorted \skmer list produced by the outlined algorithm enables relatively fast search without indexing \kmers, using binary search. Binary search is an efficient algorithm used to locate a target value within a sorted array: it repeatedly divides the search interval in half and compares the middle element to the target.\\
 In the case of looking in a sorted array with smaller values on the left and larger values on the right, if the target is smaller than the middle element, it continues the search in the remaining the left half, if it's larger, in the right half. The process continues until the element is found or the search interval is empty.\\
+In this section I am going to refer to masks as bit-level masks (or bitmask) as tools that are used to select elements (bits) from a binary representation of some value. In this case \kmers are encoded in 2*$k$ bits and \skmers in 2*(2*$k$-$m$) bits. To extract a \kmer from a \skmer we use a mask to set to zero the 2*($k$-$m$) bits that do not represent it.
 The \kmer query process in our sorted \skmer list operates as follows:
 \begin{enumerate}
 	\item the minimizer of the \kmers is computed and the \kmer position in a \skmer is determined.
@@ -30,3 +31,5 @@ We propose three potential optimizations for the presented algorithm:
 	\item The current lexicographic ordering of \skmers is suboptimal due to its bias towards homopolymers and poly-A regions. We propose an improved ordering strategy that gives more weight to central nucleotides, particularly those in or closer to the minimizer. This approach could lead to a more balanced and efficient search structure.
 	\item Instead of using binary search, which compares the searched element with the middle of the remaining search space at each step, we could implement interpolation search to potentially accelerate the process~\cite{pla_complexity}. Interpolation search calculates where in the remaining space the element is likely to be, based on the values at the boundaries of the space and the searched value. If the element isn't found at the calculated position, it uses the same splitting strategy as binary search.
 \end{itemize}
+
+\printbibliography

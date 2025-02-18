@@ -5,15 +5,15 @@
 \addvspace {10pt}
 \contentsline {table}{\numberline {2.1}{\ignorespaces \emph {k}-mer\xspace computation from a sequence}}{14}{table.caption.10}%
 \contentsline {table}{\numberline {2.2}{\ignorespaces Example of canonical \emph {k}-mer\xspace counting.}}{15}{table.caption.11}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Scale of DNA data increase over the years.}}{23}{table.caption.17}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Scale of DNA sequencing achievements over the years.}}{24}{table.caption.17}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {3.1}{\ignorespaces Computational metrics comparison between pangenome building tools.}}{44}{table.caption.26}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Relative strengths of five pangenome graph construction tools.}}{51}{table.caption.38}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Description of the three datasets generated to test the scalability of the tools.}}{54}{table.caption.39}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces URL, version, pangenome representation and parameters of the three analyzed tools.}}{55}{table.caption.40}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces \emph {Lodderomyces elongisporus}\xspace samples assembly statistics}}{67}{table.caption.42}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Computational metrics comparison between pangenome building tools.}}{46}{table.caption.26}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Relative strengths of five pangenome graph construction tools.}}{53}{table.caption.38}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Description of the three datasets generated to test the scalability of the tools.}}{56}{table.caption.39}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces URL, version, pangenome representation and parameters of the three analyzed tools.}}{57}{table.caption.40}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces \emph {Lodderomyces elongisporus}\xspace samples assembly statistics}}{69}{table.caption.42}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of running time, peak memory, and disk usage between \texttt {muset}\xspace (filtered unitig matrix) and \texttt {ggcat}\xspace (implicit and unfiltered unitigs) on 360 ancient oral samples.\relax }}{93}{table.caption.55}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of running time, peak memory, and disk usage between \texttt {muset}\xspace (filtered unitig matrix) and \texttt {ggcat}\xspace (implicit matrix and unfiltered unitigs) on 360 ancient oral samples.\relax }}{96}{table.caption.55}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

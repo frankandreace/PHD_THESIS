@@ -27,7 +27,7 @@ The chapter is organized as follows:
 \kmer-based data structures  for representing sets of input genomes inevitably involve trade-offs to support useful applications in pangenomics.  The key characteristics of such structures are often in competition with one another, requiring a balance between the following:
 \begin{itemize}
 	\item Efficient storage of the data;
-	\item Fast querying of a \kmer or string to retrieve its associated metadata;
+	\item Fast querying of a \kmer or string to retrieve metadata;
 \end{itemize}
 The process of optimizing data storage for quick lookups is referred to as indexing, whereas the processes of retrieving the metadata and determining membership are called querying. Ideally, these data structures should be capable of performing both tasks efficiently, especially as datasets grow in size—as discussed in the introduction of this chapter. Given that genomic data is expanding at near-exponential rates, minimizing both storage requirements and query times for \kmer sets has become increasingly crucial.\\
 A simple but very effective analogy of indexing and querying can be done with books and words.
@@ -38,12 +38,12 @@ As the \dbg is a model for a \kmer set representation, under the hood there are 
 \subsection{Hashing \kmers}
 As described in section~\ref{sec:kmer}, a \kmer is a sub-string of length $k$ of a biological sequence. In order to reduce the space used to store them, the text string is converted, or hashed, into a binary string that can therefore be interpreted as an integer number. The use of the equivalence of a binary string with an integer is the basis of a great part of \kmer-based data structures: from here on I will consider methods for \kmers representation as binary string using hash functions. Methods that consider \kmer as text string won't be therefore considered.
 \begin{description}
-	\item An hash function is any function that maps data from one set (usually text but not only) to another (usually fixed-size machine-word-length integers). The ingested value is called key and the output is usually called hash value or simply hash. They are used in a lot of applications such as basic computer science models such as dictionaries, cryptography or bioinformatics.
+	\item A hash function is any function that maps data from one set (usually text but not only) to another (usually fixed-size machine-word-length integers). The ingested value is called key and the output is usually called hash value or simply hash. They are used in a lot of applications such as basic computer science models such as dictionaries, cryptography or bioinformatics.
 	\item Hash functions should optimize on some of these properties:
 	\begin{itemize}
 		\item[\textbf{Uniformity}] In most cases input data should be mapped in an uniform way in the output space: in the \kmer case, lexicographically similar \kmers should be mapped to different hashes. This is not true when data locality matters: the property of similar \kmers pointing to similar hashes can be used by some data structures to avoid many cache misses, improving the computation time.
-		\item[\textbf{Speed}] the fastest it is possible to compute a hash from a key, the better it is. Speed depends on the number and latency of the operations executed in the computation;
-		\item[\textbf{collision avoidance}] collisions, i.e. mapping different keys into the same hash, should be infrequent. The collision rate is correlated to the size of the hash space and therefore to the space that can be used to store the hash. This trade-off will be explored better in the next section.
+		\item[\textbf{Speed}] the fastest it is possible to compute a hash from a key, the better it is. Speed depends on the number and latency of the operations executed computation;
+		\item[\textbf{Collision avoidance}] collisions, i.e. mapping different keys into the same hash, should be infrequent. The collision rate is correlated to the size of the hash space and therefore to the space that can be used to store the hash. This trade-off will be explored better in the next section.
 	\end{itemize}
 \end{description}
 Moreover, \kmer length impacts the time/space trade-off stated in the previous section: as larger \kmer offer greater specificity, they largely increase the amount of space needed to store them (because the hash will probably be larger) as also shown for plain-text representation in section~\ref{sec:kmer}.
@@ -62,13 +62,13 @@ A data structure may or may not retain internal information after executing a me
 \subsubsection{Metadata types}
 In the most fundamental case, the data structure represents the presence or absence of an element within it, utilizing a binary \memb operation (denoted as 0 for absence and 1 for presence). Other metadata that can be useful in pangenomics can store:
 \begin{itemize}
-	\item[\textbf{counts}] The data structure contains the number of times a \kmer appears in it. Counts are useful to discern copy variants number in different DNA samples, the expression of genes in RNA samples and for species abundance estimation in metagenomic samples.
-	\item[\textbf{colors}] It stores in which samples a \kmer has been seen and returns a list of containing samples for each queried \kmer.
+	\item[\textbf{Counts}] The data structure contains the number of times a \kmer appears in it. Counts are useful to discern copy variants number in different DNA samples, the expression of genes in RNA samples and for species abundance estimation in metagenomic samples.
+	\item[\textbf{Colors}] It stores in which samples a \kmer has been seen and returns a list of containing samples for each queried \kmer.
 	\item[\textbf{Id}] In applications in which the graph structure is relevant (for example in visualization), it is useful to know in which \kmers (in the case of \dbg) or unitigs (in the case of \cdbg) of the graph are represented the \kmers of a queried sequence. This case is relevant for \dbg based models.
 	\item[\textbf{Text}] Text data can be used to associate \kmers to genetic information as genes, regulatory elements, flags to discern pathogenic variants from non-pathogenic ones and so on.
 \end{itemize}
 Of these metadata, the first two are the ones that are usually taken in consideration for query by recently developed data structures. Text data would impose a significant space requirement for the data structure and could be mimicked by assigning numerical labels to text. Just in the case of text metadata query an additional map associating numbers to text would be used. The id information is quite overlooked by, to my knowledge, all implementations.\\
-We will now turn out attention to sets of \kmer sets, where each input sample is considered as a different set. This is done by using colors, that make possible to retrieve from the data structure in which sample a \kmer can be found. The color terminology can be confusing as it is often used to refer to two different concepts. From here on, the term color is used to refer to the data set from which a set of \kmer comes from. A \kmer $x$ will have colors 1,2,3 if it comes from dataset 1,2,3. Sometimes \kmers are associated to color sets, that represent a specific group of colors. For example the color set A will contain colors 1,2,3 so in the data structure \kmer $x$ is associated to the identifier A and the dataset of origins can be retrieved by remembering the map from color-set to colors. The use of color sets instead of directly associate a \kmer with its colors allows efficient storage\cite{ggcat}. 
+We will now turn out attention to sets of \kmer sets, where each input sample is considered as a different set. This is done by using colors, that make possible to retrieve from the data structure in which sample a \kmer can be found. The color terminology can be confusing as it is often used to refer to two different concepts. From here on, the term color is used to refer to the data set from which a set of \kmer comes from. A \kmer $x$ will have colors 1,2,3 if it comes from dataset 1,2,3. Sometimes \kmers are associated to color sets, that represent a specific group of colors. For example the color set A will contain colors 1,2,3 so in the data structure \kmer $x$ is associated to the identifier A and the dataset of origins can be retrieved by remembering the map from color-set to colors. The use of color sets instead of directly associate a \kmer with its colors allows efficient storage~\cite{ggcat}. 
 
 \subsubsection{Metadata: why it is important}
 Metadata is important to enable different kind of applications that need more information than just the presence or absence of a \kmer in a set. \\
@@ -89,7 +89,7 @@ Filters are a subset of AMQs frequently used in genomic applications. They allow
 \subsubsection{Bloom Filters}
 \label{sec:bloom_filters}
 Bloom filters represent the most widely utilized probabilistic data structures, finding applications in diverse fields. In genomics, they are employed for tasks such as the elimination of contaminant-related reads from ancient DNA samples~\cite{akmerbroom}. Beyond genomics, their utility extends to various computational domains. For instance, they are used to reduce disk lookups for non-existent rows or columns in databases, and they are part of Google Chrome's protection mechanism against malicious URLs~\cite{dbbf,chromebf}. In genomics they are used to provide a very space-efficient representation of a set of \kmers by using a bitvector and multiple different hash functions. When a \kmer is inserted, multiple different hashes are generated and the position in the bitvector corresponding to the hashes are set to 1. When an element is queried, the same hash functions are applied and if all positions in the bitvector are set to 1 the element is considered present. If at least one position is set to 0 it means that the element is not present, thus preventing false negatives. As collision can happen, especially when using multiple hash functions, it is instead possible that a position associated to the output of a hash function of a \kmer was set to 1 by the output of another hash of another \kmer, leading to false positives, i.e. reporting a \kmer is inside the data structure while it is not present.\\
-Counting bloom filters store counts instead of presence/absence in the vector positions. The value they return depends in the way elements are inserted. A \kmer count gets updated if a value larger than the stored one gets inserted. When a sequence is queried, they return the minimum value of the counts associated to the composing \kmers.\\
+Counting Bloom filters store counts instead of presence/absence in the vector positions. The value they return depends in the way elements are inserted. A \kmer count gets updated if a value larger than the stored one gets inserted. When a sequence is queried, they return the minimum value of the counts associated to the composing \kmers.\\
 Interleaved Bloom filters are instead made of several Bloom filters, as each one is filled with \kmers from a specific sample. The filters are divided into chunks and each specific chunk of all filters can be found in a contiguous region of memory. This speeds up color queries, as the lookup is done in a specific constrained region, limiting cache loading or misses.\\
 Multiple implementation and optimization techniques, such as the blocked-Bloom filters used to speed query and insert operations, are used to maximize the potential of this data structure won't be addressed here but are thoroughly explained in these reviews~\cite{marchet2024kmersets,marchet2021kmer,marchet2024coloredkmersets}. 
 
@@ -109,11 +109,11 @@ Another important feature of \kmer data structures is whether they can be modifi
 While most methods are static, dynamic structures that allow efficient insertion and, less frequently, deletion of \kmers are being developed in recent years~\cite{marchet2024kmersets}.
 
 \section{Our contributions: an outline}
-The three projects span different topics and can be divided at 2 different levels of engineering. The first is mainly organizing a pipeline with some already developed bioinformatics tools and contributing to the development of a tool for \kmer information manipulation. The other two are development of a tool from scratch.\\
+The three projects span different topics and can be divided at 2 different levels of engineering. The first is mainly organizing a pipeline with some already developed bioinformatics tools and contributing to the development of a tool for \kmer information manipulation. The other two are developments of a tool from scratch.\\
 They can be presented as follow:
 \begin{itemize}
 	\item[\textbf{\muset}] is a pipeline to construct plain text unitig matrices from input sample. It enables to build an abundance matrix in which the unitig count in each sample is the average of the counts of its constituent \kmers and a presence/absence matrix that report an unitig as present in a sample if its constituent \kmers are present in the sample over a given threshold.\\
-	\item[\smash{\stackunder{A \textbf{Quotient}}{\textbf{filter}}}] implementation that allows dynamic updates, resizing, and a framework to develop different specific data structures on top of it. It is the building block of a novel data structure, the Backpack Quotient Filter that has been recently published. I also redeveloped a Counting Quotient filter that uses a special scheme that uses less space by mimicking large \kmers by store smaller ones.\\ 
+	\item[\smash{\stackunder{A \textbf{Quotient}}{\textbf{filter}}}] implementation that allows dynamic updates, resizing, and a framework to develop different specific data structures on top of it. It is the building block of a novel data structure, the Backpack Quotient Filter that has been recently published. I also redeveloped a Counting Quotient filter that uses a special scheme that uses less space by mimicking large \kmers by storing smaller ones.\\ 
 	\item[\smash{\stackunder{A \textbf{\skmer}}{\textbf{sorting}}}] implementation to explore a different data structure to store \kmers without indexing and allowing queries.
 \end{itemize}
 Some of the research and development I did, mostly in the second and third projects, can be labeled as exploration and prototyping as the result is not intended to be a novel tool to be widely adopted by the community but as first step in possible route of research in this domain.
@@ -133,7 +133,7 @@ Remembering that unitigs, as described in section~\ref{sec:kmerobjects}, are a m
 \subsubsection{Main features and differences of unitig matrices}
 The construction of an abundance unitig matrix is based on two key observations: first, \kmer matrices can now be constructed with high efficiency, and second, unitigs can also be built efficiently. Therefore we can create a more compact and manageable representation that preserves the high-level information crucial for genomic variation diversity studies, loci variation visualization, and input for machine learning libraries.\\
 The main parts of the process to generate an abundance unitig matrix from an abundance \kmer matrix involves compacting \kmers into unitigs and estimating unitig abundance by averaging \kmer counts. In this way we obtain a more condensed, lossy representation of the data. As single \kmer counts are lost, the essential information is preserved by the average count of the unitig. Given that \kmer counts typically exhibit minimal variation within a unitig, this representation achieves compaction into a computationally manageable form, albeit at the expense of a minor loss of information.\\
-In cases where abundance information is not required, presence-absence unitig matrices can be used instead. They still capture sequence variation between individuals and are valuable for diversity studies.\\
+In cases where abundance information is not required, presence-absence unitig matrices can be used instead. They still capture sequence variation between individuals and are valuable for diversity studies. Figure~\ref{fig:muset} provides a schematic of the workflow used to generate the matrix.\\
 A key difference between the proposed model for abundance or presence-absence matrix construction process is a filtering step that retains only \kmers reflecting differences between samples. This targeted approach focuses on the most informative genomic regions and is applied on the abundance matrix construction. The presence-absence matrix includes the entire set of \kmers from the input genomes, providing a comprehensive view of the input data.\\
 
 \subsubsection{Matrix construction overview}
@@ -151,9 +151,9 @@ while the average abundance of a unitig $u$ with respect to a sample $S$ is defi
 In the equations $N$ is the number of \kmers in $u$, and $x_i$ is a binary variable that is $1$ when the $i$-th \kmer is present in sample $S$ and $0$ otherwise, while $c_i$ is a non-negative integer count.\\
 Figure~\ref{fig:muset} shows the main steps of the \muset pipeline. To produce an abundance matrix, the main steps are:
 \begin{enumerate}
-	\item A \kmer abundance matrix is built from FASTA/FASTQ files using \kmt;
-	\item \kmers that are present in at least 10\% of the samples and absent in at least 10\% of them are retained, while the others are discarded. The thresholds are customizable;
-	\item Unitigs are created from this set of retained \kmers in order to compress the representation. Unitigs shorter than a certain value are discarded. While this variable can be modified by the user, our recommendation is to keep it as $2k-1$ with $k$ the length of the \kmer. This value is the minimum value to observe a SNP in the set as an unitig representing a SNP would have 2 times $k-1$ bases as overlap to the unitigs representing the adjacent bases in the genome and 1 base for the variation.
+	\item A \kmer abundance matrix is built from FASTA/FASTQ files using \kmt.
+	\item \kmers that are present in at least 10\% of the samples and absent in at least 10\% of them are retained, while the others are discarded. The thresholds are customizable.
+	\item Unitigs are created from this set of retained \kmers in order to compress the representation. Unitigs shorter than a certain value are discarded. While this variable can be modified by the user, our recommendation is to keep it as $2k-1$ with $k$ the length of the \kmer. This value is the minimum value to observe a SNP in the set as a unitig representing a SNP would have 2 times $k-1$ bases as overlap to the unitigs representing the adjacent bases in the genome and 1 base for the variation.
 	\item The abundance unitig matrix is therefore constructed. This is done by 
 	\begin{enumerate}
 		\item creating a dictionary, using \ssh, to link \kmers to the unitig in which they have been compacted;
@@ -162,10 +162,10 @@ Figure~\ref{fig:muset} shows the main steps of the \muset pipeline. To produce a
 \end{enumerate}
 To generate a presence-absence the main steps of the pipeline are:
 \begin{enumerate}
-	\item unitig matrix the \ccdbg is built using \ggcat. Unitigs are in FASTA format while colors are stored in a compress representation accessible only via \ggcat \gls{cli} or \gls{API}s.
+	\item the \ccdbg is built using \ggcat. Unitigs are in FASTA format while colors are stored in a compressed representation accessible only via \ggcat \gls{CLI} or \gls{API}s.
 	\item unitigs are filtered by length like in step 3 of the abundance pipeline;
 	\item filtered unitigs are queried against the \ggcat color index and for each sample in which at least 1 \kmer of the unitig was present, the presence ratio is reported. If no \kmer was present in the sample, the sample is not reported.
-	\item the unitig query is then parsed (from jsonl) and the presence (1) or absence (0) is reported for every unitig in every sample in form of a matrix. The presence is determined when the fraction of present \kmers in the sample is above a pre-defined, although modifiable, threshold. It is also possible to produce a matrix that does report the presence ratio instead of a binary value.
+	\item the unitig query is then parsed (from JSONL) and the presence (1) or absence (0) is reported for every unitig in every sample in form of a matrix. The presence is determined when the fraction of present \kmers in the sample is above a pre-defined, although modifiable, threshold. It is also possible to produce a matrix that does report the presence ratio instead of a binary value. The JSONL (or JSON Lines) format is a text format for storing structured data to be processed one line at a time. When querying \ggcat, the presence/absence information for each queried sequence is represented as one dictionary per line. This dictionary associates the queried sequence with each sample in the graph that contains at least 1 \kmer of the queried sequence. The ratio of \kmers present for each sample is paired with the sample name. In order to generate a matrix, \muset parses each line of the JSONL file and generates a vector containing the ratio for present samples and 0 for non-present ones. Moreover, basic filtering of sequences by minimum ratio to be considered or minimum number of samples to be found to keep a queried sequence (as for the abundance matrix) can be applied to filter the matrix for specific use-cases.
 \end{enumerate}
 Only the abundance pipeline has been tested against the most similar state-of-the art tool that is in fact \ggcat, that produces, as mentioned, an implicit presence/absence matrix. Even without the \muset script to produce an explicit one, the abundance matrix script is faster than \ggcat when run on a large collection of 360 ancient oral samples, as shown in table~\ref{tab:muset_comparison}.\\
 It's important to note the differences in output formats and functionality between our tool and \ggcat. \ggcat utilizes a JSONL (JSON Lines) format, where each line represents the result of a sequence query. In its color query mode, it only outputs colors (representing samples) with more than one \kmer present in the sequence, providing the ratio between present \kmers and total \kmers in the sequence. While this output can serve as a useful input for developing new applications, it is not sufficiently comprehensive on its own for many analysis applications. Recognizing this limitation, we developed the additional \muset script to transform \ggcat's output and produce a practical and widely applicable unitig presence/absence matrix, as described in the steps just outlined. This matrix provides a clear, binary representation of unitig occurrences across all samples, which is crucial for various downstream analyses in comparative genomics and pangenomics. The \kmat function that transforms the JSONL into a CSV with or the presence ratio for all samples or a binary 1/0 - presence/absence value (using a given threshold), is also useful for other applications that use \ggcat.
@@ -177,16 +177,16 @@ No computational resources test has been done on human genomes as it was out of 
 		\toprule
 		Method & Wall-clock time & Peak memory & Disk usage \\
 		\midrule
-		\muset & \textbf{9h 43m 12s} & \textbf{\SI[detect-weight=true]{19}{\textbf{\giga\byte}}} & \textbf{\SI[detect-weight=true]{1.5}{\textbf{\tera\byte}}}\\
-		\ggcat & 24h 20m 40s & \SI{167}{\giga\byte} & \SI{641}{\giga\byte} \\
+		\muset & \textbf{9h 43m 12s} & \textbf{\SI[detect-weight=true]{19}{\textbf{\giga\byte}}} & \SI[detect-weight=true]{1.5}{\tera\byte}\\
+		\ggcat & 24h 20m 40s & \SI{167}{\giga\byte} & \textbf{\SI{641}{\textbf{\giga\byte}}} \\
 		\bottomrule
 	\end{tabular}
-	\caption{Comparison of running time, peak memory, and disk usage between \muset (filtered unitig matrix) and \ggcat (implicit and unfiltered unitigs) on 360 ancient oral samples.}\label{tab:muset_comparison}
+	\caption{Comparison of running time, peak memory, and disk usage between \muset (filtered unitig matrix) and \ggcat (implicit matrix and unfiltered unitigs) on 360 ancient oral samples.}\label{tab:muset_comparison}
 \end{table}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\linewidth]{figures/kmer_methods/muset_full.pdf}
+	\includegraphics[width=\linewidth]{figures/kmer_methods/muset_updated.pdf}
 	\caption[The \muset pipeline]{Scheme representing the main steps of the \muset pipeline.}
 	\label{fig:muset}
 \end{figure}
@@ -204,18 +204,21 @@ The significance of \muset lies in its novel approach to generate plain text uni
 \subsection{Improving the method}
 \muset is the first pipeline that integrates various existing and novel tools to produce unitig matrix representations of pangenomes. The \kmat software has been specifically developed for the pipeline: it implements filtering, count averaging, presence-absence steps and handles the various input/outputs. Most of the tools incorporated in \muset were instead not originally designed for this particular application.\\
 While \muset's main contribution is in proposing for the first time a method to build such matrices, the current implementation has room for improvement and optimization.
-The pipeline involves multiple steps in which data is written and read to disk, not for a specific design choice to ease the burden from in-memory processing, but because of subsequent steps are done by different software. Other operations are also slowing down the pipeline. Two of these that are easy to spot are: building unitigs from a file containing one \kmer per sequence in the abundance pipeline and transforming the jsonl output of \ggcat to a csv instead of using \ggcat APIs to get presence values to avoid two I/O operations and dumping directly to disk the csv matrix in the presence-absence implementation.\\
+The pipeline involves multiple steps in which data is written and read to disk, not for a specific design choice to ease the burden from in-memory processing, but because of subsequent steps are done by different software. Other operations are also slowing down the pipeline. Two of these that are easy to spot are: building unitigs from a file containing one \kmer per sequence in the abundance pipeline and transforming the \gls{JSONL} output of \ggcat to a \gls{CSV} instead of using \ggcat \gls{API} to get presence values to avoid two \gls{I/O} operations and dumping directly to disk the CSV matrix in the presence-absence implementation.\\
 Addressing these bottlenecks could yield a more optimized method to generate abundance unitig matrices that could scale to larger datasets and allow matrix-based analysis on them.
 %Another, more simple, upgrade of muset would be to produce such matrices also from a variation graph to allow 
+
+\clearpage
 
 \section{Prototyping Dynamic Data structures for \kmer counting: a Rank Select Quotient Filter}
 \label{sec:qf}
 While abundance unitig matrices are valuable for specific genomics applications, they may not be the most efficient representation for all use-cases. In particular, some applications require rapid determination of presence or absence of specific sequences in datasets of interest. By indexing the dataset, the information is organized in data structures that enable fast data queries.\\
-Sequence query in \kmer based data structures is typically performed through pseudo-alignment, a technique that involves tokenizing sequences into \kmers and querying each of them. Some data structures exploit the difference of just 1 character between subsequent \kmers to query to rapidly query multiple of them. While \cdbg or \ccdbg can be used to address this task, the graph construction is a major bottleneck and requires explicit association between each \kmer and its abundance. \\
+Sequence query in \kmer-based data structures is typically achieved through pseudo-alignment, a technique that involves tokenizing sequences into \kmers and querying each \kmer subsequently. Some data structures exploit the difference of just 1 character between each subsequent \kmer to organize the data so these kind of successive queries can be answered with less operations that a single \kmer query. While \cdbg or \ccdbg can be used as a starting base for indexing, the graph construction is a major bottleneck and requires explicit association between each \kmer and its abundance. \\
+
 \subsection{Brief filter data structures overview}
-\kmer storing data structures imply mainly two strategies to efficiently store and retrieve them: representing \kmers as string or as hashes\cite{marchet2024kmersets}. In this work we will describe a method that stores \kmers as hashes and in particular uses structures with false positive rates. Other hash-based data structures are static or dynamic hash tables~\cite{sshash}.\\
-Recall from~\ref{sec:introduction_qf} that approximate Membership Query (AMQ) data structures, such as Bloom filters, quotient filters, and cuckoo filters, offer a more space-efficient representation of a set or multi set of elements. These data structures have become essential tools not only in computational biology but also in other domains like databases, storage systems and networks. They are termed approximate because they allow queries to return a controlled false positive value at a rate $\delta$. This means that while they always confirm the presence of an inserted item, they might erroneously return true for non-inserted items with a probability of $\delta$. This trade-off provides space savings.\\
-Recent developments in the \kmer field yielded improved version of data structures that allow to store the count of elements in a dataset, instead of just reporting the absence or presence~\cite{squeakr,pandey,cqf,comin_count,sshash}. AMQs that provide this feature are termed counting AMQ or \gls{cAMQ}. In the case of cAMQ, false positive values should report a count greater and not inferior to the real ones: this means that they should never underestimate the abundance of an element in the dataset. These data structures are particularly useful in many bioinformatics applications, from pangenomics to transcriptomics and metagenomics.\\
+\kmer indexing data structures imply mainly two strategies to efficiently store and retrieve entries: representing \kmers as string or as hashes\cite{marchet2024kmersets}. In this work we will describe a method that stores a set of \kmer as hashes and in particular uses structures with false positive (returning that an entry is present while it is not) rate greater than zero: this means that while false negatives (returning that an entry is not present when in fact it is). Hash-based data structures without false positives are static or dynamic hash tables~\cite{sshash}.\\
+Approximate Membership Query (\gls{AMQ}) data structures, such as Bloom filters, quotient filters, and cuckoo filters, offer a more space-efficient representation of a set or multi set of elements~\ref{sec:introduction_qf}. These data structures have become essential tools not only in computational biology but also in other domains like databases, storage systems and networks. They are termed approximate because they allow queries to return a controlled false positive value at a rate $\delta$. This means that while they always confirm the presence of an inserted item, they might erroneously return true for non-inserted items with a probability of $\delta$. This trade-off provides space savings.\\
+Recent developments in the \kmer research community yielded improved version of data structures that allow to store the count of elements in a dataset, instead of just reporting its presence or absence~\cite{squeakr,pandey,cqf,comin_count,sshash}. AMQs that provide counting feature are termed counting AMQ or \gls{cAMQ}. In the case of cAMQ, false positive values report a greater and not inferior count compared to the real ones: this avoids underestimating the abundance of an entry in the dataset. Counting AMQs are particularly useful in many bioinformatics applications, from pangenomics to transcriptomics and metagenomics.\\
 At the present moment, the main areas of improvement of such data structures are:
 \begin{enumerate}
 	\item latency of \memb operations. It determines the range of applications they can be used for (e.g., computer networks) and the volume of data that can be queried within a reasonable amount of time (e.g., bioinformatics). The latency is mainly influenced by:
@@ -223,16 +226,17 @@ At the present moment, the main areas of improvement of such data structures are
 		\item data locality design. Developing an architecture that reduces cache misses by storing data that might be frequently accessed together in slots that fit within the largest process cache.
 		\item implementation efficiency, by carefully engineering the software for code branches, SIMD operations and multiprocessing. This is aspect is particularly important, as theoretically less efficient data structures can outperform others in practice due to optimization.
 	\end{itemize}
-	\item space efficiency, as it poses constraints on the computer architectures that can utilize it. Despite RAM cost declining, the more rapid growth of data requires efficient and parsimonious encoding of data to the bit level.
+	\item space efficiency, as it poses constraints on the computer architectures that can utilize it. Despite RAM cost declining, the rapid growth of data requires efficient and parsimonious encoding of data to the bit level.
 	\item supported features. The possibility to modify the data contained after initialization. The most useful operations are:
 	\begin{itemize}
 		\item incrementing elements count, or add new ones; 
 		\item decrementing elements count, or removing them when their count reaches zero;
 		\item enumerating elements with their respective count;
-		\item automatically resize the filter when it reaches maximum capacity, avoiding the need for a priori cardinality estimation and allowing for addition of new elements.
+		\item automatically resize the data structure when it reaches maximum capacity, avoiding the need for a priori cardinality estimation and allowing for addition of new elements. 
 	\end{itemize}
 \end{enumerate}
-A data structure that addresses efficiently all these aspects is the Counting Quotient Filter or \gls{CQF}. It is based on the Rank-Select quotient filter and it uses a counting scheme to efficiently encode the count of inserted elements in the slots of the filter. This method offers reduced memory usage and faster lookup speed compared to inserting multiple times elements in a Quotient Filter to remember the counts.
+A data structure that addresses efficiently all these aspects is the Counting Quotient Filter or \gls{CQF}~\cite{cqf}. It is based on the Rank-Select quotient filter and it uses a counting scheme to efficiently encode the count of inserted elements in the slots of the filter~\cite{cqf}. This method offers reduced memory usage and faster lookup speed compared to inserting multiple times elements in a Quotient Filter to remember the counts.
+
 \subsubsection{Filter data structures}
 AMQs are often termed with the name of filter. Here I briefly describe the most common ones.
 \begin{itemize}[leftmargin=1.8cm]
@@ -244,31 +248,32 @@ All these implementations provide a fast lookup table where information can be s
 I will focus on the implementation of the Quotient Filter, as it forms the basis of our implementation.
 
 \subsection{Quotient Filter structure: Rank and Select}
-The Rank-Select quotient filter, or \gls{RSQF}, works by hashing items into a $p$-bit fingerprint $x$ and then dividing the bits into two parts: the quotient $h0(x)$ of $q$ bits and the remainder $h1(x)$ of $r = p - q$ bits. The RSQF has an array of $2^q$ $r$-bit slots that store the remainder of each item. When inserting an item, the process begins by attempting to place the remainder in the slot determined by the quotient. If the home slot is occupied, a linear probing technique is used to locate the next available slot.
-To track and manage the runs (collections of subsequent slots containing remainders of a specific quotient), the the RSQF uses two metadata bitvectors:
+The Rank-Select quotient filter, or \gls{RSQF}, works by hashing items into a $p$-bit fingerprint $x$ and then dividing the bits into two parts: the quotient $h0(x)$ of $q$ bits and the remainder $h1(x)$ of $r = p - q$ bits. The RSQF has an array of $2^q$ $r$-bit slots that stores the remainder of each item. When inserting an item, the process begins by attempting to place the remainder in the slot determined by the quotient. If the home slot is occupied, a linear probing technique is used to locate the next available slot.
+To track and manage the runs (collections of subsequent slots containing remainders of a specific quotient), the RSQF uses two metadata bitvectors:
 \begin{itemize}
-	\item[\occs] indicates for which quotients there is already a remainder stored in the filter slots;
+	\item[\occs] indicates for which quotients there is an entry stored in the filter slots;
 	\item[\rends] indicates the end of each set of consecutive entries associated to the same quotient (also denoted as "run") in the filter.
 \end{itemize}
-The combination of these two bit vectors allows the RSQF to efficiently locate and manage inserted items by using rank and select operations. Specifically, the \texttt{RANK} function counts the number of \occ slots up to a certain point, and  \texttt{SELECT} identifies where in the filter a particular run ends. This allows efficient lookup, insertion, and enumeration of the data in the filter.\\
-Moreover, to store the data in a cache-friendly way, the filter is structured into blocks of 64 slots. To minimize operations requiring the scan of multiple blocks when the filter is relatively full, an offsets array tracks the distance from the start of a run to where it ends, every 64 slot. Computing offsets involves scanning only small sections of the metadata (64 bits or fewer) per operation, making the filter significantly faster.\\
+The combination of these two bit vectors allows the RSQF to efficiently locate and manage inserted items by using rank and select operations. Specifically, the \texttt{RANK[x]} function on the \occ metadata bitvector counts the number of \occ slots up to a \texttt{x}, and \texttt{SELECT[y]} operation on the \rends metadata bitvector identifies where in the filter the \texttt{y}-th run ends. The combination of these two functions allows efficient lookup, insertion, and enumeration of data in the filter.\\
+Moreover, to store data in a cache-friendly manner, the filter is structured into blocks of 64 slots. To minimize operations requiring the scan of multiple blocks when the filter is relatively full, an offsets array tracks the distance from the start of a run to where it ends, every 64 slot. Computing offsets involves scanning only small sections of the metadata (64 bits or fewer) per operation, making the filter significantly faster.\\
 Each block fragments contains one offset value, 64 \occs bits, 64 \rends bits, and 64 slots for remainders data. By grouping these elements together, the system minimizes memory access and enhances cache efficiency. This structure is optimized for rapid traversal and manipulation of the filter content to enable fast membership queries and updates.\\
 A scheme of how the quotient filter works is shown in figure~\ref{fig:qf_ex}. For the sake of simplicity the metadata vectors are not shown.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.95\linewidth]{figures/kmer_methods/quotient_filter_export.pdf}
-	\caption[Example of a quotient filter.]{Example of a quotient filter. An integer, represented in decimal form, can be expressed as a binary sequence. An unsigned 16-bit integer is composed of 16 binary digits (bits) that can store a value from $0$ to $2^{16}-1 = 65535$. To construct a quotient filter, a hash value is generated by applying some binary operations on this integer. From the computed hash value, the leftmost 4 bits are considered the quotient (although, depending on the implementation, the rightmost bits could be used instead). The remaining bits from the hash form the remainder. The remainder is stored in the filter at the position indicated by the quotient. }
+	\caption[Example of a quotient filter.]{Example of a quotient filter. An entry is codified as an integer number, represented in decimal form, can be expressed as a binary sequence. An unsigned 16-bit integer is composed of 16 binary digits (bits) that can store a value from $0$ to $2^{16}-1 = 65535$. To construct a quotient filter, a hash value is generated by applying some binary operations on the entry integer. From the computed hash value, the leftmost 4 bits are considered the quotient (although, depending on the implementation, the rightmost bits could be used instead). The remaining bits from the hash form the remainder. The remainder is stored in the filter at the position indicated by the quotient. }
 	\label{fig:qf_ex}
 \end{figure}
+
 \subsubsection*{Counting}
 \label{sec:rsqfcount}
 Counting data structures can store either exact counts or order of magnitude, depending on the application. In fields like human genomics, where count numbers are expected to be relatively low and precision is crucial, exact counts are preferred. Differently, in fields like metagenomics, where skewed abundance is more probable, an estimate of the count is often sufficient.\\
 Counts can be stored using three different strategies. In all cases, the remainders associated with a certain quotient are stored in monotonic order within the data structure.
 \begin{enumerate}
-	\item  a count can be encoded as the number of times a remainder is inserted into consecutive slots. This is the most basic implementation and in most cases the least space-efficient one. The data structure occupation is directly related to the total number of counts in it, making poor use of the bits in the slots.
+	\item  a count can be encoded as the number of times the same remainder is inserted into consecutive slots. This is the most basic implementation and in most cases the least space-efficient one. The data structure occupation is directly related to the total counts in it, making poor use of the bits in the slots.
 	\item a count $N$ of a remainder $R$ can be encoded into multiple consecutive slots as follows: 
 	\begin{itemize}
-		\item if $1 <= N <= 2$, than the remainder $R$ is inserted $N$ times;
+		\item if $1 <= N <= 2$, then the remainder $R$ is inserted $N$ times;
 		\item else $K = N - 2$ can be encoded into a sequence of slots. The boundaries are flagged by two remainders $R$. The slots in between store the count $K$. To signal that the slots are used as counter, the count elements break the monotonicity just after the first remainder.
 	\end{itemize}
 	This approach uses at least 3 slots for $n>2$ and, while more efficient than the first, is still inefficient for low count values.
@@ -276,13 +281,13 @@ Counts can be stored using three different strategies. In all cases, the remaind
 \end{enumerate}
 
 \subsection{Developing a new library for a Quotient Filter}
-The existing implementation of the Counting Quotient Filter (CQF), as described in \cite{cqf} and available at \texttt{https://github.com/splatlab/cqf}, presents several limitations that restrict its versatility and applicability. First, the generated quotient filter is constructed as a static object, meaning that once created, its structure and content cannot be modified. This constrains the ability to dynamically adjust or update the filter after its initial creation, which is often the case in many applications.
-Second, the implementation is specifically focused on the CQF, which limits the potential for experimenting with and developing variations based on the RSQF or the CQF itself that can add new functionalities or improve performances in specific cases. Furthermore, the existing implementation does not explicitly address the concept of "toricity" in the filter. With the term toricity, I refer to the circular logic of the filter, where elements can be moved around from the end to the beginning of the data structure, if needed. This property is crucial to fill properly handle the insertion of hashes with highest quotient value and when the filter is near capacity.\\
-To address these limitations,we have re-implemented the data structure with these features:
+The existing implementation of the Counting Quotient Filter (CQF), as described in~\cite{cqf} and available at \texttt{https://github.com/splatlab/cqf}, presents several limitations that restrict its versatility and applicability. First, the generated quotient filter is constructed as a static object, meaning that once created, its structure and content cannot be modified. This constrains the ability to dynamically adjust or update the filter after its initial creation, which is often the case in many applications.
+Second, the implementation is specifically focused on the CQF, which limits the potential for experimenting with and developing variations based on the RSQF or the CQF itself that can add new functionalities or improve performances in specific cases. Furthermore, the existing implementation does not explicitly address the concept of "toricity" in the filter. With the term toricity, I refer to the circular logic of the filter, where elements can be moved around from the \emph{end} to the \emph{beginning} of the data structure, if needed. This property is crucial to properly handle the insertion of hashes with highest quotient value and when the filter is filled near capacity.\\
+To address these limitations, we have re-implemented the data structure with these features:
 \begin{itemize}
 	\item it can be exact (when no space trade-off is chosen) or approximate in the \kmer space;
 	\item it handles exact or approximate counts;
-	\item it handles different count encoding;
+	\item it handles different count encoding.
 \end{itemize}
 The data structure is layered as follows:
 \begin{itemize}[leftmargin=1.8cm]
@@ -293,16 +298,16 @@ The data structure is layered as follows:
 		\item reading the value from specific slots;
 		\item shifting slots by a certain amount $z$. Slots starting at position $x$ to $y$ are moved between positions $x+z$ and $y+z$ modulo the length of the filter. This operation is needed when a new element has to be inserted in an already occupied position. By shifting right of $z$ slots the already set slots, the position $x$ to $x+z-1$ are therefore free to accommodate new elements or counts;
 		\item metadata operations for setting to 1 or to 0 the \occs and \rends bits in their bitvectors;
-		\item updating the offset vector to track of runs.
+		\item updating the offset vector to track runs.
 	\end{itemize}
-	\item[\textbf{Medium Level}] it comprises operation to insert, remove and query elements without explicitly handling bit-level operations. They implement a RSQF data structure.
+	\item[\textbf{Medium Level}] it comprises operations to insert, remove and query elements without explicitly handling bit-level operations. They implement a RSQF data structure.
 	\begin{itemize}
 		\item addition of an element to the data structure;
 		\item removal of an element from the data structure;
 		\item query of an element from the data structure;
 		\item metadata handling in each of the aforementioned operations.
 	\end{itemize}
-	\item[\textbf{High Level}] it comprises operations built on top of the RSQF layer and described a CQF.
+	\item[\textbf{High Level}] it comprises operations built on top of the RSQF layer and describes a CQF.
 	\begin{itemize}
 		\item extended addition and removal to allow for multiple slots altogether;
 		\item functions to encode and decode counters, as described in point 2 of section~\ref{sec:rsqfcount};
@@ -313,170 +318,223 @@ The data structure is layered as follows:
 		\item \kmer hashing.
 		\item initialization of the data structure;
 		\item enumeration of elements within the data structure;
-		\item dynamic resizing of the data structure, including element enumeration, filter size doubling, and element reinsertion;
+		\item dynamic resizing of the data structure, including element enumeration, filter size doubling, and element reinsertion.
 	\end{itemize} 
 \end{itemize}
-This implementation has been developed as both a library and standalone software, offering flexibility in its application. It is available at \texttt{https://github.com/frankandreace/cqf\_implementation/}.
+This implementation has been developed as a library and as standalone software, offering a basic binary ready to be used and a toolset that can use the filter for a specific application. It is available at \texttt{https://github.com/frankandreace/cqf\_implementation/}.
 \subsubsection{Allowing multiple types of counts: CQF and BQF}
-While the primary focus was on re-implementing a Counting Quotient Filter (CQF) from the Rank-Select Quotient Filter (RSQF) implementation, the basic structure with low to mid-level operations and application operations can be used to build other models on top of the RSQF. Victor Levallois has successfully implemented another data structure called the Backpack Quotient Filter (\gls{BQF})~\cite{bqf}, which uses the count encoding presented in point 3 of the previous section on RSQF counting methods~\ref{sec:rsqfcount}. Instead of using other slots to encode the counter, it reserves a pre-defined amount of bits in the remainder to store the approximate count:this is done at the expense of some precision.\\
+While the primary focus was on re-implementing a Counting Quotient Filter (CQF) from the Rank-Select Quotient Filter (RSQF) implementation, the basic structure with low to mid-level operations and application operations can be used to build other models on top of the RSQF. Victor Levallois has successfully implemented another data structure called the Backpack Quotient Filter (\gls{BQF})~\cite{bqf}, which uses the count encoding presented in point 3 of the previous section on RSQF counting methods~\ref{sec:rsqfcount}. Instead of using other slots to encode the counter, it reserves a pre-defined amount of bits in the remainder to store the approximate count: this is done at the expense of some precision.\\
 The successful implementation of the BQF demonstrates the flexibility and extensibility of the proposed architecture in order to handle different kind of counts.
 
 \subsubsection{Handling toricity}
-A crucial property of the filter, overlooked in the original CQF implementation, is the handling of specific edge cases related to its toroidal structure. Runs of remainders (or counts or combinations of both) associated with the same quotient are stored contiguously in monotonic order. This storage must be done in increasing slot ID order. When two or more elements with the same quotient are added to an empty filter, the slots used are the ones associated with the quotient and \emph{on the right of it} (i.e., the slots associated with the next quotients), and so on.\\
-A challenge arises in the part of the filter having the highest quotient values. When new elements are added, it's likely that at some point, a slot should be pushed to the next element after the final slot. To address this issue, the filter is implemented with a toroidal structure, meaning the slot following the last slot is the first slot of the filter. This property eliminates problems associated with filling the filter in the final slots by imposing equal properties to all slots in the filter.\\
+A crucial property of the filter, overlooked in the original CQF paper~\cite{cqf}, is the handling of specific edge cases related to its toroidal structure. Runs of remainders (or counts or combinations of both) associated with the same quotient are stored contiguously in monotonic order. This storage must be done in increasing slot ID order. When two or more elements with the same quotient are added to an empty filter, the slots used are the ones associated with the quotient and \emph{on the right of it} (i.e., the slots associated with the next quotients), and so on.\\
+A challenge arises in the part of the filter having the greatest quotient values. When new elements are added, it's likely that at some point, a slot should be pushed to the next element after the final slot. To address this issue, the filter is implemented with a toroidal structure, meaning the slot following the last slot (by ID number) is the first slot of the filter. This property eliminates problems associated with filling the filter in the final slots by imposing equal properties to all slots in the filter.\\
 Implementing the filter with this characteristic is non-trivial, as the toroidal property requires different handling of all comparisons within functions and shifting operations. It necessitates careful consideration of edge cases and boundary conditions to ensure correct behavior when operations wrap around from the end to the beginning of the filter.\\
 This toroidal implementation enhances the robustness and efficiency of the filter, allowing for more uniform utilization of the entire data structure and eliminating potential bottlenecks that could occur at the boundaries of a linear structure. Figure~\ref{fig:cqf_toricity} shows how the toroidal property works in a case of insertion where the final part of the remainder vector is already full.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\linewidth]{figures/kmer_methods/cqf_toricity_export.pdf}
-	\caption[The RSQF data structure scheme and toroidal property]{a) Scheme of the RSQF data structure. Along with the remainders vector, each block consists of the correspondent block of \occs and \rends bitvectors and one offset value. When elements associated to a quotient (here $16*x + 7$) cannot be stored in the relative slot because it is already used by another run, they are placed into the next contiguous available slots.
-	b) Toroidal insertion. The remainder associated to quotient $16*N + 14$ is inserted in the partially filled data structure. Since there are no free slots in the final part of the remainder vector, the next available free slot is at the beginning of the vector. The first slot of the vector, which was free, is then filled with the remainder. Metadata bits are then updated. The \occ bit of the quotient $16*N + 14$ is set to 1. The \rend at position 0 is then set to 1 and this updates the offset.} 
+	\caption[The RSQF data structure scheme and toroidal property]{a) Scheme of the RSQF data structure. Along with the remainders vector, each block consists of the correspondent block of \occs and \rends bitvectors and one offset value. When elements associated to a quotient (here $16*x + 7$) cannot be stored in the relative slot because it is already used by another run, they are placed into the next contiguous available slots.\\ b) Toroidal insertion. The remainder associated to quotient $16*N + 14$ is inserted in the partially filled data structure. Since there are no free slots in the final part of the remainder vector, the next available free slot is at the beginning of the vector. The first slot of the vector, which was free, is then filled with the remainder. Metadata bits are then updated. The \occ bit of the quotient $16*N + 14$ is set to 1. The \rend at position 0 is then set to 1 and this updates the offset.} 
 	\label{fig:cqf_toricity}
 \end{figure}
 
 \subsubsection{Dynamic resizing strategy}
-The proposed implementation of the filter eliminates the need for a priori computation of the \kmer set cardinality (and estimating the slots used by the counts), allowing for direct data insertion. To prevent failure when the number of inserted elements exceeds capacity, a dynamic resize and reallocation strategy is implemented. A specific counter is incremented each time a slot is used in the filter. This counter keeps track of the slot occupancy ratio: when the number of occupied slots reaches 95\%, the insertion process is paused and the resize operation is initiated. The process operates as follows: 
+This implementation of the filter eliminates the need for a priori computation of the \kmer set cardinality (and the slots used by the counts), allowing for direct data insertion. To prevent failure when the number of inserted elements exceeds capacity, a dynamic resize and reallocation strategy is implemented. A specific counter keeps track of the number of slots in use and it is incremented each time an entry is inserted in the filter.When the slot occupancy ratio reaches 95\%, the insertion process is paused and the filter automatically doubles its capacity. This process operates as follows: 
 \begin{enumerate}
 	\item Enumeration: all stored hashes (with their counts) are enumerated. Hash values are temporarily stored in a hash table, with the element as the key and the count as the value. The enumeration is done by linear probing the entire filter. Each \occ metadata bit is sequentially scanned. When a bit is set to one, the probe looks for the corresponding run of remainders in the filters and proceeds to enumerating all the elements (composed of the combination of quotient and remainder) with their counts. When the entire \occs bitvector is scanned, the enumeration ends.
 	\item Parameters update: the size of the quotient is increased of one and the size of the remainder is decreased of the same amount. By adding 1 bit to the quotient, the number of index-able and insert-able elements doubles. All other internal values depending on quotient or remainder are updated. The occupancy counter is set to 0.
-	\item Re-instantiation of the vectors: the remainder vector and the metadata vectors are doubled in size.
+	\item Re-instantiation of the vectors: new remainder and metadata vectors are initialized with double size.
 	\item Insertion of elements in the new filter. The elements are fetched from the hash table and inserted back in the filter.
 \end{enumerate}
-The dynamic resizing allows for flexible use of the data structure without prior knowledge of data size and ensures efficient space utilization by growing only when necessary. However, this process produces a temporary spike in memory, by having at the same time the map containing the enumeration and the newly doubled filter.
+The dynamic resizing allows for flexible use of the data structure without prior knowledge of data size and ensures efficient space utilization by growing only when necessary. However, this process produces a temporary spike in memory, of $O(N)$ - with $N = 2^q $ slots, by having at the same time the map containing the enumeration and the newly doubled filter. Finally, this process is $O(n)$ in time, as all the elements have to be enumerated, inserted into the hash table and re-inserted in the new filter. As this operation happens 1 time each $N$ insertions, its amortized cost for each insertion is proportional to a constant. Nevertheless, when the resize happens, the latency of the insertion operation will be extremely high. This is not a problem for bioinformatics applications.
 
 \subsubsection{Using the Fimpera scheme to reduce space}
-The size of a RSQF data structure is given by $2^q * (r + m )$ bits, where $m\sim 2.125$ metadata bits (along with some other relatively negligible overhead). This suggests that if there were a way to store nearly the same input information while reducing $r$, it would yield substantial space savings and enable the use of the data structure on larger datasets. To achieve this goal, the CQF implementation has been developed also with the Fimpera scheme incorporated~\cite{fimpera}, like in the BQF.
+The size of a RSQF data structure is given by $2^q * (r + m )$ bits, where $m \sim 2.125$ metadata bits (along with some other relatively negligible overhead) for the metadata bitvectors. This suggests that if there were a way to store nearly the same input information while reducing $r$, it would yield substantial space savings and enable the use of the data structure on larger datasets. To achieve this goal, the CQF implementation has been developed also with the Fimpera scheme incorporated~\cite{fimpera}, like in the BQF.
 
-Fimpera operates by splitting each \kmer into smaller \emph{s-mers} and storing them in the filter, each with the \kmer count. The \kmer abundance can thus be retrieved through its constituent \emph{s-mers}, as the presence of a\kmer implies the presence of all its constituent \emph{s-mers}.\\
-This approach has been demonstrated to significantly reduce the false-positive rate by an order of magnitude without generating false negatives or underestimating \kmer abundance~\cite{fimpera}. In this context, Fimpera is used to reduce the dimension of the filter without increasing the false-positive rate, as storing smaller hashes from \emph{s-mers} results in a smaller $r$.
+Fimpera operates by splitting each \kmer into smaller \smer and storing them in the filter, each with the \kmer count. The \kmer abundance can thus be retrieved through its constituent \smers, as the presence of a \kmer implies the presence of all its constituent \smers.\\
+This approach has been demonstrated to significantly reduce the false-positive rate by an order of magnitude without generating false negatives or underestimating \kmer abundance~\cite{fimpera}. In this context, Fimpera is used to reduce the dimension of the filter without increasing the false-positive rate, as storing smaller hashes from \smers results in a smaller $r$.
 
-To estimate the correct abundance of a \kmer, the smallest count among its constituent \emph{s-mers} is used.
-The major drawback of this scheme is the loss of the \kmer enumeration feature, as only the \emph{s-mers} can be retrieved. However, the dynamic resizing of the data structure is preserved as only \emph{s-mers} are required to be remembered.
+To estimate the correct abundance of a \kmer, the smallest count among its constituent \smers is used.
+The major drawback of this scheme is the loss of the \kmer enumeration feature, as only the \smers can be retrieved. However, as the dynamic resizing of the data structure uses directly \smers, this feature is preserved.
 
-This approach may introduce false positive \kmers: \kmers that are non present in the original dataset but are composed of \emph{s-mers} found in other \kmers are going to be reported as present. As this is a joint probability, it is the produce of each independent probability, becoming very low when $s$ is sufficiently large. The $s$ parameter must be chosen as a trade-off between space efficiency and false positive rates. For the BQF, this has been estimated as under $10^{-5}\%$ with $s > 20$ when $k = 32$.
+Finally, this approach may introduce false positive \kmers: \kmers that are non present in the original dataset but are composed of \smers found in other \kmers are going to be reported as present. As this is a joint probability, it is the produce of each independent probability, becoming very low when $s$ is sufficiently large. The $s$ parameter must be chosen as a trade-off between space efficiency and false positive rates. For the BQF, this has been estimated as under $10^{-7}$ with $s > 20$ when $k = 32$.
 
 This Fimpera-enhanced implementation offers a novel approach to improving the space efficiency of RSQF-based data structures while maintaining acceptable error rates and proves the flexibility of the proposed implementation.
 
 \subsection{Conclusions and perspectives}
 The proposed implementation of a prototype quotient filter has demonstrated considerable flexibility in its approach to storing \kmer abundances. This adaptability is a key feature that sets it apart from more rigid data structures and opens up new possibilities for genomic data analysis.\\
-A possible extension of this project would be to incorporate additional metadata, which would extend its functionality beyond a conventional cAMQ. For instance, color information would be greatly useful for specific pangenomics applications. However, this extension is non-trivial due to the memory-intensive nature of color storage and encoding. An interesting direction could use of Shannon coding for colors. When the filter undergoes multiple resizes, each resize operation can be used to evaluate the distribution of contained colors. The result of this evaluation could be used to inform an adaptive encoding strategy where frequently occurring colors are represented with fewer bits, while less common colors are encoded with into large values. Such an approach would optimize the space-color information trade-off dynamically.\\
+A possible extension of this project would be to incorporate additional metadata, which would extend its functionality beyond a conventional cAMQ. For instance, color information would be greatly useful for specific pangenomics applications. However, this extension is non-trivial due to the memory-intensive nature of color storage and encoding. To address this issue, an interesting direction could use of Shannon coding for colors. When the filter undergoes multiple resizes, each resize operation can be used to evaluate the distribution of contained colors. The result of this evaluation could be used to inform an adaptive encoding strategy where frequently occurring colors are represented with fewer bits, while less common colors are encoded with into large values. Such an approach would optimize the space-color information trade-off dynamically.\\
 Despite its new features, this implementation has not found its way to a standalone publication. This proposed CQF implementation (without Fimpera) exhibited slower performance compared to the original, more optimized, version. This performance disparity highlights the challenges providing implementations with new features without impacting computational efficiency. The negative results in terms of insertion and query speed on initial testing of the tool together with the positive results of the BQF implementation were the reasons we decided to not move forward with more extensive benchmarking of the tool. Code profiling showed bottlenecks related to the insertion of counts and the encoding and the coding of counts. Based on the same RSQF, the BQF uses less operations as it modifies only one slot at a time, compared to the multiple slots of the CQF.\\
-Nevertheless, there is value in prototyping data structures that offer greater customization potential for specific applications, as they provide guidance for the evolution of more flexible and adaptable data structures.\\
-Finally, the BQF implementation, based on this RSQF model, has been presented at RECOMBseq~\cite{recombseq} conference and will be soon published in the associated journal~\cite{bqf}.
+Nevertheless, there is value in prototypes that offer greater customization potential for specific applications, as they provide guidance for the evolution of more flexible and adaptable data structures.\\
+Finally, the BQF implementation, based on this RSQF model, has been presented at RECOMB–seq~\cite{recombseq} conference and will be soon published in the associated journal~\cite{bqf}.
 
-\section{Prototyping Dynamic Data structures for \kmer counting: \skmer sorted list}
+\clearpage
+
+\section{Prototyping Dynamic Data structures for \kmer counting: \emph{virtual} \skmer sorted list}
 \label{sec:skmers}
-In this chapter, I have examined various examples of \kmer-based methods, demonstrating that there is no universal approach to efficiently represent \kmers. The most appropriate method is largely dependent on the specific application requirements. For instance, when comparing two datasets, one effective approach is to enumerate all \kmers for each set and store them in sorted lists. The difference between these sets can then be quantified using a set metric, such as the Jaccard index, which accounts for \kmer differences in the lists. This process is particularly efficient when working with sorted lists. sorted \kmer lists offer a reasonably efficient representation for individual \kmer queries without the need for additional indexing structures. Using binary search, the query time complexity is $O(log{N})$, where $N$ represents the cardinality of the set. This logarithmic time complexity ensures relatively fast query operations, especially for moderately sized sets.\\
-While not indexing the data results in slower data structure insertion time, using sorted lists offers the advantage of reduced space requirements. A map index achieves $O(1)$ time for each insertion, leading to $O(N)$ complexity when inserting $N$ elements. In contrast, sorting a list, assuming random data without additional hypotheses, requires $O(Nlog{N})$ time when comparisons are performed. Utilizing a list instead of a more complex data structure, such as the RSQF, provides a more compact representation of the data in memory. The list has no overhead as it does not use empty slots, metadata (\occs, \rends or offsets) vectors, or additional variables. The size of the data structure is solely determined by the size of the raw data; no external bits of information are added, even though information is gained compared to the input through the sorting process.\\
-Instead of storing individual \kmers, an encoding can be employed to group overlapping \kmer together, resulting in space savings. The \kmer research community has explored several space compression techniques by encoding \kmers within string sets. The fundamental idea is to construct string sets that contain all enumerated \kmers and nothing else. Recent models include unitigs, eulertigs, simplitigs, and \skmers ~\cite{marchet2024kmersets}.\\
-We propose a novel data structure that combines the encoding of \kmers into \skmers for space savings with a sorted list structure for relatively quick non-indexed \kmer queries. This structure can be termed a \skmers sorted list.
-\skmers are sequences of adjacent \kmers that share the same minimizer. They generate a partition of the \kmer set, allowing for space savings and parallelization. Although they are a string representation, \skmers are often used in hash-based methods as they are based on hashed minimizers. Another advantage of using \skmers in the sorted list is that consecutive \kmers, being close to each other, can be queried together, resulting in significant computational time savings. To perform a query, the algorithm locates the \skmer linked to the queried \kmer's minimizer and checks for the \kmer within that \skmer.\\
-Implementations like \blight~\cite{blight} and \ssh~\cite{sshash} use Minimal Perfect Hash Functions (\gls{MPHF}) to facilitate mapping of minimizers to their corresponding \skmers. However, the use of MPHF generates a static dictionary that cannot be updated~\cite{smsketch}, forcing the data structure to remain static. By employing sorted \skmers lists instead, we can provide dynamic updates, enhancing the flexibility and adaptability of the data structure.
+In this chapter, I have examined various examples of \kmer-based methods, demonstrating that there is no universal approach to efficiently represent \kmers. The most appropriate method is largely dependent on the specific application requirements. For instance, when comparing two datasets, one effective approach is to enumerate all \kmers for each set and store them in sorted lists. The difference between these sets can then be quantified using a set metric, such as the Jaccard index, which accounts for \kmer differences in the lists. This process is particularly efficient when working with sorted lists.\\
+Sorted \kmer lists offer a reasonably efficient representation for individual \kmer queries without the need for additional indexing structures. Using binary search, the query time complexity is $O(log{N})$, where $N$ represents the cardinality of the set. This logarithmic time complexity ensures relatively fast query operations, especially for moderately sized sets.\\
+While not indexing the data results in slower insertion and query time, using sorted lists offers the advantage of reduced space requirements. A map index achieves $O(1)$ time for each insertion, leading to $O(N)$ complexity when inserting $N$ elements. In contrast, sorting a list, assuming random data without additional hypotheses, requires $O(N\log{N})$ time when comparisons are performed. Utilizing a list instead of a more complex data structure, such as the RSQF, provides a more compact representation of the data in memory. The list has no overhead as it does not use empty slots, metadata (\occs, \rends or offsets) vectors, or additional variables. The size of the data structure is solely determined by the size of the raw data; no external bits of indexing information are added, even though information is gained compared to the input data through the sorting process.
 
-\subsection{Super-\kmers sorted lists: Input and output}
-The \skmer sorting algorithm we propose is a component of a more comprehensive \skmer-based data structure to which I contributed. For the sake of brevity, we will not delve into the full details of this structure.\\
-Our algorithm takes any source of \kmers and processes it to produce an enumeration of \skmer that are then sorted into a list for efficient lookup.\\
-While this method can enumerate the sorted \skmer in text format, all the operations are done in binary space after 2-bits encoding the nucleotides. This encoding approach offers dual benefits: it enhances space efficiency for\kmer representation in memory and facilitates fast machine operations for data comparison and modification.\\
-The following sections provide a detailed overview of the sorting steps, beginning with the enumeration of \skmers from the input data.
+To achieve increased space saving, instead of storing individual \kmers in a list, an encoding can be employed to group overlapping \kmer together. The \kmer research community has explored several loss-less compression techniques by encoding \kmers within string sets, also known as \gls{SPSS} or Spectrum Preserving String Sets. The fundamental idea is to construct string sets that contain all enumerated \kmers and nothing else. Recent models include \texttt{eulertigs}, \texttt{simplitigs}, and \texttt{\skmers} ~\cite{marchet2024kmersets}. Our proposed data structure positions in between an SPSS that achieves maximum compaction of \kmers and the logarithmic queries of a sorted \kmer list by compacting \kmers into a \emph{virtual} \skmer list that allows logarithmic queries. \\
+The standard definition of \skmer is the compaction of successive \kmers present in an input sequence if they share the same minimizer in the sequence. The minimizer is an \smer, with $ s < k$, chosen among all the \smers in a \kmer, that minimizes a specific function (e.g. lexicographic or minimal hash value). This definition of \skmer, that from now on I am going to term as \emph{classical} \skmer, requires co-localization of the compacted \kmers inside the input sequence, as they need to share the exact same minimizer (not only the same by sequence content but also the same by position in the input sequence). \\
+What we instead propose in our method is a \emph{variation} of \skmer, that I am gonna term from now on as \emph{virtual} \skmer, whose definition drops the co-localization requirement of the \emph{classical} \skmer. By doing so, \kmers can be compacted into a \emph{virtual} \skmer if they share the same minimizer by sequence content, independently from where in the input they do come from.\\
+We therefore propose a novel data structure that combines the compaction of \kmers into \emph{virtual} \skmers with a sorted list structure for relatively quick non-indexed \kmer queries while compacting the \kmers. We named this data structure \emph{virtual} \skmers sorted list and it produces a \kmer set representation. Figure~\ref{fig:skmer_definition} shows an example of \emph{classical} and \emph{virtual} \skmers.
 
-\subsection{Super\kmer list model}
-\label{sec:skmer_model}
-To better comprehend the sorting algorithm's steps, it is useful to conceptualize the \skmer list as both a succession of string-representing objects and a matrix. This matrix is defined by two key parameters: $N$, the number of enumerated super\kmers; $M$, the maximum number of \kmers that a \skmer can handle, where $M = k-m+1$ ($k$ = \kmer length, $m$ = minimizer length). In this matrix model, rows represent distinct strings (\skmers), while columns identify specific positions within each \skmer. An important aspect of this representation is that a horizontal position in the matrix (column) corresponds to the position of a \kmer within its \skmer. Position 0 represents the \kmer in the first possible position of the \skmer. This position also corresponds to the suffix size of the \kmer, where the suffix is defined as the number of nucleotides following the minimizer.\\
-Most algorithm steps can be conceptualized as operations on the matrix columns. A crucial feature of this model is that a specific position in the matrix represents the presence or absence of a \kmer in the data structure.\\
-The matrix-based concept is going to be used in the next sections to provide a clearer and simplified representation of the \skmer list structure to understand algorithmic operations.
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/kmer_methods/skmer_export.pdf}
-	\caption[Representation of a \skmer list as a matrix.]{Representation of a \skmer list as a matrix. a) Given, as example, a set of $N$ enumerated \skmers consisting of just a \kmer in input. b) The \kmers can be divided by the position of their minimizer. c) \kmers are organized in the matrix based on their rows (as they are provided as different \skmers in input, each \kmer has a different one). Position in the column is given by the previous division. A \kmer whose minimizer is at the end, having suffix 0, is in column 0, while a \kmer with the minimizer at the beginning will be in the last column. d) A simpler conceptualization of the matrix in \emph{c)} has in each entry the row value if the \skmer has a valid \kmer in that position.}
+	\includegraphics[width=\textwidth]{figures/kmer_methods/superkmer_definition.png}
+	\caption[\emph{Classical} \skmer and \emph{virtual} \skmer definition.]{\emph{Classical} \skmer and \emph{virtual} \skmer definition. 1) \emph{Classical} \skmers are generated from an input sequence. \kmers that share the same minimizer in the input sequence (co-localized) are compacted into the \skmer. 2) \emph{Virtual} \skmers are generated by compacting \kmers that share the same minimizer, independently of their origin (sequence, set of \kmers or any \gls{SPSS}). Example with \kmer length of 5 and minimizer length of 2.}
+	\label{fig:skmer_definition}
+\end{figure}
+
+\emph{Virtual} \skmers generate a partition of the \kmer set, allowing for space savings and parallelization of operations in the set. Although they are a string representation, \emph{virtual} \skmers are based on hashed minimizers. An advantage of using \emph{virtual} \skmers in the sorted list is that consecutive \kmers, being close to each other, can be queried together, resulting in significant computational time savings. To perform a query, the algorithm locates the \emph{virtual} \skmer linked to the queried \kmer's minimizer and checks for the \kmer within that \emph{virtual} \skmer.\\
+Implementations like \blight~\cite{blight} and \ssh~\cite{sshash} use Minimal Perfect Hash Functions (\gls{MPHF}) to facilitate mapping of minimizers to their corresponding \emph{classical} \skmers. However, the use of MPHF generates a static dictionary that cannot be updated~\cite{smsketch}, forcing the data structure to remain static. By employing sorted \emph{virtual} \skmers lists instead, we can provide dynamic updates, enhancing the flexibility and adaptability of the data structure. This is also due to the relaxation of constraints in the \emph{virtual} \skmer definition. \\
+The next sections are going to explain in more detail the input/output and the construction steps of the method we use to generate and query the \emph{virtual} \skmer sorted list.\\
+The \skmer sorting algorithm we propose is a component of a more comprehensive \skmer-based data structure to which I contributed. For the sake of brevity, I will not delve into the full details of this structure nor the way we represent or compare \emph{virtual} \skmers under the hood.
+
+\subsection{Input and output}
+\begin{itemize}
+	\item[\textbf{\texttt{INPUT}}] Our algorithm takes as input any source of \kmers: sequences, \skmers, unitigs, \kmers. The input ingestion produces an enumeration of \emph{virtual} \skmers that is used fed to the remaining part of the algorithm.
+	\item[\textbf{\texttt{OUTPUT}}] The method produces a list of \emph{virtual} \skmer in which \kmers having the minimizer at the same position are sorted following a given ordering. This is the property that allows efficient lookup of \kmers in the list.
+\end{itemize}
+While this method can enumerate the sorted \skmer in text format, all the operations, as well as disk storage of the list, are done in binary space after 2-bits encoding the nucleotides. This encoding approach offers dual benefits: it enhances space efficiency for \kmer representation in memory and facilitates fast machine operations for data comparison and modification.
+
+
+\subsection{\emph{virtual} \skmer list and \kmer matrix models}
+\label{sec:skmer_model}
+To better grasp the rationale of the sorting algorithm steps, it is useful to notice that the \emph{virtual} \skmer list enumerated from the input is a list of objects (the \emph{virtual} \skmers) that can be partitioned into \kmer by the minimizer position in each \kmer. This defines a \kmer matrix characterized by two key parameters: $N$, the number of enumerated \emph{virtual} \skmers; $M$, the maximum number of \kmers that can be compacted into a single \emph{virtual} \skmer, where $M = k-m+1$ ($k$ = \kmer length, $m$ = minimizer length).\\
+In this matrix model, rows represent distinct \emph{virtual} \skmers, while columns identify specific positions within each \emph{virtual} \skmer, corresponding to the \kmer inside each \emph{virtual} \skmer that contains a minimizer at a defined position: a column of the matrix corresponds to the position of a \kmer within its \emph{virtual} \skmer. \texttt{Position 0} represents the \kmer in the first possible position of the \emph{virtual} \skmer. This position also corresponds to the \texttt{suffix size} of the \kmer, where the \texttt{suffix} is defined as the distance between the end of the minimizer and the end of the \kmer.\\
+All the steps of the sorting algorithm can be conceptualized as operations on or between the matrix columns, i.e. by considering all the \kmers that have the minimizer at the same position. \\
+In the next sections I am going to use the matrix representation to provide a clearer and simplified explanation of the algorithmic operations. Figure \ref{fig:matrix} shows an example of ingested \emph{virtual} \skmers and their matrix model representation.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/kmer_methods/matrix.png}
+	\caption[The matrix model for a \emph{virtual} \skmer list.]{The matrix model for a \emph{virtual} \skmer list. When \kmers are ingested in input as an enumeration of \emph{virtual} \skmer, \kmers can be considered as organized in a matrix model. Each row corresponds to an enumerated \emph{virtual} \skmer and each column corresponds to a \kmer inside a \emph{virtual} \skmer. While rows partition the \kmers by input ordering, columns partition \kmers by minimizer position (and therefore position of the \kmer in the \emph{virtual} \skmer).}
 	\label{fig:matrix}
 \end{figure}
 
-
-%Figure YYY shows the equivalences between these two models.\\
-\subsection{The $log{N}$ query model}
-Unlike a traditional \kmer list, the \kmers within a \skmer list are not fully ordered. Instead, we have $M$ ordered columns, which allows us to transform the classic binary search algorithm as follows:
+\subsection{The $\log{N}$ query model}
+\label{sec:logN_model}
+Unlike a traditional \kmer list, the \kmers within a \emph{virtual} \skmer sorted list are not fully ordered. The sorted list has $M$ ordered columns: all \kmers part of the same column are sorted by the chosen ordering. This means that a \emph{virtual} \skmer \texttt{A} that is placed before a \emph{virtual} \skmer \texttt{B} in the sorted list will have all the \kmers at the same minimizer position with \emph{inferior} ordering value compared to the ones of \texttt{B}: for every column a \kmer from \texttt{A} is going to be smaller than the one in \texttt{B}. This does not mean that all the \kmers of \texttt{A} are smaller than the ones of \texttt{B}: only columns preserve the order.\\
+A shown in figure~\ref{fig:skmer_query}, this property allows us to transform the classic binary search algorithm as follows:
 \begin{enumerate}
 	\item Identify the minimizer position $p$ within the \kmer to be queried.
 	\item Navigate to column $p$ of the matrix, focusing only on the \kmers present in that specific column.
 	\item Perform a binary search for the target \kmer within the selected column.
 \end{enumerate}
 Step 1, while potentially requiring up to $k-m+1$ operations, becomes more efficient when searching for successive \kmers as the cost is amortized over multiple queries.
-Step 3 maintains the logarithmic time complexity of a binary search, $O(log N)$, where $N$ is the number of \skmers. However, in practice, this step tends to be faster than a traditional binary search on a full \kmer list. This improved efficiency is due to the distribution of \kmers among all columns, effectively reducing the search space for each query.
-
-\subsection{Sorting \kmers from the same matrix column}
-\label{sec:skmersorting}
-The sorting algorithm's initial step involves a column-wise bucketing of the input \kmer source, based on the minimizer position within each \kmer. This process distributes \kmers across $M$ columns, with $M$ defined as in section~\ref{sec:skmer_model}. Then, each column is independently sorted. Once all columns have been individually sorted, the resulting column-sorted matrix is returned as the final output of this phase. Note that the sorting processes are completely independent and can be performed in parallel.\\
-
-\subsection{Construction of overlap lists between consecutive columns}
-\label{sec:skmeroverlap}
-The next step in the algorithm focuses on detecting overlaps between consecutive columns. For each pair of adjacent columns, we aim to identify where the $k-1$ suffix of a \kmer in the first column overlaps with the $k-1$ prefix of a \kmer in the subsequent column. This process is performed independently for each pair of consecutive columns and can be divided into several steps. First, the algorithm inserts the $k-1$ prefixes of the \kmers from the second column into a hash table, using the prefix as the key and the \skmer ID as the value. Then for each $k-1$ suffix computed from the first column, it searches for a matching entry in the hash table. When a match is found, the pair of matrix coordinates (one from each column) is inserted into a list of candidate overlaps. It's crucial to note that a single element in one column may overlap with multiple elements in the adjacent column. In such cases, all possible overlaps are recorded.\\
-Once the scan is completed, each pair of adjacent columns will have its own list of candidate overlaps. This step is essential for identifying potential connections between \kmers across different \skmers, which will be utilized in subsequent stages of the algorithm. The independent logic of these operations allows for effective parallelization, potentially improving computational efficiency.
-
-\subsection{Maximal set of overlapping \kmers: co-linear chaining}
-The previous step computed all possible \kmer overlap pairs. However, to produce a properly sorted list, we must respect the ordering of\kmers across all columns. Some overlaps may be incompatible due to two possible scenarios:
-\begin{itemize}
-	\item[a] a \kmer overlaps with multiple \kmers in the adjacent column, but can be used just once;
-	\item[b] Pairs that, when visualized as edges between column positions, cross each other cannot be used together as they would violate the relative column order.
-\end{itemize}
-In figure~\ref{fig:chain}, point c) shows an example of overlap pairs, with some incompatible ones and a maximal set of overlaps. To select the maximal set of "non-crossing" pairs from those calculated earlier, we employ co-linear chaining.\\
-Co-linear chaining is an algorithmic technique commonly used in alignment algorithms. In the context of pairing shared subsequences between two sequences, it can be summarized as finding pairs of connected elements such that no "crossing" connections occur when visualized geometrically. \\
-In read-to-reference sequence alignment, co-linear chaining takes pairs of maximal exact matches (MEMs) as input. It then computes a chain of pairs where the selected pairs' order aligns with their appearance in both strings, while maximizing the number of bases covered by the chain in the read. Recently, this technique has also been applied to sequence-to-graph alignment in pangenomics applications.\\
-In the context of this method, co-linear chaining is used to resolve the compatibility issues between \kmer overlap pairs, ensuring a consistent order across columns while maximizing the number of valid overlaps. This step is crucial to produce a coherent and efficiently searchable structure.
-
-\begin{figure}[h!]
+Step 3 maintains the logarithmic time complexity of a binary search, $O(\log N)$, where $N$ is the number of \emph{virtual} \skmers. However, in practice, this step tends to be faster than a traditional binary search on a full \kmer list. This improved efficiency is due to the distribution of \kmers among all columns, effectively reducing the search space for each query.
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/kmer_methods/sk_alg_export.pdf}
-	\caption[Main steps of the super\kmer sorting algorithm.]{Main steps of the super\kmer sorting algorithm. a) This example shows the case of single \kmers in \skmers using the matrix representation, as in Figure~\ref{fig:matrix}. b) sorting is shown for a pair of contiguous columns. c) Overlap between \kmers is registered as pair of \skmer IDs. Here it is shown as edges between the \skmer IDs of the two columns. Some overlaps are incompatible: 4-7 crosses 3-5 and 2-8; 4-8 points to the same \kmer. d) Co-linear chaining computes the maximal set of overlapping \kmer, shown with the dark orange edges. Selected edges do not cross other ones and uniquely connect a pair of \kmers. e) The information from each pair of columns is combined to find the new, ordered, \skmers, as described in section~\ref{sec:reconciliation}. Chains of overlapping \kmers are combined together as a \skmer (shown here as list of \kmers for convenience).}
-	\label{fig:chain}
+	\includegraphics[width=\textwidth]{figures/kmer_methods/querying.png}
+	\caption[Querying the \emph{virtual} \skmer sorted list.]{Querying the \emph{virtual} \skmer sorted list. a)The \texttt{AAGC} \kmer is queried. The first step is to localize the minimizer (in this case \texttt{AA} is at the beginning of the \kmer). b) As the minimizer in \texttt{AAGC} is at the beginning of the \kmer, the query will look only at the last \kmer in each \emph{virtual} \skmer in the list (the last \kmer in a \emph{virtual} \skmer has the minimizer at the beginning). c) By applying binary search while looking only at the last \kmers of the \emph{virtual} \skmers \texttt{AAGC} is found.}
+	\label{fig:skmer_query}
+\end{figure}
+
+\subsection{1 - Sorting \kmers from the same matrix column}
+\label{sec:skmersorting}
+As mentioned in section~\ref{sec:skmer_model}, the operations of the sorting algorithm are performed on or between columns of the \kmer matrix.
+The initial step involves a column-wise bucketing of the input \kmer source, based on the minimizer position within each \kmer. This process distributes \kmers across $M$ columns, with $M$ defined as in section~\ref{sec:skmer_model}. Then, each column is independently sorted based on a minimizer-centric ordering. Once all columns have been individually sorted, the resulting column-sorted matrix is returned as the final output of this phase. The sorting process of each column is completely independent and can be performed in parallel. The result is shown in figure~\ref{fig:skmer_sorting}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/kmer_methods/sorting.png}
+	\caption[Sorting \kmers by minimizer-first order and divided on minimizer position.]{On the left side: \kmers are divided on different lists as per position of their minimizer in them. On the right side: Each list is independently sorted based on a minimizer-first ordering.}
+	\label{fig:skmer_sorting}
+\end{figure}
+
+
+\subsection{2 - Construction of overlap lists between consecutive columns}
+\label{sec:skmeroverlap}
+In the next step we detect overlaps between \kmers present in consecutive columns: for all \kmers in column $j$ we find overlaps with the ones in column $j-1$ and $j+1$.\\
+For each pair of adjacent columns, we aim to identify where the $k-1$ suffix of a \kmer in the first column overlaps with the $k-1$ prefix of a \kmer in the subsequent column, as shown in figure~\ref{fig:skmer_overlap}. This process is performed independently for each pair of consecutive columns and can be divided into several steps. First, the algorithm inserts the $k-1$ prefixes of the \kmers from the second column into a hash table, using the prefix as the key and the \emph{virtual} \skmer ID as the value. Then for each $k-1$ suffix computed from the first column, it searches for a matching entry in the hash table. When a match is found, the pair of matrix coordinates (one from each column) is inserted into a list of candidate overlaps. A single element in one column may overlap with multiple elements in the adjacent column: in this case all possible overlaps are recorded.\\
+This step identifies overlaps between \kmers. The overlap, by column construction, implies that the two \kmers share the same minimizer. This step therefore finds all the possible ways to compact the \kmers into \emph{virtual} \skmers, without considering the column ordering.\\
+The independent logic of these operations for each pair of consecutive columns allows for effective parallelization.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/kmer_methods/overlap.png}
+	\caption[Overlap detection between \kmers of contiguous columns.]{Overlap detection between \kmers of contiguous columns. For each pair of contiguous columns we detect the \emph{k-1} overlap between \kmers. The \emph{k-1} overlap between \texttt{CCAA} of column \emph{pos 0} and \texttt{CAAG} of \emph{pos 1} is highlighted by a rectangular overlay}
+	\label{fig:skmer_overlap}
+\end{figure}
+
+
+\subsection{3 - Maximal set of overlapping \kmers: co-linear chaining}
+Step 1 ordered the \kmers of each column and step 2 computed all possible \kmer overlap pairs for compaction. We have therefore all the information we need to produce a \emph{virtual} \skmer sorted list.
+However, to produce a list that abides the ordering of \kmers on columns, as presented in section~\ref{sec:skmer_model}, we must compact \kmers using a subset of overlaps that respect the ordering of the \kmers in the columns. Some overlaps may be incompatible between each others due to two possible conditions:
+\begin{itemize}
+	\item[a] a \kmer overlaps with multiple \kmers in the adjacent column, but can be used just once. The \emph{virtual} \skmer sorted list represents a \kmer sets: any \kmer can be present only once in the list.
+	\item[b] two overlaps are incompatible if, by using both of them to compact the \kmers into \emph{virtual} \skmer, they result in a violation of the column ordering in the final sorted list. Given \texttt{A}, \texttt{B}, \texttt{C} and \texttt{D} 4 \kmers with \texttt{A} and \texttt{B} from (sorted) column $j$, in this order, \texttt{C} and \texttt{D} from (sorted) column $j+1$, in this order. \texttt{A} is overlapping with \texttt{D} and \texttt{B} is overlapping with \texttt{C}. If we use the 2 overlaps to construct 2 \emph{virtual} \skmers, we will produce a list [\texttt{AD}, \texttt{BC}] or a list [\texttt{BC}, \texttt{AD}]. In the first list \texttt{D} appears before \texttt{C}, which violates the order of the \kmers from column $j+1$, in the second list \texttt{B} is before \texttt{A}, which violates the order of column $j$. For this reason we can use at most 1 of these two overlaps when constructing the final \emph{virtual} \skmer sorted list.
+\end{itemize}
+
+In figure~\ref{fig:skmer_colinear}, point c) shows an example of overlap pairs, with some incompatible ones and a maximal set of overlaps (signaled by green edges). It is visually simple to identify incompatible pairs as they cross each other. To select the maximal set of "non-crossing" pairs from those calculated in step 2, we use the classical co-linear chaining algorithm.\\
+Co-linear chaining is a dynamic-programming technique commonly used in alignment algorithms. In the context of pairing shared subsequences between two sequences, it can be summarized as finding pairs of connected elements such that no "crossing" connections occur when visualized. \\
+In read-to-reference sequence alignment, co-linear chaining takes pairs of maximal exact matches (MEMs) as input. It then computes a chain of pairs where the selected pairs' order aligns with their appearance in both strings, while maximizing the number of bases covered by the chain in the read. Recently, this technique has also been applied to sequence-to-graph alignment in pangenomics applications.\\
+In the context of this method, co-linear chaining algorithm is used to select the maximal number of \kmer overlaps in the matrix such that they respect the ordering of the columns and do not fall into the scenarios a) and b) described above. This ensures a consistent ordering on columns while maximizing the number of valid overlaps that can be used to compact \kmers into \emph{virtual} \skmers. This step is crucial to produce a coherent and efficiently searchable structure.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.9\textwidth]{figures/kmer_methods/colinear_chaining.png}
+	\caption[Maximal valid overlap set using co-linear chaining.]{Maximal valid overlap set using co-linear chaining. a) example of selection of the maximal valid overlap set between column \emph{pos 1} and \emph{pos 2}: by choosing two out of four overlaps rule \texttt{a} and \texttt{b} described above are maintained when compacting \kmers into \skmers. b) Focus on crossing overlaps: as by described in property \texttt{b} above, there cannot be crossing overlaps when compacting \kmers to preserve the column ordering. c) Focus on \kmer set property: as described in \texttt{a} above, each \kmer can be compacted into a \skmer just one. For this reason only one of the two overlaps can be used. }
+	\label{fig:skmer_colinear}
 \end{figure}
 
 \begin{definition}[Co-linear chaining of \kmers in the matrix]
 	Given 
 	\begin{itemize}
-		\item two ordered lists of super\kmer ids of two contiguous columns computed as in section~\ref{sec:skmersorting}.
+		\item two ordered lists of \emph{virtual} \skmer ids of two contiguous columns computed as in section~\ref{sec:skmersorting}.
 		\begin{itemize}
-			\item $ A = \{a_1, a_2, ..., a_n\}, |A| = N $, representing the left column,
-			\item $ B = \{b_1, b_2, ..., b_m\}, |B| = M $, representing the right column;
+			\item $ A = \{a_1, a_2, ..., a_q\}, |A| = Q $, representing the left column,
+			\item $ B = \{b_1, b_2, ..., b_t\}, |B| = T $, representing the right column;
 		\end{itemize}
-		\item a set of tuples $ V = \{(v_1,w_1),(v_2,w_2), ..., (v_k,w_k) \}$ such as $ v_i \in A$ and $ w_i \in B$ and $(v_i,w_i)$ represents an overlap between \kmers of the two contiguous columns, as computed in section~\ref{sec:skmeroverlap};
+		\item a set of tuples $ W = \{(v_1,w_1),(v_2,w_2), ..., (v_z,w_z), |W| = Z \}$ such as $ v_i \in A$ and $ w_i \in B$ and $ u_i = (v_i,w_i)$ represents an overlap between \kmers of two contiguous columns \texttt{A} and \texttt{B}, as computed in point 2, section~\ref{sec:skmeroverlap};
 	\end{itemize}
-	The goal is to find the maximal list of tuples  $U$, with $set(U) \subseteq V$ such that 
+	As $A$ and $B$ are sorted, the position of an element in the list gives its relative value: $a_1 \prec a_2 in A \implies a_1 < a_2$. The $\prec$ symbol is define as preceding relative to the position in the sorted list, hence in the ordering of the elements. The objective is to find the maximal list of tuples from $U$, with $U \subseteq W$ such that 
 	\begin{itemize}
-		\item if $v_i \prec v_j$ in $U \land v_i=a_i, v_j=a_j \implies a_i \prec a_j$, and $b_i$ < $b_j$;
-		\item $\forall v, w \in U | v_i = a_x \lor w_i = b_y \implies \nexists v_j != v_i | v_j = a_x \land \nexists w_j != w_i | w_j = b_y$.  
+		\item if $ u_i = (v_i,w_i) \prec u_j =  (v_j,w_j)$ in $U \implies v_i = a_x \prec v_j = a_y $ in $A$ and $ w_i = b_h \prec w_j = b_k$ in $B$;
+		\item $\forall u_i = (v_i,w_i) \implies \nexists u_j (v_j, w_j) \neq u_i | v_j = v_i \land \nexists u_k = (v_k, w_k) \neq u_i | b_k = b_i $.  
 	\end{itemize}
-	The first condition implies that the ordering of the column lists $A$, $B$ is respected in $U$, while the second implies that each \skmer ID from $A$ or $B$ can occur only once in the list of tuples $U$.
+	The first condition implies that the ordering of the column lists $A$, $B$ is respected in $U$, while the second implies that each \emph{virtual} \skmer ID from $A$ or $B$ can occur only once in the list of tuples $U$.
 \end{definition}
-
-The maximal set is computed using dynamic programming~\cite{genome_scale}.
-The co-linear chaining process begins by sorting the tuples in $V$ based on their order in $B$. This ensures that no "crossing" occurs in the $w$ ids, as $w_i = b_i: b_i \prec b_j$ will always be processed before $w_j = b_j$. To resolve ties on equal $v$ values, the ordering of $v_i = a_i$ in $A$ is used.\\
-Next, we apply dynamic programming over the $A$ ids to identify the largest set of pairs where the $A$ ids form a non-decreasing sequence. The score is stored for each element $v_i$ in the list of pair. A table $C$ of length $M$ is filled, where index $j$ represents the maximum possible score using tuples from $V$ such that $(v,w) has w \in \{b_1,...,b_j\}$. For any tuple, we derive a recurrence based on whether it violates or not the aforementioned conditions. The recurrence is calculate as follows: 
+The maximal set of overlaps $U$ is computed using the dynamic programming implementation of co-linear chaining~\cite{genome_scale}.
+The co-linear chaining process begins by sorting the tuples in $U = \{(v_1,w_1),(v_2,w_2), ..., (v_k,w_k) \}$ based on their order in $B$. This ensures that no "crossing" occurs in the $w$ ids, as $w_i = b_i: b_i \prec b_j$ will always be processed before $w_j = b_j$. To resolve ties on equal $v$ values, the ordering of $v_i = a_i$ in $A$ is used.\\
+Next, we apply dynamic programming over the $A$ ids to identify the largest set of pairs where the $A$ ids form a non-decreasing sequence. The score is stored for each element $v_i$ in the list of pair. A table $C$ of length $M$ is filled, where index $j$ represents the maximum possible score using tuples from $U$ such that $(v,w)$ has $w \in \{b_1,...,b_j\}$. For any tuple, we derive a recurrence based on whether it violates or not the aforementioned conditions. The recurrence is calculate as follows:
 \begin{equation} 
 C[j] = \max_{j':w_{j'} \prec w_j} C[j'] + 1
 \end{equation}
-if $(v_j,w_j)$ does not overlap with $ V_{j'} \subseteq \{\}(v_1,w_1),...,(v_{j-1},w_{j-1})\}$ which is the non-overlapping subset selected in the previous step.\\
-To optimize the search for the best solutions $j'$ among those already computed, we use a binary search tree. It contains the best score for each value $w \in A$. As they are maintained sorted based on $A$ ordering, it allows for $O(\log{n})$ complexity when querying for the best score. When new scores are computed, the tree can also be updated in $O(log{n})$ time. From this follows that the co-linear chaining costs $O(n\log{n})$.
+if $(v_j,w_j)$ does not overlap with $ U_{j'} \subseteq \{(v_1,w_1),...,(v_{j-1},w_{j-1})\}$ which is the non-overlapping subset selected in the previous step.\\
+To optimize the search for the best solutions $j'$ among those already computed, we use a binary search tree. The contains the best score for each value $v \in A_{j-1} \subset A$, as it contains the values up to the previously computed position. As they are maintained sorted based on $A$ ordering, it allows for $O(\log{n})$ complexity when querying for the best score. When new scores are computed, the tree can also be updated in $O(\log{n})$ time. From this follows that the co-linear chaining costs $O(n\log{n})$.
 
-\subsection{Reconciliation and final output}
+
+\subsection{4 - Reconciliation and final output}
 \label{sec:reconciliation}
-After computing the lists of "non-crossing" overlaps for each pair using the co-linear chaining algorithm, the next step is to reconcile this information to produce the sorted list. To better understand the rationale of the reconciliation, this process is described using the matrix representation, where \kmers in each column are sorted from top to bottom. The reconciliation process can be divided into two main parts:
+After computing the maximal lists of valid "non-crossing" overlaps between each pair of columns, the final step is to reconcile the segmented information in each column to compact \kmers into \emph{virtual} \skmers using the computed overlaps and fill them in the list using the ordering of the \kmers in each column. The reconciliation process can be divided into two main parts:
 \begin{enumerate}
-	\item Map creation. Using the lists of non-crossing overlaps, each \kmer in the matrix is added to a map as a key, with its value being the ID of the \skmer it will be inserted into. When one overlap list returns the pair (x,y) and the subsequent list returns (y,z), \kmers x, y, and z will be compacted into the same \skmer in the sorted list. Consequently, they are inserted into the map with the same value (e.g., 1). Other \skmers not to be compacted in the same \skmer will have different values.
-	\item Producing the sorted list. Each column of the matrix is assigned a pointer that tracks the row containing the next \kmer to be inserted. A \kmer or a \skmer is inserted into the final sorted list by iterating over these pointers. This part of the process is organized as follows:
+	\item [Map creation] Using the lists of valid non-crossing overlaps, each \kmer in the matrix is added to a map as a key, with its value being the ID of the \emph{virtual} \skmer it will be inserted into. When one overlap list returns the pair $(x,y)$ and the subsequent list returns $(y,z)$, \kmers $x$, $y$, and $z$ will be compacted into the same \emph{virtual} \skmer in the sorted list. Consequently, they are inserted as keys into the map with the same value (e.g., 1). Other \emph{virtual} \skmers not to be compacted in the same \emph{virtual} \skmer will have different values.
+	\item [List insertion] Each column of the matrix is assigned a pointer that tracks the row containing the next \kmer to be inserted. A \kmer or a \emph{virtual} \skmer is inserted into the final sorted list by iterating over these pointers. This part of the process is organized as follows:
 	\begin{enumerate}
-	\item if a \kmer or \skmer has all its elements flagged by a pointer, it is inserted into the list;
-	\item ties are resolved by directly comparing the two \skmers and inserting the one with the smallest hash first;
-	\item after inserting an element, the pointers on top of its \kmers are moved to the next row;
+	\item if a \kmer or \emph{virtual} \skmer has all its elements flagged by a pointer, it is inserted into the list;
+	\item ties are resolved by directly comparing the two \emph{virtual} \skmers and inserting the one with the smallest hash first;
+	\item after an element is inserted, the pointers on top of its \kmers are moved to the next row;
 	\item this process is repeated by going back to a) until all pointers reach the last element of their column.
 	\end{enumerate}
 \end{enumerate}
-By using this approach, we guarantee that the final list is sorted. Part 2 of the process could be done in parallel from the top and the bottom of the matrix to reduce computation time.
+By using this approach, we guarantee that the final list is sorted. Part 2 of the process can be done in parallel from the "top" and the "bottom" of the matrix to reduce computation time. Figure~\ref{fig:reconciliation} shows an example of the reconciliation process.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/kmer_methods/reconciliation.png}
+	\caption[Reconciliation of \kmers into \emph{virtual} \skmers.]{Reconciliation of \kmers into \emph{virtual} \skmers. a) Each column has a pointer that selects the next \kmer that can be compacted. If all \kmers that share an overlap are pointed in their respective column, they are compacted and inserted in the list as \emph{virtual} \skmers. This procedure ensures that the ordering of the column is maintained. b) After a \kmer from a column has been \emph{consumed} by the compaction and inserted in the list, the pointer goes to the next row. After this is done for all columns, the valid overlaps are checked to determine which \kmers can be compacted as the next \emph{virtual} \skmer. c) Only if all \kmers with valid overlaps between each other have a pointer on top they can be compacted. In this case only \texttt{AAGC} satisfies the condition (no non-pointed overlaps as it is without overlaps).  d) In the next step of the reconciliation, like in point \emph{b}, the pointer of the right column goes on \texttt{ACCA}, that will be the next element to be inserted.}
+	\label{fig:reconciliation}
+\end{figure}
 
 \subsection{Conclusion and future work}
-This project has resulted in a prototype data structure that represents a \kmer set as a sorted list of \skmers. The advantages of this representation include:
+This project has resulted in a prototype data structure that represents a \kmer set as a sorted list of \emph{virtual} \skmers. The advantages of this representation include:
 \begin{itemize}
 	\item unlike some hashing data structures such as Bloom filters, our structure enables the enumeration of \kmers within the set;
-	\item by compressing \kmers into \skmers, we achieve reduced storage space compared to an ordered list of individual \kmers;
+	\item by compressing \kmers into \emph{virtual} \skmers, we achieve reduced storage space compared to an ordered list of individual \kmers;
 	\item the structure facilitates relatively efficient direct queries without the necessity for indexing;
 	\item it allows for the addition of metadata through a separate, complementary data structure.
 \end{itemize}
@@ -484,6 +542,7 @@ While this work is ongoing, our objective is to produce a paper shortly after th
 Furthermore, this prototype could serve as a pre-processing step for storing \kmers in a RSQF. We could use it to produce a sorted and compact \kmer enumeration for direct insertion into the filter.
 This approach sheds light on the gap between space-efficient representations of \kmers as string sets and query-able structures, offering a balance of compression and functionality. The potential applications extend storage, as indicated by its possible use in RSQF pre-processing. As we continue to work on this prototype, we aim to use it as valuable building block for more complex applications in large-scale genomic data.
 
+\clearpage
 %\subsubsection{Possible improvements}
 %As just described, the super\kmer sorted list can be queried using a variation of binary search in which, when the next super\kmer to be searched has not a valid offset, it has to linear probe the elements in the list for one that does. This slows the query operation, especially in cases where the super\kmers with a valid offset are sparse. \\
 %A future improvement of this algorithm would be to mitigate this issue, by adding information on non valid offsets to direct the binary search on the right direction without doing a linear probing. This strategy can be implemented by fill the bits of the super\kmer left blank when a \kmer is not stored in an informative way.\\
